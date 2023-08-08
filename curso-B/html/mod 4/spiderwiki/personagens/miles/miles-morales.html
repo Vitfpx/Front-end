@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpiderWiki</title>
+</head>
+<body>
+    <header>
+        <h1>SpiderWiki</h1>
+    </header>
+
+        <nav> 
+            <div id="spider-content">
+                <button id="series">Series</button>
+                <button id="games">Games</button>
+                <button id="movies">Movies</button>
+                <button id="spider-versions-nav">Spider Versions</button>
+                <button id="main-creators">Main Creators</button>
+            </div>
+
+            <form action="" method="get">
+                <label for="pesquisar">Pesquisar</label>
+                <input type="search" id="pesquisa" name="q" placeholder="Spider Search">
+                <button type="submit">Search</button>
+            </form>
+
+            <select name="spider-versions" id="spider-versions" onchange="redirecionarPagina()">
+                <option value="spider-man">Spider-Man</option> <!-- Colocar as cores das opções de acordo com a dos trajes -->
+                <option value="miles-morales" selected>Miles Morales</option>
+                <option value="spider-gwen">Spider-Gwen</option>
+                <option value="spider-woman">Spider-Woman</option>
+                <option value="spider-man-2099">Spider-Man 2099</option>
+                <option value="spider-punk">Spider-Punk</option>
+                <option value="scarlet-spider">Scarlet Spider</option>
+                <option value="silk">Silk</option>
+            </select>
+            <script>
+                function redirecionarPagina() {
+                    var valorSelecionado = document.getElementById("spider-versions").value;
+                    var paginaDestino;
+
+                    switch (valorSelecionado) {
+                        case "spider-man":
+                            paginaDestino = "../../index.html";
+                            break;
+                        case "miles-morales":
+                            paginaDestino = "D:/Futuro/Programacao/Front-end/curso-B/html/mod 4/spiderwiki/personagens/miles/miles-morales.html";
+                            break;
+                        case "spider-gwen":
+                            paginaDestino = "D:/Futuro/Programacao/Front-end/curso-B/html/mod 4/spiderwiki/personagens/gwen/spider-gwen.html";
+                            break;
+                        case "spider-man-2099":
+                            paginaDestino = "D:/Futuro/Programacao/Front-end/curso-B/html/mod 4/spiderwiki/personagens/miguel/spider-man-2099.html";
+                            break;
+                        case "spider-punk":
+                            paginaDestino = "D:/Futuro/Programacao/Front-end/curso-B/html/mod 4/spiderwiki/personagens/hobie/spider-punk.html";
+                            break;
+                        case "scarlet-spider":
+                            paginaDestino = "D:/Futuro/Programacao/Front-end/curso-B/html/mod 4/spiderwiki/personagens/ben/scarlet-spider.html";
+                            break;
+                        case "spider-woman":
+                            paginaDestino = "D:/Futuro/Programacao/Front-end/curso-B/html/mod 4/spiderwiki/personagens/jessica/spider-woman.html";
+                            break;
+                        case "silk":
+                            paginaDestino = "D:/Futuro/Programacao/Front-end/curso-B/html/mod 4/spiderwiki/personagens/cindy/silk.html";
+                            break;
+                    }
+                    window.location.href = paginaDestino 
+                }
+            </script>
+        </nav>
+        <main>
+            <article>
+                <figure>
+                    <img src="miles-morales-img/miles-morales.jpg" alt="Image of Miles Morales flying through the air with his web">
+                    <figcaption>
+                        Criado em: agosto de 2011 <br>
+                        Criadores: Brian Michael Bendis, Sara Pichelli. <br>
+                        Pais:  Jefferson Davis, Rio Morales. <br>
+                        Universo: Terra-1610. <br>
+                    </figcaption>
+                </figure>
+            </article>
+            <section>
+                <article>
+                    <h2>Spider-man (Miles Morales)</h2>
+                    <p>Miles Morales assumiu o manto do Spider-Man em uma realidade diferente da clássica do herói. Na história "Ultimate Comics: Spider-Man", após a morte trágica do Peter Parker desse universo, Miles, um adolescente afro-latino, foi picado por uma aranha geneticamente modificada em um laboratório clandestino. Os efeitos da picada lhe conferiram poderes aracnídeos, incluindo a habilidade de se camuflar e emitir explosões elétricas. Inicialmente, ele reluta em aceitar a responsabilidade do legado do Spider-Man, mas com o incentivo de outros heróis, como a Mulher-Aranha e a Tia May, e movido pelo desejo de proteger a cidade de Nova York, Miles assume o manto do herói aracnídeo, trazendo sua própria perspectiva e estilo à icônica identidade. Desde então, Miles Morales tem se tornado um dos mais queridos e importantes personagens do universo Marvel, representando a força da nova geração de heróis.<p>
+                    <p>Estreia: Ultimate Fallout #4.</p>
+                </article>
+            </section>
+            <article>
+                <button>Related</button>
+                <figure>
+                    <img src="miles-morales-img/rio-morales.jpeg" alt="Rio Morales, enfermeira e mãe de Miles Morales">
+                    <figcaption>Rio Morales</figcaption>
+                    <img src="miles-morales-img/jefferson-davis.jpeg" alt="Jefferson Davis, Policial e pai de Miles Morales">
+                    <figcaption>Jefferson Davis</figcaption>
+                    <img src="personagens/may/may-parker-img/tia-may-icon.jpg" alt="Tia May, Tia do Peter">
+                </figure>
+            </article>
+        </main>
+</body>
+</html>
+       

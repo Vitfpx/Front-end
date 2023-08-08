@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+		<head>
+			<meta charset="UTF-8">
+			<title>HTML - Tabelas</title>
+		</head>
+		<body>
+
+			<h1>Tabelas</h1>
+			
+
+			<table border="1" width="20%">
+				<thead>
+					<tr>
+						<th>Coluna 1</th>
+						<th>Coluna 2</th>
+						<th>Coluna 3</th>
+					</tr>
+					<tr>
+						<td colspan="3" align="center">Descrição da tabela</td>
+					</tr>
+				</thead>
+				<tbody> <!-- align="" pode ser usado no <tbody> também, alinhando tudo que existe dentro dele -->
+					<tr align="right">
+						<td align="center">1a</td>
+						<td>1b</td>
+						<td>3c</td>
+					</tr>
+					<tr align="center">
+						<td>1a</td>
+						<td>2b</td>
+						<td>3c</td>
+					</tr>
+					<tr>
+						<td colspan="2">1a</td>
+						<td>2b</td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr align="center">
+						<td colspan="3">Rodapé da tabela</td>
+					</tr>
+					
+				</tfoot>
+			</table>
+
+			<h2>Tabela como layout</h2>
+
+			<table>
+				<tr height="90">
+					<th bgcolor="grey" width="200" colspan="4">cabeçalho</th>
+				</tr>
+				<tr height="300">
+					<th bgcolor="blue" width="20"></th>
+					<th bgcolor="grey" width="400">
+						<h2>Título aleatório</h2>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+					</th>
+					<th bgcolor="grey" width="300">Coluna 2</th>
+					<th bgcolor="blue" width="20"></th>
+				</tr>
+				<tr>
+					<th bgcolor="red" width="200" colspan="4">cabeçalho</th>
+				</tr>
+			</table>
+		</body>
+
+</html>
