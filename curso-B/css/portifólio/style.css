@@ -1,0 +1,367 @@
+/*-----FONTES-----*/
+
+@font-face {
+    font-family: "Josefin Sans";
+    src: url(font/Josefin_Sans/JosefinSans-VariableFont_wght.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: "Alata";
+    src: url(font/Alata/Alata-Regular.ttf) format('truetype');
+}
+
+/*-----CONFIG GERAL-----*/
+
+body {
+    margin: 0; 
+    font-family: Alata;
+}
+
+header {
+    background-image: url(desktop-imgs/image-hero.jpg);
+    background-size: cover;
+    position: relative;
+    padding-top: 63px;
+    padding-bottom: 60px;
+    padding-right: 157px;
+    padding-left: 165px;
+    filter: brightness(0.75);
+    margin-bottom: 50px;
+}
+
+footer {
+    background-color: black;
+    margin-top: 292px;
+    padding: 11.5px;
+}
+
+/*-----HEADER-----*/
+
+#conteiner {
+    height: 494px;
+    width: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+nav {
+    width: 100%;
+    display: flex;
+    background: transparent;
+    justify-content: space-between;
+    padding-bottom: 75px;
+}
+
+.botao-nav {
+    background-color: transparent;
+    border: none;
+    color: white;
+    height: 30px;
+    font: normal 400 16px "Josefin Sans", Helvetica, sans-serif;
+    letter-spacing: -1px;
+}
+
+.logo {
+    z-index: 1;
+    width: 180px;
+    height: 30px;
+}
+
+.nav-button {
+    display: flex;
+    justify-content: space-between;
+    width: 355px;
+    height: auto;
+}
+
+h1 {
+    font-family: "Josefin Sans", Helvetica, sans-serif;
+    width: 543.5px;
+    height: 206px;
+    margin: 0px;
+    padding-top: 30px;
+    padding-bottom: 28px;
+    padding-right: 28px;
+    padding-left: 37.5px;
+    border: 2px solid white;
+    font-size: 67.5px;
+    font-weight: 300;
+    color: white;
+}
+
+.titulo-header {
+    width: 613px;
+    height: 293px;
+}
+
+/*-----MAIN-----*/
+
+.main-image {
+    /* background-image: url(desktop-imgs/image-interactive.jpg);
+    background-repeat: no-repeat;
+    background-size: contain; */
+    width: auto;
+    height: 472px;
+    padding-left: 165px;
+    position: relative;
+   
+}
+
+main {
+    margin-top: 112px;
+}
+
+.main-title {
+    font: normal 300 45px "Josefin Sans", Helvetica, sans-serif;
+    margin: 0px;
+    height: 0px;
+    letter-spacing: 2px;
+    line-height: 50px;
+}
+
+main p {
+    font-family: Alata, arial;
+    margin: 0px;
+    font-size: 15px;
+    color: #8C8C8C;
+    margin-top: 40px;
+    line-height: 1.5;
+}
+
+.main-text {
+    width: 460px;
+    height: 280px;
+    position: absolute;
+    left: 690px;
+    top: 165px;
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding-top: 55px;
+    padding-right: 90px;
+    padding-bottom: 55px;
+    padding-left: 105px;
+    line-height: 1.1;
+}
+
+.main-content {
+    position: relative;
+    margin-bottom: 177px;
+}
+
+/*-----SEGUNDA PARTE DO MAIN-----*/
+
+.header-aside {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 1004px;
+    margin-bottom: 82px;
+}
+
+.content-aside h2{
+    font: normal 350 42px "Josefin Sans", Helvetica, sans-serif;
+    opacity: 0.85;
+    letter-spacing: 0.7px;
+    font-weight: 370;
+}
+
+.content-aside {
+
+    margin-left: 165px;
+    margin-right: 181px;
+}
+
+.header-aside button {
+    height: 42px;
+    width: 163px;
+    align-self: center;
+    letter-spacing: 3px;
+    font: normal bold 15px Arial, Helvetica, sans-serif;
+    border: 2px solid black;
+    background: transparent;
+    margin-top: 4px;
+}
+
+.images-aside {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+
+}
+
+.deep-earth {
+    background-image: url(desktop-imgs/image-deep-earth.jpg);
+    width: 228px;
+    height: 420px;
+}
+.img-p {
+    background-image: linear-gradient(to right, #000, transparent);
+    padding-top: 340px;
+    padding-right: 46px;
+    padding-bottom: 29px;
+    padding-left: 30px;
+    margin-right: 22px;
+    margin-top: 0;
+    opacity: 0.6;
+    font: normal 300 26px "Josefin Sans";
+    letter-spacing: -0.33px;
+    line-height: 0.99;
+    color: white;
+    width: 130px;
+}
+
+.img-p-dif {
+    background-image: linear-gradient(to right, #000, transparent);
+    padding-top: 340px;
+    padding-right: 63px;
+    padding-bottom: 29px;
+    padding-left: 30px;
+    margin-right: 22px;
+    margin-top: 0;
+    opacity: 0.6;
+    font: normal 300 26px "Josefin Sans";
+    letter-spacing: -0.33px;
+    line-height: 0.99;
+    color: white;
+    width: 113px;
+}
+
+.night-arcade {
+    background-image: url(desktop-imgs/image-night-arcade.jpg);
+    width: 228px;
+    height: 420px;
+
+}
+
+.soccer-team {
+    background-image: url(desktop-imgs/image-soccer-team.jpg);
+    width: 228px;
+    height: 420px;
+}
+
+.grid {
+    background-image: url(desktop-imgs/image-grid.jpg);
+    width: 228px;
+    height: 420px;
+}
+
+.from-above {
+    background-image: url(desktop-imgs/image-from-above.jpg);
+    width: 228px;
+    height: 420px;
+}
+
+.pocket-borealis {
+    background-image: url(desktop-imgs/image-pocket-borealis.jpg);
+    width: 228px;
+    height: 420px;
+}
+
+.curiosity {
+    background-image: url(desktop-imgs/image-curiosity.jpg);
+    width: 228px;
+    height: 420px;
+}
+
+.fisheye {
+    background-image: url(desktop-imgs/image-fisheye.jpg);
+    width: 228px;
+    height: 420px;
+}
+
+/*-----FOOTER-----*/
+
+.conteiner-footer {
+    height: 50px;
+    width: 991px;
+    padding-left: 153px;
+    padding-top: 67px;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 6.5px;
+}
+
+.nav-footer {
+    height: 111px;
+    width: 355px;
+    display: flex;
+    flex-wrap: wrap;
+    float: left;
+    justify-content: space-between;
+}
+
+footer .logo{
+    padding-right: 193px;
+    display: flex;
+    justify-self: flex-start;
+}
+
+.botao-nav-footer {
+    text-decoration: none;
+    align-items: center;
+    display: flex;
+    color: white;
+    font: normal 400 15.8px "Josefin Sans";
+    letter-spacing: -0.9px;
+    opacity: 0.85;
+}
+
+.social-midia {
+    display: flex;
+    flex-wrap: wrap;
+    width: 154px;
+    padding-top: 23px;
+    justify-content: space-between;
+}
+
+.botao-social-midia {
+    width: 25px;
+    height: 25px;
+}
+
+.botao-social-midia-dif {
+    width: 24px;
+    height: 21px;
+    padding-top: 4px;
+
+}
+
+.copyright {
+    display: flex;
+    justify-content: flex-end;
+    width: 1157.5px;
+    font-size: 15px;
+    color: white;
+    opacity: 0.4;
+    padding-top: 9px;
+    cursor: pointer;
+}
+
+.address-bar {
+    position: relative;
+    background-color: black;
+    color: black;
+}
+
+.address {
+    margin: 11.5px;
+    position: absolute;
+    padding-left: 476px;
+    left: -26px;
+    padding-top: 26px;
+    right: -23px;
+    background-color: black;
+    font-size: 14px;
+    color: white;
+    letter-spacing: -0.3px;
+}
+
+.address a {
+    letter-spacing: -0.25px;
+    color: #3E5294;
+}
