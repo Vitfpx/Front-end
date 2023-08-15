@@ -60,7 +60,41 @@ nav {
     height: 30px;
     font: normal 400 16px "Josefin Sans", Helvetica, sans-serif;
     letter-spacing: -1px;
+    cursor: pointer;
+    
 }
+
+.botao-nav:hover {
+    animation: rotate 0.25s linear 1;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0);
+    }
+
+    50% {
+        transform: rotate(160deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.botao-nav:not(:hover) {
+    animation: rotate2 0.2s linear 1;
+}
+
+@keyframes rotate2 {
+    0% {
+        transform: rotate(360deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+} 
 
 .logo {
     z-index: 1;
@@ -170,7 +204,6 @@ main p {
 }
 
 .content-aside {
-
     margin-left: 165px;
     margin-right: 181px;
 }
@@ -184,6 +217,15 @@ main p {
     border: 2px solid black;
     background: transparent;
     margin-top: 4px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+.header-aside button:hover {
+    color: white;
+    background-color: black;
+    width: 172px;
+    height: 45px;
 }
 
 .images-aside {
@@ -194,11 +236,7 @@ main p {
 
 }
 
-.deep-earth {
-    background-image: url(desktop-imgs/image-deep-earth.jpg);
-    width: 228px;
-    height: 420px;
-}
+
 .img-p {
     background-image: linear-gradient(to right, #000, transparent);
     padding-top: 340px;
@@ -213,6 +251,7 @@ main p {
     line-height: 0.99;
     color: white;
     width: 130px;
+    cursor: pointer;
 }
 
 .img-p-dif {
@@ -229,49 +268,95 @@ main p {
     line-height: 0.99;
     color: white;
     width: 113px;
+    cursor: pointer;
+}
+
+.deep-earth {
+    background-image: url(desktop-imgs/image-deep-earth.jpg);
+    width: 228px;
+    height: 420px;
+    transition: all 0.4s;
+}
+
+.deep-earth:hover {
+    transform: translateY(-30px);  
 }
 
 .night-arcade {
     background-image: url(desktop-imgs/image-night-arcade.jpg);
     width: 228px;
     height: 420px;
+    transition: all 0.4s;
+}
 
+.night-arcade:hover {
+    transform: translateY(-30px);
 }
 
 .soccer-team {
     background-image: url(desktop-imgs/image-soccer-team.jpg);
     width: 228px;
     height: 420px;
+    transition: all 0.4s;
+}
+
+.soccer-team:hover {
+    transform: translateY(-30px);  
 }
 
 .grid {
     background-image: url(desktop-imgs/image-grid.jpg);
     width: 228px;
     height: 420px;
+    transition: all 0.4s;
+}
+
+.grid:hover {
+    transform: translateY(-30px);  
 }
 
 .from-above {
     background-image: url(desktop-imgs/image-from-above.jpg);
     width: 228px;
     height: 420px;
+    transition: all 0.4s;
+}
+
+.from-above:hover {
+    transform: translateY(-30px);  
 }
 
 .pocket-borealis {
     background-image: url(desktop-imgs/image-pocket-borealis.jpg);
     width: 228px;
     height: 420px;
+    transition: all 0.4s;
+}
+
+.pocket-borealis:hover {
+    transform: translateY(-30px);  
 }
 
 .curiosity {
     background-image: url(desktop-imgs/image-curiosity.jpg);
     width: 228px;
     height: 420px;
+    transition: all 0.4s;
+}
+
+.curiosity:hover {
+    transform: translateY(-30px);  
 }
 
 .fisheye {
     background-image: url(desktop-imgs/image-fisheye.jpg);
     width: 228px;
     height: 420px;
+    transition: all 0.4s;
+}
+
+.fisheye:hover {
+    transform: translateY(-30px);  
 }
 
 /*-----FOOTER-----*/
@@ -309,6 +394,7 @@ footer .logo{
     font: normal 400 15.8px "Josefin Sans";
     letter-spacing: -0.9px;
     opacity: 0.85;
+    cursor: pointer;
 }
 
 .social-midia {
@@ -328,7 +414,6 @@ footer .logo{
     width: 24px;
     height: 21px;
     padding-top: 4px;
-
 }
 
 .copyright {
@@ -339,7 +424,6 @@ footer .logo{
     color: white;
     opacity: 0.4;
     padding-top: 9px;
-    cursor: pointer;
 }
 
 .address-bar {
