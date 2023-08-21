@@ -1,0 +1,26 @@
+
+
+.desafio {
+    height: 225px;
+    width: 400px;
+    padding: 15px 10px;
+    border: 3px solid #38686A;
+    border-radius: 5px;
+    background-color: #A3B4A2;
+    margin: 30px 10px;
+    box-sizing: border-box;
+    outline: 3px solid rgb(42, 85, 160);
+}
+
+.desafio h2 {
+    color: black;
+    background-color:#CDC6AE;
+    border-radius: 5px;
+    padding: 10px;
+    color: #38686A;
+}
+
+#texto {
+    color: #38686A; 
+    font: normal bold 14px Verdana
+}
