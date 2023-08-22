@@ -348,6 +348,32 @@ button,
         display: none;
     }
 
+/* Cores usadas no site */
+:root {
+    --cor-clara: #9FFCDF;
+    --cor-meedia: #52AD9C;
+    --cor-escura: #47624F;
+    --verde-escuro: #447604;
+    --verde-claro:#6CC551;
+}
+
+/* Fonte Importada */
+
+@font-face {
+    font-family: "Dungeon";
+    src: url("font/DUNGRG__.TTF") format("truetype");
+}
+@font-face {
+    font-family: "Cardinal";
+    src: url(font/Cardinal.ttf);
+}
+@font-face {
+    font-family: "Gothic";
+    src: url(font/Sketch\ Gothic\ School.ttf);
+}
+
+/* Mudanças Gerais */
+
 * {
     box-sizing: border-box;
     font-family: sans-serif;
@@ -355,19 +381,29 @@ button,
 
 body {
     margin: 60px 90px;
-    background-color: #e2e2e2;
+    /* background-color: rgba(71,98,79,1); */
+    background-image: url(img/wallpaper.jpeg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 .main {
     text-align: center;
     padding: 30px;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.911);
+    height: 3000px;
+    opacity: .9;
 }
 
+/* Primeiro Conteiner */
+
 .conteiner-img h1 {
-    font-size: 50px;
+    font-size: 70px;
     font-weight: 600;
     margin-bottom: 30px;
+    color: #34473a;
+    font-family: "Dungeon";
 }
 
 .conteiner-img p {
@@ -375,4 +411,151 @@ body {
     margin-bottom: 30px;
 }
 
-.conteiner-img 
+.imagem-franquia {
+    height: 355px;
+    width: 355px;
+}
+
+.main-img {
+    background-color: black;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    height: 385px;
+    align-items: center;
+}
+
+.main-img > p {
+    color: white;
+    margin: 0;
+    font-size: 14px;
+}
+
+.sword {
+    position: relative;
+    width: 585px;
+    height: 155px;
+    bottom: 136px;
+}
+
+.sword > img {
+    position: absolute;
+}
+
+/* Conteiner Do Conteúdo Principal */
+
+.conteiner-main-content h2 {
+    font: normal bold 60px "Dungeon";
+    margin-bottom: 20px;
+    color: #34473a;
+}
+
+.conteiner-main-content p {
+    text-align: justify;
+    text-indent: 20px;
+    font: normal 17px sans-serif;
+    margin-bottom: 20px;
+}
+
+.conteiner-main-content a {
+    font-style: italic;
+    font-weight: bold;
+    color: #D74E09;
+}
+
+.citacao {
+    margin-top: 50px;
+    text-align: center;
+    margin-left: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 500px;
+}
+
+.citacao-q {
+    font-family: Cardinal;
+    font-size: 40px;
+    color: #D74E09;
+}
+
+.citacao-h3 {
+    margin-bottom: 0;
+}
+
+.conteiner-main-content > p {
+    font-family: dungeon;
+    font-size: 35px;
+    margin-top: 0;
+    margin-left: 230px;
+    font-style: italic;
+    margin-bottom: 50px;
+}
+
+/* O Conteúdo a Parte */
+
+.aside h3 {
+    font: normal bold 60px "Dungeon";
+    margin-bottom: 20px;
+    margin-top: 0;
+    margin-bottom: 0;
+    color: #34473a;;
+}
+
+.aside li {
+    text-align: justify;
+    font: normal 17px sans-serif;
+    margin-bottom: 20px;
+}
+
+.final > p {
+    font-family: dungeon;
+    font-size: 35px;
+    margin-top: 0;
+    margin-left: 230px;
+    font-style: italic;
+    margin-bottom: 50px;
+    text-align: justify;
+    text-indent: 20px;
+    margin-bottom: 50px;
+}
+
+/* Footer */
+
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.footer-img > img {
+    width: 900px;
+    height: 600px;
+}
+
+.footer-img {
+    width: 1000px;
+    height: 625px;
+    background-color: black;
+}
+
+#p-img {
+    margin: 0;
+    color: white;
+    font-size: 14px;
+}
+
+#more-info {
+    font-size: 30px;
+    margin-top: 30px;
+    color: #D74E09;
+    font-family: cardinal;
+    margin-bottom: 10px;
+}
+
+footer a {
+    color: #D74E09;
+    font-size: 30px;
+    font-family: cardinal;
+    font-weight: bold;
+}
