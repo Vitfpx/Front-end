@@ -348,7 +348,6 @@ button,
         display: none;
     }
 
-
 /*-----FONTES-----*/
 @font-face {
     font-family: "Josefin Sans";
@@ -472,6 +471,7 @@ h1 {
     font-size: 67.5px;
     font-weight: 300;
     color: white;
+    line-height: 68px;
 }
 
 .titulo-header {
@@ -793,6 +793,7 @@ footer .logo{
     font-size: 14px;
     color: white;
     letter-spacing: -0.3px;
+    padding-bottom: 1px;
 }
 
 .address a {
