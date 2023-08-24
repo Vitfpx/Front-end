@@ -413,7 +413,7 @@ body {
 
 .imagem-franquia {
     height: 355px;
-    width: 355px;
+    width: 365px;
 }
 
 .main-img {
@@ -421,11 +421,20 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    height: 385px;
+    height: 383px;
     align-items: center;
 }
 
-.main-img > p {
+figure {
+    margin: 1px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    height: auto;
+    align-items: center;
+}
+
+.main-img figurecaption {
     color: white;
     margin: 0;
     font-size: 14px;
@@ -477,6 +486,7 @@ body {
     font-family: Cardinal;
     font-size: 40px;
     color: #D74E09;
+    margin: 0;
 }
 
 .citacao-h3 {
@@ -490,6 +500,7 @@ body {
     margin-left: 230px;
     font-style: italic;
     margin-bottom: 50px;
+    color: rgb(131, 58, 16);
 }
 
 /* O Conteúdo a Parte */
@@ -500,6 +511,10 @@ body {
     margin-top: 0;
     margin-bottom: 0;
     color: #34473a;;
+}
+
+.aside ul {
+    list-style-type: upper-roman; 
 }
 
 .aside li {
@@ -518,6 +533,7 @@ body {
     text-align: justify;
     text-indent: 20px;
     margin-bottom: 50px;
+    color: rgb(131, 58, 16);
 }
 
 /* Footer */
@@ -528,7 +544,7 @@ footer {
     justify-content: center;
 }
 
-.footer-img > img {
+.footer-img img {
     width: 900px;
     height: 600px;
 }
@@ -539,10 +555,11 @@ footer {
     background-color: black;
 }
 
-#p-img {
+#fig-img {
     margin: 0;
     color: white;
     font-size: 14px;
+    padding-top: 3.5px;
 }
 
 #more-info {

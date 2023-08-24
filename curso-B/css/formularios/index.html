@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Formulárioso HTML</h2>
+    <!-- 1- Primeiro form -->
+    <!-- 2 - Atributos -->
+    <form action="register.php" method="GET">
+        <div>
+            <label for="name">nome:</label>
+            <input type="text" name="" id="" />
+        </div>
+        <!-- 3 - atributo name -->
+        <div>
+        <!-- 4 - Atributo label -->
+            <label for="age">Idade:</label>
+            <input type="text" name="age" id="">
+        </div>
+        <!-- 6 - Option -->
+        <div>
+            <label for="job">Selecione sua profissão:</label>
+            <select name="job">
+                <option value="coder">Programador</option>
+                <option value="tester">Tester / QA</option>
+                <option value="devops">DevOps</option>
+            </select>
+        </div>
+        <!-- 7 - atributo selected -->
+        <div>
+            <label for="contract">Você leu os termos do contrato?</label>
+            <select name="contract">
+                <option value="yes">Sim</option>
+                <option value="no" selected>Não</option>
+            </select>
+        </div>
+        <!-- 8 - Múltiplas opções -->
+        <div>
+            <label for="items">Selecione os itens desejados:</label>
+            <select name="items" multiple>
+                <option value="dark-souls">Dark Souls</option>
+                <option value="demon-souls">Demon souls</option>
+                <option value="nioh">Ni-Oh</option>
+            </select>
+        </div>
+        <!-- 9 - text-area -->
+        <div>
+            <label for="comment">Escreva abaixo o que você achou do meu post:</label>
+            <textarea name="comment"></textarea>
+        </div>
+        <!-- 10 - fieldset e legend -->
+        <div>
+            <fieldset>
+                <legend>Preencha suas informações:</legend>
+                    <label for="firstname">Nome:</label>
+                    <input type="text" name="firstname">
+                    <label for="lastname">Sobrenome:</label>
+                    <input type="text" name="lastname">
+            </fieldset>
+        </div>
+        <!-- 11 - datalist -->
+        <div>
+            <label for="flavor">Escolha o sabor:</label>
+            <input type="text" list="flavors" name="flavor">
+
+            <datalist id="flavors">
+                <option value="Cereja"></option>
+                <option value="Morango"></option>
+                <option value="Abacaxi"></option>
+                <option value="Chocolate"></option>
+            </datalist>
+        </div>
+        <!-- 12 - password -->
+        <div>
+            <label for="password">Escolha sua senha:</label>
+            <input type="password" name="password">
+        </div>
+        <!-- 13 - reset form -->
+        <input type="reset" value="Limpar">
+        <!-- 14 - radio button -->
+        <div>
+            <label for="car_model">Escolha o modelo do seu carro:</label>
+            <div class="radio">
+                <input type="radio" value="bmw" name="car_model">
+                <label for="bmw">BMW</label>
+            </div>
+        </div>
+        <!-- 5 - Envio de form -->
+        <input type="submit" value="Enviar">
+    </form>
+</body>
+</html>
