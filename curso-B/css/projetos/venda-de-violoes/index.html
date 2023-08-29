@@ -4,15 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anúncio de Vendas de Violão</title>
-
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header>
-        <p></p>
+        <div class="bg-header">
+            <p>Venda Seu Violão Fácil e Rápido</p> <br>
+        </div>
     </header>
     <main>
-        <p>FORMULÁRIO</p>
         <form action="register.python" method="GET">
+            <p id="form">FORMULÁRIO</p> <hr>
             <h1>Venda conosco seu violão novo ou usado!</h1>
             <p>Descreva as características dele e suas especifidades.</p>
             <div class="nome">
@@ -100,9 +102,30 @@
                 <label for="model">Modelo:</label>
                 <input type="text" name="model" placeholder="Digite o modelo do seu violão..." required>
             </div>
-            <div>
-                
+            <div class="data">
+                <label for="date">Data de compra:</label>
+                <input type="date" name="date">
             </div>
+            <div class="ropes">
+                <label for="ropes">Quais cordas vem junto ao violão:</label>
+                <div class="radio">
+                    <input type="radio" value="steel-strings" name="ropes">
+                    <label for="steel-strings">Cordas de aço</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" value="nylon-strings" name="ropes">
+                    <label for="nylon-strings">Cordas de nylon</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" value="hybrid-strings" name="ropes">
+                    <label for="hybrid-strings">Cordas híbridas</label>
+                </div>
+            </div>
+            <div class="file">
+                <label for="file">Fotos do violão:</label>
+                <input type="file" name="file">
+            </div>
+            <input type="submit" value="Enviar">
         </form>
     </main>
 </body>
