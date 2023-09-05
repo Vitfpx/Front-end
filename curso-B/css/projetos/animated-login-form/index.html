@@ -8,9 +8,28 @@
 </head>
 <body>
     <div class="bg">
-        <form action="" method="GET">
-            <h2>Login</h2>
-            <input type="submit" id="button" value="Log in">
+        <form action="" method="GET" class="main-form">
+            <div class="form-header">
+                <h2>Login</h2>
+                <div class="form-main">
+                    <div class="login">
+                        <label for="e-mail">Email</label>
+                        <input type="text" name="e-mail" id="login">
+                    </div>
+                    <div class="login">
+                        <label for="password">Password</label>
+                        <input type="text" name="password" id="login">
+                    </div>
+                    <div class="remember-checkbox">
+                        <input type="checkbox" value="remember" id="remember">
+                        <label for="remember">Remember Me <a href="#">Forget Password</a></label>
+                    </div>
+                </div>
+                <input type="submit" id="button" value="Log in">
+                <div class="register">
+                    <p>Don't have an account <a href="#">Register</a></p>
+                </div>
+            </div>
         </form>
     </div>
 </body>

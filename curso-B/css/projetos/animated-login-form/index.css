@@ -369,8 +369,14 @@ button,
     box-sizing: border-box;
 }
 
+body {
+    font-family: 'Poppins';
+    color: white;
+}
+
 .bg {
     display: flex;
+    flex-wrap: wrap;
     height: 100%;
     width: 100%;
     background-image: url(bg-form.jpg);
@@ -381,7 +387,7 @@ button,
     align-items: center;
 }
 
-form {
+.main-form {
     height: 450px;
     width: 400px;
     border: 2px solid rgba(255, 255, 255, 0.5);
@@ -392,12 +398,90 @@ form {
     justify-content: center;
 }
 
-h2 {
-    font-family: 'Poppins';
+.form-header {
+    padding: 51px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.form-header > h2 {
     font-size: 32px;
     color: white;
+    height: 50px;
+    margin: 0;
+    margin-bottom: 5px;
+}
+
+.login > label {
+    padding-left: 5px;
+}
+
+.login {
+    margin-top: 25px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.login > input {
+    width: 305px;
+    outline: 0;
+}
+
+#login {
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid white;
 }
 
 #button {
-    height: 30px;
+    align-self: center;
+    background-color: white;
+    color: black;
+    border-radius: 20px;
+    border: 0;
+    width: 310px;
+    height: 41px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.form-main {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.remember-checkbox {
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+.remember-checkbox > label {
+    font-size: 14.5px;
+}
+
+.remember-checkbox a {
+    color: white;
+    text-decoration: none;
+}
+
+.remember-checkbox:hover a {
+    color: white;
+    text-decoration: underline;
+}
+
+.register p {
+    font-size: 14.5px;
+}
+
+.register a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.register:hover a {
+    color: white;
+    font-weight: bold;
+    text-decoration: underline;
 }
