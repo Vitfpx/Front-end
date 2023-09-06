@@ -1,0 +1,213 @@
+/* RESET CONFIG */
+
+html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, 
+    blockquote, pre,a, abbr, acronym, address, big, cite, code,del, dfn, em, 
+    img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var,b, u, 
+    i, center,dl, dt, dd, ol, ul, li,fieldset, form, label, legend,table, 
+    caption, tbody, tfoot, thead, tr, th, td,article, aside, canvas, details, 
+    embed, figure, figcaption, footer, header, hgroup, menu, nav, output, 
+    ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, 
+    nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* CONFIG */
+
+* {
+    font-family: Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+/* HEADER */
+
+header {
+    margin-bottom: 60px;
+}
+
+nav {
+    display: flex;
+    background-color: #232a31;;
+    justify-content: flex-end;
+    position: relative;
+    height: 90px;
+    position: fixed;
+    width: 100%;
+}
+
+.logo {
+    position: absolute;
+    height: 76px;
+    width: auto;
+    left: 28px;
+    top: 7px;
+}
+
+.navbar-items {
+    display: flex;
+    width: 390px;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 25px;
+}
+
+.navbar-items a {
+    text-decoration: none;
+    color: white;
+    font: normal 400 16px sans-serif;
+    text-transform: uppercase;
+}
+
+.space {
+    height: 90px;
+}
+
+#enter-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    background-color: #22BB5F;
+    height: 45px;
+    width: 110px;
+}
+
+/* MAIN BANNER */
+
+.main-banner {
+    background-image: url(../img/Calisthenics-bg.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-banner h1 {
+    font: bolder 65px helvetica;
+    color: white;
+    text-shadow: 2px 2px 3px black;
+    text-align: center;
+}
+
+.banner > p {
+    display: flex;
+    justify-content: center;
+    font: bolder 22px helvetica;
+    color: white;
+    text-shadow: 2px 2px 3px black;
+}
+
+/* MAIN QUALITIES */
+
+main {
+    margin-top: 30px;
+}
+
+.qualities-container {
+    margin: 0 auto;
+    width: 87%;
+}
+
+.qualities-container > ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+.qualities-container h3 {
+    text-align: center;
+    font: bold 17px Helvetica;
+    color: rgba(0, 0, 0, 0.808);
+    margin-bottom: 20px;
+}
+
+.qualities {
+    width: 310px;
+    text-align: center;
+    margin: 30px 0;
+    font: lighter 15px Helvetica;
+    color: rgba(0, 0, 0, 0.603);
+}
+
+/* MAIN INFO */
+
+.info-container {
+    margin: 0px auto;
+    width: 65%;
+    padding-bottom: 30px;
+}
+
+.info-container > h2 {
+    font: bold 32px Helvetica;
+    color: rgba(0, 0, 0, 0.795);
+    text-align: center;
+    margin-bottom: 40px;
+    margin-top: 50px;
+}
+
+.info-container > li {
+    list-style-type: none;
+    font: bold 17px Helvetica; 
+    margin-bottom: 30px;   
+    color: rgba(0, 0, 0, 0.801);
+}
+
+.info {
+    font: normal 15px Helvetica; 
+    margin-top: 10px;
+    padding-left: 20px;
+    color: rgba(0, 0, 0, 0.8);
+}
+/* PLANS AND SERVICES */
+
+.plans-container {
+    width: 87%;
+    margin: 0 auto;
+}
+
+.plans-container > h2 {
+    text-align: center;
+    font: bold 32px Helvetica;
+    color: rgba(0, 0, 0, 0.801);
+    margin-bottom: 5px;
+}
+
+.plans-container > p {
+    text-align: center;
+    font: normal 18px Helvetica;
+    color: rgba(0, 0, 0, 0.6);
+    margin-bottom: 50px;
+}
+
+.plans {
+
+    display: flex;
+}
+
