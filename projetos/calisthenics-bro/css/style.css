@@ -54,10 +54,10 @@ nav {
     display: flex;
     background-color: #232a31;;
     justify-content: flex-end;
-    position: relative;
     height: 90px;
     position: fixed;
     width: 100%;
+    z-index: 2;
 }
 
 .logo {
@@ -185,21 +185,22 @@ main {
     padding-left: 20px;
     color: rgba(0, 0, 0, 0.8);
 }
+
 /* PLANS AND SERVICES */
 
-.plans-container {
+.plans-prices {
     width: 87%;
     margin: 0 auto;
 }
 
-.plans-container > h2 {
+.plans-prices > h2 {
     text-align: center;
     font: bold 32px Helvetica;
     color: rgba(0, 0, 0, 0.801);
     margin-bottom: 5px;
 }
 
-.plans-container > p {
+.plans-prices > p {
     text-align: center;
     font: normal 18px Helvetica;
     color: rgba(0, 0, 0, 0.6);
@@ -207,7 +208,48 @@ main {
 }
 
 .plans {
-
     display: flex;
+    text-align: center;
+    margin-bottom: 30px;
+    justify-content: space-around;
 }
 
+.price {
+    position: relative;
+    padding: 40px;
+    height: 108px;
+    width: 110px;
+    background-color: #2CC762;
+    border-radius: 50%;
+    justify-content: center;
+    display: flex;
+    color: white;
+    align-items: center;
+    margin-left: 50px;
+    z-index: 1;
+}
+
+.plan-info {
+    background-color: #202B34;
+    position: relative;
+    bottom: 100px;
+    height: 385px;
+    width: 230px;
+}
+
+.plans-container {
+    width: 200px;
+}
+
+.price > p {
+    bottom: 10px;
+    position: absolute;
+    font-size: 14px;
+    color: #8d0b0b;
+    font-weight: 800;
+    font-family: Verdana;
+}
+
+.newsletter-container {
+    margin-top: 1000px;
+}
