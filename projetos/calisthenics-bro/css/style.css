@@ -81,13 +81,20 @@ nav {
     color: white;
     font: normal 400 16px sans-serif;
     text-transform: uppercase;
+    /* opacity: .9; */
+    transition: 0.3s;
+}
+
+.navbar-items a:hover {
+    /* opacity: 1; */
+    color: rgba(235, 23, 23, 0.719);
 }
 
 .space {
     height: 90px;
 }
 
-#enter-button {
+#enter-button{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -95,6 +102,16 @@ nav {
     background-color: #22BB5F;
     height: 45px;
     width: 110px;
+    transition: .5s   
+}
+
+#enter-button:hover {
+    background-color: white;
+}
+
+#enter-button a:hover {
+    color: #22BB5F;
+    font-weight: 600;
 }
 
 /* MAIN BANNER */
@@ -133,7 +150,7 @@ main {
 
 .qualities-container {
     margin: 0 auto;
-    width: 87%;
+    width: 90%;
 }
 
 .qualities-container > ul {
@@ -154,6 +171,26 @@ main {
     margin: 30px 0;
     font: lighter 15px Helvetica;
     color: rgba(0, 0, 0, 0.603);
+    flex: 1 1 200px;
+    padding: 20px;
+    line-height: 24px;
+}
+
+.fas {
+    font-size: 60px;
+    margin-bottom: 15px;
+}
+
+.fa-shield-alt {
+    color: #2cc76a;
+}
+
+.fa-rocket {
+    color: #ef3f29;
+}
+
+.fa-comments {
+    color: #ef8f29;
 }
 
 /* MAIN INFO */
@@ -162,6 +199,7 @@ main {
     margin: 0px auto;
     width: 65%;
     padding-bottom: 30px;
+    position: relative;
 }
 
 .info-container > h2 {
@@ -179,6 +217,36 @@ main {
     color: rgba(0, 0, 0, 0.801);
 }
 
+.info-container p {
+    margin-left: 50px;
+}
+
+.muscle-icon {
+    width: auto;
+    height: 3.2rem;
+    padding-top: 10px;
+    position: absolute;
+    top: 55px;
+}
+
+.skills-icon {
+    width: auto;
+    height: 4rem;
+    padding-top: 10px;
+    position: absolute;
+    top: 175px;
+    left: -25px;
+}
+
+.food-icon {
+    width: auto;
+    height: 3.2rem;
+    padding-top: 10px;
+    position: absolute;
+    top: 309px;
+    left: 4px;
+}
+
 .info {
     font: normal 15px Helvetica; 
     margin-top: 10px;
@@ -186,70 +254,210 @@ main {
     color: rgba(0, 0, 0, 0.8);
 }
 
-/* PLANS AND SERVICES */
+
+/* PRICES AND PLANS */
 
 .plans-prices {
-    width: 87%;
-    margin: 0 auto;
+    padding-bottom: 5rem;
+    text-align: center;
 }
 
 .plans-prices > h2 {
-    text-align: center;
     font: bold 32px Helvetica;
     color: rgba(0, 0, 0, 0.801);
     margin-bottom: 5px;
 }
 
 .plans-prices > p {
-    text-align: center;
     font: normal 18px Helvetica;
     color: rgba(0, 0, 0, 0.6);
     margin-bottom: 50px;
 }
 
-.plans {
-    display: flex;
-    text-align: center;
-    margin-bottom: 30px;
-    justify-content: space-around;
-}
-
-.price {
-    position: relative;
-    padding: 40px;
-    height: 108px;
-    width: 110px;
-    background-color: #2CC762;
-    border-radius: 50%;
-    justify-content: center;
-    display: flex;
-    color: white;
-    align-items: center;
-    margin-left: 50px;
-    z-index: 1;
-}
-
-.plan-info {
-    background-color: #202B34;
-    position: relative;
-    bottom: 100px;
-    height: 385px;
-    width: 230px;
-}
-
 .plans-container {
-    width: 200px;
+    display: flex;
+    margin-bottom: 30px;
+    justify-content: space-between;
+    margin: 50px auto 0;
+    width: 90%;
 }
 
-.price > p {
-    bottom: 10px;
-    position: absolute;
-    font-size: 14px;
-    color: #8d0b0b;
-    font-weight: 800;
-    font-family: Verdana;
+.plans {
+    flex: 1;
+    max-width: 275px;
+    margin: 0 20px;
+    padding: 0 10px;
 }
+
+.plans ul {
+    padding: 0;
+    width: 242px
+}
+
+.plans li {
+    list-style: none;
+    height: 62px;
+    line-height: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    background-color: #e8e9ea;
+    padding: 0 26px;
+}
+
+.plans .price {
+    position: relative;
+    text-align: center;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: #2cc76a;
+    color: white;
+    align-content: center;
+    margin: 0 auto -50px;
+}
+
+.plans .plan-name {
+    color: white;
+    background-color: #202b34;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 20px;
+    padding: 50px 0;
+}
+
+.plans .plan-btn {
+    background-color: #2cc762;
+    color: #fff;
+    font-size: 25px;
+    height: 65px;
+    line-height: 65px;
+    cursor: pointer;
+}
+
+#best-seller {
+    background-color: #f45c57;
+}
+
+.price p {
+    color: rgb(234, 255, 112);
+}
+
+/* NEWSLETTER */
 
 .newsletter-container {
-    margin-top: 1000px;
+    text-align: center;
+    background-color: #202b34d5;
+    padding: 5rem 0;
+    margin-bottom: 5rem;
+}
+
+.newsletter-container h2 {
+    max-width: 60%;
+    font-size: 38px;
+    font-weight: bold;
+    color: #ffffffea;
+    margin: 0 auto;
+    line-height: 50px;
+    padding-bottom: 20px;
+}
+
+.newsletter-container p {
+    font-size: 24px;
+    color: #d5d5d5;
+    margin-bottom: 25px;
+}
+
+.newsletter-container input[type='text'] {
+    display: block;
+    margin: 0 auto;
+    height: 60px;
+    width: 60%;
+    margin-bottom: 25px;
+    outline: 0;
+    border-radius: 7px;
+    border: 0;
+    background-color: #ffffffea;
+    font-size: 20px;
+    text-indent: 15px;
+    margin-top: 39px;
+}
+
+.newsletter-container input[type='submit'] {
+    padding: 15px 30px;
+    border-radius: 10px;
+    border: 0;
+    cursor: pointer;
+    background-color: #22BB5F;
+    color: #ffffffea;
+    font: normal 22px Helvetica;
+    opacity: .9;
+    transition: .5s;
+}
+
+.newsletter-container input[type="submit"]:hover {
+    opacity: 1;
+    color:#22BB5F;
+    background-color: #FFFFFFea;
+}
+
+/*  MESSAGE */
+
+.contact {
+    text-align: center;
+}
+
+.contact h2 {
+    font: bold 36px Helvetica;
+    color: #000000d8;
+    margin-bottom: 15px;
+}
+
+.contact p {
+    font: normal 22px Helvetica;
+    color: #000000b2;
+    margin-bottom: 35px;
+}
+
+input[type="text"], input[type="email"] {
+    height: 40px;
+    width: 200px;
+    border: 1px solid rgba(0, 0, 0, 0.205);
+    border-radius: 5px;
+    font: normal 16px Helvetica;
+    line-height: 16px;
+    text-indent: 10px;
+}
+
+textarea,
+.contact input {
+    width: 200px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #CCC;
+    margin: 0 10px 20px;
+}
+
+textarea {
+    display: block;
+    margin: 0 auto 20px;
+    width: 470px;
+    height: 150px;
+}
+
+input[type='submit'] {
+    cursor: pointer;
+    background-color: #2cc762;
+    color: white;
+    margin: 0 auto;
+    display: block;
+}
+
+/* FOOTER */
+
+footer {
+    
 }
