@@ -105,13 +105,11 @@ nav {
     transition: .5s   
 }
 
-#enter-button:hover {
-    background-color: white;
-}
-
+#enter-button:hover,
 #enter-button a:hover {
     color: #22BB5F;
     font-weight: 600;
+    background-color: white;
 }
 
 /* MAIN BANNER */
@@ -120,7 +118,7 @@ nav {
     background-image: url(../img/Calisthenics-bg.jpg);
     background-size: cover;
     background-position: center;
-    height: 400px;
+    height: 465px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -280,23 +278,26 @@ main {
     justify-content: space-between;
     margin: 50px auto 0;
     width: 90%;
-}
+}   
 
 .plans {
     flex: 1;
     max-width: 275px;
-    margin: 0 20px;
-    padding: 0 10px;
+    transition: .5s;
+}
+
+.plans:hover {
+    transform: scale(1.08);
 }
 
 .plans ul {
     padding: 0;
-    width: 242px
+    width: 275px;
 }
 
 .plans li {
     list-style: none;
-    height: 62px;
+    height: 52px;
     line-height: 20px;
     display: flex;
     flex-wrap: wrap;
@@ -401,6 +402,7 @@ main {
     opacity: 1;
     color:#22BB5F;
     background-color: #FFFFFFea;
+    font-weight: normal;
 }
 
 /*  MESSAGE */
@@ -454,10 +456,373 @@ input[type='submit'] {
     color: white;
     margin: 0 auto;
     display: block;
+    border: 2px solid transparent;
+    transition: .5s;
+}
+
+input[type='submit']:hover {
+    background-color: white;
+    color: #2cc762;
+    border-color: #2cc762;
+    font-weight: bold;
 }
 
 /* FOOTER */
 
 footer {
+    text-align: center;
+    margin: 50px 0 50px;
+}
+
+footer p {
+    font: bold 18px Helvetica;
+    color: #0000009c
+}
+
+/*  RESPONSIVIDADE */
+
+/* Small laptops a partir de 1100px */
+
+@media (max-width: 1260px) {
+
+        .plans-container {
+            width: 95%;
+        }
+
+        .plans {
+            margin: 0 5px
+        }
+}
+
+@media (max-width: 1255px) {
+        .food-icon {
+        top: 323px;
+    }
+}
+
+@media (max-width: 1207px) {
+        .food-icon {
+            top: 345px;
+        }
+
+        .skills-icon {
+            top: 190px;
+        }
+}
+
+@media (max-width: 1200px) {
+
+        .plans {
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .plans ul {
+            width: 230px;
+        }
+}
+
+@media (max-width:1030px) {
+        .food-icon {
+            top: 360px;
+        }
+}
+  
+/* Tablet 900px */
+
+@media (max-width: 980px) {
+
+        .plans {
+            padding-left: 0;
+        }
+
+        .main-banner {
+            height: 350px;
+        }
+
+        .plans{
+            margin: 0;
+        }
+        
+        .plans li {
+            height: 60px;
+        }
+
+        .plans ul {
+            width: 200px;
+        }
     
+        .newsletter-container h2 {
+            max-width: 80%;
+        }
+
+        .skills-icon {
+            top: 205px;
+        }
+
+        .food-icon {
+            top: 375px;
+        }
+}
+
+/* Celular 576px */
+
+@media (max-width: 850px) {
+
+        .food-icon {
+            top: 410px;
+        }
+        
+        .skills-icon {
+            top: 220px;
+        }
+
+        .plans-container {
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .plans {
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .plans ul {
+            width: 60%;
+            margin: 0 auto 50px
+        }
+}
+
+@media (max-width: 775px) {
+        .food-icon {
+            top: 430px;
+        } 
+}
+
+
+@media (max-width: 730px) {
+        .food-icon {
+            top: 445px;
+        }
+        
+        .skills-icon {
+            top: 240px;
+            
+        }
+}
+
+@media (max-width: 690px) {
+        .plans ul {
+            width: 80%;
+        }
+
+        .banner p {
+            text-align: center;
+            width: 80%;
+            margin: 0 auto;
+        }
+}
+
+
+@media (max-width: 610px) {
+        .food-icon {
+            top: 480px;
+        }
+
+        .skills-icon {
+            top: 260px;
+        }   
+}
+
+@media (max-width: 564px) {
+        .newsletter-container p {
+            width: 80%;
+            margin: 0 auto 20px;
+        }
+
+        .contact p {
+            width: 80%;
+            margin: 0 auto 20px;
+        }
+
+        .skills-icon {
+            top: 275px;
+        }
+
+        .food-icon {
+            top: 510px;
+        }
+}
+    
+@media (max-width: 535px) {
+
+        .banner h1 {
+            font: bolder 50px Helvetica;
+        }
+
+        .navbar-items {
+            width: 70%;
+            padding-right: 41px;
+        }
+
+        .logo {
+            height: 54px;
+            left: 28px;
+            top: 15px;
+        }
+
+        .navbar-items a {
+            font:normal 12px Helvetica;
+        }
+
+        .skills-icon {
+            top: 290px;
+        }
+
+        .food-icon {
+            top: 545px;
+        }
+}
+
+@media (max-width: 505px) {
+        .food-icon {
+            top: 560px;
+        }
+
+        .skills-icon {
+            top: 305px;
+        }
+}
+
+@media (max-width: 465px) {
+
+        .contact {
+            padding: 3rem 2rem;
+        }
+
+        .contact input,
+        .contact textarea {
+            width: 100%;
+            margin: 10px 0;
+        }
+
+        .contact textarea {
+            margin-bottom: 25px;
+        }
+
+        .navbar-items {
+            padding-right: 5%;
+            width: 70%;
+        }
+
+        #enter-button {
+            width: 25%;
+        }
+
+        .food-icon {
+            top: 66%;
+        }
+
+        .skills-icon {
+            top: 36.5%;
+        }
+
+        .muscle-icon {
+            top: 9%;
+        }
+
+        .newsletter-container {
+            padding: 10% 0;
+        }
+
+        .newsletter-container h2 {
+            font: bold 30px Helvetica;
+        }
+
+        .newsletter-container p {
+            font: bold 20px Helvetica;
+        }
+}
+
+@media (max-width: 410px) {
+
+        .skills-icon {
+            top: 35%;
+        }
+
+        .main-banner {
+            height: 250px;
+        }
+
+        .banner h1 {
+            margin-bottom: 15px;
+            font: bolder 38px Helvetica;
+        }
+
+        .banner p {
+            font: normal 18px Helvetica;
+        }
+
+        .qualities-container ul {
+            flex-direction: column;
+            align-items: center;
+        }
+}
+
+@media (max-width: 380px) {
+        .info-container {
+            width: 90%;
+        }
+
+        .food-icon {
+            top: 64%;
+        }
+
+        .skills-icon {
+            top: 34%;
+        }
+
+        .muscle-icon {
+            top: 6.5%;
+        }
+}
+
+@media (max-width: 330px) {
+        .logo {
+            left: 10px;
+        }
+
+        .navbar-items {
+            width: 75%;
+        }
+
+        .banner h1 {
+            font: bolder 32px Helvetica;
+        }
+
+        .food-icon {
+            top: 66%;
+        }
+
+        .skills-icon {
+            top: 37%;
+        }
+
+        .muscle-icon {
+            top: 9%;
+        }
+
+        .newsletter-container {
+
+        }
+
+        .newsletter-container h2 {
+            font: bold 28px Helvetica;
+        }
+
+        .newsletter-container input[type="text"] {
+            height: 40px;
+            font-size: 16px;
+        }
+
 }
