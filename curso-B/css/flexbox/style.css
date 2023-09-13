@@ -1,0 +1,181 @@
+/* FLEX */
+.flex {
+    display: flex;    
+    background-color: #DDD;
+    margin-bottom: 20px;
+}
+/* COLUMN */
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    background-color: #CCC;
+    margin-bottom: 20px;
+}
+/* WRAP */
+.wrap {
+    display: flex;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.box {
+    height: 40px;
+    width: 33%;
+    border: 1px solid red;
+}
+
+.center,
+.space-around,
+.space-beetwen,
+.end {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.center .box,
+.space-around .box,
+.space-beetwen .box,
+.end .box {
+    width: 50px;
+}
+/* JUSTIFY-CONTENT */
+.center {
+    justify-content: center;
+}
+
+.space-around {
+    justify-content: space-around;
+}
+
+.space-beetwen {
+    justify-content: space-between;
+}
+
+.end {
+    justify-content: flex-end;
+}
+
+
+.align-center,
+.flex-end,
+.stretch {
+    display: flex;
+    margin-bottom: 20px;
+    height: 200px;
+    border: 1px solid blue;
+}
+
+.align-center .box,
+.flex-end .box,
+.stretch .box {
+    width: 50px;
+}
+/* ALIGN-ITEMS */
+.align-center {
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-end {
+    align-items: flex-end;
+}
+
+.stretch {
+    align-items: stretch;
+}
+
+.stretch .box {
+    height: auto;
+}
+/* GAP */
+.gap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border: 1px solid green;
+    gap: 23px;
+}
+
+.gap .box {
+    width: 32%;
+}
+/* ORDER */
+.order {
+    display: flex;
+    flex-direction: column;
+}
+
+#one {
+    order: 1;
+}
+
+#two {
+    order: 2;
+}
+
+#three {
+    order: 3;
+}
+/* GROW */
+.grow {
+    display: flex;
+}
+
+.grow .box {
+    flex: 1;
+}
+
+.grow .big {
+    flex: 2;
+}
+/* BASIS */
+.basis {
+    display: flex;
+}
+
+.basis .box {
+    flex-basis: 20px;
+}
+
+.basis .big {
+    flex-grow: 1;
+}
+/* SHRINK */
+.shrink {
+    display: flex;
+}
+
+.shrink .box {
+    flex-grow: 1;
+    flex-basis: 250px;
+    flex-shrink: 1;
+    width: auto;
+}
+
+.shrink .small {
+    flex-shrink: 2;
+}
+/* SHORTHAND */
+.shorthand {
+    display: flex;
+}
+
+.shorthand .box {
+    width: auto;
+    flex: 1 1 50px;
+}
+
+.shorthand .diff {
+    flex: 3 1 300px;
+}
+/* AUTO_ALINHAMENTO */
+.auto-alinhamento {
+    display: flex;
+    height: 300px;
+    align-items: flex-end;
+    border: 1px solid purple;
+}
+
+.auto-alinhamento .diff {
+    align-self: center;
+}

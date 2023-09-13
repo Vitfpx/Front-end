@@ -432,6 +432,7 @@ figure {
     justify-content: space-evenly;
     height: auto;
     align-items: center;
+    z-index: 2;
 }
 
 .main-img figurecaption {
@@ -449,6 +450,7 @@ figure {
 
 .sword > img {
     position: absolute;
+    z-index: 1;
 }
 
 /* Conteiner Do Conteúdo Principal */

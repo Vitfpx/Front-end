@@ -430,8 +430,9 @@ input[type="text"], input[type="email"] {
     border-radius: 5px;
     font: normal 16px Helvetica;
     line-height: 16px;
-    text-indent: 10px;
+    
 }
+
 
 textarea,
 .contact input {
@@ -696,6 +697,39 @@ footer p {
 
 @media (max-width: 465px) {
 
+        .banner {
+            height: 55%;
+        }
+
+        .main-banner {
+            height: 250px;
+        }
+
+        .banner h1 {
+            font: bolder 45px Helvetica;
+            margin-bottom: 15px;
+        }
+
+        .qualities-container ul {
+            flex-direction: column;
+        }
+
+        .info-container {
+            width: 80%;
+        }
+
+        .info-container h2 {
+            text-align: center;
+        }
+
+        .info {
+            text-align: center;
+        }
+
+        .qualities {
+            margin-left: 10%;
+        }
+
         .contact {
             padding: 3rem 2rem;
         }
@@ -720,15 +754,15 @@ footer p {
         }
 
         .food-icon {
-            top: 66%;
+            top: 64.5%;
         }
 
         .skills-icon {
-            top: 36.5%;
+            top: 34.5%;
         }
 
         .muscle-icon {
-            top: 9%;
+            top: 6.5%;
         }
 
         .newsletter-container {
@@ -810,10 +844,6 @@ footer p {
 
         .muscle-icon {
             top: 9%;
-        }
-
-        .newsletter-container {
-
         }
 
         .newsletter-container h2 {
