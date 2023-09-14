@@ -1,3 +1,150 @@
-h1 {
-   text-transform: ;
+/* RESET CONFIG */
+
+html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, 
+    blockquote, pre,a, abbr, acronym, address, big, cite, code,del, dfn, em, 
+    img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var,b, u, 
+    i, center,dl, dt, dd, ol, ul, li,fieldset, form, label, legend,table, 
+    caption, tbody, tfoot, thead, tr, th, td,article, aside, canvas, details, 
+    embed, figure, figcaption, footer, header, hgroup, menu, nav, output, 
+    ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, 
+    nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* CONFIG */
+* {
+   box-sizing: border-box;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   text-decoration: none;
+}
+
+/* MAIN */
+.main-container {
+   display: flex;
+   justify-content: center;
+   margin: 1.7rem 0;
+   gap: 22px;
+   padding-right: 10px;
+}
+/* BANNER */
+.banner-container img {
+   width: 400px;
+   height: 37rem;
+}
+/* FORM */
+.form-container {
+   display: flex;
+   flex-wrap: wrap;
+   width: 26%;
+   height: 36.5rem;
+   margin-top: 18px;
+   justify-content: center;
+   align-items: center;
+   text-align: center;
+}
+
+.form-container img {
+   width: auto;
+   height: 3.1rem;
+   cursor: pointer;
+}
+
+.box-form {
+   border: 1px solid #DBDBDB;
+   padding: 2.95rem 2.5rem;
+   height: 402px;
+   width: 100%;
+}
+
+form {
+   margin-top: 2.4rem;
+}
+
+.login input {
+   width: 100%;
+   display: block;
+   outline: 0;
+   background-color: #FAFAFA;
+   border: 1px solid #DBDBDB;
+}
+
+.login input[type="text"], [type='password'] {
+   border-radius: 3px;
+   font-size: 12px;
+   padding: .63rem .5rem;
+   margin-bottom: 6px;
+   color: #9E7373;
+   
+}
+
+.login input[type="submit"] {
+   margin-top: .9rem;
+   margin-bottom: 1rem;
+   background-color: #4CB5F9;
+   color: #FFF;
+   text-transform: capitalize;
+   padding: .45rem 2rem;
+   font-weight: 700;
+   border-radius: 8px;
+   border: 0;
+}
+
+.sep p {
+   width: 100%;
+   border: 1px solid transparent;
+}
+
+.sep {
+   border-top: 1px solid #DBDBDB;
+   padding: 1.2rem 1rem;
+   text-transform: uppercase;
+   font: 500 13px 'Segoe UI';
+   color: #73738E;
+   padding: 0;
+}
+
+.facebook img {
+   width: auto;
+   height: 1rem;
+}
+
+.apps img {
+   width: auto;
+   height: 2.5rem;
+}
+
+.register {
+   width: 100%;
+   padding: 1.4rem 1rem;
+   border: 1px solid #DBDBDB;
+   margin: 10px 0;
+}
+
+.register p {
 }
