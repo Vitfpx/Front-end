@@ -44,6 +44,10 @@ table {
    text-decoration: none;
 }
 
+body {
+   background: #1c1c1c;
+}
+
 /* MAIN */
 main {
    margin-bottom: 50px;
@@ -84,6 +88,12 @@ main {
    padding: 2.95rem 2.5rem;
    height: 402px;
    width: 100%;
+   background: #0c0c0c;
+}
+
+.box-form img {
+   background: white;
+   border-radius: 5px;
 }
 
 form {
@@ -110,7 +120,7 @@ form {
 .login input[type="submit"] {
    margin-top: .9rem;
    margin-bottom: 1rem;
-   background-color: #4CB5F9;
+   background-color: #292929;
    color: #FFF;
    text-transform: capitalize;
    padding: .45rem 2rem;
@@ -128,15 +138,15 @@ form {
    border: 1px solid transparent;
    text-transform: uppercase;
    font: 500 13px 'Segoe UI';
-   color: #73738E;
+   color: white;
    position: absolute;
    top: -8.5px;
    left: 107px;
-   background-color: white;
+   background-color: #0c0c0c;
 }
 
 .sep .line {
-   border-top: 1px solid #DBDBDB;
+   border-top: 1px solid white;
    padding: 1.2rem 1rem;
    top: 10px;
    padding: 0;
@@ -159,7 +169,7 @@ form {
 
 .facebook span {
    font: 500 14px 'Segoe UI';
-   color: #385185;
+   color: #9380ff;
 }
 /* SENHA */
 .forgot-pass {
@@ -168,6 +178,7 @@ form {
 
 .forgot-pass a {
    font: normal 12px 'Segoe UI';
+   color: #cccccc;
 }
 /* CADASTRO */
 .register {
@@ -180,11 +191,13 @@ form {
    display: flex;
    justify-content: center;
    align-items: center;
+   color: white;
+   background: #0c0c0c;
 }
 
 .register a {
    font-weight: 500;
-   color: #0095F6;
+   color: #9b9b9b98;
 }
 
 /* DOWNLOAD */
@@ -204,6 +217,7 @@ form {
    font: normal 14px 'Segoe UI';
    margin-bottom: 8px;
    width: 100%;
+   color: white;
 }
 
 .apps img {
@@ -229,7 +243,7 @@ nav {
 
 li a {
    font: normal 12px 'Segoe UI';
-   color: #737373;
+   color: #a3a3a3;
 }
 
 li a:hover {
@@ -246,19 +260,20 @@ li a:hover {
    display: flex;
    justify-content: center;
    align-items: center;
-   gap: 1rem;
+   gap: 12px;
 }
 
 .language-container select {
    outline: 0;
    border: 0;
-   width: 7.1rem;
+   width: 7.2rem;
    font: normal 12px 'Segoe UI';
-   color: #737373;
+   color: black;
    text-transform: capitalize;
+   cursor: pointer;
 }
 
 .copyright {
    font: normal 12px 'Segoe UI';
-   color: #737373;  
+   color: #a3a3a3;
 }
