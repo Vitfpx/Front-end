@@ -4,14 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Redefinir senha • Instagram</title>
+  <link rel="stylesheet" href="css/reset-pass.css">
   <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
 </head>
 <body>
   <header>
-    <nav>
-      <!-- BANNER -->
-      <img src="img/logo_instagram.png" alt="Instagram">
-    </nav>
+    <!-- BANNER -->
+    <div class="box-banner">
+      <div class="banner">
+        <a href="index.html" target="_self"><img src="img/logo_instagram.png" alt="Instagram"></a>
+      </div>
+    </div>
   </header>
   <main>
     <!-- CONTEÜDO PRINCIPAL -->
@@ -42,12 +45,77 @@
             </div>
             <!-- NÃO CONSEGUINDO REDEFINIR SENHA -->
             <div class="reset-pass">
-              
+              <a href="#">Não consegue redefinir sua senha?</a>
+            </div>
+            <div class="sep">
+              <span>Ou</span>
+              <div class="line"></div>
+            </div>
+            <div class="new-acc">
+              <a href="#">Criar nova conta</a>
             </div>
           </div>
+          <button type="submit" name="back-to-login" value="back-to-login">
+            <p>Voltar ao login</p>
+          </button>
         </form>
       </div>
     </div>
   </main>
+  <footer>
+    <!-- INFORMAÇÕES ADICIONAIS -->
+    <nav>
+      <ul id="footer-links">
+        <li><a href="https://about.meta.com/" target="_blank">Meta</a>
+        <li><a href="https://about.instagram.com/" target="_blank">Sobre</a></li>
+        <li><a href="https://about.instagram.com/blog" target="_blank">Blog</a></li>
+        <li><a href="https://about.instagram.com/about-us/careers" id="link-dif" target="_self">Carreiras</a></li>
+        <li><a href="https://help.instagram.com/" target="_blank">Ajuda</a></li>
+        <li><a href="https://developers.facebook.com/docs/instagram" target="_blank">API</a></li>
+        <li><a href="https://privacycenter.instagram.com/policy/?entry_point=ig_help_center_data_policy_redirect" id="link-dif" target="_self">Privacidade</a></li>
+        <li><a href="https://help.instagram.com/581066165581870/" id="link-dif" target="_self">Termos</a></li>
+        <li><a href="https://www.instagram.com/explore/locations/" id="link-dif" target="_self">Localizações</a></li>
+        <li><a href="https://www.instagram.com/web/lite/" id="link-dif" target="_self">Instagram Lite</a></li>
+        <li><a href="https://www.threads.net/login" target="_blank">Threads</a></li>
+        <li><a href="https://www.facebook.com/help/instagram/261704639352628" id="link-dif" target="_self">Carregamento de contatos e não usuários</a></li>
+        <li><a href="https://about.meta.com/technologies/meta-verified/" target="_blank">Meta Verified</a></li>
+      </ul>
+    </nav>
+    <!-- TROCA DE IDIOMA E DIREITOS DA EMPRESA -->
+    <div class="language-container">
+      <select name="language">
+        <option value="afrikaans">afrikaans</option>
+        <option value="arabic">العربية (Al-'arabīyah)</option>
+        <option value="bengali">বাঙালি (Bāṅāli)</option>
+        <option value="czech">čeština</option>
+        <option value="dansk">dansk</option>
+        <option value="deutsch">deutsch</option>
+        <option value="english">english</option>
+        <option value="uk">english (UK)</option>
+        <option value="spain">español (españa)</option>
+        <option value="spanish">español</option>
+        <option value="finland">suomi</option>
+        <option value="french">français</option>
+        <option value="hindi">हिन्दी (Hindī)</option>
+        <option value="indonesia">bahasa indonesia</option>
+        <option value="italian">italiano</option>
+        <option value="japanese">日本語</option>
+        <option value="java">jawa</option>
+        <option value="Korean">한국인</option>
+        <option value="malay">bahasa melayu</option>
+        <option value="mandarin">中文 (Zhōngwén)</option>
+        <option value="norwegian">norsk</option>
+        <option value="dutch">nederlands</option>
+        <option value="punjabi">ਪੰਜਾਬੀ (Pañjābī)</option>
+        <option value="polish">polski</option>
+        <option value="portuguese" selected>português (Brasil)</option>
+        <option value="portugal">português (Portugal)</option>
+        <option value="russian">Русский (Russkiy)</option>
+      </select>
+      <div class="copyright">
+        <p>&copy; 2023 Instagram from Meta</p>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>

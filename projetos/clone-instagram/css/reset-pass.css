@@ -1,0 +1,286 @@
+/* RESET CONFIG */
+
+html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, 
+    blockquote, pre,a, abbr, acronym, address, big, cite, code,del, dfn, em, 
+    img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var,b, u, 
+    i, center,dl, dt, dd, ol, ul, li,fieldset, form, label, legend,table, 
+    caption, tbody, tfoot, thead, tr, th, td,article, aside, canvas, details, 
+    embed, figure, figcaption, footer, header, hgroup, menu, nav, output, 
+    ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, 
+    nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* CONFIG GERAL */
+
+* {
+  font: normal 14px 'Segoe UI';
+  box-sizing: border-box;
+  color: #737373;
+  text-decoration: none;
+}
+
+/* BANNER */
+
+header {
+  border-bottom: 1px solid #DBDBDB;
+  display: flex;
+  height: 60px;
+  justify-content: center;
+}
+
+  header img {
+    width: auto;
+    height: 29px;
+    margin-top: 10px;
+  }
+
+.box-banner {
+  width: 100%;
+  height: 100%;
+}
+
+.banner {
+  height: 100%;
+  width: 69.2%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+/* MAIN CONTENT */
+
+.main-container {
+  margin: 44px auto 66px;
+  width: 29%;
+  height: 555px;
+  border: 1px solid hsl(0, 0%, 86%);
+  padding: 19.2px 2.8rem 0;
+}
+
+/* FORMULÁRIO */
+
+.box-form {
+  height: 100%;
+}
+
+form, .box-banner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 100%;
+}
+
+/* PADLOCK */
+
+.padlock {
+  height: 71px;
+}
+
+  .padlock img {
+    width: 105px;
+    height: auto;
+    margin-bottom: 4px;
+  }
+  
+/* LOGIN */
+
+.login {
+  text-align: center;
+}
+
+  .login h1 {
+    font-weight: 500;
+    font-size: 16px;
+    color: black;
+    margin-bottom: 9px;
+  }
+
+  .login p {
+    font-size: 14px;
+    line-height: 18px;
+    margin-bottom: 12px;
+  }
+
+/* INPUTS */
+
+.input-form {
+  margin-bottom: 10px;
+}
+
+  .input-form input[type="text"] {
+    width: 100.2%;
+    padding: 9.5px 8.8px;
+    border-radius: 5px;
+    border: 1px solid #DBDBDB;
+    background-color: #FAFAFA;
+    margin-bottom: 16px;
+  }
+
+    .input-form input[type="text"]::-webkit-input-placeholder {
+      color: #C7C7C7;
+    }
+
+  .input-form input[type="submit"] {
+    width: 100.3%;
+    padding: 5.5px 0;
+    color: white;
+    background: #0095F6;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+  }
+
+    .input-form input[type='submit']:hover {
+      background: #1877F2;
+    }
+
+/* NÃO REDEFININDO SENHA */
+
+.reset-pass {
+  margin-bottom: 29px;
+}
+
+  .reset-pass a {
+    font-size: 12px;
+    color: #00376B;
+  }
+
+/* SEPARADOR */
+
+.sep {
+  margin: 37px auto 23px;
+  position: relative;
+
+}
+
+  .sep span {
+
+    text-transform: uppercase;
+    font: 500 13px 'Segoe UI';
+    position: absolute;
+    background: #FFF;
+    top: -12px;
+    left: 122px;
+    padding: 5px 18px;
+  }
+    
+.sep .line {
+  border-top: 1px solid #DBDBDB;
+}
+
+/* NEW ACCOUNT */
+
+.new-acc a {
+  font-weight: 500;
+  color: #262626;
+}
+
+  .new-acc a:hover {
+    color: #929292;
+  }
+
+/* BACK TO LOGIN */
+
+button[type="submit"] {
+  align-self: flex-end;
+  height: 44px;
+  padding: 0px 144px;
+  position: relative;
+  display: flex;
+  border: 1px solid #DBDBDB;
+  background: #FAFAFA;
+}
+
+  button[type="submit"] p {
+    width: 100px;
+    align-self: center;
+    font: 500 14px 'Segoe UI';
+    color: black;
+    background: #FAFAFA;
+  }
+
+    button[type="submit"] p:hover {
+      color: #909090;
+    }
+
+/* FOOTER */
+
+footer {
+  margin-bottom: 3.75rem;
+}
+
+nav {
+  width: 69.8%;
+  margin: 0 auto;
+  margin-bottom: 18px;
+}
+
+#footer-links {
+  display: flex;
+  justify-content: space-between;
+}
+
+li a {
+  font: normal 12px 'Segoe UI';
+  color: #737373;
+}
+
+  li a:hover {
+    text-decoration: underline;
+  }
+
+#link-dif:hover {
+  text-decoration: none;
+}
+
+/* IDIOMA E DIREITOS */
+
+.language-container {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+  .language-container select {
+    outline: 0;
+    border: 0;
+    width: 7.1rem;
+    font: normal 12px 'Segoe UI';
+    color: #737373;
+    text-transform: capitalize;
+  }
+
+.copyright {
+  font: normal 12px 'Segoe UI';
+  color: #737373;  
+}
