@@ -3,65 +3,105 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Redefinir senha • Instagram</title>
-  <link rel="stylesheet" href="css/reset-pass.css">
+  <title>Cadastre-se • Instagram</title>
   <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="css/new-acc.css">
 </head>
 <body>
-  <header>
-    <!-- BANNER -->
-    <div class="box-banner">
-      <div class="banner">
-        <a href="index.html" target="_self"><img src="img/logo_instagram.png" alt="Instagram"></a>
-      </div>
-    </div>
-  </header>
   <main>
     <!-- CONTEÜDO PRINCIPAL -->
-    <div class="main-container">
+    <div class="form-container">
       <div class="box-form">
-        <form action="#">
-          <!-- FORMULÁRIO -->
-          <div class="padlock">
-            <img src="img/cadeado.png" alt="Ícone de cadeado">
-          </div>
-          <div class="login">
-            <!-- INPUTS -->
-            <h1>Problemas para entrar?</h1>
-            <p>Insira o seu email, telefone ou nome de usuário e enviaremos um link para você voltar a acessar a sua conta.</p>
-            <div class="input-form">
-              <input 
-              type="text"
-              name="user"
-              defaultValue="user"
-              placeholder="Email, telefone ou nome de usuário"
-              >
-              <input 
-              type="submit" 
-              name="submit-link" 
-              id="submit-btn"
-              value="Enviar link para login"
-              >
-            </div>
-            <!-- NÃO CONSEGUINDO REDEFINIR SENHA -->
-            <div class="reset-pass">
-              <a href="#">Não consegue redefinir sua senha?</a>
-            </div>
-            <div class="sep">
-              <span>Ou</span>
-              <div class="line"></div>
-            </div>
-            <div class="new-acc">
-              <a href="new-acc.html" target="_self">Criar nova conta</a>
-            </div>
-          </div>
-          <div id="btn">
-            <a href="index.html" target="_self">
-              <button type="button">Voltar ao login</button>
-            </a>
+        <div class="instagram-img">
+          <a href="index.html" target="_self">
+            <img src="img/logo_instagram.png" alt="Instagram">
+          </a>
+        </div>
+        <!-- LOGIN COM FACEBOOK -->
+        <div class="facebook-register">
+          <p>Cadastre-se para ver fotos e vídeos dos seus amigos.</p>
+          <a href="#" id="btn-face">
+            <button type="button">
+              <div class="btn-content">
+                <img src="img/white-face.png" alt="Facebook" id="facebook-logo">
+                Entrar com o Facebook
+              </div>
+            </button>
+          </a>
+        </div>
+        <!-- SEPARADOR -->
+        <div class="sep">
+          <span>ou</span>
+          <div class="line"></div>
+        </div>
+        <!-- FORMULÁRIO -->
+        <form>
+          <div class="register">
+            <input
+            type="text"
+            name="phone-email"
+            defaultValue="phone-email"
+            placeholder="Número do celular ou email"
+            >
+            <input
+            type="text"
+            name="name"
+            defaultValue="name"
+            placeholder="Nome completo"
+            >
+            <input
+            type="text"
+            name="user"
+            defaultValue="user"
+            placeholder="Nome do usuário"
+            >
+            <input
+            type="password"
+            name="pass"
+            defaultValue="pass"
+            placeholder="Senha"
+            >
           </div>
         </form>
+        <!-- TERMOS E POLÍTICA -->
+        <div class="politicagem">
+          <p>
+            As pessoas que usam nosso serviço podem ter enviado
+            suas informações de contato para o Instagram.
+            <a href="#">Saiba mais</a>
+          </p>
+          <p>
+            Ao se cadastrar, você concorda com nossos
+            <a href="#">Termos</a>,
+            <a href="#">Política de Privacidade</a> e
+            <a href="">Política de Cookies</a>.
+          </p>
+        </div>
+        <!-- FINALIZAR CADASTRAR -->
+        <div class="btn-register">
+          <button type="button">Cadastre-se</button>
+        </div>
       </div>
+      <!-- CONTA EXISTENTE -->
+      <div class="login">
+        <p>
+          Tem uma conta?
+          <a href="#">Conecte-se</a>
+        </p>
+      </div>
+    </div>
+    <!-- FORMAS DE DOWNLOAD -->
+    <div class="apps">
+      <p>Obtenha o aplicativo.</p>
+      <a href="https://www.instagram.com/accounts/emailsignup/" target="_blank">
+        <img src="img/gplay_btn.png" alt="Google Play">
+      </a>
+      <a href="ms-windows-store://pdp/?productid=9nblggh5l9xt&referrer=appbadge&source=www.instagram.com&mode=mini&pos=0%2C0%2C1366%2C728" target="_blank">
+        <img src="img/microsoft_btn.png" alt="Microsoft">
+      </a>
+      <a href="https://apps.apple.com/br/app/instagram/id389801252" target="_blank">
+        <img src="img/apple_btn.png" alt="Apple Store">
+      </a>
     </div>
   </main>
   <footer>

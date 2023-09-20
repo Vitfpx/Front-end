@@ -211,28 +211,29 @@ form, .box-banner {
 
 /* BACK TO LOGIN */
 
-button[type="submit"] {
-  align-self: flex-end;
+#btn {
+  align-items: center;
   height: 44px;
-  padding: 0px 144px;
+  padding: 0px 140px;
+  width: 400px;
   position: relative;
   display: flex;
   border: 1px solid #DBDBDB;
   background: #FAFAFA;
+
 }
 
-  button[type="submit"] a {
-    width: 100px;
+  #btn button {
+    width: 110px;
     align-self: center;
     font: 500 14px 'Segoe UI';
     background: #FAFAFA;
-  }
-
-  button[type="submit"] p {
+    border: 0;
     color: #262626;
+    cursor: pointer;
   }
 
-    button[type="submit"] p:hover {
+    #btn button:hover {
       color: #909090;
     }
 
