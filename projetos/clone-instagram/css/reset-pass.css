@@ -49,7 +49,6 @@ table {
 /* BANNER */
 
 header {
-  border-bottom: 1px solid #DBDBDB;
   display: flex;
   height: 60px;
   justify-content: center;
@@ -62,8 +61,11 @@ header {
   }
 
 .box-banner {
+  position: fixed;
   width: 100%;
-  height: 100%;
+  height: 60px;
+  border-bottom: 1px solid #DBDBDB;
+  background-color: #FFF;
 }
 
 .banner {
@@ -94,13 +96,12 @@ form, .box-banner {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  height: 100%;
 }
 
 /* PADLOCK */
 
 .padlock {
-  height: 71px;
+  height: 113px;
 }
 
   .padlock img {
@@ -113,6 +114,7 @@ form, .box-banner {
 
 .login {
   text-align: center;
+  margin-bottom: 83.5px
 }
 
   .login h1 {
@@ -219,17 +221,21 @@ button[type="submit"] {
   background: #FAFAFA;
 }
 
-  button[type="submit"] p {
+  button[type="submit"] a {
     width: 100px;
     align-self: center;
     font: 500 14px 'Segoe UI';
-    color: black;
     background: #FAFAFA;
+  }
+
+  button[type="submit"] p {
+    color: #262626;
   }
 
     button[type="submit"] p:hover {
       color: #909090;
     }
+
 
 /* FOOTER */
 
