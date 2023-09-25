@@ -286,11 +286,18 @@ li a:hover {
    color: #737373;  
 }
 
-/* MOBILE */
+/* NOTEBOOK */
 
+@media (max-width: 1500px) {
+   
+   .sep p {
+      left: 117px;
+   }
+
+}
 
 @media (max-width: 1050px) {
-   
+
    .form-container {
       width: 35%;
    }
@@ -302,10 +309,15 @@ li a:hover {
    #footer-links {
       flex-wrap: wrap;
       justify-content: space-between;
-      
+   }
+
+   .sep p {
+      left: 112px;
    }
    
 }
+
+/* TABLET */
 
 @media (max-width: 780px) {
 
@@ -344,6 +356,8 @@ li a:hover {
       gap: 15px;
    }
 }
+
+/* MOBILE */
 
 @media (max-width: 450px) {
 
@@ -425,6 +439,10 @@ li a:hover {
 
    .sep {
       width: 95%;
+   }
+
+   .sep p {
+      left: 113px;
    }
 }
 

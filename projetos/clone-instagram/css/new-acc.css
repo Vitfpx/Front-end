@@ -298,3 +298,110 @@ li a:hover {
   font: normal 12px 'Segoe UI';
   color: #737373;  
 }
+
+/* NOTEBOOK */
+
+@media (max-width:  1050px) {
+
+  .form-container {
+    width: 35%;
+    margin: 10px auto;
+  }
+
+  footer {
+    width: 100%;
+  }
+
+  nav {
+    width: 90%;
+  }
+}
+
+/* TABLET */
+
+@media (max-width: 780px) {
+  
+  .form-container {
+    width: 50%;
+  }
+
+  .sep span {
+    left: 120px;
+  }
+
+  nav {
+    width: 80%;
+  }
+
+  #footer-links {
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+
+}
+
+/* MOBILE */
+
+@media (max-width: 450px) {
+  
+  .form-container {
+    margin: 0 auto;
+    width: 90%;
+  }
+
+  .box-form {
+    border: 0;
+    padding: 47px 41px 0px;
+  }
+
+  .login {
+    border: 0;
+  }
+
+  .apps {
+    width: 80%;
+    margin: 0 auto 25px;
+  }
+
+  .sep span {
+    left: 120px;
+  }
+
+  .apps {
+    margin: 0 auto 58px;
+  }
+
+}
+
+@media (max-width: 380px) {
+  .form-container {
+    width: 95%;
+  }
+
+  .sep span {
+    left: 108px;
+  }
+
+  .apps {
+    margin: 0 auto 58px;
+  }
+
+}
+
+@media (max-width: 330px) {
+
+  .form-container {
+    width: 100%;
+  }
+
+  .sep span {
+    left: 90px;
+  }
+
+  .apps {
+    margin: 0 auto 58px;
+  }
+  
+}
+

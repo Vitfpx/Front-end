@@ -214,7 +214,7 @@ form, .box-banner {
 #btn {
   align-items: center;
   height: 44px;
-  padding: 0px 140px;
+  padding: 0px 139px;
   width: 400px;
   position: relative;
   display: flex;
@@ -290,4 +290,138 @@ li a {
 .copyright {
   font: normal 12px 'Segoe UI';
   color: #737373;  
+}
+
+/* NOTEBOOK */
+
+@media (max-width: 1050px) {
+
+  .main-container {
+    width: 40%;
+  }
+
+  .box-banner {
+    justify-content: flex-start;
+  }
+  
+  .banner {
+    padding-left: 45px;
+  }
+
+  .sep span {
+    left: 130px;
+  }
+
+  #btn {
+    padding: 0 148px;
+    width: 468px;
+  }
+
+  footer {
+    width: 100%;
+    margin: 0 auto 60px;
+  }
+
+  nav {
+    width: 92%;
+  }
+
+}
+
+/* TABLET */
+
+@media (max-width: 780px) {
+  
+  .main-container {
+    width: 55%;
+  }
+
+  .sep span {
+    left: 138px;
+  }
+
+  #btn {
+    padding: 0 154px;
+  }
+
+  footer {
+    width: 90%;
+    margin: 0 auto 60px;
+  }
+
+  nav {
+    width: 90%;
+  }
+
+  #footer-links {
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 8px;
+  }
+
+}
+
+/* MOBILE */
+
+@media (max-width: 450px) {
+  
+  .main-container {
+    width: 92%;
+    border: 0;
+  }
+
+  .sep span {
+    left: 122px;
+  }
+
+  #btn {
+    padding: 0 139px;
+  }
+
+  footer {
+    width: 95%;
+  }
+
+  nav {
+    width: 100%;
+  }
+
+}
+
+@media (max-width: 380px) {
+  
+  .main-container {
+    border: 0;
+    width: 100%;
+  }
+
+  .sep span {
+    left: 115px;
+  }
+
+  #btn {
+    width: 95%;
+    justify-content: center;
+  }
+
+  footer {
+    width: 80%;
+  }
+
+}
+
+@media (max-width: 330px) {
+  
+  .sep span {
+    left: 87px;
+  }
+
+  footer {
+    width: 90%;
+  }
+
+  nav {
+    width: 90%;
+  }
+
 }
