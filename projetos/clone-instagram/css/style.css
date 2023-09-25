@@ -45,9 +45,17 @@ table {
 }
 
 /* MAIN */
+
 main {
    margin-bottom: 50px;
 }
+/* 
+.form-container,
+.banner-container {
+   display: flex;
+   flex: 1 1 0;
+   width: 50%;
+} */
 
 .main-container {
    display: flex;
@@ -56,12 +64,16 @@ main {
    gap: 22px;
    padding-right: 10px;
 }
+
 /* BANNER */
+
 .banner-container img {
    width: 400px;
    height: 37rem;
 }
+
 /* FORM */
+
 .form-container {
    display: flex;
    flex-wrap: wrap;
@@ -96,12 +108,13 @@ form {
    outline: 0;
    background-color: #FAFAFA;
    border: 1px solid #DBDBDB;
+   border-radius: 3px;
+   margin-bottom: .6rem;
+   padding: .63rem .5rem;
 }
 
 .login input[type="text"], [type='password'] {
-   border-radius: 3px;
    font-size: 12px;
-   padding: .63rem .5rem;
    margin-bottom: 6px;
    color: #9E7373;
    
@@ -109,7 +122,6 @@ form {
 
 .login input[type="submit"] {
    margin-top: .9rem;
-   margin-bottom: 1rem;
    background-color: #4CB5F9;
    color: #FFF;
    text-transform: capitalize;
@@ -118,7 +130,9 @@ form {
    border-radius: 8px;
    border: 0;
 }
+
 /* SEPARADOR OU */
+
 .sep {
    position: relative;
 }
@@ -137,31 +151,32 @@ form {
 
 .sep .line {
    border-top: 1px solid #DBDBDB;
-   padding: 1.2rem 1rem;
-   top: 10px;
+   padding: 1.2rem 1rem;   
    padding: 0;
-   margin: 24px 0;
+   margin: 24px 0 35px;
 }
+
 /* FACEBOOK */
-.facebook {
-   margin-top: 35px;
-   margin-left: 24px;
-   position: relative;
+
+.facebook a {
+   display: flex;
+   justify-content: center;
+   align-items: center;
 }
 
 .facebook img {
-   width: auto;
+   width: 1rem;
    height: 1rem;
-   position: absolute;
-   left: 25px;
-   bottom: 1px;
+   margin-right: 8px;
 }
 
 .facebook span {
    font: 500 14px 'Segoe UI';
    color: #385185;
 }
+
 /* SENHA */
+
 .forgot-pass {
    margin-top: 20px;
 }
@@ -169,7 +184,9 @@ form {
 .forgot-pass a {
    font: normal 12px 'Segoe UI';
 }
+
 /* CADASTRO */
+
 .register {
    width: 100%;
    padding: 1.4rem 1rem;
@@ -188,21 +205,25 @@ form {
 }
 
 /* DOWNLOAD */
+
 .apps {
    margin-top: 6px;
-   display: flex;
+   /* display: flex;
    justify-content: center;
    flex-wrap: wrap;
-   gap: 8px;
+   gap: 8px; */
+
 }
 
 .apps a {
    display: inline-block;
+   height: 40px;
+   margin: 5px 2px 0;
 }
 
 .apps p {
    font: normal 14px 'Segoe UI';
-   margin-bottom: 8px;
+   margin-bottom: 11px;
    width: 100%;
 }
 
@@ -212,6 +233,7 @@ form {
 }
 
 /* FOOTER */
+
 footer {
    margin-bottom: 3.75rem;
 }
@@ -241,6 +263,7 @@ li a:hover {
 }
 
 /* IDIOMA E DIREITOS */
+
 .language-container {
    text-align: center;
    display: flex;
@@ -258,7 +281,174 @@ li a:hover {
    text-transform: capitalize;
 }
 
-.copyright {
+.copyright {   
    font: normal 12px 'Segoe UI';
    color: #737373;  
+}
+
+/* MOBILE */
+
+
+@media (max-width: 1050px) {
+   
+   .form-container {
+      width: 35%;
+   }
+   
+   nav {
+      width: 90%;
+   }
+   
+   #footer-links {
+      flex-wrap: wrap;
+      justify-content: space-between;
+      
+   }
+   
+}
+
+@media (max-width: 780px) {
+
+   .box-form,
+   .form-container {
+      height: 75%;
+   }
+   
+   .banner-container {
+      display: none;
+   }
+
+   .form-container {
+      width: 70%;
+   }
+
+   .login input {
+      padding: 1rem;
+   }
+
+   .sep p {
+      left: 180px;
+   }
+
+   nav {
+      margin-bottom: 3rem;
+   }
+
+   footer {
+      width: 80%;
+      margin: 0 auto 60px;
+   }
+
+   #footer-links {
+      justify-content: space-evenly;
+      gap: 15px;
+   }
+}
+
+@media (max-width: 450px) {
+
+   main {
+      margin: 0;
+   }
+
+   .main-container {
+      padding: 0;
+   }
+
+   .banner-container {
+      display: none;
+   }
+
+   .box-form {
+      padding-bottom: 20px;
+   }
+
+   .main-container,
+   .box-form,
+   .form-container {
+      margin-top: 0;
+   }
+
+   .form-container,
+   .box-form,
+   .register {
+      width: 100%;
+      border: none;
+   }
+
+   .apps,
+    nav {
+      width: 70%;
+   }
+
+   .login input,
+   .sep {
+      width: 80%;
+      margin: 0 auto;
+   }
+
+   .login input {
+      padding: 0.7rem;
+   }
+
+   footer {
+      margin-top: 70px;
+      text-align: center; 
+   }
+
+   nav {
+      text-align: center;
+      width: 100%;
+   }
+
+   #footer-links {
+      width: 100%;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      margin-bottom: 40px;
+   }
+
+   .register {
+      height: 40px;
+   }
+
+   .sep p {
+      left: 110px;
+   }
+}
+
+@media (max-width: 390px) {
+   
+   .login input, input[type="submit"] {
+      width: 95%;
+   }
+
+   .sep {
+      width: 95%;
+   }
+}
+
+@media (max-width: 335px) {
+
+   .sep p {
+      left: 90px;
+   }
+
+   .apps {
+      margin: 10px 2px 0;
+   }
+
+   nav {
+      margin-bottom: 20px;
+      width: 88%;
+   }
+
+   #footer-links {
+      gap: 5px;
+   }
+   
+   footer {
+      width: 90%
+   }
+   
 }
