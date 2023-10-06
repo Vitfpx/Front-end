@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>GymBro</title>
   <link rel="stylesheet" href="../css/style-contact.css">
   <link rel="shortcut icon" href="../img/logo-bola.png" type="image/x-icon">
 </head>
@@ -25,7 +25,7 @@
   <main>
     <form method="GET">
       <div class="form-container">
-        <div class="text-contact">
+        <div class="info-contact">
           <h2>GymBro</h2>
           <h4>Contact us to ask questions or send suggestions. Fill out the form and send it to us!</h4>
           <div class="input-contact">
@@ -41,12 +41,20 @@
             type="tel" 
             name="phone" 
             placeholder="Your phone">
-            <textarea 
-            name="contact-us" 
-            id="contact-us" 
-            placeholder="contact-us">
-            </textarea>
           </div>
+        </div>
+        <div class="text-contact">
+          <textarea 
+          name="message" 
+          id="message" 
+          placeholder="Spend your message"
+          ></textarea>
+          <button 
+          id="submit" 
+          type="button" 
+          value="submit"
+          >Submit</button>
+          <img src="" alt="" id="back-to-home">
         </div>
       </div>
     </form>
