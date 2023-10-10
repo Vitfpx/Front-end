@@ -157,14 +157,25 @@ main {
   }
 
   .post p {
-    margin-bottom: 15px;
+    margin-bottom: 1rem;
     color: #d9d9d9;
     line-height: 25px;
   }
 
+  .post h4 {
+    margin: 3.5rem 0px 1rem;
+    font: normal bold 19px "Roboto";
+    color: #27c998;
+  }
+  
+  .post li {
+    line-height: 1.5rem;
+    margin-bottom: .6rem;
+  }
+
   .post .main-text {
     text-indent: 30px;
-    margin-top: 25px;
+    margin-top: 1rem;
   }
   
   .post h3, .read-more {
@@ -181,19 +192,6 @@ main {
   font-weight: bold;
   color: #27c998;
 }
-
-.post h4 {
-  margin-bottom: 1rem;
-  font: normal bold 18px "Roboto";
-  color: #27c998;
-}
-
-.post li {
-  list-style-type: decimal;
-  line-height: 1.5rem;
-  margin-bottom: 1rem;
-}
-
 
 /* ASIDE CONTENT */
 #search-bar,
@@ -295,3 +293,130 @@ footer {
   .footer-container a:hover {
     color: #31F4B8;
   }
+
+/* RESPONSIVE */
+/* PC/NOTEBOOK */
+@media (max-width: 1050px) {
+
+  .header-container {
+    gap: 70px;
+  }
+
+  .nav-bar a {
+    width: 6rem;
+    padding: .8rem .2rem;
+    font-size: 14px;
+  }
+
+  #nav-side-bar {
+    width: max-content;
+  }
+
+  .post img {
+    width: 100%;
+  }
+
+  .main-container {
+    width: 160%;
+    padding: 0 60px;
+  }
+
+  .post h3 {
+    font-size: 23px;
+  }
+
+}
+
+/* TABLET */
+@media (max-width: 800px) {
+  header {
+    padding: 0;
+  }
+
+  .header-container {
+    gap: 0px;
+    width: 58%;
+  }    
+  
+  .nav-bar {
+    padding: 0;
+    justify-content: end;
+    margin-right: 15px;
+  }
+  
+  .nav-bar a {
+    width: max-content;
+    padding: .8rem .5rem;
+  }
+  
+  .banner-container {
+    margin-left: 15px;
+    width: 125px;
+  }
+
+  .main-container {
+    padding: 0 30px;
+  }
+
+  .main-text {
+    font-size: 14px;
+  }
+    
+  #tags {
+    padding: 20px 15px;
+  }
+  
+  .tags-container a {
+    padding: 5px 6px;
+  }
+  
+  .footer-container {
+    font-size: 12px;
+  }
+
+  .post h3 {
+    font-size: 16px;
+  }
+
+  .post ul {
+    font-size: 14px;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 585px) {
+  main {
+    flex-wrap: wrap;
+  }
+
+  .header-container {
+    width: 100%;
+  }
+
+  #side-bar {
+    font-size: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav-bar a {
+    font-size: 14px;
+    padding: 5px 5px;
+  }  
+
+  .post h3 {
+    font-size: 22px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 390px) {
+  .nav-bar a {
+    font-size: 12px;
+    padding: 5px 5px;
+  }
+  #side-bar {
+    margin-bottom: 20px;
+  }
+}
