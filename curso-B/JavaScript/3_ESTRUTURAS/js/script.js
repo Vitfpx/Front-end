@@ -220,9 +220,9 @@ switch(job) {
 
 
 // switch "errado". O correto seria usar o break em todos os case
-const l = 100
+const L = 100
 
-switch(l) {
+switch(L) {
   case 200:
     console.log("L é 200!");
   case 100:
