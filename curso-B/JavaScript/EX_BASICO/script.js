@@ -34,7 +34,20 @@
 //   console.log(`Fazem ${anos_excedidos} anos que você deveria ter se alistado.`);
 // }
 
+
 // Ex.4
 // for(let x = 1; x < 101; x++) {
 //   console.log(x)
 // }
+
+
+// Ex.5
+// let soma = (a, b) => {
+//   return console.log(a + b);
+// }
+
+// soma(15, 20);
+
+
+// Ex.6
+
