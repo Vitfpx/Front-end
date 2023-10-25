@@ -176,6 +176,7 @@ console.log(customGreeting("Mr. HXVRMXN"));
 console.log(customGreeting("Vitor", "Bom dia"));
 
 
+
 const repeatText = (text, repeat = 2) => {
   for(let i = 0; i < repeat; i++) {
     console.log(text);
@@ -215,3 +216,42 @@ const c2 = multiplicateClosure(10);
 console.log(c1);
 
 console.log(c2); 
+
+
+// 11 - recursion
+const untilTen = (n, m) => {
+  if(n < 10) {
+    console.log("A função parou de executar!");
+  } else {
+    const x = n - m;
+
+    console.log(x);
+
+    untilTen(x, m); // Por ter chamado a função dentro dela mesma, se cria um loop de recursion
+  }
+};
+
+untilTen(100, 7);
+
+
+// infite recursion
+// function run() {
+//   console.log("Executando...");
+//   run();
+// }
+
+// run()
+
+function factorial(x) {
+  if(x === 0) {
+    return 1;
+  } else {
+    return x * factorial(x - 1);
+  }
+}
+
+const num = 6;
+
+const result = factorial(num);
+
+console.log(`O fatorial do número ${num} é ${result}`);

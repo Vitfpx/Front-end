@@ -1,3 +1,5 @@
+// **HORA DE CODAR**
+
 // Ex.1
 // const nome = prompt("Digite seu nome: ");
 // const idade = prompt("Digite sua idade: ");
@@ -51,3 +53,9 @@
 
 // Ex.6
 
+
+// **O PROGRAMADOR**
+// Ex.1
+alert("Alerta!")
+
+// Ex.2
