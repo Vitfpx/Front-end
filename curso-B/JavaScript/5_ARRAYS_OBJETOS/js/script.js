@@ -352,6 +352,7 @@ console.log(palavra.repeat(2));
 
 // 23 - rest operator
 const somaInfinita = (...args) => {
+  // Para relembrar: https://www.youtube.com/watch?v=f4JX8WTqkZs&t=12s&ab_channel=ClubeFull-Stack
   let total = 0;
 
   for (let i = 0; i < args.length; i++) {
@@ -361,12 +362,13 @@ const somaInfinita = (...args) => {
   return total;
 };
 
-console.log(somaInfinita(1, 2 , 3));
+console.log(somaInfinita(1, 2, 3));
 
 console.log(somaInfinita(1, 2, 4, 8, 16, 32, 64, 128));
 
 
 // 24 - for...of
+// Para relembrar: https://www.youtube.com/watch?v=HFG_p4K2MAc&ab_channel=DevAprender%7CJhonatandeSouza
 const somaInfinita2 = (...args) => {
   let total = 0
 
@@ -388,7 +390,7 @@ let aprovados = 0;
 let reprovados = 0;
 
 for (media of notas) {
-  // A linha abaixo significa todo o código de if e else comentado, porém,
+  // A linha abaixo significa todo o código de if e else comentado
   media>60?aprovados++:reprovados++; 
 
   // if (media > 60) {
@@ -403,6 +405,7 @@ console.log(`O número de alunos aprovados é: ${aprovados}\nO número de alunos
 
 
 // 25 - destructuring em objetos
+// Para relembrar: https://www.youtube.com/watch?v=ruoHSuTKp-U&t=312s&ab_channel=MaykBrito
 const userDetail = {
   firstName: "Vitor",
   lastName: "Raimundo",

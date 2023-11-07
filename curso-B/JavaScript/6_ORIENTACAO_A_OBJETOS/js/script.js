@@ -159,7 +159,7 @@ const scania = new Caminhao(6, "Vermelho");
 
 console.log(scania);
 
-scania.descreverCaminhao();
+scania.descreverCaminhao(); // Chamar a função com uma variável específica
 
 Caminhao.motor = 4; // Não funciona
 
