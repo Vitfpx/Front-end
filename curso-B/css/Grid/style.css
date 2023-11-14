@@ -1,0 +1,35 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.box {
+  border: 5px solid red;
+  border-radius: 5px;
+  background-color: blue;
+  font-size: 30px;
+  color: white;
+  text-align: center;
+  /* min-width: 100px; */
+  min-height: 100px;
+}
+
+.boxes {
+  position: relative;
+  display: grid;
+  justify-content: flex-start;
+
+  /* row-gap: 1rem;
+  column-gap: 2rem; */
+  /* gap é um shorthand de dos códigos acima */
+  gap: 1rem 2rem;
+
+
+  /* grid-template-columns: 3fr 1fr 1fr 1fr; É igual ao comando de baixo */ 
+  grid-template-columns: 3fr repeat(3, 1fr); 
+  /* grid-template-rows: minmax(150px, 2fr); */
+}
+
+/* :root { */
+
+/* } */
