@@ -25,5 +25,3 @@ const moviesAvaliable = [
     ticketValue: 35
   },
 ];
-
-if 
