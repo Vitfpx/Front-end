@@ -67,7 +67,7 @@
 
 // console.warn("Aviso!");
 
-// // 7 - if
+// 7 - if
 // const m = 10;
 
 // if (m > 5) {
@@ -86,7 +86,7 @@
 
 // console.log(user === "João", user === "Maria");
 
-// // 8 - else
+// 8 - else
 // const loggedIn = false;
 
 // if (loggedIn === true) {
@@ -104,7 +104,7 @@
 //   console.log("Os números não são mais altos!")
 // }
 
-// // 9 - else if
+// 9 - else if
 // if (1 > 2) {
 //   console.log("Teste!");
 // } else if (2 > 3) {
@@ -124,7 +124,7 @@
 //   console.log("Nenhuma condição aceita!");
 // }
 
-// // 10 - while
+// 10 - while
 
 // let p = 0
 
@@ -133,7 +133,7 @@
 //   p = p + 1;
 // }
 
-// // loop infinito
+// loop infinito
 // let x = 10;
 
 // while(x > 5) {
@@ -202,7 +202,7 @@ for (let s = 1; s < 10; s = s + 1) {
 
 
 // 16 - switch
-const job = "Advogado"
+const job = "Coder"
 
 switch(job) {
   case "Coder":

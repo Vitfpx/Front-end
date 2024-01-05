@@ -80,7 +80,7 @@
 // console.log(myGame);
 
 
-// // 7 - mais sobre objetos
+// 7 - mais sobre objetos
 // const obj = {
 //   a: "teste",
 //   b: true,
@@ -91,12 +91,16 @@
 // const obj2 = {
 //   c: [],
 // };
-
+// Atribuir o primeiro objeto no segundo..
 // Object.assign(obj2, obj);
 
 // console.log(obj2);
 
 // console.log(obj);
+// Atribuir o segundo objeto no primeiro..
+// Object.assign(obj, obj2);
+
+// console.log(obj)
 
 
 // // 8 - conhecendo melhor os objetos
@@ -193,6 +197,7 @@
 // console.log(games[games.indexOf("Elden Ring")]); 
 
 // console.log(games.lastIndexOf("Valorant"));
+// console.log(games.indexOf("Valorant"));
 
 // console.log(games.indexOf("Sim City"));
 // console.log(games.lastIndexOf("Sim City"));
@@ -232,7 +237,7 @@
 
 // const movies = [
 //   { title: "First movie", category: "Action" }, // Title é a propriedade, seu valor é a chave
-//   { title: "Second movie", category: "Supernatura" },
+//   { title: "Second movie", category: "Supernatural" },
 //   { title: "Third movie", category: "Fiction" },
 // ];
 
@@ -278,168 +283,169 @@
 // });
 
 
-// 16 - includes
-const brands = ["BMW", "VW", "Fiat"];
+// // 16 - includes
+// const brands = ["BMW", "VW", "Fiat"];
+// // Serve para verificar se há ou não o valor digitado...
+// console.log(brands.includes("Fiat"));
 
-console.log(brands.includes("Fiat"));
+// console.log(brands.includes("KIA"));
 
-console.log(brands.includes("KIA"));
-
-if (brands.includes("BMW")) {
-  console.log("Há carros da marca BMW.")
-}
-
-
-// 17 - reverse
-const reverseTest = [1, 2, 3, 4, 5];
-
-reverseTest.reverse();
-
-console.log(reverseTest);
+// if (brands.includes("BMW")) {
+//   console.log("Há carros da marca BMW.")
+// }
 
 
-// 18 - trim
-const trimTest = '  testando\n  '
+// // 17 - reverse
+// const reverseTest = [1, 2, 3, 4, 5];
 
-console.log(trimTest);
+// reverseTest.reverse();
 
-console.log(trimTest.trim());
-
-console.log(trimTest.length);
-
-console.log(trimTest.trim().length);
+// console.log(reverseTest);
 
 
-// 19 - padStart
-const numPhone = "19 97417-";
+// // 18 - trim
+// const trimTest = '  testando\n  '
 
-const newNumber = numPhone.padStart(13, "+55 ");
+// console.log(trimTest);
 
-console.log(numPhone);
+// console.log(trimTest.trim());
 
-console.log(newNumber);
-
-const testePadEnd = newNumber.padEnd(17, "8594");
-
-console.log(testePadEnd);
+// console.log(trimTest.length);
+// // Remove do length as inconsistências...
+// console.log(trimTest.trim().length);
 
 
-// 20 - split
-const frase = "O rato roeu a roupa do rei de Roma";
+// // 19 - padStart
+// const numPhone = "19 97417-";
 
-const arrayDaFrase = frase.split(" r");
+// const newNumber = numPhone.padStart(13, "+55 ");
 
-console.log(arrayDaFrase);
+// console.log(numPhone);
 
+// console.log(newNumber);
 
-// 21 - join
-const fraseDeNovo = arrayDaFrase.join(" r");
+// const testePadEnd = newNumber.padEnd(17, "8594");
 
-console.log(fraseDeNovo);
-
-const jogosParaComprar = ["Dark Souls", "Elden Ring", "Mortal Kombat 1", "Stardew Valley"];
-
-const fraseDeCompra = `Preciso comprar: ${jogosParaComprar.join(" / ")}.`;
-
-console.log(fraseDeCompra);
+// console.log(testePadEnd);
 
 
-// 22 - repeat
-const palavra = "testando ".repeat(2);
-// Dessa forma serão exibidas 4 vezes pois 2 * 2 = 4
-console.log(palavra.repeat(2));
+// // 20 - split
+// const frase = "O rato roeu a roupa do rei de Roma";
+
+// const arrayDaFrase = frase.split(" r");
+
+// console.log(arrayDaFrase);
 
 
-// 23 - rest operator
-const somaInfinita = (...args) => {
-  // Para relembrar: https://www.youtube.com/watch?v=f4JX8WTqkZs&t=12s&ab_channel=ClubeFull-Stack
-  let total = 0;
+// // 21 - join
+// const fraseDeNovo = arrayDaFrase.join(" r");
 
-  for (let i = 0; i < args.length; i++) {
-    total += args[i];
-  }
+// console.log(fraseDeNovo);
 
-  return total;
-};
+// const jogosParaComprar = ["Dark Souls", "Elden Ring", "Mortal Kombat 1", "Stardew Valley"];
 
-console.log(somaInfinita(1, 2, 3));
+// const fraseDeCompra = `Preciso comprar: ${jogosParaComprar.join(" / ")}.`;
 
-console.log(somaInfinita(1, 2, 4, 8, 16, 32, 64, 128));
+// console.log(fraseDeCompra);
 
 
-// 24 - for...of
-// Para relembrar: https://www.youtube.com/watch?v=HFG_p4K2MAc&ab_channel=DevAprender%7CJhonatandeSouza
-const somaInfinita2 = (...args) => {
-  let total = 0
-
-  for (num of args) {
-    total += num
-  }
-
-  return total;
-};
-
-console.log(somaInfinita(1, 2, 3));
-
-console.log(somaInfinita(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
+// // 22 - repeat
+// const palavra = "testando ".repeat(2);
+// console.log(palavra);
+// // Dessa forma serão exibidas 4 vezes pois 2 * 2 = 4
+// console.log(palavra.repeat(2));
 
 
-// PARA EXEMPLIFICAR
-let notas = [16, 99, 27, 84, 30, 77, 39, 61, 48, 53 , 91, 100, 10];
-let aprovados = 0;
-let reprovados = 0;
+// // 23 - rest operator
+// const somaInfinita = (...args) => {
+//   // Para relembrar: https://www.youtube.com/watch?v=f4JX8WTqkZs&t=12s&ab_channel=ClubeFull-Stack
+//   let total = 0;
 
-for (media of notas) {
-  // A linha abaixo significa todo o código de if e else comentado
-  media>60?aprovados++:reprovados++; 
+//   for (let i = 0; i < args.length; i++) {
+//     total += args[i];
+//   }
 
-  // if (media > 60) {
-  //   aprovados++;
-  // } else {
-  //   reprovados++;
-  // }
+//   return total;
+// };
 
-}
+// console.log(somaInfinita(1, 2, 3));
 
-console.log(`O número de alunos aprovados é: ${aprovados}\nO número de alunos reprovados é: ${reprovados}`);
+// console.log(somaInfinita(1, 2, 4, 8, 16, 32, 64, 128));
 
 
-// 25 - destructuring em objetos
-// Para relembrar: https://www.youtube.com/watch?v=ruoHSuTKp-U&t=312s&ab_channel=MaykBrito
-const userDetail = {
-  firstName: "Vitor",
-  lastName: "Raimundo",
-  job: "Student",
-};
+// // 24 - for...of
+// // Para relembrar: https://www.youtube.com/watch?v=HFG_p4K2MAc&ab_channel=DevAprender%7CJhonatandeSouza
+// const somaInfinita2 = (...args) => {
+//   let total = 0
 
-// const primeiroNome = userDetails.firstName;
-// const ultimoNome = userDetails.lastName;
-// const trabalho = userDetails.job;
-// O código abaixo é igual ao de cima, porém, mais moderno
+//   for (num of args) {
+//     total += num
+//   }
 
-const { firstName, lastName, job } = userDetail;
+//   return total;
+// };
 
-console.log(firstName, lastName, job);
-// renomear variáveis
-const { 
-  firstName: primeiroNome,
-  lastName: ultimoNome,
-  job: estudante,
-} = userDetail;
+// console.log(somaInfinita2(1, 2, 3));
 
-console.log(primeiroNome);
-console.log(ultimoNome);
-console.log(estudante);
+// console.log(somaInfinita2(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
 
 
-// 26 - destructuring em arrays
-const myList = ["Avião", "Submarino", "Carro"];
+// // PARA EXEMPLIFICAR
+// let notas = [16, 99, 27, 84, 30, 77, 39, 61, 48, 53 , 91, 100, 10];
+// let aprovados = 0;
+// let reprovados = 0;
 
-const [veiculoA, veiculoB, veiculoC, DDD] = myList;
+// for (media of notas) {
+//   // A linha abaixo significa todo o código de if e else comentado
+//   media>60?aprovados++:reprovados++; 
 
-console.log(veiculoA, veiculoB, veiculoC);
+//   // if (media > 60) {
+//   //   aprovados++;
+//   // } else {
+//   //   reprovados++;
+//   // }
 
-console.log(DDD);
+// }
+
+// console.log(`O número de alunos aprovados é: ${aprovados}\nO número de alunos reprovados é: ${reprovados}`);
+
+
+// // 25 - destructuring em objetos
+// // Para relembrar: https://www.youtube.com/watch?v=ruoHSuTKp-U&t=312s&ab_channel=MaykBrito
+// const userDetail = {
+//   firstName: "Vitor",
+//   lastName: "Raimundo",
+//   job: "Student",
+// };
+
+// // const primeiroNome = userDetails.firstName;
+// // const ultimoNome = userDetails.lastName;
+// // const trabalho = userDetails.job;
+// // O código abaixo é igual ao de cima, porém, mais moderno e usando destructuring
+
+// const { firstName, lastName, job } = userDetail; // Abaixo há uma estrutura que faz o mesmo que está linha, porém, já renomeando as propriedades...
+
+// console.log(firstName, lastName, job);
+// // renomear variáveis
+// const { 
+//   firstName: primeiroNome,
+//   lastName: ultimoNome,
+//   job: estudante,
+// } = userDetail;
+
+// console.log(primeiroNome);
+// console.log(ultimoNome);
+// console.log(estudante);
+
+
+// // 26 - destructuring em arrays
+// const myList = ["Avião", "Submarino", "Carro"];
+
+// const [veiculoA, veiculoB, veiculoC, DDD] = myList;
+
+// console.log(veiculoA, veiculoB, veiculoC);
+
+// console.log(DDD);
 
 
 // 27 - JSON
@@ -465,6 +471,8 @@ console.log(typeof myObject);
 const badJson = '{"name": Matheus, "agr": 20}'
 
 // const myBadObject = JSON.parse(badJson);
+
+// Adicionando propriedade ao objeto
 myObject.isOpenToWork = true;
 
 console.log(myObject);

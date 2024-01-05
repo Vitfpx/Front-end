@@ -1,4 +1,4 @@
-// // 1 - Criando uma função
+// 1 - Criando uma função
 // function minhaFuncao() {
 //   console.log("Testando!");
 // }
@@ -7,22 +7,24 @@
 // minhaFuncao();
 
 
-// // Função em variável
+// Função em variável:
 // const FuncaoEmVariavel = function () {
-//   // Esse modelo apresenta mais consistência por se tratar de uma constate
+//   // Esse modelo apresenta mais consistência por se tratar de uma constante
 //   console.log("Função em Variável!");
 // };
 
 // FuncaoEmVariavel();
 
 
-// // Função com parâmetro
+// Função com parâmetro:
+// const txt = prompt("O que será imprimido?")
 // function funcaoComParametro(txt) {
 //   console.log(`Imprimindo: ${txt}`);
 // }
-// //Nesta forma o parâmetro pode ter vários significados, enquanto na forma abaixo ele tem apenas um
+// // Nesta forma o parâmetro pode ter vários significados, enquanto na forma abaixo ele tem apenas um
 // funcaoComParametro("Imprimindo alguma coisa");
 // funcaoComParametro("Outra função");
+// funcaoComParametro(txt);
 
 // const boi = "Xicolari";
 
@@ -41,8 +43,9 @@
 // const d = 40;
 
 // function soma(n1, n2) {
+//   Se usar o console.log ou invés do return, o resultado será mostrado apenas dentro da função e não aonde queremos
 //   return n1 + n2;
-// }
+// } 
 
 // const resultado = soma(a, b);
 
@@ -51,7 +54,7 @@
 // console.log(soma(c, d));
 
 
-// // 3 - Escopo da função
+// 3 - Escopo da função
 // let x = 10;
 
 // function testandoEscopo() {
@@ -70,7 +73,7 @@
 // console.log(`X fora da função é ${x}`);
 
 
-// // 4 - Escopo aninhado
+// 4 - Escopo aninhado
 // let p = 10;
 
 // function escopoAninhado() {
@@ -82,7 +85,7 @@
 //     if (true) {
 //       let p = 40;
 
-//       console.log(x);
+//       console.log(p);
 //     }
 
 //     console.log(p);
