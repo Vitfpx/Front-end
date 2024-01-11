@@ -28,7 +28,7 @@ console.log(pessoa.nome);
 
 console.log(pessoa.getNome());
 
-pessoa.setNome("Joaquim");
+pessoa.setNome("Larissinha");
 
 console.log(pessoa.getNome());
 
@@ -98,9 +98,9 @@ function criarCachorro(nome, raca) {
   return cachorro;
 }
 
-const bob = criarCachorro("Simba", "Vira lata");
+const simba = criarCachorro("Simba", "Vira lata");
 
-console.log(bob);
+console.log(simba);
 
 const dimi = criarCachorro("Dimi", "Pinscher");
 
@@ -140,7 +140,7 @@ const jeff = new CachorroClasse("Jeff", "Labrador");
 
 console.log(jeff);
 
-console.log(Object.getPrototypeOf(jeff));
+console.log(Object.getPrototypeOf(jeff)); 
 
 
 // 10 - mais sobre classes
@@ -255,9 +255,9 @@ class Mamifero {
   }
 }
 
-class Lobo extends Mamifero {
+class Lobo extends Mamifero { // extends adiciona a classe que vai trazer as propriedades
   constructor(patas, nome)  {
-    super(patas, patas);
+    super(patas, patas); // super envia os valores para a classe pai (no caso de patas de lobo para patas do mamí   fero)
     this.nome = nome;
   }
 }
