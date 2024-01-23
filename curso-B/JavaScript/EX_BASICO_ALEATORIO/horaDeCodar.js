@@ -7,7 +7,26 @@ console.log(typeof trueN);
 
 // 2
 const amazingJs = "JavaScript é incrível";
+const wordsNumber = amazingJs.split(" ").length;
+const characterNumber = amazingJs.length;
 
-const jsLenght = amazingJs.split(" ").length;
+console.log(`O número de palavras é ${wordsNumber}`);
+console.log(`E o número de caracteres é ${characterNumber}`);
 
-console.log(`O número de espaços é ${jsLenght}`)
+// 3
+const name = ["Vitor", "Lari", "Xico", "Pacoca", "Felipe"];
+
+for (let i = 0; i < name.length; i++) {
+  console.log(name[i]);
+}
+
+// 5
+const conversorHorario = (horario24) => {
+  if (horario24 > 12) {
+    return `Agora é(são) ${horario24 - 12} p.m`
+  } else {
+    return `Agora é(são) ${horario24} a.m`
+  }
+}
+
+console.log(conversorHorario("19:20"))
