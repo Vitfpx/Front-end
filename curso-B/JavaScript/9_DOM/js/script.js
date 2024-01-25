@@ -26,7 +26,7 @@ const products = document.getElementsByClassName("product");
 console.log(products);
 
 // 5 - Selecionado por CSS
-const productQuery = document.querySelectorAll(".product");
+const productQuery = document.querySelectorAll(".product"); // Todos os elementos .product
 
 console.log(productQuery);
 
@@ -130,13 +130,12 @@ console.log(product1.getBoundingClientRect());
 mainContainer.style.color = "red";
 mainContainer.style.backgroundColor = "#333";
 mainContainer.style.paddingBottom = "15px";
-footerQuery.style.borderRadius = "10px"
-footerQuery.style.padding = "0 10px 10px 10px"
+footerQuery.style.borderRadius = "10px";
+footerQuery.style.padding = "0 10px 10px 10px";
 
 // 14 - Alterango estilos de vários elementos
-for(const li of listItens) {
-  li.style.backgroundColor = "#F00"
+for (const li of listItens) {
+  li.style.backgroundColor = "#F00";
 }
 
-pQuery.style.backgroundColor = "#0F0"
-
+pQuery.style.backgroundColor = "#0F0";

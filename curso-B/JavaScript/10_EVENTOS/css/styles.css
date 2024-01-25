@@ -1,3 +1,7 @@
+body {
+  margin-bottom: 2000px;
+}
+
 #btn-container,
 #div-btn {
   border-radius: 5px;
