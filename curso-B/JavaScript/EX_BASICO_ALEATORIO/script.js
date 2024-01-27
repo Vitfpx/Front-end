@@ -56,6 +56,14 @@
 
 // **O PROGRAMADOR**
 // Ex.1
-alert("Alerta!")
+// alert("Alerta!")
 
 // Ex.2
+
+// challenges
+function myFunction (a, n) {
+  return n = a.length[n]
+
+}
+
+console.log(myFunction("abc", 3))

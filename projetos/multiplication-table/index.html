@@ -1,32 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Multiplication Table</title>
-  <link rel="stylesheet" href="css/styles.css">
-  <script src="js/scripts.js" defer></script>
-</head>
-<body>
-  <main> <!--Enter the number and confirm to generate a multiplication table -->
-    <h2 class="title">Digite o número e confirme para gerar uma tabuada</h2>
-    <div id="mainContent">
-      <div id="calculate">
-        <div class="multiplicateNumbers">
-          <label for="table-of">Table Of:</label>
-          <input type="number" name="table-of" placeholder="0">
-          <label for="multiply-until">Multiply until:</label>
-          <input type="number" name="multiply-until" placeholder="0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multiplication Table</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/scripts.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <!--Enter the number and confirm to generate a multiplication table -->
+      <h2 class="title">Digite o número e confirme para gerar uma tabuada</h2>
+      <div id="mainContent">
+        <form id="calculation-form">
+          <div class="multiplicateNumbers">
+            <label for="table-of">Tabuada do:</label>
+            <input type="number" id="number" placeholder="0" />
+          </div>
+          <div class="multiplicateNumbers">
+            <label for="multiply-until">Multiplicar até:</label>
+            <input type="number" id="multiplicator" placeholder="100" />
+          </div>
+          <input type="submit" value="Calcular" />
+        </form>
+        <div class="multiplication-table">
+          <h2 class="multiplication-title">Tabuada do número: <span></span></h2>
+          <div class="multiplication-operations">
+            <p>Informe um número para calcular uma tabuada...</p>
+          </div>
         </div>
-        <button>Calculate:</button>
       </div>
-      <h2 class="title">Number Table:</h2>
-      <div class="result">
-        <p>Enter a number to calculate a multiplication table...</p>
-      </div>
-    </div>
-
-  </main>
-
-</body>
+    </main>
+  </body>
 </html>

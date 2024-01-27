@@ -419,7 +419,7 @@ body {
 .main-img {
     background-color: black;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap;    
     justify-content: space-evenly;
     height: 383px;
     align-items: center;

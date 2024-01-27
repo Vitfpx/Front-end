@@ -1,12 +1,86 @@
 /* RESET CONFIG */
 
-html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, 
-    blockquote, pre,a, abbr, acronym, address, big, cite, code,del, dfn, em, 
-    img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var,b, u, 
-    i, center,dl, dt, dd, ol, ul, li,fieldset, form, label, legend,table, 
-    caption, tbody, tfoot, thead, tr, th, td,article, aside, canvas, details, 
-    embed, figure, figcaption, footer, header, hgroup, menu, nav, output, 
-    ruby, section, summary, time, mark, audio, video {
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -15,21 +89,35 @@ html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p,
   vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, 
-    nav, section {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
   display: block;
 }
 body {
   line-height: 1;
 }
-ol, ul {
+ol,
+ul {
   list-style: none;
 }
-blockquote, q {
+blockquote,
+q {
   quotes: none;
 }
-blockquote:before, blockquote:after,q:before, q:after {
-  content: '';
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
   content: none;
 }
 table {
@@ -37,56 +125,131 @@ table {
   border-spacing: 0;
 }
 
+* {
+  color: #333333;
+  font-family: Helvetica;
+}
+
 /* BODY */
 body {
-  background: linear-gradient(to bottom, #D84347 0%, #3F24DD 100%);
-  height: 100vh;
-  margin-bottom: 60px;
+  background: linear-gradient(to bottom, #db4444 0%, #3f24dd 98%);
+  min-height: 100vh;
+  padding: 2rem;
+  color: #fff;
 }
 
-/* MAIN */
-.title {
-  color: white;
-  font: bold 24px Helvetica;
-  margin: 16px;
-}
-
+/* main */
 main {
   text-align: center;
-  padding: 16px;
 }
 
-/* mainContent */
-#calculate {
-  margin: 0 auto;  
-  max-width: 331px;
+.title {
+  color: white;
+  font: bold 1.5rem Helvetica;
+  margin-bottom: 1rem;
+}
+/* final main */
+
+/* Form */
+#calculation-form {
+  margin: 1rem auto;
+  padding: 1rem;
+  max-width: 300px;
   width: 100%;
-  height: 145px;
-  background-color: #FFF;
-  border-radius: 15px;  
-
-
-  
-}
-
-.multiplicateNumbers {
-  padding: 25px 55px;
+  background-color: #fff;
+  border-radius: 1rem;
 
   display: flex;
-  flex-direction: row;
-  align-items: center;
-
-}
-
-  .multiplicateNumbers > input {
-    width: 40px;
-  }
-
-/* Calculate */
-/* #calculate {
-  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  flex-direction: ;
-} */
+}
 
+#calculation-form input[type="submit"] {
+  max-height: 50px;
+  padding: 0.6rem 1.2rem;
+  width: 200px;
+  color: #fff;
+  background-color: #333333;
+  border: 1px solid #333;
+  font: bold 0.8rem Helvetica;
+  cursor: pointer;
+  border-radius: 5px;
+}
+/* final form */
+
+/* form content */
+.multiplicateNumbers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 6.25rem;
+  margin: 0 1rem;
+}
+
+.multiplicateNumbers label {
+  font: bold 0.8rem Helvetica;
+  margin-bottom: 0.6rem;
+}
+
+.multiplicateNumbers input {
+  margin-bottom: 1rem;
+  flex: 1;
+  padding: 0.6rem 0.4rem;
+  width: 3.125rem;
+  border: 1px solid #333;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.multiplication-title {
+  font: bold 1.5rem Helvetica;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+/* final form content */
+
+/* result of operations */
+.multiplication-operations {
+  background-color: #fff;
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  min-height: 2rem;
+  text-align: center;
+  margin: 1rem auto;
+  border-radius: 1rem;
+  padding: 2rem 1rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.multiplication-operations > p {
+  font: normal 1rem Helvetica;
+}
+
+.multiplication-operations .row {
+  border: 1px solid #cccccc;
+  padding: 9px;
+  border-bottom: none;
+  width: 148px;
+
+  display: flex;
+  justify-content: center;
+}
+
+.multiplication-operations .row:last-child {
+  border-bottom: 1px solid #ccc;
+}
+
+.multiplication-operations .result {
+  margin-left: .4rem;
+}
+
+.multiplication-title span {
+  color: #FFF;
+}
+/* final result of operations */

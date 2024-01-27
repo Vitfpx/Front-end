@@ -21,12 +21,14 @@ for (let i = 0; i < name.length; i++) {
 }
 
 // 5
+const horario24 = prompt("Digite que horas são: ");
+
 const conversorHorario = (horario24) => {
   if (horario24 > 12) {
-    return `Agora é(são) ${horario24 - 12} p.m`
+    return `Agora é(são) ${horario24 - 12} p.m`;
   } else {
-    return `Agora é(são) ${horario24} a.m`
+    return `Agora é(são) ${horario24} a.m`;
   }
-}
+};
 
-console.log(conversorHorario("19:20"))
+console.log(conversorHorario(horario24));
