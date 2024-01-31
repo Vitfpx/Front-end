@@ -48,3 +48,7 @@ button {
 .easterEgg {
   display: none;
 }
+
+audio {
+  /* display: none; */
+}

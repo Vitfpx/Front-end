@@ -24,10 +24,11 @@ const monsterStats = document.querySelector("#monsterStats");
 const monsterName = document.querySelector("#monsterName");
 const monsterHealthText = document.querySelector("#monsterHealth");
 const weapons = [
-  { name: "stick", power: 5 },
-  { name: "dagger", power: 30 },
-  { name: "claw hammer", power: 50 },
-  { name: "sword", power: 100 },
+  { name: "Stick", power: 5 },
+  { name: "Dagger", power: 30 },
+  { name: "Claw Hammer", power: 50 },
+  { name: "Sword", power: 100 },
+  { name: "Drake Sword", power: 150 },
 ];
 const monsters = [
   {
@@ -80,7 +81,7 @@ const locations = [
     "button text": [
       "Go to town square",
       "Go to town square",
-      "Go to town square",
+      "Go to town ⬜",
     ],
     "button functions": [goTown, goTown, easterEgg],
     text: 'The monster screams "Arg!" as it dies. You gain experience points and find gold.',
@@ -121,7 +122,7 @@ const locations = [
       pickEight,
       goTown,
     ],
-    text: "You find a secret game. Pick a number above. Ten numbers will be randomly chosen between 0 and 10. If the number you choose matches one of the random numbers, you win!",
+    text: "You find a secret game. Pick a number above. Three numbers will be randomly chosen between 0 and 10. If the number you choose matches one of the random numbers, you win!",
   },
 ];
 
@@ -156,8 +157,8 @@ function update(location) {
 function goTown() {
   update(locations[0]);
   buttons.forEach((button) => {
-    button.style.display = "none"
-  })
+    button.style.display = "none";
+  });
 }
 
 function goStore() {
@@ -348,23 +349,26 @@ function pickEight() {
 
 function pick(guess) {
   const numbers = [];
-  while (numbers.length < 2) {
+  while (numbers.length < 3) {
     numbers.push(Math.floor(Math.random() * 11));
   }
   text.innerText = "You picked " + guess + ". Here are the random numbers:\n";
-  for (let i = 0; i < 2; i++) {
+  for (let i = 0; i < 3; i++) {
     text.innerText += numbers[i] + "\n";
   }
   if (numbers.includes(guess)) {
-    text.innerText += "Right! You win 20 gold!";
-    gold += 20;
-    goldText.innerText = gold;
+    text.innerText += "RIGHTTTT! You win the Drake Sword!";
+    inventory = inventory.push("Drake Sword");
+    currentWeapon = 4
   } else {
-    text.innerText += "Wrong! You lose 10 health!";
-    health -= 10;
+    text.innerText += "Wrong! You lose 20 health!";
+    health -= 20;
     healthText.innerText = health;
     if (health <= 0) {
       lose();
+      buttons.forEach((button) => {
+        button.style.display = "none";
+      });
     }
   }
 }
