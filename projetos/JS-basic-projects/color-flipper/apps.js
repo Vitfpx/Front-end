@@ -4,7 +4,6 @@ const main = document.querySelector("main");
 const h1 = document.querySelector("h1");
 const h2 = document.querySelector("h2");
 const a = document.querySelectorAll("a");
-const updateColor = [h1, h2, ...document.querySelectorAll("a")];
 
 const colors = [
   "Turquoise",
@@ -20,12 +19,23 @@ const colors = [
 let getColor = (color) => {
   return color[Math.floor(Math.random() * colors.length)];
 };
-
 button.addEventListener("click", () => {
-  let pallete = getColor(colors);
-  main.style.backgroundColor = color.style.color = h1.style.color = h2.style.color = pallete;
-  color.innerText = pallete;
-  updateColor.forEach((elements) => {
-    elements.style.color = pallete;
+  let palette = getColor(colors);
+  main.style.backgroundColor =
+    color.style.color =
+    color.innerText =
+    h2.style.color =
+    h1.style.color =
+      palette;
+  a.forEach((element) => {
+    element.style.color = palette;
+    element.addEventListener("mouseenter", () => {
+      element.style.backgroundColor = palette;
+      element.style.color = "#fff";
+    });
+    element.addEventListener("mouseleave", () => {
+      element.style.backgroundColor = "";
+      element.style.color = palette;
+    });
   });
 });
