@@ -1,0 +1,31 @@
+/* Variables */
+:root {
+  --clr-bg: #1b1b32;
+  --clr-white: #fff;
+  --ff-primary: "Lato", Helvetica, Arial, sans-serif;
+  
+}
+
+/* Reset config */
+
+* {
+  padding: 0;
+  border: 0;
+  margin: 0;
+  text-transform: none;
+}
+
+body {
+  background-color: var(--clr-bg);
+}
+
+main {
+}
+
+h1 {
+  color: var(--clr-white);
+  text-align: center;
+  padding: 1.5rem;
+  font: bold 2.1rem var(--ff-primary);
+}
+
