@@ -6,6 +6,7 @@
 :root {
   --ff-primary: "Roboto";
   --ff-secondary: "Open Sans";
+  --size: 1rem;
   --clr-primary-1: #063251;
   --clr-primary-2: #49a6ea;
   --clr-background: #f1f5f8;
@@ -38,7 +39,7 @@ h1,
 h2,
 h3,
 h4 {
-  font-size: 1rem;
+  font-size: var(--size);
   font-family: var(--ff-primary);
 }
 
@@ -70,7 +71,7 @@ nav a {
   color: var(--clr-primary-1);
   padding: 5px 15px;
   border-radius: var(--radius);
-  transition: all .15s linear;
+  transition: all 0.15s linear;
 }
 
 nav a:hover {
@@ -103,7 +104,7 @@ main {
   background-color: var(--clr-black);
   color: var(--clr-white);
   font-size: 2.5rem;
-  padding: 0.75rem 1rem;
+  padding: 0.75rem var(--size);
   border-radius: var(--radius);
 }
 
@@ -118,12 +119,12 @@ main {
   background-color: transparent;
   color: var(--clr-black);
   font-weight: bold;
-  font-size: 1rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-size: var(--size);
   text-transform: uppercase;
   padding: 0.75rem 1.25rem;
   border: 2px solid var(--clr-black);
-  border-radius: var(--radius);
-  cursor: pointer;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   transition: var(--transition);
 }
@@ -131,4 +132,39 @@ main {
 .btn:hover {
   color: var(--clr-white);
   background-color: var(--clr-black);
+}
+
+/* media query */
+
+@media (max-width: 425px) {
+  #bg-color {
+    max-width: 20rem;
+    text-align: center;
+  }
+
+  .nav-center {
+    justify-content: space-between;
+  }
+
+  .nav-center h1 {
+    padding: var(--size);
+  }
+}
+
+@media (max-width: 320px) {
+  #bg-color {
+    max-width: 15rem;
+  }
+
+  #bg-color h2 {
+    font-size: 2rem;
+  }
+
+  .nav-links {
+    gap: 0;
+  }
+
+  .nav-links li {
+    max-width: 5rem;
+  }
 }
