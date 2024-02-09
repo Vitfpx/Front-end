@@ -6,13 +6,13 @@
 :root {
   --ff-primary: "Roboto";
   --ff-secondary: "Open Sans";
-  --size: 1rem;
   --clr-primary-1: #063251;
   --clr-primary-2: #49a6ea;
   --clr-background: #f1f5f8;
   --clr-black: #222;
   --clr-white: #ffffff;
   --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  --size: 1rem;
   --radius: 0.25rem;
   --transition: all 0.3s linear;
 }
@@ -136,7 +136,7 @@ main {
 
 /* media query */
 
-@media (max-width: 425px) {
+@media (max-width: 600px) {
   #bg-color {
     max-width: 20rem;
     text-align: center;
