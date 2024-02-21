@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpiderWiki</title>
+</head>
+<body>
+    <header>
+        <h1>SpiderWiki</h1>
+    </header>
+
+        <nav> 
+            <div id="spider-content">
+                <button id="series">Series</button>
+                <button id="games">Games</button>
+                <button id="movies">Movies</button>
+                <button id="spider-versions-nav">Spider Versions</button>
+                <button id="main-creators">Main Creators</button>
+            </div>
+
+            <form action="" method="get">
+                <label for="pesquisar">Pesquisar</label>
+                <input type="search" id="pesquisa" name="q" placeholder="Spider Search">
+                <button type="submit">Search</button>
+            </form>
+
+            <select name="spider-versions" id="spider-versions" onchange="redirecionarPagina()">
+                <option value="spider-man" selected>Spider-Man</option> <!-- Colocar as cores das opções de acordo com a dos trajes -->
+                <option value="miles-morales">Miles Morales</option>
+                <option value="spider-gwen">Spider-Gwen</option>
+                <option value="spider-woman">Spider-Woman</option>
+                <option value="spider-man-2099">Spider-Man 2099</option>
+                <option value="spider-punk">Spider-Punk</option>
+                <option value="scarlet-spider">Scarlet Spider</option>
+                <option value="silk">Silk</option>
+            </select>
+            <script>
+                function redirecionarPagina() {
+                    var valorSelecionado = document.getElementById("spider-versions").value;
+                    var paginaDestino;
+
+                    switch (valorSelecionado) {
+                        case "spider-man":
+                            paginaDestino = "index.html";
+                            break;
+                        case "miles-morales":
+                            paginaDestino = "D:/Futuro/Programacao/Front-end/curso-B/html/mod 4/spiderwiki/personagens/miles/miles-morales.html";
+                            break;
+                        case "spider-gwen":
+                            paginaDestino = "D:/Futuro/Programacao/Front-end/curso-B/html/mod 4/spiderwiki/personagens/gwen/spider-gwen.html";
+                            break;
+                        case "spider-man-2099":
+                            paginaDestino = "D:/Futuro/Programacao/Front-end/curso-B/html/mod 4/spiderwiki/personagens/miguel/spider-man-2099.html";
+                            break;
+                        case "spider-punk":
+                            paginaDestino = "D:/Futuro/Programacao/Front-end/curso-B/html/mod 4/spiderwiki/personagens/hobie/spider-punk.html";
+                            break;
+                        case "scarlet-spider":
+                            paginaDestino = "D:/Futuro/Programacao/Front-end/curso-B/html/mod 4/spiderwiki/personagens/ben/scarlet-spider.html";
+                            break;
+                        case "spider-woman":
+                            paginaDestino = "D:/Futuro/Programacao/Front-end/curso-B/html/mod 4/spiderwiki/personagens/jessica/spider-woman.html";
+                            break;
+                        case "silk":
+                            paginaDestino = "D:/Futuro/Programacao/Front-end/curso-B/html/mod 4/spiderwiki/personagens/cindy/silk.html";
+                            break;
+                    }
+                    window.location.href = paginaDestino 
+                }
+            </script>
+        </nav>
+        
+        <main>
+            <article>
+                <figure>
+                    <img src="peter-img/peter/petermenor.png" alt="image of three types of Peter Parker">
+                    <figcaption>
+                        Criado em: 01 de agosto de 1962. <br>
+                        Criadores: <a href="">Stan Lee</a>, <a href="">Steve Ditko.</a> <br>
+                        Pais: <a href="">Richard Parker</a>, <a href="">Mary Parker.</a> <br>
+                        Universo: Terra-616.
+                    </figcaption>
+                </figure>
+            </article>
+            <section>
+                <article>
+                    <h2>Spider-Man (Peter Parker)</h2>
+                    <p>Peter Parker, mais conhecido como Spider-Man, é um dos mais icônicos e amados super-heróis da Marvel. Criado por Stan Lee e Steve Ditko, Parker é retratado como um jovem adolescente comum, porém, após ser picado por uma aranha radioativa, adquire poderes extraordinários. Com sua personalidade carismática, ele equilibra a vida de herói e estudante com maestria, enfrentando desafios tanto no combate ao crime quanto nas relações pessoais. O senso de responsabilidade, um dos pilares de sua jornada, é a força motriz que o guia na proteção de Nova York e daqueles que ama, tornando-o um símbolo atemporal de coragem, resiliência e altruísmo. Spider-Man continua a inspirar gerações de fãs, mostrando que, por trás da máscara, está um verdadeiro herói que lida com dilemas reais, tornando-o uma figura emblemática no universo dos super-heróis.</p>
+                    <p>Estreia: Amazing Fantasy #15</p>
+                </article>
+                <article>
+                    <button>Related</button>
+                    <figure>
+                        <img src="peter-img/richard/richard-parker-img/richard-parker-icon.jpg" alt="Richard Parker, o pai do homem-aranha">
+                        <figcaption>Richard Parker</figcaption>
+                        <img src="peter-img/mary/mary-parker-img/mary-parker-icon.jpg" alt="Mary Parker, mãe do homem-aranha">
+                        <figcaption>Mary Parker</figcaption>
+                        <img src="peter-img/may/may-parker-img/tia-may-icon.jpg" alt="Tia May, Tia do Peter">
+                        <figcaption>May Parker</figcaption>
+                    </figure>
+                </article>
+            </section>
+        </main>
+        <footer>
+            <nav>
+                <a href="mailto:vitorbarbosaraimundo68@gmail.com">Contact</a> <br>
+                <a href="https://github.com/Vitfpx" target="_blank">Github</a> <br>
+                <a href="about.html">About</a> <br>
+            </nav>
+        </footer>
+</body>
+</html>

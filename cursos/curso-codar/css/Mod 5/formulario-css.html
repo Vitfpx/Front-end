@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+	<head>
+		<meta charset="UTF-8">
+		<title>Formulário - html</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<header>
+			<h2>Curso Front-end - HTML</h2>
+		</header>
+		<section>
+			<nav>
+				<ul>
+					<li><a href="../../html/mod 4/layouts.html">Home</a></li>
+					<li><a href="#contato">Contato</a></li>
+					<li><a href="#sobre">Sobre</a></li>
+				</ul>
+			</nav>
+			<article>
+				<h1>Contato</h1>
+				<p>Preencha os campos abaixo:</p>
+
+				<form method="post">
+					<div>
+						<p>
+							<label class="nome" for="nome">Nome</label> 
+							<input type="text" id="nome" name="nome" placeholder="Digite seu nome">
+						</p>
+					</div>
+
+					<div>
+						<p>
+							<label class="nome" for="email">Email</label> 
+							<input type="email" name="email" id="email" placeholder="Digite seu email">
+						</p>
+					</div>
+
+					<div>
+						<p>
+							<label class="nome" for="mensagem">Mensagem</label>
+							<textarea name="mensagem" id="mensagem" cols="50" rows="5" placeholder="Deixe sua mensagem..."></textarea>
+						</p>
+					</div>
+
+					<div	>
+						<p>
+							<label class="nome" for="linguagens">Quais linguagens você sabe?</label>
+							<input type="checkbox" name="linguagens" value="javaScript">JavaScript
+							<input type="checkbox" name="linguagens" value="node.js">Node.js
+							<input type="checkbox" name="linguagens" value="pythonFlask">PythonFlask 
+							<label for="outros">Outro(s):</label>
+							<input type="text" name="outros" id="outros" placeholder="Reac, Vue...">
+						</p>
+					</div>
+
+					<div>
+						<p>
+							<label class="nome" for="linguagens">Qual linguagen você prefere?</label> 
+							<input type="radio" name="linguagens" value="javaScript">JavaScript
+							<input type="radio" name="linguagens" value="node.js">Node.js
+							<input type="radio" name="linguagens" value="pythonFlask">PythonFlask
+							<label for="outros">Outro(s):</label>
+							<input type="text" name="outros" id="outros" placeholder="Angular, jQuerry...">
+						</p>
+					</div>
+
+					<div>
+						<p>
+							<label for="cor">Qual a sua cor favorita?</label>
+								<select name="cor" id="cor">
+									<option value=""></option>
+									<option value="amarelo">Amarelo</option>
+									<option value="vermelho" >Vermelho</option>
+									<option value="azul">Azul</option>
+									<option value="outro">Outra</option>
+								</select>
+						</p>
+					</div>
+					<div id="botao-enviar">
+						<input type="submit" name="enviar" id="enviar">
+					</div>
+				</form>
+			</article>
+		</section>
+		<footer>
+			<p>Desenvolvido por Vitor. :)</p>
+		</footer>
+
+	</body>
+</html>
