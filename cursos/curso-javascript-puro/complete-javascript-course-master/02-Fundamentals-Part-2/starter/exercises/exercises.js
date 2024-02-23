@@ -4,8 +4,6 @@
 //   return countryInfo;
 // }
 
-const { promptLoop } = require("readline-sync");
-
 // const brazil = descritionCountry("Brazil", 213, "Brasília");
 // const finland = descritionCountry("Finland", 6, "Helsinki");
 // const Japan = descritionCountry("Tokyo", 122, "Tokyo");
@@ -126,7 +124,7 @@ myCountry["population"] -= 2;
 
 // ex. 10
 for (let voter = 1; voter < 51; voter++) {
-  console.log(`Voter number ${voter} is currently voting`);
+  // console.log(`Voter number ${voter} is currently voting`);
 }
 
 // ex. 11
@@ -138,7 +136,7 @@ for (let i = 0; i < populations.length; i++) {
   percentage2.push(percentageOfWorld1(populations[i]));
 }
 
-console.log(percentage2);
+// console.log(percentage2);
 
 // ex. 12
 const listenOfNeighbours = [
@@ -147,10 +145,36 @@ const listenOfNeighbours = [
   ["Norway", "Sweden", "Russia"], //2
 ];
 
-console.log(listenOfNeighbours.length);
+// console.log(listenOfNeighbours.length);
 
-for (let neighbours = 0; neighbours < listenOfNeighbours.length; neighbours++) {
-  for (let i = 0; i < listenOfNeighbours[neighbours].length; i++) {
-    console.log(`Neighbour: ${listenOfNeighbours[neighbours][i]}`);
-  }
+// for (let neighbours = 0; neighbours < listenOfNeighbours.length; neighbours++) {
+//   for (let i = 0; i < listenOfNeighbours[neighbours].length; i++) {
+//     console.log(`Neighbour: ${listenOfNeighbours[neighbours][i]}`);
+//   }
+// }
+
+// ex. 13
+const percentage3 = [];
+let i = 0;
+while (i < populations.length) {
+  percentage3.push(percentageOfWorld1(populations[i]));
+  i++;
 }
+console.log(percentage3);
+
+// ex extra
+const randomArray = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+const arrayMedia = [];
+
+const media = function (arr) {
+  let soma = 0;
+  for (let i = 0; i < arr.length; i++) {
+    soma += arr[i];
+  }
+  return (soma /= arr.length);
+};
+
+const totals = [1, 2, 3, 4, 5];
+
+console.log(media(randomArray));
+console.log(media(totals));
