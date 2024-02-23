@@ -206,7 +206,7 @@ console.log(
   `${Vitor.firstName} has ${Vitor.friends.length} friends, and his best friend is called ${Vitor.friends[0]}`
 );
 // dot notation
-*/
+
 ////////////////
 // more objetc methods
 const Vitor = {
@@ -246,3 +246,92 @@ console.log(Vitor.age);
 
 // challenge
 console.log(Vitor.getSummary());
+
+/////////////////////////
+// For Loop
+for (let rep = 1; rep <= 10; rep++) {
+  console.log(`Lifting weights repetition ${rep} 🥇`);
+}
+
+// More For
+const vitor = [
+  "vitor",
+  "Raimundo",
+  2037 - 2003,
+  "Student",
+  ["rei delas", "bartchola", "china in box"],
+];
+
+const types = [];
+
+// console.log(vitor[0])
+// console.log(vitor[1])
+// console.log(vitor[2])
+// console.log(vitor[3])
+
+for (let i = 0; i < vitor.length; i++) {
+  // Reading from vitor array
+  console.log(vitor[i], typeof vitor[i]);
+
+  // Filling types array
+  // types[i] = typeof vitor[i];
+  types.push(typeof vitor[i]);
+}
+console.log(types);
+
+const years = [1991, 2007, 1969, 2020];
+const ages = [];
+
+for (let i = 0; i < years.length; i++) {
+  ages.push(2037 - years[i]);
+}
+console.log(ages);
+
+// continue and break
+console.log(`------------- ONLY STRINGS -------------`);
+for (let i = 0; i < vitor.length; i++) {
+  if (typeof vitor[i] !== "string") continue;
+
+  console.log(vitor[i], typeof vitor[i]);
+}
+
+console.log(`------------- BREAK WITH NUMBER -------------`);
+for (let i = 0; i < vitor.length; i++) {
+  // Para aumentar, modificamos a segunda parte do for
+  if (typeof vitor[i] === "number") break;
+
+  console.log(vitor[i], typeof vitor[i]);
+}
+
+// looping in backwards and looping in looping
+for (let i = vitor.length - 1; i >= 0; i--) {
+  // Para diminuir, modificamos na primeira parte do for
+  console.log(i, vitor[i]);
+}
+
+for (let exercise = 1; exercise < 4; exercise++) {
+  // exercise <= 3 ou < 4 da na mesma
+  console.log(`-----------  Starting exercise ${exercise} ----------`);
+
+  for (let rep = 1; rep < 6; rep++) {
+    console.log(`Exercise ${exercise}: Lifting weight repetition ${rep} 🏋️‍♀️`);
+  }
+}
+*/
+////////////////
+// while loop
+
+let rep = 1;
+while (rep <= 10) {
+  // console.log(`WHILE: Lifting weights repetition ${rep} 🥇`);
+  rep++;
+}
+
+let dice = Math.trunc(Math.random() * 6) + 1;
+// console.log(dice)
+
+while (dice !== 6) {
+  console.log(`You rolled a ${dice}`)
+  dice = Math.trunc(Math.random() * 6) + 1;
+  if (dice === 6) console.log(6)
+}

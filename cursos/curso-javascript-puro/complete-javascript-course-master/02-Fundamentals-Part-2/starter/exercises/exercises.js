@@ -123,3 +123,34 @@ myCountry.population += 2;
 // console.log(myCountry)
 myCountry["population"] -= 2;
 // console.log(myCountry)
+
+// ex. 10
+for (let voter = 1; voter < 51; voter++) {
+  console.log(`Voter number ${voter} is currently voting`);
+}
+
+// ex. 11
+// const populations = [126, 83, 331, 213];
+
+const percentage2 = [];
+
+for (let i = 0; i < populations.length; i++) {
+  percentage2.push(percentageOfWorld1(populations[i]));
+}
+
+console.log(percentage2);
+
+// ex. 12
+const listenOfNeighbours = [
+  ["Canada", "Mexico"], //0
+  ["Spain"], //1
+  ["Norway", "Sweden", "Russia"], //2
+];
+
+console.log(listenOfNeighbours.length);
+
+for (let neighbours = 0; neighbours < listenOfNeighbours.length; neighbours++) {
+  for (let i = 0; i < listenOfNeighbours[neighbours].length; i++) {
+    console.log(`Neighbour: ${listenOfNeighbours[neighbours][i]}`);
+  }
+}
