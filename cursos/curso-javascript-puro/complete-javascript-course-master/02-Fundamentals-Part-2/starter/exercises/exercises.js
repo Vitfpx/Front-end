@@ -60,13 +60,13 @@ const useDescribe = (country, population) => {
   return description;
 };
 
-console.log(`${useDescribe("Brazil", 213)}
-${useDescribe("UK", 67)}
-${useDescribe("Mexico", 126)}`);
+// console.log(`${useDescribe("Brazil", 213)}
+// ${useDescribe("UK", 67)}
+// ${useDescribe("Mexico", 126)}`);
 
 // ex. 5
 const populations = [126, 83, 331, 213];
-console.log(populations.length === 4);
+// console.log(populations.length === 4);
 
 const percentages = [
   percentageOfWorld1(populations[0]),
@@ -74,7 +74,7 @@ const percentages = [
   percentageOfWorld1(populations[2]),
   percentageOfWorld1(populations[3]),
 ];
-console.log(percentages);
+// console.log(percentages);
 
 // ex. 6
 const neighbours = ["Chile", "Argentina", "Uruguay", "France"];
@@ -90,7 +90,36 @@ neighbours.includes("Chile")
   : console.log("Probably not a South American country :D");
 
 neighbours[neighbours.indexOf("Argentina")] = "Argetina no longer communist"; // Este código é mais flexível por não depender de saber o índice do elemento que foi mutado
-console.log(neighbours); 
+// console.log(neighbours);
 
 // neighbours[1] = "Argentina no longer communist";
 // console.log(neighbours);
+
+// ex. 7, ex. 8, ex. 9
+const myCountry = {
+  country: "Brazil",
+  capital: "Brasília",
+  language: "Português",
+  population: 213,
+  neighbours: ["Argentina", "Chile", "Uruguay"],
+
+  describe: function () {
+    return `${this.country} has ${this.population} million finnish-speaking people, ${this.neighbours.length} neighbouring countries and a capital called ${this.capital}`;
+  },
+
+  checkIsland: function () {
+    return (this.isIsland = !Boolean(this.neighbours.length));
+  },
+};
+
+console.log(myCountry.describe());
+console.log(myCountry.checkIsland());
+
+// console.log(
+//   `${myCountry.country} has ${myCountry.population} million finnish-speaking people, ${myCountry.neighbours.length} neighbouring countries and a capital called ${myCountry.capital}`
+// );
+
+myCountry.population += 2;
+// console.log(myCountry)
+myCountry["population"] -= 2;
+// console.log(myCountry)
