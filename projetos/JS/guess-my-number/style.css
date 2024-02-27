@@ -1,0 +1,138 @@
+/* font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Press+Start+2P&family=Roboto:wght@100;300;500;700&display=swap');
+
+/* variables */
+
+:root {
+  --ff-primary: 'Press Start 2P';
+  --ff-second: 'Roboto';
+  --fs-label: 2rem;
+  --clr-bg: #222;
+  --clr-font: #eee;
+  --clr-hover: #ccc;
+  --clr-jk: #333;
+  --bd-guess: 4px solid var(--clr-font);
+}
+
+/* reset config */
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: var(--ff-primary);
+  background-color: var(--clr-bg);
+  color: var(--clr-font);
+}
+
+.btn {
+  margin: 2rem;
+  font-family: var(--ff-primary);
+  color: var(--clr-bg);
+  font-size: 2rem;
+  padding: 2rem 3rem;
+  background-color: var(--clr-font);
+  border: none;
+  cursor: pointer;
+}
+
+.label {
+  font-size: var(--fs-label);
+}
+
+/* header */
+header {
+  position: relative;
+  height: 35vh;
+  border-bottom: 0.7rem solid #eee;
+  margin-bottom: 11rem;
+}
+
+h1 {
+  position: absolute;
+  font-size: 4rem;
+  text-transform: capitalize;
+  font-weight: bold;
+  top: 9.3rem;
+  left: 36.3rem;
+}
+
+.between {
+  position: absolute;
+  right: 2rem;
+  top: 2rem;
+  font-size: 1.4rem;
+}
+
+.again:hover {
+  background-color: var(--clr-hover);
+}
+
+.joker {
+  position: absolute;
+  right: 60.8rem;
+  top: 15.7rem;
+  padding: 3rem 4.5rem;
+  font-size: 6rem;
+  background-color: var(--clr-font);
+  color: var(--clr-jk);
+}
+
+/* main */
+main {
+  display: flex;
+  justify-content: space-around;
+  /* margin-left: 3rem; */
+  margin-right: 8rem;
+}
+
+/* main left */
+
+.main-left {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  margin-left: 4rem;
+}
+
+.guess {
+  background-color: var(--clr-bg);
+  border: var(--bd-guess);
+  color: var(--clr-font);
+  font-size: 5rem;
+  font-family: var(--ff-primary);
+  width: 25rem;
+  height: 10.8rem;
+  text-align: center;
+  padding: 2.5rem;
+}
+
+.check:hover {
+  background-color: var(--clr-hover);
+}
+
+/* main right */
+.main-right {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  align-items: baseline;
+}
+
+.message {
+  font-size: 2rem;
+  margin-top: .8rem;
+  margin-bottom: 8rem;
+}
