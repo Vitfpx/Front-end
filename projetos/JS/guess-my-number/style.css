@@ -144,6 +144,7 @@ main {
 .message {
   margin: 0.7rem 0 8rem 0;
   min-width: 34rem;
+  height: 1.8rem;
 }
 
 .score {
