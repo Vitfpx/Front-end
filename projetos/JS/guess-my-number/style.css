@@ -10,7 +10,8 @@
   --clr-bg: #222;
   --clr-font: #eee;
   --clr-hover: #ccc;
-  --clr-jk: #333;
+  --clr-jk-text: #333;
+  --clr-trans: transparent;
   --bd-guess: 4px solid var(--clr-font);
 }
 
@@ -30,9 +31,10 @@ html {
 }
 
 body {
-  font-family: var(--ff-primary);
+  font-family: var(--ff-primary), var(--ff-second);
   background-color: var(--clr-bg);
   color: var(--clr-font);
+  /* background-color: #60b347; */
 }
 
 .btn {
@@ -46,15 +48,23 @@ body {
   cursor: pointer;
 }
 
+.main-left,
+.main-right {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
 .label {
   font-size: var(--fs-label);
 }
 
-/* header */
+/* HEADER */
 header {
   position: relative;
   height: 35vh;
-  border-bottom: 0.7rem solid #eee;
+  border-bottom: 0.7rem solid var(--clr-font);
   margin-bottom: 11rem;
 }
 
@@ -79,35 +89,38 @@ h1 {
 }
 
 .joker {
+  text-align: center;
+  padding-top: 3rem;
   position: absolute;
-  right: 60.8rem;
+  right: 50%;
   top: 15.7rem;
-  padding: 3rem 4.5rem;
+  height: 12rem;
+  width: 15rem;
   font-size: 6rem;
   background-color: var(--clr-font);
-  color: var(--clr-jk);
+  color: var(--clr-jk-text);
+  /*
+    Move o elemento em 50% no eixo X, se fosse
+    -50%, então o right teria que ser left
+  */
+  transform: translateX(50%);
 }
 
-/* main */
+/* MAIN */
 main {
   display: flex;
   justify-content: space-around;
-  /* margin-left: 3rem; */
   margin-right: 8rem;
 }
 
-/* main left */
-
+/* MAIN LEFT */
 .main-left {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  align-items: center;
   margin-left: 4rem;
+  margin-right: -5.6rem;
 }
 
 .guess {
-  background-color: var(--clr-bg);
+  background-color: var(--clr-trans);
   border: var(--bd-guess);
   color: var(--clr-font);
   font-size: 5rem;
@@ -122,17 +135,17 @@ main {
   background-color: var(--clr-hover);
 }
 
-/* main right */
+/* MAIN RIGHT */
 .main-right {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  align-items: center;
-  align-items: baseline;
+  align-items: flex-start;
+  padding-right: 0.4rem;
 }
 
 .message {
-  font-size: 2rem;
-  margin-top: .8rem;
-  margin-bottom: 8rem;
+  margin: 0.7rem 0 8rem 0;
+  min-width: 34rem;
+}
+
+.score {
+  margin-bottom: 1rem;
 }
