@@ -1,17 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Modal Window</title>
-  <script src="script.js" defer></script>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <main>
-    <div class="modal">Show modal 1</div>
-    <div class="modal">Show modal 2</div>
-    <div class="modal">Show modal 3</div>
-  </main>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modal Window</title>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <button class="show-modal">Show modal 1</button>
+      <button class="show-modal">Show modal 2</button>
+      <button class="show-modal">Show modal 3</button>
+
+      <div class="modal hidden">
+        <button class="close-modal">&times;</button>
+        <h1>I'm a modal window 😎</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam repellendus accusamus rerum natus nemo maiores quidem consectetur dolore accusantium ad saepe possimus obcaecati aspernatur, totam cumque pariatur sapiente aliquid! Nobis! Unde vitae neque saepe nam rem, nesciunt possimus vero fuga ipsum consectetur repellat totam temporibus impedit facilis aliquid ad quibusdam ratione laborum quos molestiae consequuntur enim, fugit atque? Tempora, aut.
+        </p>
+      </div>
+      <div class="overlay hidden"></div>
+    </main>
+  </body>
 </html>
