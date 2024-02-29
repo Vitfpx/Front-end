@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html, body {
+  height: 100%;
+  min-height: 100%;
+  overflow: hidden;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  background: rgb(125,213,111);
+  background: linear-gradient(to bottom right, rgba(125,213,111,1) 0%, rgba(40,180,135,1) 100%);
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  margin-top: 5rem;
+}
+
+.modal {
+  background: #fff;
+  padding: 1.75rem 3.5rem;
+  border-radius: 10rem;
+  color: #444;
+  cursor: pointer;
+}
