@@ -1,0 +1,164 @@
+/* Font */
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+/* Variables */
+
+:root {
+  --ff-primary: 'Nunito';
+  --clr-pinkred: #c3446c;
+  --clr-red: #c7365f;
+  --clr-white: #fff;
+  --clr-light-gray: #ddd;
+  --clr-bg: linear-gradient(
+    to right bottom,
+    rgba(190, 46, 53, 1) 0%,
+    rgba(117, 54, 130, 1) 100%
+  );
+  --tt-upper: uppercase;
+}
+
+/* Reset Configs */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  text-transform: var(--tt-upper);
+  border: none;
+  outline: none;
+  font-family: var(--ff-primary);
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+  height: 100vh;
+}
+
+body {
+  background: var(--clr-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  position: absolute;
+  padding: 0.7rem 2.5rem;
+  text-align: center;
+  font-size: 1.8rem;
+  color: #444;
+  border-radius: 50px;
+  font-weight: 400;
+  cursor: pointer;
+  left: 50%;
+  transform: translate(-50%);
+  box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+}
+
+.player {
+  display: flex;
+  flex-direction: column;
+  gap: 12.5rem;
+  padding: 9rem 14.6rem;
+}
+
+.player-2 {
+  opacity: 0.8;
+}
+
+h2 {
+  font-size: 4rem;
+  color: #333;
+  margin-bottom: 1.1rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.title-player-1 {
+  font-weight: 700;
+  letter-spacing: 0px;
+}
+
+/* Main */
+
+main {
+  position: relative;
+  display: flex;
+
+  height: 60rem;
+  width: 100rem;
+  margin: 2.05rem auto;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.35);
+  border-radius: 9px;
+  backdrop-filter: blur(200px);
+  filter: blur();
+  box-shadow: 0 3rem 5rem rgba(0 0 0 / 25%);
+}
+
+.left {
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 9px;
+}
+
+/* Img */
+
+.dice {
+  display: none;
+}
+
+/* sections */
+
+.container-score {
+  /* letter-spacing: 1px; */
+  word-spacing: 2px;
+  font-size: 4rem;
+}
+
+.score {
+  font-size: 8rem;
+  color: var(--clr-red);
+}
+
+.current {
+  background-color: var(--clr-red);
+  font-size: 1.7rem;
+  /* padding: 4rem 7rem; */
+  color: var(--clr-white);
+  border-radius: 9px;
+  height: 12rem;
+  width: 20.8rem;
+}
+
+.label-score {
+  margin-top: 2rem;
+  color: var(--clr-light-gray);
+}
+
+.current-score {
+  font-size: 3.5rem;
+  margin-top: 1rem;
+}
+
+/* buttons */
+
+.icon {
+  font-size: 2.4rem;
+  margin-right: 0.6rem;
+}
+
+.new-game {
+  top: 4rem;
+}
+
+.hold {
+  bottom: 9.05rem;
+}
+
+.roll-dice {
+  bottom: 16rem;
+}
