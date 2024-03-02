@@ -15,6 +15,7 @@
     rgba(190, 46, 53, 1) 0%,
     rgba(117, 54, 130, 1) 100%
   );
+  --radius: 0.9rem;
   --tt-upper: uppercase;
 }
 
@@ -57,6 +58,7 @@ body {
   box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1);
   background-color: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(10px);
+  transition: .2s;
 }
 
 .player {
@@ -94,7 +96,7 @@ main {
   margin: 2.05rem auto;
   text-align: center;
   background-color: rgba(255, 255, 255, 0.35);
-  border-radius: 9px;
+  border-radius: var(--radius);
   backdrop-filter: blur(200px);
   filter: blur();
   box-shadow: 0 3rem 5rem rgba(0 0 0 / 25%);
@@ -102,13 +104,25 @@ main {
 
 .left {
   background-color: rgba(255, 255, 255, 0.4);
-  border-radius: 9px;
+  border-top-left-radius: var(--radius);
+  border-bottom-left-radius: var(--radius);
 }
 
 /* Img */
 
-.dice {
+.hidden {
   display: none;
+}
+
+.dice {
+  position: absolute;
+  width: auto;
+  height: auto;
+  max-width: 10rem;
+  max-height: 10rem;
+  right: 50%;
+  top: 16.5rem;
+  transform: translate(50%);
 }
 
 /* sections */
@@ -129,7 +143,7 @@ main {
   font-size: 1.7rem;
   /* padding: 4rem 7rem; */
   color: var(--clr-white);
-  border-radius: 9px;
+  border-radius: var(--radius);
   height: 12rem;
   width: 20.8rem;
 }
@@ -160,5 +174,14 @@ main {
 }
 
 .roll-dice {
+  position: absolute;
   bottom: 16rem;
 }
+
+.effect {
+  transform: translateY(3px);
+  left: 41%;
+}
+
+
+/* .roll-dice: */
