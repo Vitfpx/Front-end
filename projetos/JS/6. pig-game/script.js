@@ -10,11 +10,33 @@ const current1 = document.querySelector('#current-1');
 const left = document.querySelector('.left');
 const right = document.querySelector('.right');
 const score = document.querySelector('.score');
+const score0 = document.querySelector(`#score-0`);
+const score1 = document.querySelector(`#score-1`);
+const player0 = document.querySelector(`.player0`);
+const player1 = document.querySelector(`.player1`);
 
-let currentValue = 0;
-let activePlayer = 0;
-let playing = true;
-const scoreArr = [0, 0];
+let currentValue, activePlayer, playing, scoreArr;
+
+// Função para dar reset no game
+const init = () => {
+  scoreArr = [0, 0];
+  currentValue = 0;
+  activePlayer = 0;
+  playing = true;
+
+  score0.textContent = 0;
+  score1.textContent = 0;
+  current1.textContent = 0;
+  current0.textContent = 0;
+
+  dice.classList.add('hidden');
+  player0.classList.remove('win');
+  player1.classList.remove('win');
+  left.classList.add('player-active');
+  right.classList.remove('player-active');
+};
+
+init();
 
 // Função para trocar de jogador
 const switchPlayer = () => {
@@ -67,7 +89,7 @@ hold.addEventListener('mouseup', () => {
       scoreArr[activePlayer];
 
     // 3. Ver se o jogador tem pontuação >= 100
-    if (scoreArr[activePlayer] >= 20) {
+    if (scoreArr[activePlayer] >= 100) {
       // 4. Finish the game
       playing = false;
       document.querySelector(`.player${activePlayer}`).classList.add('win');
@@ -83,10 +105,4 @@ hold.addEventListener('mouseup', () => {
 });
 
 // Ao pressionar o botão NEW GAME
-newGame.addEventListener('mouseup', () => {
-  currentValue = 0;
-  activePlayer = 0;
-  playing = true;
-  scoreArr.splice(0, 2, 0, 0);
-  dice.classList.add('hidden');
-});
+newGame.addEventListener('mouseup', init);
