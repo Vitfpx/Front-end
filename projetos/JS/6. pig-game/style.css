@@ -56,9 +56,16 @@ body {
   left: 50%;
   transform: translate(-50%);
   box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  transition: all 0.2s;
   background-color: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(10px);
-  transition: .2s;
+}
+
+/* Utilização do active para fazer o botão se mexer após ser clicado */
+.btn:active {
+  transform: translate(-50%, 3px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
 }
 
 .player {
@@ -66,9 +73,21 @@ body {
   flex-direction: column;
   gap: 12.5rem;
   padding: 9rem 14.6rem;
+  transition: all 0.75s;
 }
 
-.player-2 {
+.player-active {
+  background-color: rgba(255, 255, 255, 0.4);
+  opacity: 1;
+  font-size: 8rem;
+  color: var(--clr-red);
+}
+
+.player-active #current {
+  opacity: 1;
+}
+
+.player-1 {
   opacity: 0.8;
 }
 
@@ -80,9 +99,9 @@ h2 {
   letter-spacing: 1px;
 }
 
-.title-player-1 {
+.player-active .title{
   font-weight: 700;
-  letter-spacing: 0px;
+  word-spacing: 2px;
 }
 
 /* Main */
@@ -103,7 +122,6 @@ main {
 }
 
 .left {
-  background-color: rgba(255, 255, 255, 0.4);
   border-top-left-radius: var(--radius);
   border-bottom-left-radius: var(--radius);
 }
@@ -123,6 +141,7 @@ main {
   right: 50%;
   top: 16.5rem;
   transform: translate(50%);
+  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2);
 }
 
 /* sections */
@@ -146,6 +165,7 @@ main {
   border-radius: var(--radius);
   height: 12rem;
   width: 20.8rem;
+  opacity: 0.8;
 }
 
 .label-score {
@@ -162,7 +182,7 @@ main {
 
 .icon {
   font-size: 2.4rem;
-  margin-right: 0.6rem;
+  margin-right: 0.7rem;
 }
 
 .new-game {
@@ -178,10 +198,11 @@ main {
   bottom: 16rem;
 }
 
-.effect {
-  transform: translateY(3px);
-  left: 41%;
+.win {
+  background-color: #2f2f2f;
 }
 
-
-/* .roll-dice: */
+.win .title {
+  color: var(--clr-red);
+  font-weight: 700;
+}

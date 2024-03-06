@@ -9,28 +9,28 @@
   </head>
   <body>
     <main>
-      <section class="left player">
+      <section class="left player player-active player0">
         <div class="container-score">
-          <h2 class="title-player-1">player 1</h2>
-          <p class="score">0</p>
+          <h2 class="title">player 1</h2>
+          <p class="score" id="score-0" >0</p>
         </div>
-        <div class="current player-1">
+        <div class="current player-0" id="current">
           <p class="label-score">current</p>
-          <p class="current-score" id="current-1">0</p>
+          <p class="current-score" id="current-0">0</p>
         </div>
       </section>
       <button class="btn new-game"><span class="icon">🔄</span> new game</button>
       <button class="btn roll-dice"><span class="icon">🎲</span> roll dice</button>
       <button class="btn hold"><span class="icon">📥</span> hold</button>
       <img src="" alt="Dice" class="dice hidden" />
-      <section class="right player">
+      <section class="right player player1">
         <div class="container-score">
-          <h2 class="title-player-2">player 2</h2>
-          <p class="score">0</p>
+          <h2 class="title">player 2</h2>
+          <p class="score" id="score-1">0</p>
         </div>
-        <div class="current player-2">
+        <div class="current player-1" id="current">
           <p class="label-score">current</p>
-          <p class="current-score" id="current-2">0</p>
+          <p class="current-score" id="current-1">0</p>
         </div>
       </section>
     </main>
