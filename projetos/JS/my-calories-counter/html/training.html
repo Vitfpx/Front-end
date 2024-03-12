@@ -4,28 +4,103 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Calories Counter</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../fontawesome-free-6.5.1-web/css/all.css"
+    />
   </head>
   <body>
     <header>
       <h1>My Calories Counter</h1>
     </header>
     <main>
-      <form action="">
-        <h2 class="training">Objetivo e Frequência de Treino</h2>
-        <p class="training-description">
-          Nessa etapa queremos saber o seu objetivo com os macros e a frequência
-          dos seus treinos, que influencia diretamente no resultado final.
-        </p>
-        <div class="bulking">
-          <input type="radio" name="goal" id="goal-radio">
-          <label for="goal" class="bulking-radio">Ganho de massa</label>
+      <form action="" class="training-container">
+        <div class="training-description">
+          <h2 class="training-title">
+            Objetivo e Frequência de Atividade Física
+          </h2>
+          <p class="training-label">
+            Nessa etapa queremos saber o seu objetivo com os macros e a
+            frequência com que você gasta calorias, que influencia diretamente
+            no resultado final.
+          </p>
         </div>
-        <div class="cutting">
-          <input type="radio" name="goal" id="goal-radio">
-          <label for="goal" class="cutting-radio">Perda de gordura</label>
-        </div>
-
+        <section class="objective-container">
+          <label for="objective" class="objective-label">Objetivo: </label>
+          <div class="bulking">
+            <input type="radio" name="goal" id="goal-radio" />
+            <label for="goal" class="bulking-radio">Ganho de massa</label>
+          </div>
+          <div class="cutting">
+            <input type="radio" name="goal" id="goal-radio" />
+            <label for="goal" class="cutting-radio">Perda de gordura</label>
+          </div>
+          <button class="card">Recomendação</button>
+        </section>
+        <section class="frequency-container">
+          <label for="frequency" class="frequency-label"
+            >Frequência de Atividade Física:
+          </label>
+          <div class="training-frequency">
+            <input type="radio" name="sedentary" id="frequency-radio" />
+            <label for="sedentary" class="sedentary-radio"
+              >Sedentária:
+              <span class="description hidedn"
+                >passa muito tempo sentado, sem atividade física.</span
+              >
+            </label>
+            <input type="radio" name="light" id="frequency-radio" />
+            <label for="sedentary" class="light-radio"
+              >Atividade de Intensidade Leve:
+              <span class="description hidden">
+                atividades domésticas, caminhadas de no mínimo 15 minutos de 2 a
+                3 vezes por semana.
+              </span>
+            </label>
+            <input type="radio" name="moderate" id="frequency-radio" />
+            <label for="sedentary" class="moderate-radio"
+              >Atividade de Intensidade Moderada:
+              <span class="description hidden">
+                caminhadas de no mínimo 30 minutos, atividades físicas
+                (ginástica, musculação, futebol, natação...) 2 a 3 vezes por
+                semana.
+              </span></label
+            >
+            <input type="radio" name="high" id="frequency-radio" />
+            <label for="sedentary" class="hight-radio"
+              >Atividade de Intensidade Alta:
+              <span class="description hidden">
+                caminhadas de no mínimo 30 minutos, atividades físicas
+                (ginástica, musculação, futebol, natação...) mais de 3 vezes por
+                semana.
+              </span>
+            </label>
+            <input type="radio" name="very-high" id="frequency-radio" />
+            <label for="sedentary" class="very-hight-radio"
+              >Atividade de Intensidade Muito Alta:
+              <span class="description hidden">
+                atletas profissionais, praticantes de maratona ou ciclismo.
+              </span>
+            </label>
+          </div>
+          <button class="card">Recomendação</button>
+        </section>
+        <button class="next-step"><a href="#">Next Step</a></button>
       </form>
     </main>
+    <nav>
+      <ol>
+        <li>
+          <a href="index.html"><i class="fa-solid fa-chevron-left"></i></a>
+        </li>
+        <li><a href="index.html">1</a></li>
+        <li><a href="training.html">2</a></li>
+        <li><a href="#">3</a></li>
+        <li>
+          <a href="#"><i class="fa-solid fa-chevron-right"></i></a>
+        </li>
+      </ol>
+    </nav>
   </body>
 </html>
