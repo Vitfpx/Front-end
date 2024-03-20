@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Calories Counter</title>
+</head>
+<body>
+  <main>
+    <div class="frequency-container">
+      <label for="frequency" class="info"
+        >Frequência de Atividade Física:
+      </label>
+      <div class="sedentary-container">
+        <input type="radio" name="sedentary" id="frequency-radio" />
+        <label for="sedentary" class="sedentary-radio"
+          >Sedentária:
+          <span class="description hidedn">
+            passa muito tempo sentado, sem atividade física.
+          </span>
+        </label>
+      </div>
+      <div class="light-container">
+        <input type="radio" name="light" id="frequency-radio" />
+        <label for="light" class="light-radio"
+          >Atividade de Intensidade Leve:
+          <span class="description hidden">
+            atividades domésticas, caminhadas de no mínimo 15 minutos de 2
+            a 3 vezes por semana.
+          </span>
+        </label>
+      </div>
+      <div class="moderate-container">
+        <input type="radio" name="moderate" id="frequency-radio" />
+        <label for="moderate" class="moderate-radio"
+          >Atividade de Intensidade Moderada:
+          <span class="description hidden">
+            caminhadas de no mínimo 30 minutos, atividades físicas
+            (ginástica, musculação, futebol, natação...) 2 a 3 vezes por
+            semana.
+          </span>
+        </label>
+      </div>
+      <div class="high-container">
+        <input type="radio" name="high" id="frequency-radio" />
+        <label for="high" class="hight-radio"
+          >Atividade de Intensidade Alta:
+          <span class="description hidden">
+            caminhadas de no mínimo 30 minutos, atividades físicas
+            (ginástica, musculação, futebol, natação...) mais de 3 vezes
+            por semana.
+          </span>
+        </label>
+      </div>
+      <div class="very-high-container">
+        <input type="radio" name="very-high" id="frequency-radio" />
+        <label for="very-high" class="very-hight-radio"
+          >Atividade de Intensidade Muito Alta:
+          <span class="description hidden">
+            atletas profissionais, praticantes de maratona ou ciclismo.
+          </span>
+        </label>
+      </div>
+      <button class="card btn">Recomendação</button>
+    </div>
+  </main>
+</body>
+</html>
