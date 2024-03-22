@@ -4,65 +4,89 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Calories Counter</title>
+  <link rel="shortcut icon" href="../iconApple (2).png" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../fontawesome-free-6.5.1-web/css/all.css"
+    />
+    <link
+      rel="shortcut icon"
+      href="../images/iconApple.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body>
+  <header>
+    <h1>My Calories Counter</h1>
+  </header>
   <main>
-    <div class="frequency-container">
-      <label for="frequency" class="info"
-        >Frequência de Atividade Física:
-      </label>
-      <div class="sedentary-container">
-        <input type="radio" name="sedentary" id="frequency-radio" />
-        <label for="sedentary" class="sedentary-radio"
-          >Sedentária:
-          <span class="description hidedn">
-            passa muito tempo sentado, sem atividade física.
-          </span>
-        </label>
-      </div>
-      <div class="light-container">
-        <input type="radio" name="light" id="frequency-radio" />
-        <label for="light" class="light-radio"
-          >Atividade de Intensidade Leve:
-          <span class="description hidden">
-            atividades domésticas, caminhadas de no mínimo 15 minutos de 2
-            a 3 vezes por semana.
-          </span>
-        </label>
-      </div>
-      <div class="moderate-container">
-        <input type="radio" name="moderate" id="frequency-radio" />
-        <label for="moderate" class="moderate-radio"
-          >Atividade de Intensidade Moderada:
-          <span class="description hidden">
-            caminhadas de no mínimo 30 minutos, atividades físicas
-            (ginástica, musculação, futebol, natação...) 2 a 3 vezes por
-            semana.
-          </span>
-        </label>
-      </div>
-      <div class="high-container">
-        <input type="radio" name="high" id="frequency-radio" />
-        <label for="high" class="hight-radio"
-          >Atividade de Intensidade Alta:
-          <span class="description hidden">
-            caminhadas de no mínimo 30 minutos, atividades físicas
-            (ginástica, musculação, futebol, natação...) mais de 3 vezes
-            por semana.
-          </span>
-        </label>
-      </div>
-      <div class="very-high-container">
-        <input type="radio" name="very-high" id="frequency-radio" />
-        <label for="very-high" class="very-hight-radio"
-          >Atividade de Intensidade Muito Alta:
-          <span class="description hidden">
-            atletas profissionais, praticantes de maratona ou ciclismo.
-          </span>
-        </label>
-      </div>
-      <button class="card btn">Recomendação</button>
-    </div>
+    <form action="#" class="frequency"><section class="objective-description">
+      <h2 class="frequency-title">Frequência de Treino</h2>
+      <p class="frequency-label">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit, nemo enim. Animi nisi incidunt laborum corporis itaque, eum quae esse, officia consectetur, laboriosam error repellendus dolorum at harum quaerat. Quidem.
+      </p>
+    </section>
+      <section class="user-information">
+        <div class="frequency-container">
+          <label for="frequency" class="info"
+            >Frequência de Atividade Física:
+          </label>
+          <div class="sedentary-container">
+            <input type="radio" name="sedentary" id="frequency-radio" />
+            <label for="sedentary" class="sedentary-radio"
+              >Sedentária:
+              <span class="description hidedn">
+                passa muito tempo sentado, sem atividade física.
+              </span>
+            </label>
+          </div>
+          <div class="light-container">
+            <input type="radio" name="light" id="frequency-radio" />
+            <label for="light" class="light-radio"
+              >Atividade de Intensidade Leve:
+              <span class="description hidden">
+                atividades domésticas, caminhadas de no mínimo 15 minutos de 2
+                a 3 vezes por semana.
+              </span>
+            </label>
+          </div>
+          <div class="moderate-container">
+            <input type="radio" name="moderate" id="frequency-radio" />
+            <label for="moderate" class="moderate-radio"
+              >Atividade de Intensidade Moderada:
+              <span class="description hidden">
+                caminhadas de no mínimo 30 minutos, atividades físicas
+                (ginástica, musculação, futebol, natação...) 2 a 3 vezes por
+                semana.
+              </span>
+            </label>
+          </div>
+          <div class="high-container">
+            <input type="radio" name="high" id="frequency-radio" />
+            <label for="high" class="hight-radio"
+              >Atividade de Intensidade Alta:
+              <span class="description hidden">
+                caminhadas de no mínimo 30 minutos, atividades físicas
+                (ginástica, musculação, futebol, natação...) mais de 3 vezes
+                por semana.
+              </span>
+            </label>
+          </div>
+          <div class="very-high-container">
+            <input type="radio" name="very-high" id="frequency-radio" />
+            <label for="very-high" class="very-hight-radio"
+              >Atividade de Intensidade Muito Alta:
+              <span class="description hidden">
+                atletas profissionais, praticantes de maratona ou ciclismo.
+              </span>
+            </label>
+          </div>
+          <button class="card btn">Recomendação</button>
+        </div>
+      </section>
+    </form>
   </main>
 </body>
 </html>

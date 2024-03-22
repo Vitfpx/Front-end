@@ -95,7 +95,8 @@ main {
   box-shadow: 0 3rem 5rem rgba(0 0 0 / 25%);
 }
 
-.tmb {
+.tmb,
+.objective {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -151,18 +152,20 @@ ol li:hover::before {
   transform: scale(1.2);
   /* background-color: var(--clr-btn-hover); */
   background-color: #2a8c82;
-  color: #eee
+  color: #eee;
 }
 
 /* Description */
 
-.tmb-title {
+.tmb-title,
+.objective-title {
   font-size: 2.4rem;
   color: var(--clr-brown);
   font-family: var(--ff-primary);
 }
 
-.tmb-label {
+.tmb-label,
+.objective-label {
   margin: 1.2rem 0;
   color: var(--clr-label);
 }
@@ -173,13 +176,18 @@ ol li:hover::before {
   width: 100%;
 }
 
-.info {
+.info-tmb, .info-objective {
   display: inline-block;
   font-weight: bold;
   text-align: right;
   width: 5rem;
   margin: 1.5rem;
   color: #260101;
+}
+
+.info-objective {
+  margin-right: 1rem;
+  width: auto;
 }
 
 input {
@@ -192,14 +200,16 @@ input {
   box-shadow: var(--box-shadow);
 }
 
-.sex-info {
+.sex-info,
+.objective-radio {
   width: auto;
   box-shadow: none;
   cursor: pointer;
 }
 
-.sex-container label {
+.radio-option {
   cursor: pointer;
+  margin-right: 1rem;
 }
 
 /* TMB Result */
@@ -216,4 +226,14 @@ input {
   border-radius: var(--bd-radius);
   box-shadow: var(--box-shadow);
   color: #dee;
+}
+
+/* Recomendation Card */
+
+.card {
+  transition: all .5s;
+}
+
+.card:focus { 
+  padding: 6rem 16rem;
 }

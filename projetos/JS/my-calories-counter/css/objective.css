@@ -46,7 +46,8 @@ body {
   line-height: 1.8rem;
 }
 
-.btn {
+.btn,
+.card {
   display: block;
   padding: 1rem;
   margin: 1rem;
@@ -156,19 +157,6 @@ ol li:hover::before {
 
 /* Description */
 
-.traning-title {
-  font-size: 2.4rem;
-  color: var(--clr-brown);
-  font-family: var(--ff-primary);
-}
-
-.traning-label {
-  margin: 1.2rem 0;
-  color: var(--clr-label);
-}
-
-/* Description */
-
 .objective-title {
   font-size: 2.4rem;
   color: var(--clr-brown);
@@ -186,7 +174,7 @@ ol li:hover::before {
   width: 100%;
 }
 
-.info {
+.info-objective {
   display: inline-block;
   font-weight: bold;
   text-align: right;
@@ -214,4 +202,12 @@ input {
 .objective-container label {
   cursor: pointer;
   margin-right: 1rem;
+}
+
+.card {
+  transition: all .5s;
+}
+
+.card:focus { 
+  padding: 6rem 16rem;
 }
