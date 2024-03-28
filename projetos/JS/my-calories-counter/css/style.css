@@ -96,7 +96,9 @@ main {
 }
 
 .tmb,
-.objective {
+.training,
+.cutting,
+.bulking {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -157,15 +159,13 @@ ol li:hover::before {
 
 /* Description */
 
-.tmb-title,
-.objective-title {
+.title {
   font-size: 2.4rem;
   color: var(--clr-brown);
   font-family: var(--ff-primary);
 }
 
-.tmb-label,
-.objective-label {
+.label {
   margin: 1.2rem 0;
   color: var(--clr-label);
 }
@@ -176,13 +176,19 @@ ol li:hover::before {
   width: 100%;
 }
 
-.info-tmb, .info-objective {
+.info-tmb,
+.info-objective,
+.info-frequency {
   display: inline-block;
   font-weight: bold;
   text-align: right;
   width: 5rem;
   margin: 1.5rem;
   color: #260101;
+}
+
+.info-frequency {
+  width: auto;
 }
 
 .info-objective {
@@ -201,15 +207,29 @@ input {
 }
 
 .sex-info,
-.objective-radio {
+.objective-radio,
+.frequency-radio {
   width: auto;
   box-shadow: none;
   cursor: pointer;
 }
 
+.frequency-radio {
+  margin: 0 0 1.48rem 3rem;
+}
+
 .radio-option {
   cursor: pointer;
   margin-right: 1rem;
+}
+
+.sedentary,
+.light,
+.moderate,
+.high,
+.very-high {
+  display: inline-block;
+  margin-bottom: 1rem;
 }
 
 /* TMB Result */
@@ -228,12 +248,52 @@ input {
   color: #dee;
 }
 
+/* Frequency radio */
+
+.hidden {
+  display: none;
+}
+
+/* Cutting Table */
+
+.cutting-table {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem auto;
+}
+
+.row {
+  display: table-row;
+}
+
+.cell {
+  display: table-cell;
+  padding: 8px;
+  border: 1px solid #ddd;
+  min-width: 15rem;
+  background-color: #CAD49D;
+}
+
+.header > .cut {
+  font-weight: bold;
+  background-color: #805E73;
+}
+
+.value, .grams {
+  text-align: center;
+}
+
 /* Recomendation Card */
 
-.card {
-  transition: all .5s;
+/* .card {
+  transition: all 0.5s;
 }
 
-.card:focus { 
+.card:focus {
   padding: 6rem 16rem;
-}
+} */
