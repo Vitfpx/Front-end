@@ -15,69 +15,56 @@
       href="../images/iconApple.png"
       type="image/x-icon"
     />
-   <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style.css" />
   </head>
   <body>
     <header>
       <h1>My Calories Counter</h1>
     </header>
     <main>
-      <div class="bulking-container">
-        <h2>Bulking (ganho de massa)</h2>
-        <p class="bulking-label">
-          Abaixo estarão as informações necessárias para um bulking.
-        </p>
-        <div class="bulking-table">
-          <div class="row header">
-            <div class="cell bulking">Macronutrientes</div>
-            <div class="cell bulking">Gramas</div>
+      <div class="bulking">
+        <section class="description">
+          <h2 class="title">bulking (Ganho de peso/massa)</h2>
+          <p class="label">
+            Abaixo estarão as informações necessárias para um bulking.Também terão algumas dicas para uma melhor adaptação e evolução.
+          </p>
+        </section>
+        <section class="user-information">
+          <div class="bulking-table">
+            <div class="row header">
+              <div class="cell bul macro">Macronutrientes</div>
+              <div class="cell bul grams">Gramas</div>
+            </div>
+            <div class="row-carbs">
+              <div class="cell carbs">Carboidratos</div>
+              <div class="cell carbs value">xxx</div>
+            </div>
+            <div class="row-protein">
+              <div class="cell protein">Proteínas</div>
+              <div class="cell protein value">xxx</div>
+            </div>
+            <div class="row-fat">
+              <div class="cell fat">Gorduras</div>
+              <div class="cell fat value">xxx</div>
+            </div>
           </div>
-          <div class="row-carbs">
-            <div class="cell carbs">Carboidratos</div>
-            <div class="cell carbs">xxx</div>
-          </div>
-          <div class="row-protein">
-            <div class="cell carbs">Proteínas</div>
-            <div class="cell carbs">xx</div>
-          </div>
-          <div class="row-fat">
-            <div class="cell carbs">Gorduras</div>
-            <div class="cell carbs">xx</div>
-          </div>
-        </div>
+        </section>
+        <aside class="tips-container">
+          <p class="btn tips">
+            Dica 1: Comece seu bulking com <span class="pre-bulking">xxxx</span> calorias por pelo menos uma semana para o corpo se acostumar. Depois, parta para o valor da tabela.
+          </p>
+          <p class="btn tips">
+            Dica 2: Procure comer alimentos com uma alta densidade calórica (quantidade de energia disponível por volume de alimento) para conseguir bater as metas.
+          </p>
+        </aside>
       </div>
-      <aside class="tips">
-        <button class="btn-tips hidden">Dica 1</button>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
-          nostrum laudantium cumque impedit! Veritatis cumque sequi quam, eaque
-          nobis delectus quasi voluptatum tempora! Quaerat nihil, nostrum sit
-          non voluptatem natus!
-        </p>
-        <button class="btn-tips hidden">Dica 2</button>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero,
-          recusandae, expedita eveniet dolorem neque laborum cupiditate error
-          accusamus sint eaque eius at. Totam, explicabo blanditiis rerum cum
-          asperiores aliquam quia.
-        </p>
-        <button class="btn-tips hidden">Dica 3</button>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio
-          numquam obcaecati fuga animi voluptatum dolorum esse commodi iusto ad,
-          est id, earum impedit neque sequi maiores culpa suscipit alias quos?
-        </p>
-      </aside>
+      <nav>
+        <ol>
+          <a href="index.html"><li></li></a>
+          <a href="training.html"><li></li></a>
+          <a href="#"><li></li></a>
+        </ol>
+      </nav>
     </main>
-    <nav>
-      <ol>
-        <li>
-          <a href="training.html"><i class="fa-solid fa-chevron-left"></i></a>
-        </li>
-        <li><a href="index.html">1</a></li>
-        <li><a href="training.html">2</a></li>
-        <li><a href="#">3</a></li>
-      </ol>
-    </nav>
   </body>
 </html>

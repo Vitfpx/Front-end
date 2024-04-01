@@ -9,11 +9,12 @@
   --ff-primary: 'Gayathri';
   --ff-secondary: 'Roboto';
   --fs-html: 62.5%;
-  --clr-body: #2a8c82;
-  --clr-btn: rgb(65 220 206);
-  --clr-btn-hover: #41bfb3;
+  --clr-body: #d95f7c;
+  --clr-btn: #d96c5f;
+  --clr-btn-hover: #d96b5fc5;
   --clr-label: #444;
   --clr-brown: #260101;
+  --clr-pale-brown: #4d0101de;
   --clr-white: #eff;
   --bd-radius: 5px;
   --box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
@@ -38,10 +39,12 @@
 
 html {
   font-size: var(--fs-html);
+  height: 100vh;
 }
 
 body {
-  background-color: var(--clr-body);
+  /* background: rgb(0 188 212 / 50%); */
+  background: var(--clr-body);
   font-family: var(--ff-primary);
   line-height: 1.8rem;
 }
@@ -152,8 +155,8 @@ ol li::before {
 
 ol li:hover::before {
   transform: scale(1.2);
-  /* background-color: var(--clr-btn-hover); */
-  background-color: #2a8c82;
+  /* background-color: #2a8c82; */
+  background-color: var(--clr-body);
   color: #eee;
 }
 
@@ -200,7 +203,7 @@ input {
   font-size: 1.5rem;
   width: 10rem;
   padding: 0.8rem;
-  background-color: #76dede8a;
+  background-color: #d95f8048;
   color: var(--clr-label);
   border-radius: var(--bd-radius);
   box-shadow: var(--box-shadow);
@@ -212,6 +215,13 @@ input {
   width: auto;
   box-shadow: none;
   cursor: pointer;
+  transition: all 0.2s;
+}
+
+.sex-info:hover,
+.objective-radio:hover,
+.frequency-radio:hover {
+  transform: scale(1.2);
 }
 
 .frequency-radio {
@@ -241,7 +251,7 @@ input {
 
 .tmb-number-result {
   margin-left: 2rem;
-  background-color: var(--clr-body);
+  background-color: #4d0101de;
   padding: 1rem;
   border-radius: var(--bd-radius);
   box-shadow: var(--box-shadow);
@@ -256,7 +266,8 @@ input {
 
 /* Cutting Table */
 
-.cutting-table {
+.cutting-table,
+.bulking-table {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -264,7 +275,7 @@ input {
 
   width: 100%;
   border-collapse: collapse;
-  margin: 2rem auto;
+  margin: 1rem auto;
 }
 
 .row {
@@ -274,18 +285,30 @@ input {
 .cell {
   display: table-cell;
   padding: 8px;
-  border: 1px solid #ddd;
+  border: 1px solid #fff;
   min-width: 15rem;
-  background-color: #CAD49D;
+  background-color: #f0b7b39c;
 }
 
-.header > .cut {
+.header > .cut, .bul {
   font-weight: bold;
-  background-color: #805E73;
+  background-color: #4d010173;
 }
 
-.value, .grams {
+.value,
+.grams {
   text-align: center;
+}
+
+/* Tips */
+.tips {
+  font-size: 1.2rem;
+  cursor: default;
+}
+
+.tips:hover {
+  transform: none;
+  background-color: var(--clr-btn);
 }
 
 /* Recomendation Card */
