@@ -16,6 +16,7 @@
       type="image/x-icon"
     />
     <link rel="stylesheet" href="../css/style.css" />
+    <script src="../js/script.js" defer></script>pt
   </head>
   <body>
     <header>
@@ -30,6 +31,87 @@
             calculadora de macronutrientes e a frequência das suas atividades
             físicas.
           </p>
+        </section>
+        <section class="user-information">
+          <div class="frequency-container">
+            <label for="frequency" class="info-frequency"
+              >Frequência de Atividade Física:
+            </label>
+          </div>
+          <div class="sedentary-container">
+            <input
+              type="radio"
+              name="frequency"
+              id="sedentary"
+              class="frequency-radio"
+            />
+            <label for="sedentary" class="radio-option sedentary"
+              >Sedentário.
+            </label>
+          </div>
+          <div class="light-container">
+            <input
+              type="radio"
+              name="frequency"
+              id="light"
+              class="frequency-radio"
+            />
+            <label for="light" class="radio-option light"
+              >Atividade de Leve Intensidade.
+              <span class="radio-option hidden">
+                Inclui atividades como tarefas domésticas e caminhadas regulares
+                de curta duração, realizadas de 2 a 3 vezes por semana.
+              </span>
+            </label>
+          </div>
+          <div class="moderate-container">
+            <input
+              type="radio"
+              name="frequency"
+              id="moderate"
+              class="frequency-radio"
+            />
+            <label for="moderate" class="radio-option moderate"
+              >Atividade de Moderada Intensidade.
+              <span class="radio-option hidden">
+                Engloba atividades como caminhadas mais longas e atividades
+                físicas regulares, como ginástica, musculação, futebol ou
+                natação, realizadas de 2 a 3 vezes por semana.
+              </span>
+            </label>
+          </div>
+          <div class="high-container">
+            <input
+              type="radio"
+              name="frequency"
+              id="high"
+              class="frequency-radio"
+            />
+            <label for="high" class="radio-option high"
+              >Atividade de Alta Intensidade.
+              <span class="radio-option hidden">
+                Inclui caminhadas de duração significativa e atividades físicas
+                vigorosas, como ginástica, musculação, futebol ou natação,
+                praticadas mais de 3 vezes por semana.
+              </span>
+            </label>
+          </div>
+          <div class="very-high-container">
+            <input
+              type="radio"
+              name="frequency"
+              id="very-high"
+              class="frequency-radio"
+            />
+            <label for="very-high" class="radio-option very-high"
+              >Atividade de Intensidade Muito Alta.
+              <span class="radio-option hidden">
+                Destina-se a atletas profissionais, corredores de maratona,
+                ciclistas ou praticantes de esportes que exigem um alto nível de
+                desempenho físico.
+              </span>
+            </label>
+          </div>
         </section>
         <section class="user-information">
           <div class="objective-container">
@@ -48,92 +130,6 @@
               class="objective-radio"
             />
             <label for="cutting" class="radio-option">Perda de gordura </label>
-          </div>
-        </section>
-        <section class="user-information">
-          <div class="frequency-container">
-            <label for="frequency" class="info-frequency"
-              >Frequência de Atividade Física:
-            </label>
-            <div class="sedentary-container">
-              <input
-                type="radio"
-                name="frequency"
-                id="sedentary"
-                class="frequency-radio"
-              />
-              <label for="sedentary" class="radio-option sedentary"
-                >Sedentário. <i class="fa-solid fa-circle-info"></i>
-              </label>
-            </div>
-            <div class="light-container">
-              <input
-                type="radio"
-                name="frequency"
-                id="light"
-                class="frequency-radio"
-              />
-              <label for="light" class="radio-option light"
-                >Atividade de Leve Intensidade.
-                <i class="fa-solid fa-circle-info"></i>
-                <span class="radio-option hidden">
-                  Inclui atividades como tarefas domésticas e caminhadas
-                  regulares de curta duração, realizadas de 2 a 3 vezes por
-                  semana.
-                </span>
-              </label>
-            </div>
-            <div class="moderate-container">
-              <input
-                type="radio"
-                name="frequency"
-                id="moderate"
-                class="frequency-radio"
-              />
-              <label for="moderate" class="radio-option moderate"
-                >Atividade de Moderada Intensidade.
-                <i class="fa-solid fa-circle-info"></i>
-                <span class="radio-option hidden">
-                  Engloba atividades como caminhadas mais longas e atividades
-                  físicas regulares, como ginástica, musculação, futebol ou
-                  natação, realizadas de 2 a 3 vezes por semana.
-                </span>
-              </label>
-            </div>
-            <div class="high-container">
-              <input
-                type="radio"
-                name="frequency"
-                id="high"
-                class="frequency-radio"
-              />
-              <label for="high" class="radio-option high"
-                >Atividade de Alta Intensidade.
-                <i class="fa-solid fa-circle-info"></i>
-                <span class="radio-option hidden">
-                  Inclui caminhadas de duração significativa e atividades
-                  físicas vigorosas, como ginástica, musculação, futebol ou
-                  natação, praticadas mais de 3 vezes por semana.
-                </span>
-              </label>
-            </div>
-            <div class="very-high-container">
-              <input
-                type="radio"
-                name="frequency"
-                id="very-high"
-                class="frequency-radio"
-              />
-              <label for="very-high" class="radio-option very-high"
-                >Atividade de Intensidade Muito Alta.
-                <i class="fa-solid fa-circle-info"></i>
-                <span class="radio-option hidden">
-                  Destina-se a atletas profissionais, corredores de maratona,
-                  ciclistas ou praticantes de esportes que exigem um alto nível
-                  de desempenho físico.
-                </span>
-              </label>
-            </div>
             <button class="card btn">Recomendação</button>
             <div class="overlay hidden"></div>
           </div>

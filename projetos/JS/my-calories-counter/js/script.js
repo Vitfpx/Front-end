@@ -1,33 +1,54 @@
 'use strict';
 
 // Starting Conditions
-const male = document.querySelector('#male');
-const female = document.querySelector('#female');
+const maleTmb = document.querySelector('#male');
+const femaleTmb = document.querySelector('#female');
 const height = document.querySelector('#height-info');
 const weight = document.querySelector('#weight-info');
 const age = document.querySelector('#age-info');
 const tmbResult = document.querySelector('.tmb-number-result');
 const calculate = document.querySelector('.calculate');
 
-// Reset
-const init = () => {
+let finalResult = 0;
+
+// Cálculando TMB
+const maleCalculation = () => {
+  let maleTmb = 66.473;
+  return Math.trunc(
+    maleTmb + 13.7516 * weight.value + 5.0033 * height.value - 6.755 * age.value
+  );
 };
 
-init();
+const femaleCalculation = () => {
+  let femaleTmb = 655.0955;
+  return Math.trunc(
+    femaleTmb +
+      9.5634 * weight.value +
+      1.8496 * height.value -
+      4.6756 * age.value
+  );
+};
 
-// Cálculo do tmb
+const frequencyCalculation = () => {
+  let sedentaryOption = document.querySelector('.sedentary');
+  let lightOption = document.querySelector('.light');
+  let moderateOption = document.querySelector('.moderate');
+  let highOption = document.querySelector('.sedentary');
+  let veryHighOption = document.querySelector('.sedentary');
+
+  if (sedentaryOption.checked) finalResult *= 1.2;
+};
+
 calculate.addEventListener('click', () => {
-  male = 66.473;
-  female = 655.0955;
-  if (sex === male) {
-    const maleCalculation = (sex, height, weight, age) => {
-      tmbResult.textContent =
-        sex + 13.7516 * weight + 5.0033 * height - 6.755 * age;
-    };
-  } else {
-    const femaleCalculation = (height, weight, age) => {
-      tmbResult.textContent =
-        sex + 9.5634 * weight + 1.8496 * height - 4.6756 * age;
-    };
+  event.preventDefault();
+
+  if (maleTmb.checked) {
+    tmbResult.textContent = maleCalculation();
+    finalResult = maleCalculation();
+  } else if (femaleTmb.checked) {
+    tmbResult.textContent = femaleCalculation();
+    finalResult = femaleCalculation();
   }
 });
+
+console.log(frequencyCalculation(finalResult));
