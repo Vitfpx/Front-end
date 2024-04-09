@@ -6,12 +6,13 @@ const femaleTmb = document.querySelector('#female');
 const height = document.querySelector('#height-info');
 const weight = document.querySelector('#weight-info');
 const age = document.querySelector('#age-info');
-const tmbResult = document.querySelector('.tmb-number-result');
 const calculate = document.querySelector('.calculate');
+const frequencyRadio = document.querySelectorAll('.frequency-radio');
+let savedTmbResult = sessionStorage.getItem('savedTmbResult');
 
-let finalResult = 0;
+let tmbResult = 0;
 
-// Cálculando TMB
+// Cálculando TMB masculino
 const maleCalculation = () => {
   let maleTmb = 66.473;
   return Math.trunc(
@@ -19,6 +20,7 @@ const maleCalculation = () => {
   );
 };
 
+// Cálculando TMB feminino
 const femaleCalculation = () => {
   let femaleTmb = 655.0955;
   return Math.trunc(
@@ -29,26 +31,66 @@ const femaleCalculation = () => {
   );
 };
 
-const frequencyCalculation = () => {
-  let sedentaryOption = document.querySelector('.sedentary');
-  let lightOption = document.querySelector('.light');
-  let moderateOption = document.querySelector('.moderate');
-  let highOption = document.querySelector('.sedentary');
-  let veryHighOption = document.querySelector('.sedentary');
-
-  if (sedentaryOption.checked) finalResult *= 1.2;
+const tmbCalc = () => {
+  const tmbNumber = document.querySelector('.tmb-number-result');
+  event.preventDefault();
+  if (maleTmb.checked) {
+    tmbResult = maleCalculation();
+    tmbNumber.textContent = maleCalculation();
+  } else if (femaleTmb.checked) {
+    tmbResult = femaleCalculation();
+    tmbNumber.textContent = femaleCalculation();
+  }
+  // console.log(tmbResult);
+  sessionStorage.setItem('savedTmbResult', tmbResult);
 };
 
-calculate.addEventListener('click', () => {
+// Botão de cálculo TMB
+document.addEventListener('DOMContentLoaded', () => {
   event.preventDefault();
+  const tmbNumber = document.querySelector('.tmb-number-result');
 
-  if (maleTmb.checked) {
-    tmbResult.textContent = maleCalculation();
-    finalResult = maleCalculation();
-  } else if (femaleTmb.checked) {
-    tmbResult.textContent = femaleCalculation();
-    finalResult = femaleCalculation();
+  if (tmbNumber) {
+    calculate.addEventListener('click', tmbCalc);
   }
 });
 
-console.log(frequencyCalculation(finalResult));
+// Cálculo da frequência de treino em relação ao TMB
+// while ()
+frequencyRadio.forEach(radio => {
+  radio.addEventListener('click', () => {
+    switch (radio.id) {
+      case 'sedentary':
+        savedTmbResult *= 1.2;
+        // console.log(savedTmbResult);
+        break;
+      case 'light':
+        savedTmbResult *= 1.375;
+        // console.log(savedTmbResult);
+        break;
+      case 'moderate':
+        savedTmbResult *= 1.55;
+        console.log(savedTmbResult);
+        break;
+      case 'high':
+        savedTmbResult *= 1.725;
+        console.log(savedTmbResult);
+        break;
+      case 'very-high':
+        savedTmbResult *= 1.9;
+        // console.log(savedTmbResult);
+        break;
+    }
+  });
+});
+// const frequencyCalculation = () => {
+//   let sedentaryOption = document.querySelector('.sedentary');
+//   let lightOption = document.querySelector('.light');
+//   let moderateOption = document.querySelector('.moderate');
+//   let highOption = document.querySelector('.sedentary');
+//   let veryHighOption = document.querySelector('.sedentary');
+
+//   if (sedentaryOption.checked) console.log('result');
+// };
+
+// console.log(frequencyCalculation());
