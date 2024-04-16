@@ -1,6 +1,10 @@
 'use strict';
 
 // Starting Conditions
+const btnShowRecommendation = document.querySelector('.card');
+const btnCloseRecommendation = document.querySelector('.close-modal');
+const modalRecommendatiton = document.querySelector('.recommendation');
+const overlay = document.querySelector('.overlay');
 const maleTmb = document.querySelector('#male');
 const femaleTmb = document.querySelector('#female');
 const height = document.querySelector('#height-info');
@@ -94,3 +98,11 @@ frequencyRadio.forEach(radio => {
 // };
 
 // console.log(frequencyCalculation());
+
+// Modal Window
+const openModal = () => {
+  modalRecommendatiton.classList.remove('hidden');
+  overlay.classList.remove('hidden');
+};
+
+btnShowRecommendation.addEventListener('click', openModal);

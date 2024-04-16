@@ -313,10 +313,36 @@ input {
 
 /* Recomendation Card */
 
-/* .card {
-  transition: all 0.5s;
+.recommendation {
+  position: absolute;
+  z-index: 9;
+  background-color: #fff;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* serve para centralizar */
+  width: 70%;
+  height: 48.6%;
+  padding: 6rem;
+  border-radius: 5px;
 }
 
-.card:focus {
-  padding: 6rem 16rem;
-}  */
+.close-modal {
+  position: absolute;
+  top: 1.2rem;
+  right: 2rem;
+  border: none;
+  background-color: #fff;
+  font-size: 5rem;
+  cursor: pointer;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+}
