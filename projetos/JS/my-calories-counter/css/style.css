@@ -290,7 +290,8 @@ input {
   background-color: #f0b7b39c;
 }
 
-.header > .cut, .bul {
+.header > .cut,
+.bul {
   font-weight: bold;
   background-color: #4d010173;
 }
@@ -320,8 +321,8 @@ input {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%); /* serve para centralizar */
-  width: 70%;
-  height: 48.6%;
+  width: 65%;
+  height: 65%;
   padding: 6rem;
   border-radius: 5px;
 }
@@ -344,5 +345,27 @@ input {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(3px);
+  backdrop-filter: blur(2px);
+}
+
+/* Modal Window CSS */
+
+.modal-text {
+  color: black;
+  font-size: 1.5rem;
+  font-family: var(--ff-secondary);
+  width: 75rem;
+  margin: 0 auto;
+}
+
+.modal-text p,
+strong {
+  color: var(--clr-brown);
+  margin-bottom: 2.5rem;
+  line-height: 1.8rem;
+  text-align: justify;
+}
+
+.modal-text strong {
+  color: var(--clr-body);
 }

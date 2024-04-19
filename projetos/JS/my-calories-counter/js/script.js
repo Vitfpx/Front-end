@@ -1,6 +1,8 @@
 'use strict';
 
+// ********************
 // Starting Conditions
+// ********************
 const btnShowRecommendation = document.querySelector('.card');
 const btnCloseRecommendation = document.querySelector('.close-modal');
 const modalRecommendatiton = document.querySelector('.recommendation');
@@ -12,11 +14,17 @@ const weight = document.querySelector('#weight-info');
 const age = document.querySelector('#age-info');
 const calculate = document.querySelector('.calculate');
 const frequencyRadio = document.querySelectorAll('.frequency-radio');
+const objectiveRadio = document.querySelectorAll('.objective-radio');
+const decideTheNextStep = document.querySelector('.decide-next-step');
+const decideTheNextStepNav = document.querySelector('.decide-next-step-nav');
 let savedTmbResult = sessionStorage.getItem('savedTmbResult');
 
 let tmbResult = 0;
 
-// Cálculando TMB masculino
+// *********************
+// calculating tmb
+// *********************
+
 const maleCalculation = () => {
   let maleTmb = 66.473;
   return Math.trunc(
@@ -24,7 +32,6 @@ const maleCalculation = () => {
   );
 };
 
-// Cálculando TMB feminino
 const femaleCalculation = () => {
   let femaleTmb = 655.0955;
   return Math.trunc(
@@ -49,7 +56,10 @@ const tmbCalc = () => {
   sessionStorage.setItem('savedTmbResult', tmbResult);
 };
 
-// Botão de cálculo TMB
+// *********************
+// TMB Calculate Button
+// *********************
+
 document.addEventListener('DOMContentLoaded', () => {
   event.preventDefault();
   const tmbNumber = document.querySelector('.tmb-number-result');
@@ -59,18 +69,23 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-// Cálculo da frequência de treino em relação ao TMB
-// while ()
+// **************************************************
+// Calculating Frequency training in relasion to TMB
+// **************************************************
+
+let originalTmbResult = savedTmbResult;
+
 frequencyRadio.forEach(radio => {
   radio.addEventListener('click', () => {
+    savedTmbResult = originalTmbResult;
     switch (radio.id) {
       case 'sedentary':
         savedTmbResult *= 1.2;
-        // console.log(savedTmbResult);
+        console.log(savedTmbResult);
         break;
       case 'light':
         savedTmbResult *= 1.375;
-        // console.log(savedTmbResult);
+        console.log(savedTmbResult);
         break;
       case 'moderate':
         savedTmbResult *= 1.55;
@@ -82,27 +97,54 @@ frequencyRadio.forEach(radio => {
         break;
       case 'very-high':
         savedTmbResult *= 1.9;
-        // console.log(savedTmbResult);
+        console.log(savedTmbResult);
         break;
     }
   });
 });
-// const frequencyCalculation = () => {
-//   let sedentaryOption = document.querySelector('.sedentary');
-//   let lightOption = document.querySelector('.light');
-//   let moderateOption = document.querySelector('.moderate');
-//   let highOption = document.querySelector('.sedentary');
-//   let veryHighOption = document.querySelector('.sedentary');
 
-//   if (sedentaryOption.checked) console.log('result');
-// };
-
-// console.log(frequencyCalculation());
-
+// *************
 // Modal Window
+// *************
+
 const openModal = () => {
   modalRecommendatiton.classList.remove('hidden');
   overlay.classList.remove('hidden');
 };
 
+const closeModal = () => {
+  modalRecommendatiton.classList.add('hidden');
+  overlay.classList.add('hidden');
+};
+
 btnShowRecommendation.addEventListener('click', openModal);
+btnCloseRecommendation.addEventListener('click', closeModal);
+overlay.addEventListener('click', closeModal);
+
+document.addEventListener('keydown', e => {
+  if (
+    e.key === 'Escape' &&
+    !modalRecommendatiton.classList.contains('hidden')
+  ) {
+    closeModal();
+  }
+});
+
+// *****************
+// Objective Button
+// *****************
+
+objectiveRadio.forEach(radio => {
+  radio.addEventListener('click', () => {
+    switch (radio.id) {
+      case 'bulking':
+        decideTheNextStep.setAttribute('href', 'bulking.html');
+        decideTheNextStepNav.setAttribute('href', 'bulking.html');
+        break;
+      case 'cutting':
+        decideTheNextStep.setAttribute('href', 'cutting.html');
+        decideTheNextStepNav.setAttribute('href', 'cutting.html');
+        break;
+    }
+  });
+});
