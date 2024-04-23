@@ -16,6 +16,7 @@
       type="image/x-icon"
     />
     <link rel="stylesheet" href="../css/style.css" />
+    <script type="module" src="../js/cutting.js" defer></script>
   </head>
   <body>
     <header>
@@ -26,7 +27,8 @@
         <section class="description">
           <h2 class="title">Cutting (Perda de peso/Gordura)</h2>
           <p class="label">
-            Abaixo estarão as informações necessárias para um cutting.Também terão algumas dicas para uma melhor adaptação e evolução.
+            Abaixo estarão as informações necessárias para um cutting.Também
+            terão algumas dicas para uma melhor adaptação e evolução.
           </p>
         </section>
         <section class="user-information">
@@ -37,24 +39,33 @@
             </div>
             <div class="row-carbs">
               <div class="cell carbs">Carboidratos</div>
-              <div class="cell carbs value">xxx</div>
+              <div class="cell carbs value">
+                <span id="carb-value">xxx</span>
+              </div>
             </div>
             <div class="row-protein">
               <div class="cell protein">Proteínas</div>
-              <div class="cell protein value">xxx</div>
+              <div class="cell protein value">
+                <span id="protein-value">xxx</span>
+              </div>
             </div>
             <div class="row-fat">
               <div class="cell fat">Gorduras</div>
-              <div class="cell fat value">xxx</div>
+              <div class="cell fat value"><span id="fat-value">xxx</span></div>
             </div>
           </div>
         </section>
         <aside class="tips-container">
           <p class="btn tips">
-            Dica 1: Comece seu Cutting com <span class="pre-cutting">xxxx</span> calorias por pelo menos uma semana para o corpo se acostumar. Depois, parta para o valor da tabela.
+            Dica 1: Comece seu Cutting com
+            <span class="pre-cutting">xxxx</span> calorias por pelo menos uma
+            semana para o corpo se acostumar. Depois, parta para o valor da
+            tabela.
           </p>
           <p class="btn tips">
-            Dica 2: Procure comer alimentos com uma baixa densidade calórica (quantidade de energia disponível por volume de alimento) caso comece a passar fome.
+            Dica 2: Procure comer alimentos com uma baixa densidade calórica
+            (quantidade de energia disponível por volume de alimento) caso
+            comece a passar fome.
           </p>
         </aside>
       </div>
