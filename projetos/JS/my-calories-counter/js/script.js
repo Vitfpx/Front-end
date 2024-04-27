@@ -11,8 +11,10 @@ const age = document.querySelector('#age-info');
 const calculate = document.querySelector('.calculate');
 
 let savedTmbResult = sessionStorage.getItem('savedTmbResult');
+let savedWeightValue = sessionStorage.getItem('savedWeightValue');
 
 let tmbResult = 0;
+let weightValue = 0;
 
 // *********************
 // calculating tmb
@@ -41,12 +43,14 @@ const tmbCalc = () => {
   if (maleTmb.checked) {
     tmbResult = maleCalculation();
     tmbNumber.textContent = maleCalculation();
+    weightValue = weight.value;
   } else if (femaleTmb.checked) {
     tmbResult = femaleCalculation();
     tmbNumber.textContent = femaleCalculation();
+    weightValue = weight.value;
   }
-  // console.log(tmbResult);
   sessionStorage.setItem('savedTmbResult', tmbResult);
+  sessionStorage.setItem('savedWeightValue', weightValue);
 };
 
 // *********************
@@ -61,5 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
     calculate.addEventListener('click', tmbCalc);
   }
 });
+console.log(savedTmbResult);
 
 export default savedTmbResult;
+export { savedWeightValue };

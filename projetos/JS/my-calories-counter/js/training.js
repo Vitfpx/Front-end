@@ -8,9 +8,12 @@ const frequencyRadio = document.querySelectorAll('.frequency-radio');
 const objectiveRadio = document.querySelectorAll('.objective-radio');
 const decideTheNextStep = document.querySelector('.decide-next-step');
 const decideTheNextStepNav = document.querySelector('.decide-next-step-nav');
-const totalEnergyExpenditure = sessionStorage.getItem('totalEnergyExpenditure');
+let totalEnergyExpenditure = Number(
+  sessionStorage.getItem('totalEnergyExpenditure')
+);
 
 let originalTmbResult = savedTmbResult;
+let originalTotalEnergyExpenditure = totalEnergyExpenditure;
 
 // **************************************************
 // Calculating Frequency training in relasion to TMB
@@ -80,17 +83,20 @@ document.addEventListener('keydown', e => {
 
 objectiveRadio.forEach(radio => {
   radio.addEventListener('click', () => {
-    switch (radio.id) {
-      case 'bulking':
-        decideTheNextStep.setAttribute('href', 'bulking.html');
-        decideTheNextStepNav.setAttribute('href', 'bulking.html');
-        break;
-      case 'cutting':
-        decideTheNextStep.setAttribute('href', 'cutting.html');
-        decideTheNextStepNav.setAttribute('href', 'cutting.html');
-        break;
+    totalEnergyExpenditure = originalTotalEnergyExpenditure;
+    if (radio.id === 'bulking') {
+      decideTheNextStep.setAttribute('href', 'bulking.html');
+      decideTheNextStepNav.setAttribute('href', 'bulking.html');
+      totalEnergyExpenditure += 500;
+      console.log(totalEnergyExpenditure);
+    } else {
+      decideTheNextStep.setAttribute('href', 'cutting.html');
+      decideTheNextStepNav.setAttribute('href', 'cutting.html');
+      totalEnergyExpenditure -= 600;
+      console.log(totalEnergyExpenditure);
     }
   });
 });
+console.log(totalEnergyExpenditure);
 
 export default totalEnergyExpenditure;
