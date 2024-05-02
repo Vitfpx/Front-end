@@ -1,4 +1,14 @@
+'use strict';
+
+// ********
+// Imports
+// ********
+
 import savedTmbResult from './script.js';
+
+// ********************
+// Variable Assignment
+// ********************
 
 const btnShowRecommendation = document.querySelector('.card');
 const btnCloseRecommendation = document.querySelector('.close-modal');
@@ -8,9 +18,13 @@ const frequencyRadio = document.querySelectorAll('.frequency-radio');
 const objectiveRadio = document.querySelectorAll('.objective-radio');
 const decideTheNextStep = document.querySelector('.decide-next-step');
 const decideTheNextStepNav = document.querySelector('.decide-next-step-nav');
-let totalEnergyExpenditure = Number(
-  sessionStorage.getItem('totalEnergyExpenditure')
-);
+let totalEnergyExpenditure = 0;
+let frequencyRadioClicked;
+
+const updateTotalEnergyExpenditure = () => {
+  totalEnergyExpenditure =
+    Number(sessionStorage.getItem('totalEnergyExpenditure')) || 0;
+};
 
 let originalTmbResult = savedTmbResult;
 let originalTotalEnergyExpenditure = totalEnergyExpenditure;
@@ -45,6 +59,8 @@ frequencyRadio.forEach(radio => {
         break;
     }
     sessionStorage.setItem('totalEnergyExpenditure', savedTmbResult);
+    updateTotalEnergyExpenditure();
+    frequencyRadioClicked = true;
   });
 });
 
@@ -83,20 +99,23 @@ document.addEventListener('keydown', e => {
 
 objectiveRadio.forEach(radio => {
   radio.addEventListener('click', () => {
-    totalEnergyExpenditure = originalTotalEnergyExpenditure;
-    if (radio.id === 'bulking') {
-      decideTheNextStep.setAttribute('href', 'bulking.html');
-      decideTheNextStepNav.setAttribute('href', 'bulking.html');
-      totalEnergyExpenditure += 500;
-      console.log(totalEnergyExpenditure);
-    } else {
-      decideTheNextStep.setAttribute('href', 'cutting.html');
-      decideTheNextStepNav.setAttribute('href', 'cutting.html');
-      totalEnergyExpenditure -= 600;
-      console.log(totalEnergyExpenditure);
+    if (frequencyRadioClicked) {
+      totalEnergyExpenditure = originalTotalEnergyExpenditure;
+      if (radio.id === 'bulking') {
+        decideTheNextStep.setAttribute('href', 'bulking.html');
+        decideTheNextStepNav.setAttribute('href', 'bulking.html');
+        updateTotalEnergyExpenditure();
+        totalEnergyExpenditure += 500;
+        console.log(totalEnergyExpenditure);
+      } else {
+        decideTheNextStep.setAttribute('href', 'cutting.html');
+        decideTheNextStepNav.setAttribute('href', 'cutting.html');
+        updateTotalEnergyExpenditure();
+        totalEnergyExpenditure -= 600;
+        console.log(totalEnergyExpenditure);
+      }
     }
   });
 });
-console.log(totalEnergyExpenditure);
 
-export default totalEnergyExpenditure;
+export { updateTotalEnergyExpenditure, totalEnergyExpenditure };

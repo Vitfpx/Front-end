@@ -1,7 +1,7 @@
 'use strict';
 
 // ********************
-// Starting Conditions
+// Variable Assignment
 // ********************
 const maleTmb = document.querySelector('#male');
 const femaleTmb = document.querySelector('#female');

@@ -1,9 +1,26 @@
-import totalEnergyExpenditure from './training.js';
+'use strict';
+
+// ********
+// Imports
+// ********
+
+import {
+  updateTotalEnergyExpenditure,
+  totalEnergyExpenditure,
+} from './training.js';
 import { savedWeightValue } from './script.js';
 
-console.log(totalEnergyExpenditure, savedWeightValue);
+// ********************
+// Variable Assignment
+// ********************
 
 const carbValue = document.querySelector('#carb-value');
+const proteinValue = document.querySelector('#protein-value');
+const fatValue = document.querySelector('#fat-value');
+
+updateTotalEnergyExpenditure();
+
+console.log(totalEnergyExpenditure, savedWeightValue);
 
 // **************
 // Macro Numbers
@@ -12,12 +29,7 @@ const carbValue = document.querySelector('#carb-value');
 let cuttingMacros = totalEnergyExpenditure - 600;
 console.log(cuttingMacros);
 
-carbValue.textContent = carbValue;
 
-// fatCalc = weight
-// proteinCalc = weight * 2.5
-// carbCalc = (carbCalc - (fatCalc * 9 + proteinCalc * 4)) / 4
-//
-//
-//
-//
+fatValue.textContent = savedWeightValue;
+proteinValue.textContent = savedWeightValue * 2.5;
+carbValue.textContent = (cuttingMacros - (savedWeightValue * 9 + savedWeightValue * 2.5 * 4)) / 4;
