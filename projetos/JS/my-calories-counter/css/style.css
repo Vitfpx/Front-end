@@ -166,6 +166,7 @@ ol li:hover::before {
   font-size: 2.4rem;
   color: var(--clr-brown);
   font-family: var(--ff-primary);
+  text-align: center;
 }
 
 .label {
@@ -197,6 +198,13 @@ ol li:hover::before {
 .info-objective {
   margin-right: 1rem;
   width: auto;
+}
+
+.tmb-explication {
+  width: 23rem;
+  font-size: 1rem;
+  text-align: justify;
+  margin: .5rem 0;
 }
 
 input {
@@ -346,6 +354,7 @@ input {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(2px);
+  cursor: pointer;
 }
 
 /* Modal Window CSS */
@@ -368,4 +377,13 @@ strong {
 
 .modal-text strong {
   color: var(--clr-body);
+}
+
+/* Tips */
+
+#final-cutting,
+#pre-cutting,
+#final-bulking,
+#pre-bulking {
+  color: var(--clr-brown);
 }

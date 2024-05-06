@@ -102,17 +102,17 @@ objectiveRadio.forEach(radio => {
     if (frequencyRadioClicked) {
       totalEnergyExpenditure = originalTotalEnergyExpenditure;
       if (radio.id === 'bulking') {
-        decideTheNextStep.setAttribute('href', 'bulking.html');
-        decideTheNextStepNav.setAttribute('href', 'bulking.html');
         updateTotalEnergyExpenditure();
         totalEnergyExpenditure += 500;
         console.log(totalEnergyExpenditure);
+        decideTheNextStep.setAttribute('href', 'bulking.html');
+        decideTheNextStepNav.setAttribute('href', 'bulking.html');
       } else {
-        decideTheNextStep.setAttribute('href', 'cutting.html');
-        decideTheNextStepNav.setAttribute('href', 'cutting.html');
         updateTotalEnergyExpenditure();
         totalEnergyExpenditure -= 600;
         console.log(totalEnergyExpenditure);
+        decideTheNextStep.setAttribute('href', 'cutting.html');
+        decideTheNextStepNav.setAttribute('href', 'cutting.html');
       }
     }
   });

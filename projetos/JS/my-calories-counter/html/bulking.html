@@ -16,6 +16,7 @@
       type="image/x-icon"
     />
     <link rel="stylesheet" href="../css/style.css" />
+    <script type="module" src="../js/bulking.js" defer></script>
   </head>
   <body>
     <header>
@@ -24,37 +25,49 @@
     <main>
       <div class="bulking">
         <section class="description">
-          <h2 class="title">bulking (Ganho de peso/massa)</h2>
+          <h2 class="title">Bulking (Ganho de Peso/Massa)</h2>
           <p class="label">
-            Abaixo estarão as informações necessárias para um bulking.Também terão algumas dicas para uma melhor adaptação e evolução.
+            Abaixo estarão as informações necessárias para um bulking. Também
+            terão algumas dicas para uma melhor adaptação e evolução.
           </p>
         </section>
         <section class="user-information">
           <div class="bulking-table">
             <div class="row header">
-              <div class="cell bul macro">Macronutrientes</div>
-              <div class="cell bul grams">Gramas</div>
+              <div class="cell cut macro">Macronutrientes</div>
+              <div class="cell cut grams">Gramas</div>
             </div>
             <div class="row-carbs">
               <div class="cell carbs">Carboidratos</div>
-              <div class="cell carbs value">xxx</div>
+              <div class="cell carbs value">
+                <span id="carb-value-bulking">xxx</span>
+              </div>
             </div>
             <div class="row-protein">
               <div class="cell protein">Proteínas</div>
-              <div class="cell protein value">xxx</div>
+              <div class="cell protein value">
+                <span id="protein-value-bulking">xxx</span>
+              </div>
             </div>
             <div class="row-fat">
               <div class="cell fat">Gorduras</div>
-              <div class="cell fat value">xxx</div>
+              <div class="cell fat value">
+                <span id="fat-value-bulking">xxx</span>
+              </div>
             </div>
           </div>
         </section>
         <aside class="tips-container">
           <p class="btn tips">
-            Dica 1: Comece seu bulking com <span class="pre-bulking">xxxx</span> calorias por pelo menos uma semana para o corpo se acostumar. Depois, parta para o valor da tabela.
+            Dica 1: Seu bulking terá
+            <span id="final-bulking">xxxx</span> calorias. Antes de começar com
+            esse valor, faça pelo menos uma semana com
+            <span id="pre-bulking">xxxx</span> para o corpo se acostumar.
           </p>
           <p class="btn tips">
-            Dica 2: Procure comer alimentos com uma alta densidade calórica (quantidade de energia disponível por volume de alimento) para conseguir bater as metas.
+            Dica 2: Procure comer alimentos com uma alta densidade calórica
+            (quantidade de energia disponível por volume de alimento) para
+            conseguir bater os carboidratos.
           </p>
         </aside>
       </div>
@@ -62,7 +75,7 @@
         <ol>
           <a href="index.html"><li></li></a>
           <a href="training.html"><li></li></a>
-          <a href="#"><li></li></a>
+          <a href="bulking.html"><li></li></a>
         </ol>
       </nav>
     </main>

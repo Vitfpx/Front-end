@@ -14,9 +14,11 @@ import { savedWeightValue } from './script.js';
 // Variable Assignment
 // ********************
 
-const carbValue = document.querySelector('#carb-value');
-const proteinValue = document.querySelector('#protein-value');
-const fatValue = document.querySelector('#fat-value');
+const carbValue = document.querySelector('#carb-value-cutting');
+const proteinValue = document.querySelector('#protein-value-cutting');
+const fatValue = document.querySelector('#fat-value-cutting');
+const finalCutting = document.querySelector('#final-cutting');
+const preCutting = document.querySelector('#pre-cutting');
 
 updateTotalEnergyExpenditure();
 
@@ -27,9 +29,11 @@ console.log(totalEnergyExpenditure, savedWeightValue);
 // **************
 
 let cuttingMacros = totalEnergyExpenditure - 600;
-console.log(cuttingMacros);
+finalCutting.textContent = cuttingMacros;
+preCutting.textContent = cuttingMacros - 300;
 
-
-fatValue.textContent = savedWeightValue;
-proteinValue.textContent = savedWeightValue * 2.5;
-carbValue.textContent = (cuttingMacros - (savedWeightValue * 9 + savedWeightValue * 2.5 * 4)) / 4;
+fatValue.textContent = Math.trunc(savedWeightValue);
+proteinValue.textContent = Math.trunc(savedWeightValue * 2);
+carbValue.textContent = Math.trunc(
+  (cuttingMacros - (savedWeightValue * 9 + savedWeightValue * 2 * 4)) / 4
+);
