@@ -6,11 +6,11 @@ const myName = (n) => {
 // myName();
 
 // Ex. 2
-const sum = function (n1, n2) {
-  n1 = Number(prompt("Digite um numero: "));
-  n2 = Number(prompt("Digite outro numero: "));
+const sum = function () {
+  const number1 = Number(prompt("Digite um numero: "));
+  const number2 = Number(prompt("Digite outro numero: "));
 
-  console.log(`O resultado foi ${n1 + n2}`);
+  console.log(`O resultado foi ${number1 + number2}`);
 };
 
 // sum();
