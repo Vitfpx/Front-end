@@ -259,40 +259,41 @@ A Scope Chain determina quais variáveis estão disponíveis em um determinado c
 
 */
 
-function calcAge(birthYear) {
-  const age = 2024 - birthYear;
+// function calcAge(birthYear) {
+//   const age = 2024 - birthYear;
 
-  function printAge() {
-    let output = `${firstName}, you are ${age}, born in ${birthYear}`;
-    console.log(output);
+//   function printAge() {
+//     let output = `${firstName}, you are ${age}, born in ${birthYear}`;
+//     console.log(output);
 
-    if (birthYear >= 1981 && birthYear <= 1996) {
-      var millenial = true;
-      // Creating NEW variable with same name as outer scope's variable
-      const firstName = 'Steven';
+//     if (birthYear >= 1981 && birthYear <= 1996) {
+//       var millenial = true;
+//       // Creating NEW variable with same name as outer scope's variable
+//       const firstName = 'Steven';
 
-      // Reassigning outer scope's variable
-      output = 'NEW OUTPUT!';
+//       // Reassigning outer scope's variable
+//       output = 'NEW OUTPUT!';
 
-      const str = `Oh, and you're a millenial, ${firstName}`;
-      console.log(str);
+//       const str = `Oh, and you're a millenial, ${firstName}`;
+//       console.log(str);
 
-      function add(a, b) {
-        return a + b;
-      }
-    }
-    // console.log(str);
-    console.log(millenial);
-    // console.log(add(2, 3));\
-    console.log(output);
-  }
-  printAge();
+//       function add(a, b) {
+//         return a + b;
+//       }
+//     }
+//     // console.log(str);
+//     console.log(millenial);
+//     // console.log(add(2, 3));\
+//     console.log(output);
+//   }
 
-  return age;
-}
+//   printAge();
 
-const firstName = 'Vitor';
-calcAge(1995);
+//   return age;
+// }
+
+// const firstName = 'Vitor';
+// calcAge(1995);
 // console.log(age);
 // printAge();
 
@@ -346,46 +347,186 @@ console.log(foo); // function
 -----------------------------
 */
 
-console.log(me);
+// console.log(me);
 // console.log(job);
 // console.log(year);
 
-var me = 'Vitor';
-let job = 'Student';
-const year = 2003;
+// var me = 'Vitor';
+// let job = 'Student';
+// const year = 2003;
 
 // functions
-console.log(addDecl(2, 3));
+// console.log(addDecl(2, 3));
 // console.log(addExpr(2, 3));
-console.log(addArrow);
+// console.log(addArrow);
 // console.log(addArrow(2, 3));
 
-function addDecl(a, b) {
-  return a + b;
-}
+// function addDecl(a, b) {
+//   return a + b;
+// }
 
-const addExpr = function (a, b) {
-  return a + b;
-};
+// const addExpr = function (a, b) {
+//   return a + b;
+// };
 
-var addArrow = (a, b) => a + b;
+// var addArrow = (a, b) => a + b;
 
 // Example
-console.log(numProducts); // Não vai dar erro pois está declarado como var, porém sera sempre um valor undefined
-if (!numProducts) deleteShoppingCart();
+// console.log(numProducts); // Não vai dar erro pois está declarado como var, porém sera sempre um valor undefined
+// if (!numProducts) deleteShoppingCart();
 
-var numProducts = 10;
+// var numProducts = 10;
 
-function deleteShoppingCart() {
-  console.log('All products deleted');
-}
+// function deleteShoppingCart() {
+//   console.log('All products deleted');
+// }
 
 // Com um bug desse que é muito difícil de encontrar, concluímos quer não é bom chamar uma função antes de declará-la. E nunca use var :D
 
-var x = 1;
-let y = 2;
-const z = 3;
+// var x = 1;
+// let y = 2;
+// const z = 3;
 
-console.log(x === window.x);
-console.log(y === window.y);
-console.log(z === window.z);
+// console.log(x === window.x);
+// console.log(y === window.y);
+// console.log(z === window.z);
+
+/*
+This:
+
+Existem 5 tipos de This:
+
+1. Métodos, onde This vai sempre chamar o objeto que está chamando a função onde ele está
+2. Simple Function Call, this vai resultar em undefined
+3. Arrow Functions, this vai ser o elemento pai da função atual dele, pois arrow function não tem this próprio
+4. Event Listener, aprenderemos mais a frente hehe
+5. new, call, apply, bind que será visto posteriormente no curso hehe
+
+*/
+
+console.log(this);
+
+const calcAge = function (birthYear) {
+  console.log(2037 - birthYear);
+  console.log(this);
+};
+
+calcAge(2003);
+
+const calcAgeArrow = birthYear => {
+  console.log(2024 - birthYear);
+  console.log(this);
+};
+
+calcAgeArrow(2003);
+
+const vitor = {
+  year: 2003,
+  calcAge: function () {
+    console.log(this);
+    console.log(2024 - this.year);
+  },
+};
+
+vitor.calcAge();
+
+const paozinho = {
+  year: 2010,
+};
+
+paozinho.calcAge = vitor.calcAge; // não está chamando, está copiando
+paozinho.calcAge();
+// muito útil pois se fosse vitor no lugar de this não funcionaria para o método de paozinho, ja o this funciona por ser dinamico...
+
+const f = vitor.calcAge;
+// f(); // Deu erro pois agora f é uma função regular, pois não está dentro de nenhum objeto, então resulta em undefined
+
+// Arrow Functions vs Regular functions
+
+var firstName = 'Xico';
+
+const lari = {
+  firstName: 'Lari',
+  year: 2004,
+  greet: () => console.log(`Hey ${this.firstName}`), // Utilizar regular function aqui faria a função funcionar do jeito certo
+  calcAge: function () {
+    // console.log(this);
+    console.log(2024 - this.year);
+
+    // Solution 1
+    // const self = this; // self or that
+    // const isMillenial = function () {
+    // console.log(self); // Aqui o this é undefined pois esta em uma regular function
+    // console.log(self.year >= 1981 && self.year <= 1996);
+
+    // Solution 2
+    const isMillenial = () => {
+      // Aqui a arrow function funciona melhor pois herda o this do objeto Lari, pois o this dentro do arrow function sempre procura informação do seu escopo pai
+      console.log(this);
+      console.log(this.year >= 1981 && this.year <= 1996);
+    };
+    isMillenial();
+  },
+}; // Isso ainda está no escopo global pois são só objetos
+
+lari.greet();
+lari.calcAge();
+
+// Resumindo: var cria uma propriedade no objeto global, portanto o this dentro da arrow function vai mostrá-lo, como no exemplo acima. Outra regra é, nunca utilizar arrow function dentro de métodos, pois com uma regular function, o this simplesmente servirá seu propósito e o exemplo acima funcionaria normalmente...
+
+// arguments keyword
+const addExpr = function (a, b) {
+  console.log(arguments);
+  return a + b;
+};
+addExpr(2, 5);
+addExpr(2, 5, 8, 12);
+
+var addArrow = (a, b) => {
+  console.log(arguments);
+  return a + b; // Quando temos mais de uma linha de código, precisamos retornar explícitamente
+};
+//addArrow(2, 5, 8); // Em Arrow Functions não existem argumentos a mais, nas functions regulares elas existem e podem ser utilizadas
+
+// Prmitives vs Objects:
+
+let lastName = 'Raimundo';
+let oldLastName = lastName;
+lastName = 'Barbosa';
+console.log(lastName, oldLastName);
+
+const pacoquinha = {
+  firstName: 'LariS2',
+  lastName: 'Cordeirinho',
+  age: 19,
+};
+
+const marriedPacoquinha = pacoquinha;
+marriedPacoquinha.lastName = 'Raimundo';
+console.log('Before marriage:', pacoquinha);
+console.log('After marriage:', marriedPacoquinha);
+
+// marriedPacoquinha = {} 
+// Só daria certo de mudar totalmente se fosse um let. Agora, a propriedade não importa se é let ou const, pois está alocada e sendo modificada no heat.
+
+// Copying objects
+const pacoquinha2 = {
+  firstName: 'LariS2',
+  lastName: 'Cordeirinho',
+  age: 19,
+  family: ['Vivi', 'Elvis'],
+};
+
+const pacoquinhaCopy = Object.assign({}, pacoquinha2);
+pacoquinhaCopy.lastName = 'Raimundo';
+
+// Aqui, a "clonagem" deu certo por ser um objeto de primeiro nível.
+// console.log('Before marriage:', pacoquinha2); 
+// console.log('After marriage:', pacoquinhaCopy); 
+
+pacoquinhaCopy.family.push('Airton')
+pacoquinhaCopy.family.push('Rosely')
+
+// Porém aqui, a clonagem só funcionou com a mesma propriedade de antes, mas com o outro objeto, no caso o array, não funcionou.
+console.log('Before marriage:', pacoquinha2);
+console.log('After marriage:', pacoquinhaCopy); 
