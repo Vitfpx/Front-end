@@ -137,7 +137,7 @@ APIs - Functionalities provided to the engine, accessible on window object
 
 /*
 
-Execution Context e Environment Variable:
+Execution Context e Variable Environment:
 
 O execution context global (contexto de execução global) não é uma parte do ambiente variável, mas sim o contexto de execução no qual o código global é executado inicialmente. Este contexto de execução global contém as variáveis e funções globais que são acessíveis em todo o escopo do script.
 
@@ -229,7 +229,7 @@ no topo do scope chain.
 */
 
 /*
-Scope Chain VS. Call Stack VS. Execution Content VS. Environment Variable
+Scope Chain VS. Call Stack VS. Execution Content VS. Variable Environment
 
 --------Scope Chain (Cadeia de Escopo):
 
@@ -251,7 +251,7 @@ O contexto de execução inclui todas as informações necessárias para executa
 
 É importante notar que o termo correto é "Execution Context" em inglês. "Execution Content" pode não ser amplamente reconhecido como um termo em JavaScript.
 
---------Environment Variable (Variável de Ambiente):
+--------Variable Environment (Variável de Ambiente):
 
 As variáveis de ambiente (ou variáveis disponíveis) em um contexto de execução são aquelas que podem ser acessadas dentro desse contexto. Isso inclui variáveis locais, variáveis globais e parâmetros de função.
 
@@ -448,7 +448,8 @@ var firstName = 'Xico';
 const lari = {
   firstName: 'Lari',
   year: 2004,
-  greet: () => console.log(`Hey ${this.firstName}`), // Utilizar regular function aqui faria a função funcionar do jeito certo
+  greet: () => console.log(`Hey ${this.firstName}`),
+  // greet: function () {console.log(`Hey ${this.firstName}`)},  Utilizar regular function aqui faria a função funcionar do jeito certo
   calcAge: function () {
     // console.log(this);
     console.log(2024 - this.year);
@@ -506,7 +507,7 @@ marriedPacoquinha.lastName = 'Raimundo';
 console.log('Before marriage:', pacoquinha);
 console.log('After marriage:', marriedPacoquinha);
 
-// marriedPacoquinha = {} 
+// marriedPacoquinha = {}
 // Só daria certo de mudar totalmente se fosse um let. Agora, a propriedade não importa se é let ou const, pois está alocada e sendo modificada no heat.
 
 // Copying objects
@@ -521,12 +522,12 @@ const pacoquinhaCopy = Object.assign({}, pacoquinha2);
 pacoquinhaCopy.lastName = 'Raimundo';
 
 // Aqui, a "clonagem" deu certo por ser um objeto de primeiro nível.
-// console.log('Before marriage:', pacoquinha2); 
-// console.log('After marriage:', pacoquinhaCopy); 
+// console.log('Before marriage:', pacoquinha2);
+// console.log('After marriage:', pacoquinhaCopy);
 
-pacoquinhaCopy.family.push('Airton')
-pacoquinhaCopy.family.push('Rosely')
+pacoquinhaCopy.family.push('Airton');
+pacoquinhaCopy.family.push('Rosely');
 
 // Porém aqui, a clonagem só funcionou com a mesma propriedade de antes, mas com o outro objeto, no caso o array, não funcionou.
 console.log('Before marriage:', pacoquinha2);
-console.log('After marriage:', pacoquinhaCopy); 
+console.log('After marriage:', pacoquinhaCopy);
