@@ -223,6 +223,9 @@ const books = [
   },
 ];
 
+/////////////////////////////
+// Destructuring Arrays
+
 // Ex.1
 const [firstBook, secondBook] = books;
 // console.log(firstBook, secondBook);
@@ -259,3 +262,64 @@ Segundo livro da minha lista: ${secondBookRead}
 `
 );
 
+/////////////////////////////
+//Destructuring Objects
+
+// Ex. 1
+
+// const { title, author, ISBN } = books[0];
+// console.log(title, author, ISBN);
+
+// Ex. 2
+
+const { keywords: tags } = books[0];
+console.log(tags);
+
+// Ex. 3
+
+const { language, programmingLanguage = 'unknown' } = books[6];
+
+// Ex. 4
+
+let bookTitle = 'unknown';
+let bookAuthor = 'unknown';
+
+({ title: bookTitle, author: bookAuthor } = books[0]);
+console.log(bookTitle, bookAuthor);
+
+// Ex. 5
+
+const {
+  thirdParty: {
+    goodreads: { rating: bookRating },
+  },
+} = books[0];
+console.log(bookRating);
+console.log(books[0].thirdParty.goodreads.rating);
+
+// Ex. 6
+
+const printBookInfo = function ({ title, author, year = 'year unknown' }) {
+  console.log(`${title} by ${author}, ${year}`);
+};
+
+printBookInfo({
+  title: 'Algorithms',
+  author: 'Robert Sedgewick',
+  year: '2011',
+});
+
+/////////////////////////////
+// Spread Operator
+
+// Ex. 1
+const bookAuthors = [...books[0].author, ...books[1].author];
+
+console.log(bookAuthors);
+
+// Ex. 2
+function spellWord(letter) {
+  console.log(...letter);
+}
+
+spellWord('JavaScript')
