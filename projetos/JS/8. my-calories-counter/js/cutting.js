@@ -30,7 +30,7 @@ console.log(totalEnergyExpenditure, savedWeightValue);
 
 let cuttingMacros = totalEnergyExpenditure - 600;
 finalCutting.textContent = cuttingMacros;
-preCutting.textContent = cuttingMacros - 300;
+preCutting.textContent = cuttingMacros + 300;
 
 fatValue.textContent = Math.trunc(savedWeightValue);
 proteinValue.textContent = Math.trunc(savedWeightValue * 2);
