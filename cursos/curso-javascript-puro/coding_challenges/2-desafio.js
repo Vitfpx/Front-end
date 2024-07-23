@@ -40,6 +40,22 @@ const game = {
   },
 };
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // // 1. Loop over the game.scored array and print each player name to the console, along with the goal number (Example: "Goal 1: Lewandowski")
 
 // for (const [goal, player] of game.scored.entries()) {

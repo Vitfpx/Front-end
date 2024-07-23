@@ -227,33 +227,33 @@ const books = [
 // Destructuring Arrays
 
 // Ex.1
-const [firstBook, secondBook] = books;
+// const [firstBook, secondBook] = books;
 // console.log(firstBook, secondBook);
 
 // Ex.2
-const [, , thirdBook] = books;
+// const [, , thirdBook] = books;
 
 // console.log(thirdBook);
 
 // Ex. 3
-const ratings = [
-  ['rating', 4.19],
-  ['ratingsCount', 144584],
-];
+// const ratings = [
+//   ['rating', 4.19],
+//   ['ratingsCount', 144584],
+// ];
 
-const [[, rating], [, ratingsCount]] = ratings;
+// const [[, rating], [, ratingsCount]] = ratings;
 
 // console.log(rating, ratingsCount);
 
 // Ex. 4
-const ratingStars = [63405, 1808];
+// const ratingStars = [63405, 1808];
 
-const [fiveStarRatings, oneStarRatings, threeStarRatings = 0] = ratingStars;
+// const [fiveStarRatings, oneStarRatings, threeStarRatings = 0] = ratingStars;
 
 // console.log(fiveStarRatings, oneStarRatings, threeStarRatings);
 
 // Ex aleatório da minha cabeça
-const [firstBookRead, secondBookRead] = [books[2].title, books[0].title];
+// const [firstBookRead, secondBookRead] = [books[2].title, books[0].title];
 
 // console.log(
 //   `
@@ -271,104 +271,104 @@ const [firstBookRead, secondBookRead] = [books[2].title, books[0].title];
 // console.log(title, author, ISBN);
 
 // Ex. 2
-const { keywords: tags } = books[0];
+// const { keywords: tags } = books[0];
 // console.log(tags);
 
 // Ex. 3
 
-const { language, programmingLanguage = 'unknown' } = books[6];
+// const { language, programmingLanguage = 'unknown' } = books[6];
 
 // Ex. 4
 
-let bookTitle = 'unknown';
-let bookAuthor = 'unknown';
+// let bookTitle = 'unknown';
+// let bookAuthor = 'unknown';
 
-({ title: bookTitle, author: bookAuthor } = books[0]);
+// ({ title: bookTitle, author: bookAuthor } = books[0]);
 // console.log(bookTitle, bookAuthor);
 
 // Ex. 5
 
-const {
-  thirdParty: {
-    goodreads: { rating: bookRating },
-  },
-} = books[0];
+// const {
+//   thirdParty: {
+//     goodreads: { rating: bookRating },
+//   },
+// } = books[0];
 // console.log(bookRating);
 // console.log(books[0].thirdParty.goodreads.rating);
 
 // Ex. 6
 
-const printBookInfo = function ({ title, author, year = 'year unknown' }) {
-  // console.log(`${title} by ${author}, ${year}`);
-};
+// const printBookInfo = function ({ title, author, year = 'year unknown' }) {
+//    console.log(`${title} by ${author}, ${year}`);
+// };
 
-printBookInfo({
-  title: 'Algorithms',
-  author: 'Robert Sedgewick',
-  year: '2011',
-});
+// printBookInfo({
+//   title: 'Algorithms',
+//   author: 'Robert Sedgewick',
+//   year: '2011',
+// });
 
 /////////////////////////////
 // Spread Operator
 
 // Ex. 1
-const bookAuthors = [...books[0].author, ...books[1].author];
+// const bookAuthors = [...books[0].author, ...books[1].author];
 
 // console.log(bookAuthors);
 
 // Ex. 2
-function spellWord(letter) {
-  // console.log(...letter);
-}
+// function spellWord(letter) {
+// console.log(...letter);
+// }
 
-spellWord('JavaScript');
+// spellWord('JavaScript');
 
 /////////////////////////////
 // Rest Patterns and Parameters
 
 // Ex. 1
-const [mainKeywods, ...rest] = books[0].keywords;
+// const [mainKeywods, ...rest] = books[0].keywords;
 // console.log(mainKeywods, rest);
 
 // Ex. 2
-const { publisher: bookPublisher, ...restOfTheBook } = books[1];
+// const { publisher: bookPublisher, ...restOfTheBook } = books[1];
 // console.log(bookPublisher);
 // console.log(restOfTheBook);
 
 // Ex. 3
-const printBooks = function (title, ...authors) {
-  // console.log(`The book "${title}" has ${authors.length} authors`);
-};
+// const printBooks = function (title, ...authors) {
+// console.log(`The book "${title}" has ${authors.length} authors`);
+// };
 
-printBooks('Algorithms', 'Robert Sedgewick', 'Kevin Wayne');
+// printBooks('Algorithms', 'Robert Sedgewick', 'Kevin Wayne');
 
 /////////////////////////////
 // Short Circuiting (&& and ||)
 
 // Ex. 1
-const hasExamplesInJava = book => {
-  return book.programmingLanguage === 'Java' || 'no data available';
-};
+// const hasExamplesInJava = book => {
+//   return book.programmingLanguage === 'Java' || 'no data available';
+// };
 // console.log(hasExamplesInJava(books[0]));
 // console.log(hasExamplesInJava(books[1]));
 
 // Ex. 2
 
-for (let i = 0; i < books.length; i++) {
-  // books[i].onlineContent &&
-  //   console.log(`"${books[i].title}" provides online content.`);
-}
+// for (let i = 0; i < books.length; i++) {
+// books[i].onlineContent &&
+//   console.log(`"${books[i].title}" provides online content.`);
+// }
 
 /////////////////////////////////////////
 // The Nullish Coalescing Operator (??)
 
 // Ex. 1
-for (let i = 0; i < books.length; i++) {
-  // books[i].onlineContent ??
-  //   console.log(
-  //     `"${books[i].title}" provides no data about its online content.`
-  //   );
-}
+// for (let i = 0; i < books.length; i++) {
+// books[i].onlineContent ??
+//   console.log(
+//     `"${books[i].title}" provides no data about its online content.`
+//   );
+// }
 
 //////////////////////////////////
 // Logical Assignments Operators
@@ -381,9 +381,9 @@ for (let i = 0; i < books.length; i++) {
 // Ex. 2
 
 // Jeito que o ex pediu
-for (let i = 0; i < books.length; i++) {
-  books[i].highlighted &&= !(books[i].thirdParty.goodreads.rating < 4.2);
-}
+// for (let i = 0; i < books.length; i++) {
+//   books[i].highlighted &&= !(books[i].thirdParty.goodreads.rating < 4.2);
+// }
 
 // Meu jeito de fazer
 // for (let i = 0; i < books.length; i++) {
@@ -394,25 +394,25 @@ for (let i = 0; i < books.length; i++) {
 // Looping Arrays: The for-of Loop
 
 // Ex. 1
-let pageSum = 0;
+// let pageSum = 0;
 
-for (const book of books) {
-  pageSum += book.pages;
-  // console.log(pageSum);
-}
+// for (const book of books) {
+//   pageSum += book.pages;
+// console.log(pageSum);
+// }
 
 // Ex. 2
-const allAuthors = [];
+// const allAuthors = [];
 
 // Minha maneira
-for (const book of books) {
-  if (typeof book.author === 'object') {
-    // Achei que fosse Object mas é 'object' kk
-    allAuthors.push(...book.author);
-  } else {
-    allAuthors.push(book.author);
-  }
-}
+// for (const book of books) {
+//   if (typeof book.author === 'object') {
+// Achei que fosse Object mas é 'object' kk
+//     allAuthors.push(...book.author);
+//   } else {
+//     allAuthors.push(book.author);
+//   }
+// }
 // console.log(allAuthors);
 // console.log(typeof books[5].author);
 
@@ -428,43 +428,43 @@ for (const book of books) {
 // }
 
 // Ex. 3
-for (const [i, author] of allAuthors.entries()) {
-  // console.log(`${i + 1}. ${author}`);
-}
+// for (const [i, author] of allAuthors.entries()) {
+// console.log(`${i + 1}. ${author}`);
+// }
 
 /////////////////////////////
 // Enhanced Object Literals
 
 // Ex. 1
-const bookData = [
-  ['title', 'Computer Networking: A Top-Down Approach'],
-  ['author', ['James F. Kurose', 'Keith W. Ross']],
-  ['publisher', 'Addison Wesley'],
-];
+// const bookData = [
+//   ['title', 'Computer Networking: A Top-Down Approach'],
+//   ['author', ['James F. Kurose', 'Keith W. Ross']],
+//   ['publisher', 'Addison Wesley'],
+// ];
 
-const newBook = {
-  [bookData[0][0]]: bookData[0][1],
-  [bookData[1][0]]: bookData[1][1],
-  [bookData[2][0]]: bookData[2][1],
-};
+// const newBook = {
+//   [bookData[0][0]]: bookData[0][1],
+//   [bookData[1][0]]: bookData[1][1],
+//   [bookData[2][0]]: bookData[2][1],
+// };
 // console.log(newBook);
 
 // Ex. 2
-const pages = 880;
+// const pages = 880;
 
-const newBook2 = {
-  title: 'Computer Networking: A Top-Down Approach',
-  author: ['James F. Kurose', 'Keith W. Ross'],
-  publisher: 'Addison Wesley',
-  pages,
-};
+// const newBook2 = {
+//   title: 'Computer Networking: A Top-Down Approach',
+//   author: ['James F. Kurose', 'Keith W. Ross'],
+//   publisher: 'Addison Wesley',
+//   pages,
+// };
 
 ////////////////////////////
 // Optional Chaining (?.)
 // Ex. 1
-const getFirstKeyword = books => {
-  console.log(books.keywords?.[0]);
-};
+// const getFirstKeyword = books => {
+//   console.log(books.keywords?.[0]);
+// };
 
 // getFirstKeyword(books[0]);
 // getFirstKeyword(newBook2);
@@ -472,47 +472,47 @@ const getFirstKeyword = books => {
 ////////////////////////////////////////////////////
 // Looping Objects: Object Keys, Values and Entries
 
-// // Ex. 1
+// Ex. 1
 // const entries = [];
 
 // const goodreadsKeys = Object.keys(books[0].thirdParty.goodreads);
-// // console.log(goodreadsKeys);
+// console.log(goodreadsKeys);
 
 // for (const key of goodreadsKeys) entries.push([key]);
-// // console.log(entries);
+// console.log(entries);
 
-// // Resultado esperado :D
-// // [['rating'], ['ratingsCount'], ['reviewsCount'], ['fiveStartRatingCount'], ['oneStartRatingCount']]
+// Resultado esperado :D
+// [['rating'], ['ratingsCount'], ['reviewsCount'], ['fiveStartRatingCount'], ['oneStartRatingCount']]
 
-// // Ex. 2
+// Ex. 2
 // const goodreadsValues = Object.values(books[0].thirdParty.goodreads);
-// // console.log(goodreadsEntries);
+// console.log(goodreadsEntries);
 // for (const [key, value] of goodreadsValues.entries()) {
 //   entries[key].push(value);
 // }
-// // console.log(entries);
+// console.log(entries);
 
-// // Ex. 3
+// Ex. 3
 // const entries2 = Object.entries(books[0].thirdParty.goodreads);
-// // console.log(entries2);
+// console.log(entries2);
 
-// // Ex. 4
-// // console.log(entries);
-// // console.log(entries2);
+// Ex. 4
+// console.log(entries);
+// console.log(entries2);
 
 ////////
 // Sets
 
 // Ex. 1
-const allKeywords = [];
+// const allKeywords = [];
 
-// // Meu jeito burro de fazer:
+// Meu jeito burro de fazer:
 
-for (const book of books) {
-  for (const keyword of book.keywords) {
-    allKeywords.push(keyword);
-  }
-} // Um for dentro de outro resolve o problema de não conseguir puxar um array facilmente
+// for (const book of books) {
+//   for (const keyword of book.keywords) {
+//     allKeywords.push(keyword);
+//   }
+// } // Um for dentro de outro resolve o problema de não conseguir puxar um array facilmente
 // console.log(allKeywords);
 
 // Jeito foda do Jonas de fazer:
@@ -525,28 +525,27 @@ for (const book of books) {
 // Resultado: ['computer science', 'programming', 'algorithms', 'data structures', ...]
 
 // Ex. 2
-const uniqueKeywords = new Set(allKeywords);
+// const uniqueKeywords = new Set(allKeywords);
 // console.log(uniqueKeywords);
 
 // Ex. 3
-uniqueKeywords.add('coding');
-uniqueKeywords.add('science'); // Tem que ser adicionar várias vezes, e não ('coding', 'science) 🚫
+// uniqueKeywords.add('coding');
+// uniqueKeywords.add('science'); // Tem que ser adicionar várias vezes, e não ('coding', 'science) 🚫
 // console.log(uniqueKeywords);
 
 // Ex. 4
-uniqueKeywords.delete('business');
+// uniqueKeywords.delete('business');
 // console.log(uniqueKeywords);
 
 // Ex. 5
-const uniqueKeywordsArr = [...uniqueKeywords];
+// const uniqueKeywordsArr = [...uniqueKeywords];
 
 // Ex. 6
-uniqueKeywords.clear();
+// uniqueKeywords.clear();
 // console.log(uniqueKeywords);
 
 //////////////////////
 // Maps: Fundamentals
-
 // Ex. 1
 // [
 //   ['title', 'Clean Code'],
@@ -559,52 +558,52 @@ uniqueKeywords.clear();
 
 // Ex. 2
 // bookMap.set('pages', 464);
-// // console.log(bookMap);
+// console.log(bookMap);
 
 // Ex. 3
-// // console.log(`"${bookMap.get('title')} by ${bookMap.get('author')}"`);
+// console.log(`"${bookMap.get('title')} by ${bookMap.get('author')}"`);
 
 // Ex. 4
-// // console.log(bookMap.size);
+// console.log(bookMap.size);
 
 // Ex. 5
-// // bookMap.has('author') && console.log('"The author of the book is known"');
+// bookMap.has('author') && console.log('"The author of the book is known"');
 
 ////////////////////
 // Maps: Iteration
 
 // Ex. 1
 // const firstBookMap = new Map(Object.entries(books[0]));
-// // console.log(firstBookMap);
+// console.log(firstBookMap);
 
 // Ex. 2
 // for (const [keys, values] of firstBookMap) {
 //   if (typeof values === 'number') console.log(keys);
-//   // console.log(map);
+// console.log(map);
 // }
 
 //////////////////////////////////
 // Working with Strings - Part 1
 // Ex. 1
-console.log(
-  books[0].ISBN[6],
-  books[0].ISBN[4],
-  books[0].ISBN[9],
-  books[0].ISBN[8]
-);
+// console.log(
+//   books[0].ISBN[6],
+//   books[0].ISBN[4],
+//   books[0].ISBN[9],
+//   books[0].ISBN[8]
+// );
 // console.log(books[0].ISBN);
 
 // Ex. 2
-const quote =
-  'A computer once beat me at chess, but it was no match for me at kick boxing';
-console.log(quote.indexOf('chess'));
+// const quote =
+//   'A computer once beat me at chess, but it was no match for me at kick boxing';
+// console.log(quote.indexOf('chess'));
 
 // Ex. 3
-console.log(quote.slice(quote.lastIndexOf(' ') + 1));
+// console.log(quote.slice(quote.lastIndexOf(' ') + 1));
 
 // Ex. 4
-const allNames = [];
-const isContributor = function (name) {
-  console.log(name.lastIndexOf('(Contributor)') !== -1);
-};
-isContributor('Julie Sussman (Contributor)');
+// const allNames = [];
+// const isContributor = function (name) {
+//   console.log(name.lastIndexOf('(Contributor)') !== -1);
+// };
+// isContributor('Julie Sussman (Contributor)');
