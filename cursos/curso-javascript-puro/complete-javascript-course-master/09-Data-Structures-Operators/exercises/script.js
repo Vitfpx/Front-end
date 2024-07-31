@@ -607,3 +607,28 @@ const books = [
 //   console.log(name.lastIndexOf('(Contributor)') !== -1);
 // };
 // isContributor('Julie Sussman (Contributor)');
+
+//  ***********************
+//  *** EX FINAL BOLADO ***
+//  ***********************
+
+const flights =
+  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
+
+// Tentar refazer o desafio do jeito certo :D
+let outputRows = [];
+const fromSlice = str => str.slice(0, 3).toUpperCase();
+for (const fligh of flights.split('+')) {
+  const [state, from, to, time] = fligh.split(';');
+  outputRows.push(
+    `${state.startsWith('_Delayed') ? '🔴' : ''}${state.replaceAll(
+      '_',
+      ' '
+    )} from ${fromSlice(from)} to ${fromSlice(to)} (${time.replace(
+      ':',
+      'h'
+    )})`.padStart(44)
+  );
+}
+const output = outputRows.join('\n');
+console.log(output);

@@ -10,38 +10,27 @@ document.body.querySelector('textarea').style.width = '15rem';
 //   calculate_AGE
 // delayed_departure`;
 
-// Função para converter snake_case para camelCase
-const convert = () => {
-  // inputText do textarea e arrays das linhas separadas
-  const inputText = document.querySelector('textarea').value;
-  const rows = inputText.toLowerCase().split('\n');
-
-  // Output do array final
+// Função para transformar variáveis snake_case para camelCase
+document.body.querySelector('button').addEventListener('click', function () {
+  const text = document.body.querySelector('textarea').value;
   let outputRows = [];
 
-  // For para percorrer os elementos do array de rows
-  for (const [i, line] of rows.entries()) {
-    const trimmedRows = line.trim();
-    const camelCaseRows =
-      trimmedRows.slice(0, trimmedRows.lastIndexOf('_')) +
-      trimmedRows.slice(trimmedRows.lastIndexOf('_') + 1)[0].toUpperCase() +
-      trimmedRows.slice(trimmedRows.lastIndexOf('_') + 2);
+  // Percorrer cada linha do text
+  for (const [i, row] of text.toLowerCase().split('\n').entries()) {
+    const [first, second] = row.trim().split('_');
 
-    // Colocando os checks dentro de cada linha e transformando de volta em array para os resultados não se sobreporem
-    outputRows.push(camelCaseRows.padEnd(20) + '✅'.repeat(i + 1));
+    // Conversão para camelCase e adição de checkmarks
+    outputRows.push(
+      `${first}${second.replace(second[0], second[0].toUpperCase())}`.padEnd(
+        18
+      ) + `${'✅'.repeat(i + 1)}`
+    );
   }
-
-  // Output do Resultado final
+  // Atualiza o textarea com a saída do for e desabilita o botão
   const output = outputRows.join('\n');
-
-  // Aplicando o output dentro do textarea e desativando o botão
-  document.querySelector('textarea').value = output;
-  document.querySelector('button').disabled = true;
-  console.log(output);
-};
-
-// Evento para o botão onde chamará a função acima
-document.querySelector('button').addEventListener('click', convert);
+  document.body.querySelector('textarea').value = output;
+  document.body.querySelector('button').disabled = true;
+});
 
 /*
 Resultado:
