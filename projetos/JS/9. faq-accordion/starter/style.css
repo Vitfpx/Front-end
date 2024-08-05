@@ -1,0 +1,132 @@
+/* font */
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
+/* variables */
+
+:root {
+  --fs-html: 62.5%;
+  --white-clr: hsl(0, 0%, 100%);
+  --bg-clr: hsl(275, 100%, 97%);
+  --faq-clr: hsl(292, 42%, 14%);
+  --ans-clr: hsl(292, 16%, 59%);
+  --hover-clr: #a12ee3;
+  --default-font: 700 normal 1.4rem "Work Sans", sans-serif;
+}
+
+/* reset config */
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  letter-spacing: 0.1rem;
+}
+
+html {
+  font-size: var(--fs-html);
+}
+
+body {
+  background: url(./images/background-pattern-desktop.svg) no-repeat top,
+    var(--bg-clr);
+  /* background-position: center -5rem; */
+  background-size: contain;
+
+  font: var(--default-font);
+  height: 100vh;
+  text-align: center;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* main */
+
+.faq-main {
+  margin: auto;
+  text-align: start;
+  background-color: var(--white-clr);
+  border-radius: 1.3rem;
+  padding: 3rem 3rem 1rem 3rem;
+  color: var(--faq-clr);
+  height: auto;
+  width: 55rem;
+  position: relative;
+  /* box-shadow: 0px 12px 20px 8px #eadaf4; */
+  /* box-shadow: 0px 200px 100px 2px #eadaf4; */
+  /* 0px 52px 146px -19px #eadaf4; */
+  box-shadow: 0px 51px 45px -22px #eadaf4;
+}
+
+/* FAQ */
+
+.faq__title {
+  display: flex;
+  gap: 2rem;
+
+  font-size: 2.5rem;
+}
+
+.faq__title img {
+  height: auto;
+  width: 3rem;
+}
+
+/* questions, answers */
+
+.faq__question {
+  cursor: pointer;
+}
+
+.faq__question:hover {
+  color: var(--hover-clr);
+}
+
+.faq__question:first-child {
+  margin-top: 4rem;
+}
+
+.faq__question:nth-child(2) {
+  border-top: 1px solid var(--bg-clr);
+}
+
+.faq__question:nth-child(2),
+.faq__question:nth-child(3) {
+  border-bottom: 1px solid var(--bg-clr);
+}
+
+.faq__question__header {
+  display: flex;
+  justify-content: space-between;
+
+  margin: 2.5rem 0 2.2rem 0;
+}
+
+.faq__question__button {
+  background: url(images/icon-plus.svg) no-repeat;
+  background-size: cover;
+  height: 2rem;
+  width: 2rem;
+  border: none;
+  cursor: pointer;
+}
+
+/* footer */
+
+.footer-content,
+.footer-content a {
+  font-size: 1rem;
+  color: var(--faq-clr);
+  text-decoration: none;
+  padding-top: 1rem;
+}
+
+.footer-content a:hover {
+  color: var(--hover-clr);
+}
