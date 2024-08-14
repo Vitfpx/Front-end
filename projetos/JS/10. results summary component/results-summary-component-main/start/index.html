@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Results summary component</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="img/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
+  <body>
+    <main class="main-component">
+      <section class="result">
+        <h1 class="result__title">Your Result</h1>
+        <div class="result__stats">
+          <p class="result__stats-text">
+            <span class="result__stats-number">76</span>of 100
+          </p>
+        </div>
+        <div class="result__description">
+          <h2 class="result__assessment">Great</h2>
+          <p class="result__description-text">
+            You scored higher than 65% of the people who have taken these tests.
+          </p>
+        </div>
+      </section>
+      <section class="summary">
+        <h1 class="summary__title">Summary</h1>
+        <ul class="summary__stats">
+          <li class="summary__stat">
+            <ol class="summary__stat--reaction">
+              <img src="img/icon-reaction.svg" alt="" />Reaction
+            </ol>
+            <ol class="stats__ol--2">
+              <span class="summary__stats__results">80</span>
+              / 100
+            </ol>
+          </li>
+          <li class="summary__stat">
+            <ol class="summary__stat--memory">
+              <img src="./img/icon-memory.svg" alt="" />Memory
+            </ol>
+            <ol class="stats__ol--2">
+              <span class="summary__stats__results">92</span>
+              / 100
+            </ol>
+          </li>
+          <li class="summary__stat">
+            <ol class="summary__stat--verbal">
+              <img src="./img/icon-verbal.svg" alt="" />Verbal
+            </ol>
+            <ol class="stats__ol--2">
+              <span class="summary__stats__results">61</span>
+              / 100
+            </ol>
+          </li>
+          <li class="summary__stat">
+            <ol class="summary__stat--visual">
+              <img src="./img/icon-visual.svg" alt="" />Visual
+            </ol>
+            <ol class="stats__ol--2">
+              <span class="summary__stats__results">72</span>
+              / 100
+            </ol>
+          </li>
+        </ul>
+        <button class="summary__btn">Continue</button>
+      </section>
+    </main>
+    <footer class="footer-content">
+      <div class="footer__attribution">
+        <p class="footer__text">
+          Challenge by
+          <a
+            href="https://www.frontendmentor.io?ref=challenge"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Frontend Mentor</a
+          >. Coded by
+          <a
+            href="https://github.com/Vitfpx/Front-end/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Vitor Barbosa Raimundo</a
+          >.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
