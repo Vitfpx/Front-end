@@ -150,16 +150,16 @@ body {
   margin-top: 3rem;
 }
 
-.footer-content a:hover {
+.footer-content a {
   color: var(--hover-clr);
 }
 
 /* tablets media query */
 @media (max-width: 850px) {
   body {
-    background: url(/img/background-pattern-desktop.svg) no-repeat top,
+    background: url(img/background-pattern-mobile.svg) no-repeat top,
       var(--bg-clr);
-    background-size: 255%;
+    background-size: 100%;
   }
 
   .faq-main {
@@ -206,6 +206,10 @@ body {
     text-decoration: none;
     padding-top: 3rem;
   }
+
+  .footer-content a {
+    color: var(--hover-clr);
+  }
 }
 
 /* Smartphones media query */
@@ -243,5 +247,9 @@ body {
     color: var(--faq-clr);
     text-decoration: none;
     padding-top: 2rem;
+  }
+
+  .footer-content a {
+    color: var(--hover-clr);
   }
 }

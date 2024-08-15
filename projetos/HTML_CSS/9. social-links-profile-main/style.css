@@ -2,7 +2,6 @@
 @import url(fonts/Inter-VariableFont_slnt\wght.ttf);
 
 /* variables */
-
 :root {
   --fs-html: 62.5%;
   --ff-primary: "Inter", sans-serif;
@@ -15,7 +14,6 @@
 }
 
 /* reset config */
-
 *,
 ::after,
 ::before {
@@ -49,7 +47,6 @@ a {
 }
 
 /* main content */
-
 .profile-main {
   display: flex;
   justify-content: center;
@@ -70,7 +67,6 @@ a {
 }
 
 /* profile content */
-
 .profile__picture img {
   max-height: 10rem;
   max-width: 10rem;
@@ -115,16 +111,12 @@ a {
 }
 
 /* footer */
-
 .footer__attribution a {
   padding-top: 1rem;
   color: var(--highlight-text-clr);
 }
 
-/* Media Query */
-
 /* tablets media query */
-
 @media (max-width: 850px) {
   .profile {
     max-width: calc(100% - 6rem);
@@ -143,7 +135,6 @@ a {
 }
 
 /* Smartphones media query */
-
 @media (max-width: 450px) {
   .profile {
     max-width: calc(100% - 3rem);
@@ -159,7 +150,6 @@ a {
 }
 
 /* Small smartphones media query */
-
 @media (max-width: 380px) {
   .profile__text {
     font-size: 1.5rem;
