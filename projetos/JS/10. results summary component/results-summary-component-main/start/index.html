@@ -11,15 +11,7 @@
       href="img/favicon-32x32.png"
     />
     <link rel="stylesheet" href="style.css" />
-    <style>
-      .attribution {
-        font-size: 11px;
-        text-align: center;
-      }
-      .attribution a {
-        color: hsl(228, 45%, 44%);
-      }
-    </style>
+    <script src="script.js" defer></script>
   </head>
   <body>
     <main class="main-component">
@@ -27,13 +19,13 @@
         <h1 class="result__title">Your Result</h1>
         <div class="result__stats">
           <p class="result__stats-text">
-            <span class="result__stats-number">76</span>of 100
+            <span class="result__stats-number">0</span>of 100
           </p>
         </div>
         <div class="result__description">
-          <h2 class="result__assessment">Great</h2>
+          <h2 class="result__assessment">Awaiting Input</h2>
           <p class="result__description-text">
-            You scored higher than 65% of the people who have taken these tests.
+            Please enter the required values to receive an evaluation.
           </p>
         </div>
       </section>
@@ -41,40 +33,60 @@
         <h1 class="summary__title">Summary</h1>
         <ul class="summary__stats">
           <li class="summary__stat">
-            <ol class="summary__stat--reaction">
+            <label for="reaction-value" class="summary__stat--reaction">
               <img src="img/icon-reaction.svg" alt="" />Reaction
-            </ol>
-            <ol class="stats__ol--2">
-              <span class="summary__stats__results">80</span>
+            </label>
+            <div class="summary__stat--value">
+              <input
+                type="number"
+                name="reaction-value"
+                id="reaction-value"
+                class="summary__stats__input"
+              />
               / 100
-            </ol>
+            </div>
           </li>
           <li class="summary__stat">
-            <ol class="summary__stat--memory">
+            <label for="memory-value" class="summary__stat--memory">
               <img src="./img/icon-memory.svg" alt="" />Memory
-            </ol>
-            <ol class="stats__ol--2">
-              <span class="summary__stats__results">92</span>
+            </label>
+            <div class="summary__stat--value">
+              <input
+                type="number"
+                name="memory-value"
+                id="memory-value"
+                class="summary__stats__input"
+              />
               / 100
-            </ol>
+            </div>
           </li>
           <li class="summary__stat">
-            <ol class="summary__stat--verbal">
+            <label for="verbal-value" class="summary__stat--verbal">
               <img src="./img/icon-verbal.svg" alt="" />Verbal
-            </ol>
-            <ol class="stats__ol--2">
-              <span class="summary__stats__results">61</span>
+            </label>
+            <div class="summary__stat--value">
+              <input
+                type="number"
+                name="verbal-value"
+                id="verbal-value"
+                class="summary__stats__input"
+              />
               / 100
-            </ol>
+            </div>
           </li>
           <li class="summary__stat">
-            <ol class="summary__stat--visual">
+            <label for="visual-value" class="summary__stat--visual">
               <img src="./img/icon-visual.svg" alt="" />Visual
-            </ol>
-            <ol class="stats__ol--2">
-              <span class="summary__stats__results">72</span>
+            </label>
+            <div class="summary__stat--value">
+              <input
+                type="number"
+                name="visual-value"
+                id="visual-value"
+                class="summary__stats__input"
+              />
               / 100
-            </ol>
+            </div>
           </li>
         </ul>
         <button class="summary__btn">Continue</button>

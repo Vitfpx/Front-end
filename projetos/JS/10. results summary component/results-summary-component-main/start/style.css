@@ -1,10 +1,10 @@
 /* font */
-@import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
 /* variables */
 :root {
   /* font */
-  --default-font: "Hanken Grotesk", sans-serif;
+  --default-font: 'Hanken Grotesk', sans-serif;
   /* gradients */
   --fs-html: 62.5%;
   --bg-result-gradient: linear-gradient(
@@ -132,6 +132,7 @@ body {
 
 .result__description-text {
   margin: 1rem 0 0.3rem;
+  min-height: 3.9rem;
 }
 
 /* summary */
@@ -217,11 +218,23 @@ body {
   color: var(--visual-clr);
 }
 
-.summary__stats__results {
-  color: var(--btn-clr);
+.summary__stats__input {
+  border: none;
+  text-align: center;
+  background: transparent;
+  width: 2rem;
+  outline: none;
+  border-bottom: 1px solid var(--light-gray);
+  font: var(--default-font);
 }
 
-.stats__ol--2 {
+.summary__stats__input::-webkit-inner-spin-button,
+.summary__stats__input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.summary__stat--value {
   color: var(--light-gray);
 }
 
@@ -294,6 +307,11 @@ body {
 
 /* tablets media query */
 @media (max-width: 890px) {
+  html,
+  body {
+    height: 100%;
+  }
+
   .main-component {
     height: 50%;
     width: clamp(80%, 32%, 20%);
@@ -332,16 +350,21 @@ body {
 
   .summary {
     box-shadow: rgba(136, 165, 191, 0.4) 3px 8px 20px 0px;
+    padding: 2.8rem 2rem;
   }
 
   .summary__stat {
-    width: 24rem;
+    width: 28rem;
     font-size: 2.2rem;
-    margin: 1.9rem 0;
+    margin: 1rem 0;
   }
 
   .summary__stat img {
     height: 2.3rem;
+  }
+
+  .summary__stats__input {
+    width: 4rem;
   }
 
   .summary__btn {
@@ -355,11 +378,10 @@ body {
   body {
     flex-direction: row;
     justify-content: center;
-    height: 100%;
+    height: max-content;
   }
+
   .main-component {
-    /* height: 50%;
-    width: clamp(80%, 32%, 20%); */
     height: 100%;
     width: 100%;
     flex-direction: column;
@@ -431,6 +453,10 @@ body {
 
   .summary__stat img {
     height: 2.3rem;
+  }
+
+  .summary__stats__input {
+    width: 3rem;
   }
 
   .summary__btn {
