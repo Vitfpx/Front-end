@@ -67,7 +67,8 @@ sumBtn.addEventListener('click', () => {
         text: 'You achieved the maximum score! Outstanding!',
       },
       {
-        min: 101,
+        min: 101
+        ,
         max: 1000,
         title: 'Unexpected Value',
         text: 'Please review the information provided.',

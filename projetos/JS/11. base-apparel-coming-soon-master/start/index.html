@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <title>Frontend Mentor | Base Apparel coming soon page</title>
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="icon-logo">
+      <img src="images/logo.svg" alt="main logo" />
+    </header>
+    <main class="main-content">
+      <section class="main-content__text">
+        <header class="hero-msg">
+          <h1 class="hero-msg--title">
+            <span class="highlight-title">We're</span> coming soon
+          </h1>
+          <p class="hero-msg--description">
+            Hello fellow shoppers! We're currently building our new fashion
+            store. Add your email below to stay up-to-date with announcements
+            and our launch deals.
+          </p>
+        </header>
+        <div class="send-email">
+          <input
+            type="email"
+            id="send-email--input"
+            placeholder="Email Address"
+            required
+          />
+          <img
+            class="send-email--error"
+            src="images/icon-error.svg"
+            alt="error: e-mail inválido"
+          />
+          <button class="send-email--btn">
+            <img src="images/icon-arrow.svg" alt="Arrow Icon" />
+          </button>
+          <p class="error-message">Please provide a valid email</p>
+          <p class="accept-message">Valid email!</p>
+        </div>
+      </section>
+      <section class="main-content__bg-img"></section>
+    </main>
+    <footer class="footer-content">
+      <p class="footer-content__attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by
+        <a href="https://github.com/Vitfpx" target="_blank"
+          >Vitor Barbosa Raimundo</a
+        >.
+      </p>
+    </footer>
+  </body>
+</html>

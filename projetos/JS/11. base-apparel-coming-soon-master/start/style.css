@@ -1,0 +1,373 @@
+/* font */
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+/* variables */
+:root {
+  --desaturated-red: hsl(0, 36%, 70%);
+  --soft-red: #f96262;
+  --dark-grayish-red: hsl(0, 6%, 24%);
+  --white-gradient: linear-gradient(
+    135deg,
+    hsl(0, 0%, 100%),
+    hsl(0, 100%, 98%)
+  );
+  --skin-color-gradient: linear-gradient(
+    135deg,
+    hsl(0, 80%, 86%),
+    hsl(0, 74%, 74%)
+  );
+  --default-font: 400 normal 1.6rem 'Josefin Sans', sans-serif;
+  --fs-html: 62.5%;
+}
+
+/* reset config */
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  letter-spacing: 0.05rem;
+}
+
+html {
+  font-size: var(--fs-html);
+  height: 100vh;
+  overflow: hidden;
+}
+
+body {
+  position: relative;
+  height: 100vh;
+}
+
+/* main logo */
+.icon-logo img {
+  position: absolute;
+  top: 5%;
+  left: 10%;
+}
+
+/* main content */
+.main-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-content__text {
+  background-size: contain;
+  background-position: top;
+  text-align: left;
+  width: 55%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  padding-left: 14rem;
+  gap: 3rem;
+}
+
+.hero-msg--title,
+.highlight-title {
+  letter-spacing: 1.5rem;
+}
+
+.hero-msg {
+  width: 80%;
+}
+
+.hero-msg--title {
+  font: var(--default-font);
+  font-size: 7rem;
+  color: var(--dark-grayish-red);
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  margin-top: 8rem;
+}
+
+.highlight-title {
+  color: var(--desaturated-red);
+  font-weight: 300;
+}
+
+.hero-msg--description {
+  font: var(--default-font);
+  color: var(--desaturated-red);
+  line-height: 2.8rem;
+}
+
+/* background image */
+.main-content__bg-img {
+  background-image: url(images/hero-desktop.jpg);
+  display: flex;
+  justify-content: flex-end;
+  background-repeat: no-repeat;
+  width: 44%;
+  height: 100vh;
+  background-size: cover;
+}
+
+/* button */
+.send-email {
+  position: relative;
+}
+
+#send-email--input {
+  outline: none;
+  padding: 2rem;
+  padding-top: 2.2rem;
+  border-radius: 2.5rem;
+  border: 1px solid #00000033;
+  font: var(--default-font);
+  font-size: 1.4rem;
+  height: 4.5rem;
+  width: 40rem;
+  color: rgb(0, 0, 0, 0.7);
+  font-weight: 600;
+}
+
+#send-email--input::placeholder {
+  color: rgba(0, 0, 0, 0.3);
+  font: var(--default-font);
+  font-size: 1.4rem;
+}
+
+.send-email--error {
+  position: absolute;
+  right: 27%;
+  top: 25%;
+  height: 2rem;
+  display: none;
+}
+
+.send-email--btn {
+  position: absolute;
+  border-radius: 3rem;
+  padding: 1.1rem 3.5rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: none;
+  background: var(--skin-color-gradient);
+  right: 0%;
+  cursor: pointer;
+}
+
+.send-email--btn:hover {
+  background: linear-gradient(135deg, #fadcdd, #f1b1b1c2);
+  box-shadow: 0px 8px 20px 0px hsla(0, 40%, 63%, 0.795);
+}
+
+.error-message,
+.accept-message {
+  position: absolute;
+  color: var(--soft-red);
+  opacity: 0.9;
+  margin: 1rem 0 0 2rem;
+  font: var(--default-font);
+  font-size: 1.1rem;
+  font-weight: 600;
+  /* display: none; */
+  visibility: hidden;
+}
+
+.accept-message {
+  color: #76b911;
+}
+
+/* footer */
+.footer-content {
+  position: absolute;
+  bottom: 0%;
+  left: 14%;
+}
+
+.footer-content__attribution {
+  font: var(--default-font);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.726);
+}
+
+.footer-content a {
+  color: var(--desaturated-red);
+  padding-top: 1rem;
+}
+
+/* media query */
+/* tablets */
+@media (max-width: 850px) {
+  body,
+  html {
+    height: auto;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  .icon-logo img {
+    left: 6%;
+    top: 3%;
+  }
+
+  .main-content {
+    flex-direction: column-reverse;
+    margin-bottom: 15rem;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .main-content__bg-img {
+    margin-top: 10rem;
+    background-image: url(images/hero-mobile.jpg);
+    height: 40vh;
+    width: 100%;
+    background-size: cover;
+  }
+
+  .hero-msg {
+    width: 110%;
+  }
+
+  .main-content__text {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-left: 0;
+  }
+
+  .hero-msg--title,
+  .highlight-title {
+    font-size: 9.5rem;
+  }
+
+  .hero-msg--title {
+    font-weight: 600;
+    margin-bottom: 3rem;
+  }
+
+  .hero-msg--description {
+    font-size: 2.6rem;
+    line-height: 4rem;
+    margin-top: 4rem;
+  }
+
+  #send-email--input {
+    padding: 3rem;
+    padding-top: 3.5rem;
+    border-radius: 4rem;
+    border: 1px solid #00000066;
+    font-size: 2.6rem;
+    height: 6rem;
+    line-height: 7rem;
+    width: 45rem;
+    color: rgb(0, 0, 0, 0.7);
+    margin-top: 1rem;
+  }
+
+  #send-email--input::placeholder {
+    color: rgb(0, 0, 0, 0.4);
+    font: var(--default-font);
+    font-size: 2.6rem;
+    line-height: 7rem;
+  }
+
+  .send-email--btn {
+    border-radius: 4rem;
+    padding: 2.2rem 4.5rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    background: var(--skin-color-gradient);
+    right: 0%;
+    top: 13%;
+    cursor: pointer;
+  }
+
+  .error-message,
+  .accept-message {
+    font-size: 2.2rem;
+  }
+
+  .send-email--error {
+    right: 27%;
+    top: 35%;
+    height: 3rem;
+    display: none;
+  }
+
+  .footer-content {
+    left: 10%;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .footer-content__attribution {
+    font-size: 2rem;
+  }
+}
+
+/* smartphones */
+@media (max-width: 450px) {
+  .main-content__bg-img {
+    height: 40vh;
+  }
+
+  .main-content__text {
+    width: 75%;
+  }
+
+  .hero-msg--title,
+  .highlight-title {
+    font-size: 5rem;
+  }
+
+  .hero-msg--description {
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 3.5rem;
+  }
+
+  .send-email {
+    width: 110%;
+  }
+
+  #send-email--input {
+    padding: 2.5rem;
+    padding-top: 3rem;
+    font-size: 2rem;
+    height: 5rem;
+    width: 100%;
+  }
+
+  .send-email--btn {
+    border-radius: 4rem;
+    padding: 1.4rem 3.2rem;
+    background-position: center;
+    top: 14.8%;
+  }
+
+  .send-email--btn img {
+    height: 2.6rem;
+  }
+
+  #send-email--input::placeholder {
+    font-size: 2rem;
+  }
+
+  .error-message,
+  .accept-message {
+    font-size: 1.7rem;
+  }
+
+  .footer-content {
+    text-align: center;
+    left: 0;
+  }
+
+  .footer-content__attribution {
+    font-size: 1.7rem;
+  }
+}
