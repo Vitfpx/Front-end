@@ -19,18 +19,190 @@
         color: hsl(228, 45%, 44%);
       }
     </style>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+    <link
+      rel="shortcut icon"
+      href="images/favicon-32x32.png"
+      type="image/x-icon"
+    />
   </head>
   <body>
-    <nav class="nav-container">
-      <div class="nav-container__logo">
-        <h1 class="nav-container__logo--text">sunnyside</h1>
-      </div>
-      <ol class="nav-container__links">
-        <li class="nav-container__link link--about"></li>
-        <li class="nav-container__link link--services"></li>
-        <li class="nav-container__link link--projects"></li>
-        <li></li>
-      </ol>
-    </nav>
+    <header class="header-container">
+      <nav class="nav-container">
+        <div class="nav-container__logo">
+          <h1 class="nav-container__logo--text logo-style">sunnyside</h1>
+        </div>
+        <ul class="nav-container__links">
+          <li class="nav-link nav-link--about"><a href="#about">About</a></li>
+          <li class="nav-link nav-link--services">
+            <a href="#services">Services</a>
+          </li>
+          <li class="nav-link nav-link--projects">
+            <a href="#projects">Projects</a>
+          </li>
+          <li class="nav-link nav-link--contact">
+            <button id="contact-button">Contact</button>
+          </li>
+        </ul>
+      </nav>
+      <h2 class="nav-container__title">We Are Creatives</h2>
+      <img class="header-container__bg-img" src="images/icon-arrow-down.svg" alt="arrow icon" />
+    </header>
+    <main class="main-container">
+      <section class="main-container__features">
+        <ul class="features-list">
+          <li
+            class="main-container__feature main-container__feature--transform-brand"
+          >
+            <h2 class="transform-brand__title">Transform your brand</h2>
+            <p class="transform-brand__text">
+              We are a full-service creative agency specializing in helping
+              brands grow fast. Engage your clients through compelling visuals
+              that do most of the marketing for you.
+            </p>
+            <button class="transform-brand__button">Learn more</button>
+          </li>
+          <li
+            class="main-container__feature main-container__feature--egg-img"
+          ></li>
+          <li
+            class="main-container__feature main-container__feature--cup-img"
+          ></li>
+          <li
+            class="main-container__feature main-container__feature--right-audience"
+          >
+            <h2 class="right-audience__title">
+              Stand out to the right audience
+            </h2>
+            <p class="right-audience__text">
+              Using a collaborative formula of designers, researchers,
+              photographers, videographers, and copywriters, we’ll build and
+              extend your brand in digital places.
+            </p>
+            <button class="right-audience__button">Learn more</button>
+          </li>
+          <li
+            class="main-container__feature main-container__feature--graphic-design"
+          >
+            <h2 class="graphic-design__title">Graphic Design</h2>
+            <p class="graphic-design__text">
+              Great design makes you memorable. We deliver artwork that
+              underscores your brand message and captures potential clients’
+              attention.
+            </p>
+          </li>
+          <li
+            class="main-container__feature main-container__feature--photography"
+          >
+            <h2 class="graphic-design__title">Photography</h2>
+            <p class="graphic-design__text">
+              Increase your credibility by getting the most stunning,
+              high-quality photos that improve your business image.
+            </p>
+          </li>
+        </ul>
+      </section>
+      <section class="main-container__client-testimonials">
+        <h2 class="client-testimonials__title">Client Testimonials</h2>
+        <ul class="client-testimonials__profiles">
+          <li
+            class="client-testimonials__profile client-testimonials__profile--emily"
+          >
+            <img
+              class="client-testimonials__profile-img"
+              src="images/image-emily.jpg"
+              alt="Emily profile"
+            />
+            <p class="client-testimonials__profile-text">
+              We put our trust in Sunnyside and they delivered, making sure our
+              needs were met and deadlines were always hit.
+            </p>
+            <h3 class="client-testimonials__profile-name">Emily R.</h3>
+            <p class="client-testimonials__profile-job">Marketing Director</p>
+          </li>
+          <li
+            class="client-testimonials__profile client-testimonials__profile--thomas"
+          >
+            <img
+              class="client-testimonials__profile-img"
+              src="images/image-thomas.jpg"
+              alt="Thomas profile"
+            />
+            <p class="client-testimonials__profile-text">
+              Sunnyside’s enthusiasm coupled with their keen interest in our
+              brand’s success made it a satisfying and enjoyable experience.
+            </p>
+            <h3 class="client-testimonials__profile-name">Thomas S.</h3>
+            <p class="client-testimonials__profile-job">
+              Chief Operating Officer
+            </p>
+          </li>
+          <li
+            class="client-testimonials__profile client-testimonials__profile--jennie"
+          >
+            <img
+              class="client-testimonials__profile-img"
+              src="images/image-jennie.jpg"
+              alt="Jennie profile"
+            />
+            <p class="client-testimonials__profile-text">
+              Sunnyside’s enthusiasm coupled with their keen interest in our
+              brand’s success made it a satisfying and enjoyable experience.
+            </p>
+            <h3 class="client-testimonials__profile-name">Jennie F.</h3>
+            <p class="client-testimonials__profile-job">Business Owner</p>
+          </li>
+        </ul>
+      </section>
+      <aside class="main-container__aside-content">
+        <img
+          src="images/desktop/image-gallery-milkbottles.jpg"
+          alt="milk bottles"
+          class="aside-content__img"
+        />
+        <img
+          src="images/desktop/image-gallery-orange.jpg"
+          alt="orange"
+          class="aside-content__img"
+        />
+        <img
+          src="images/desktop/image-gallery-cone.jpg"
+          alt="cone"
+          class="aside-content__img"
+        />
+        <img
+          src="images/desktop/image-gallery-sugarcubes.jpg"
+          alt="sugar cubes"
+          class="aside-content__img"
+        />
+      </aside>
+    </main>
+    <footer class="footer-container">
+      <h1 class="footer-container__logo logo-style">sunnyside</h1>
+      <ul class="footer-container__nav-links">
+        <li class="nav-link nav-link--about"><a href="#about">About</a></li>
+        <a href="#services">
+          <li class="nav-link nav-link--services">Services</li>
+        </a>
+        <li class="nav-link nav-link--projects">
+          <a href="#projects">Projects</a>
+        </li>
+      </ul>
+      <ul class="footer-container__social-medias">
+        <li class="social-media social-media--facebook">
+          <img src="images/icon-facebook.svg" alt="facebook icon" />
+        </li>
+        <li class="social-media social-media--instagram">
+          <img src="images/icon-instagram.svg" alt="instagram icon" />
+        </li>
+        <li class="social-media social-media--twitter">
+          <img src="images/icon-x.svg" alt="x icon" />
+        </li>
+        <li class="social-media social-media--pinterest">
+          <img src="images/icon-pinterest.svg" alt="pinterest icon" />
+        </li>
+      </ul>
+    </footer>
   </body>
 </html>

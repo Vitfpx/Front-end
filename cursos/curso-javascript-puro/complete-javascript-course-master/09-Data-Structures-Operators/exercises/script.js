@@ -373,13 +373,12 @@ const books = [
 //////////////////////////////////
 // Logical Assignments Operators
 
-// // Ex. 1
+// Ex. 1
 // for (let i = 0; i < books.length; i++) {
 //   console.log((books[i].edition ||= 1));
 // }
 
 // Ex. 2
-
 // Jeito que o ex pediu
 // for (let i = 0; i < books.length; i++) {
 //   books[i].highlighted &&= !(books[i].thirdParty.goodreads.rating < 4.2);
@@ -461,6 +460,7 @@ const books = [
 
 ////////////////////////////
 // Optional Chaining (?.)
+
 // Ex. 1
 // const getFirstKeyword = books => {
 //   console.log(books.keywords?.[0]);
@@ -546,11 +546,13 @@ const books = [
 
 //////////////////////
 // Maps: Fundamentals
+
 // Ex. 1
 // [
 //   ['title', 'Clean Code'],
 //   ['author', 'Robert C. Martin'],
 // ];
+//
 // const bookMap = new Map([
 //   ['title', 'Clean Code'],
 //   ['author', 'Robert C. Martin'],
@@ -584,6 +586,7 @@ const books = [
 
 //////////////////////////////////
 // Working with Strings - Part 1
+
 // Ex. 1
 // console.log(
 //   books[0].ISBN[6],
@@ -608,10 +611,95 @@ const books = [
 // };
 // isContributor('Julie Sussman (Contributor)');
 
+//////////////////////////////////
+// Working with Strings - Part 2
+
+// Ex. 1
+const normalizeAuthorName = name => {
+  const [firstName, secondName] = name.trim().split(' ');
+
+  const outputName =
+    firstName[0].toUpperCase() +
+    firstName.slice(1).toLowerCase() +
+    ' ' +
+    secondName[0].toUpperCase() +
+    secondName.slice(1).toLowerCase();
+
+  return outputName;
+};
+normalizeAuthorName('  JuliE sussMan (Contributor)'); // Julie Sussman
+
+// Ex. 2
+const newBookTitle = books[1].title.replace('Programs', 'Software');
+
+// Ex. 3
+const isComputerBook = title => title.startsWith('computer');
+const isAlgorithmsAndDataStructuresBook = title =>
+  title.includes('algorithms') && title.includes('structures');
+const isSystemBookNotOperatingSystems = title =>
+  title.endsWith('system') ||
+  (title.endsWith('systems') && !title.includes('operating'));
+const logBookTheme = function () {
+  for (const book of books) {
+    const title = book.title.toLowerCase();
+
+    if (isComputerBook(title)) {
+      console.log('This book is about computers');
+    } else if (isAlgorithmsAndDataStructuresBook(title)) {
+      console.log('This book is about algorithms and data structures');
+    } else if (isSystemBookNotOperatingSystems(title)) {
+      console.log(
+        'This book is about some systems, but definitely not about operating systems'
+      );
+    }
+  }
+};
+// logBookTheme();
+
+//////////////////////////////////
+// Working with Strings - Part 3
+
+// Ex. 1
+const bookCategories =
+  'science;computing;computer science;algorithms;business;operating systems;networking;electronics';
+
+const logBookCategories = string => {
+  const stringSlice = string.split(';');
+  const outputString = stringSlice.join('\n');
+  return outputString;
+};
+// logBookCategories(bookCategories);
+
+// Ex. 2
+const getKeywordsAsString = arg => {
+  const outputArg = [];
+  for (const argRow of arg) {
+    outputArg.push(...argRow.keywords);
+  }
+  const argString = [...new Set(outputArg)];
+  return argString.join(';');
+};
+getKeywordsAsString(books);
+
+// Ex. 3
+const logBookChapters = function (arrays) {
+  for (const [topics, page] of arrays) {
+    console.log(topics.padEnd(20, '_') + ' ' + page);
+  }
+};
+
+const bookChapters = [
+  ['The Basics', 14],
+  ['Sorting', 254],
+  ['Searching', 372],
+  ['Graphs', 526],
+  ['Strings', 706],
+];
+logBookChapters(bookChapters);
+
 //  ***********************
 //  *** EX FINAL BOLADO ***
 //  ***********************
-
 const flights =
   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
