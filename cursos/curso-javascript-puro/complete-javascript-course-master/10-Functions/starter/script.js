@@ -264,7 +264,7 @@ const addTax = (rate, value) => value + value * rate;
 // console.log(addTax(0.1, 200)); // 220
 
 // Os dois códigos abaixo são a mesma coisa
-const addVAT = addTax.bind(null, 0.23);
+const addVAT = addTax.bind(null, 0.23); // O bindo aqui serve para você criar uma nova função já com parâmetros pré definidos ao invés de criar outra função que faz a mesma coisa porém colocar os parâmetros manualmente...
 // addVAt = value => value + value * 0.23;
 
 // A função deste código foi simplesmente definir um valor padrão para o rate. Null foi utilizado pois não há nenhum this dentro do addTax
@@ -307,7 +307,7 @@ const addVAT2 = addTax(0.23);
 
 // Test data for bonus:
 // Data 1: [5, 2, 3]
-// Data 2: [1, 5, 3, 9, 6, 1]
+// Data 2: [1, 5, 3, 9, 6, 1] 
 
 // Hints: Use many of the tools you learned about in this and the last section
 
@@ -338,25 +338,125 @@ document
   .querySelector('.poll')
   .addEventListener('click', poll.registerNewAnswer.bind(poll));
 
-poll.displayResults.call({ answers: [5, 2, 3] });
-poll.displayResults.call({ answers: [5, 2, 3] }, 'string');
-poll.displayResults.call({ answers: [1, 5, 3, 9, 6, 1] });
-poll.displayResults.call({ answers: [1, 5, 3, 9, 6, 1] }, 'string');
+// poll.displayResults.call({ answers: [5, 2, 3] });
+// poll.displayResults.call({ answers: [5, 2, 3] }, 'string');
+// poll.displayResults.call({ answers: [1, 5, 3, 9, 6, 1] });
+// poll.displayResults.call({ answers: [1, 5, 3, 9, 6, 1] }, 'string');
 // Data 1: [5, 2, 3]
 // Data 2: [1, 5, 3, 9, 6, 1]
 
 /////////////////////////////////////////////
 // Immediately invoked function espressions
-const runOnce = (function () {
-  console.log('This will never run again...Or not');
-})(
-  // IIFE
-  function () {
-    console.log('This will never run again. With regular function');
-    const isPrivate = 23;
-  }
-)();
+// const runOnce = (function () {
+// console.log('This will never run again...Or not');
+// })(
+//   // IIFE
+//   function () {
+//     console.log('This will never run again. With regular function');
+//     // const isPrivate = 23;
+//   }
+// )();
 
 // console.log(isPrivate); // Não funciona
 
-(() => console.log('This will never run again. With arrow function'))();
+// (() => console.log('This will never run again. With arrow function'))();
+
+// IIFE era mais útil na época em que se usava var, pois ele
+// ignorava as chaves e podia ser chamado para o escopo global.
+// Mas ainda assim, pode ser útil usar IIFE
+
+/////////////
+// Closures
+
+// Uma função sempre tem acesso ao ambiente de variável do
+// contexto de execução no qual foi criada, mesmo depois
+// que um contexto de execução termina
+
+// No contexto acima, Booker tem acesso à variável passageCount
+// porque é basicamente definida no escopo em que a função Booker
+// foi criada...
+
+// Closure tem prioridade em cima do scope chain
+
+// Uma Closure é o variable environment que foi fechada do execution context no qual uma função foi criada, mesmo depois que esse contexto de execução foi embora;
+
+// Menos formal ⬇⬇⬇
+// Uma Closure dá a uma função acesso a todas as variáveis ​​de sua função pai, mesmo depois que essa função pai retornou. A função mantém uma referência ao seu escopo externo, o que preserva a cadeia de escopo ao longo do tempo.
+
+// Menos formal ⬇⬇⬇
+// Uma Closure garante que uma função não perca a conexão com variáveis ​​que existiam no local de nascimento da função;
+
+// Menos formal ⬇⬇⬇
+// Uma Closure é como uma mochila que uma função carrega para onde quer que vá. Essa mochila tem todas as variáveis ​​que estavam presentes no ambiente onde a função foi criada.
+// Function = Pessoa / Bolsa = Closure / Objeto dentro da mochila = Variáveis. === Significa que a função pode procurar pelas variáveis que não foram achadas no escopo global, porém utilizando a closure para procurar até mesmo em functions anteriores
+
+// NÃO precisamos criar Closures manualmente, esse é um recurso do JavaScript que acontece automaticamente. Não podemos nem acessar variáveis ​​fechadas explicitamente. Uma Closure NÃO é um objeto JavaScript tangível.
+// As Closures são um padrão de comportamento de algo que parece ser inexplicável, por isso foi nomeada e tem que ser estudada mesmo sendo algo muito abstrato.
+
+/////////////////////////
+// More Closure examples
+
+// Example 1
+let f;
+
+const g = function () {
+  const a = 23;
+  f = function () {
+    console.log(a * 2);
+  };
+};
+
+const h = function () {
+  const b = 777;
+  f = function () {
+    console.log(b * 2);
+  };
+};
+// g();
+// f(); // 46
+// console.dir(f);
+
+// Re-assigning f function
+// h();
+// f(); // 1554
+// console.dir(f);
+
+// A Closure pode mudar conforme a variável é re-atribuída
+// Ela só lembrará das variáveis de seu local de nascimento, portanto, como mudamos onde ela nasceu, mudamos também as variáveis dentro da Closure
+
+// Example 2
+const boardPassengers = function (n, wait) {
+  const perGroup = n / 3;
+
+  setTimeout(() => {
+    console.log(`We are now boarding all ${n} passengers`);
+    console.log(`There are 3 groups, each with ${perGroup} passengers`);
+  }, wait * 1000);
+
+  console.log(`Wil start boarding in ${wait} seconds`);
+};
+
+const perGroup = 1000; // Mesmo com a definição de perGroup no escopo global, a Closure ainda tem prioridade, por isso é utilizado n / 3 ao invés do 1000
+// boardPassengers(180, 3);
+
+// Coding Challenge #2
+// This is more of a thinking challenge than a coding challenge 🤓
+
+// Your tasks:
+// 1. Take the IIFE below and at the end of the function, attach an event listener that changes the color of the selected h1 element ('header') to blue, each time the body element is clicked. Do not select the h1 element again!
+// 2. And now explain to yourself (or someone around you) why this worked! Take all the time you need. Think about when exactly the callback function is executed, and what that means for the variables involved in this example.
+
+(function () {
+  const header = document.querySelector('h1');
+  header.style.color = 'red';
+
+  document.body.addEventListener('click', () => {
+    header.style.color = 'blue';
+  });
+})();
+
+/*
+  Isso tudo acontece pois:
+    1. Primeiramente, conseguimos utilizar a variável header dentro da função anônima dentro de addEventListener por conta da Closure, que busca as variáveis do escopo pai da função IIFE. Mesmo após a execução da IIFE;
+    2. Segundamente, o Callback do addEventListener mudando uma variável quer ja havia sido atribuída
+*/
