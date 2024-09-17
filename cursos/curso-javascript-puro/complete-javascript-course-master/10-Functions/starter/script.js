@@ -211,7 +211,7 @@ const book = lufthansa.book;
 // book.call(lufthansa, 239, 'João Costa');
 // console.log(lufthansa);
 
-// Isso nos da o poder de conseguir manipular o this e uma utilizar uma função para vários objetos, mesmo que esteja dentro de um em específico. Mas claro, as propriedades nesse caso tem que ser as mesmas (airline, iataCode)
+// Isso nos da o poder de conseguir manipular o this e utilizar uma função para vários objetos, mesmo que esteja dentro de um em específico. Mas claro, as propriedades nesse caso tem que ser as mesmas (airline, iataCode, bookings)
 
 const swiss = {
   airline: 'Swiss Air Lines',
@@ -307,7 +307,7 @@ const addVAT2 = addTax(0.23);
 
 // Test data for bonus:
 // Data 1: [5, 2, 3]
-// Data 2: [1, 5, 3, 9, 6, 1] 
+// Data 2: [1, 5, 3, 9, 6, 1]
 
 // Hints: Use many of the tools you learned about in this and the last section
 
@@ -348,12 +348,12 @@ document
 /////////////////////////////////////////////
 // Immediately invoked function espressions
 // const runOnce = (function () {
-// console.log('This will never run again...Or not');
-// })(
+// console.log('This will never run again...Or will');
+// })
 //   // IIFE
-//   function () {
-//     console.log('This will never run again. With regular function');
-//     // const isPrivate = 23;
+// (function () {
+//    console.log('This will never run again. With regular function');
+//    const isPrivate = 23;
 //   }
 // )();
 
@@ -370,7 +370,7 @@ document
 
 // Uma função sempre tem acesso ao ambiente de variável do
 // contexto de execução no qual foi criada, mesmo depois
-// que um contexto de execução termina
+// que um contexto de execução termina.
 
 // No contexto acima, Booker tem acesso à variável passageCount
 // porque é basicamente definida no escopo em que a função Booker
@@ -457,6 +457,6 @@ const perGroup = 1000; // Mesmo com a definição de perGroup no escopo global, 
 
 /*
   Isso tudo acontece pois:
-    1. Primeiramente, conseguimos utilizar a variável header dentro da função anônima dentro de addEventListener por conta da Closure, que busca as variáveis do escopo pai da função IIFE. Mesmo após a execução da IIFE;
-    2. Segundamente, o Callback do addEventListener mudando uma variável quer ja havia sido atribuída
+    1. Primeiramente, conseguimos utilizar a variável header dentro da função anônima que está dentro de addEventListener por conta da Closure, que busca as variáveis do escopo pai da função IIFE. Mesmo após a execução da IIFE;
+    2. Segundamente, o Callback do addEventListener mudando uma variável quer ja havia sido atribuída.
 */

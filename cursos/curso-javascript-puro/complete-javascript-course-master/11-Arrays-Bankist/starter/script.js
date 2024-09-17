@@ -61,10 +61,12 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
-const displayMovements = function (movements) {
+const displayMovements = function (movements, sort = false) {
   containerMovements.innerHTML = '';
 
-  movements.forEach(function (mov, i) {
+  const movs = sort ? movements.slice().sort((a, b) => a - b) : movements; // slice() é utilizado para criar uma cópia do parâmetro movements, ja que sort() altera o valor original, e não queremos isso
+
+  movs.forEach(function (mov, i) {
     const type = mov > 0 ? 'deposit' : 'withdrawal';
 
     const html = `
@@ -72,14 +74,159 @@ const displayMovements = function (movements) {
       <div class="movements__type movements__type--${type}">${
       i + 1
     } ${type}</div>
-      <div class="movements__value">${mov}</div>
+      <div class="movements__value">${mov}€</div>
     </div>
         `;
 
     containerMovements.insertAdjacentHTML('afterbegin', html);
   });
 };
-displayMovements(account1.movements);
+
+const calcDisplayBalance = function (acc) {
+  acc.balance = acc.movements.reduce((acc, mov) => acc + mov, 0);
+  labelBalance.textContent = `${acc.balance}€`;
+};
+
+const calcDisplaySummary = function (acc) {
+  const incomes = acc.movements
+    .filter(mov => mov > 0)
+    .reduce((acc, mov) => acc + mov, 0);
+  labelSumIn.textContent = `${incomes}€`;
+
+  const out = acc.movements
+    .filter(mov => mov < 0)
+    .reduce((acc, mov) => acc + mov, 0);
+  labelSumOut.textContent = `${Math.abs(out)}€`;
+
+  const interest = acc.movements
+    .filter(mov => mov > 0)
+    .map(deposit => (deposit * acc.interestRate) / 100)
+    .filter((int, _, arr) => {
+      return int >= 1;
+    })
+    .reduce((acc, int) => acc + int, 0);
+  labelSumInterest.textContent = `${interest}€`;
+};
+
+const createUsernames = function (accs) {
+  accs.forEach(function (acc) {
+    acc.username = acc.owner
+      .toLowerCase()
+      .split(' ')
+      .map(name => name.at(0))
+      .join('');
+  });
+};
+createUsernames(accounts);
+// console.log(accounts.map(acc => acc.username));
+
+// Event handler
+// Prevent form from submitting. Serve para não recarregar a página ao clicar em um botão de formulário...
+
+const updateUI = function (acc) {
+  // Display movements
+  displayMovements(acc.movements);
+
+  // Display balance
+  calcDisplayBalance(acc);
+
+  // Display summary
+  calcDisplaySummary(acc);
+};
+
+let currentAccount;
+
+btnLogin.addEventListener('click', function (e) {
+  e.preventDefault();
+
+  currentAccount = accounts.find(
+    acc => acc.username === inputLoginUsername.value
+  );
+
+  if (currentAccount?.pin === Number(inputLoginPin.value)) {
+    // Display UI and message
+    labelWelcome.textContent = `Welcome back, ${
+      currentAccount.owner.split(' ')[0]
+    }
+      `;
+    containerApp.style.opacity = 100;
+
+    // Clear input fields
+    inputLoginUsername.value = inputLoginPin.value = '';
+    inputLoginPin.blur(); // Faz com que o campo perca seu focus
+
+    // Update UI
+    updateUI(currentAccount);
+  }
+});
+
+btnTransfer.addEventListener('click', function (e) {
+  e.preventDefault();
+  const amount = Number(inputTransferAmount.value);
+  const receiverAcc = accounts.find(
+    acc => acc.username === inputTransferTo.value
+  );
+
+  if (
+    amount > 0 &&
+    receiverAcc &&
+    currentAccount.balance >= amount &&
+    receiverAcc?.username !== currentAccount.username
+  ) {
+    // Doing the transfer
+    currentAccount.movements.push(-amount);
+    receiverAcc.movements.push(amount);
+    inputTransferAmount.value = inputTransferTo.value = '';
+
+    // Update UI
+    updateUI(currentAccount);
+  }
+});
+
+btnLoan.addEventListener('click', function (e) {
+  e.preventDefault();
+
+  const amount = Number(inputLoanAmount.value);
+
+  if (amount > 0 && currentAccount.movements.some(mov => mov >= amount * 0.1)) {
+    // add movement
+    currentAccount.movements.push(amount);
+
+    // update UI
+    updateUI(currentAccount);
+    inputLoanAmount.value = '';
+  }
+});
+
+btnClose.addEventListener('click', function (e) {
+  e.preventDefault();
+
+  if (
+    inputCloseUsername.value === currentAccount.username &&
+    Number(inputClosePin.value) === currentAccount.pin
+  ) {
+    const index = accounts.findIndex(
+      acc => acc.username === currentAccount.username
+    ); // Mesma coisa que o find, porém retorna o índice ao invés do valor
+
+    // .indexOf(23)
+
+    // Delete account
+    accounts.splice(index, 1);
+
+    // Hide UI
+    containerApp.style.opacity = 0;
+  }
+
+  inputCloseUsername.value = inputClosePin.value = '';
+});
+
+let sorted = false;
+btnSort.addEventListener('click', function (e) {
+  e.preventDefault();
+  displayMovements(currentAccount.movements, !sorted);
+  sorted = !sorted;
+}); // Isso funciona pois é a mesma coisa que criar uma função no qual alteramos uma variável que está no escopo global. No caso, mudamos sorted com base nos clicks que ativam a função do botão Sort
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
@@ -100,7 +247,7 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 // Arrays são objetos e tem acesso a métodos (funções) especiais que são ferramentas importantes para os arrays
 
-// let arr = ['a', 'b', 'c', 'd', 'e'];
+let arr = ['a', 'b', 'c', 'd', 'e'];
 
 // 1. SLICE
 
@@ -117,10 +264,10 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 // Altera o array inicial. Splice é mais útil para remover elementos do array do que realmente o retorno que ele tras
 // console.log(arr.splice(2)); // a, b, d
-// arr.splice(-1); // a, b, c, d
-// console.log(arr);
-// arr.splice(1, 2); // a, d. Retorna o último índice corretamente (1, 2)
-// console.log(arr);
+// arr.splice(-1);
+// console.log(arr); // a, b, c, d
+// arr.splice(1, 2);
+// console.log(arr); // a, d, e. Retorna o último índice corretamente (1, 2)
 
 // 3. REVERSE
 
@@ -166,6 +313,8 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 // 7. ForEach
 // const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
+// console.log('----- FOR OF -----');
+
 // for (const [i, movement] of movements.entries()) {
 //   movement > 0
 //     ? console.log(`Movement ${i + 1}: You deposited ${movement}`)
@@ -175,8 +324,9 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 // console.log('----- FOREACH -----');
 
 // movements.forEach(function (mov, i, arr) {
-//   if (mov > 0) console.log(`Movement ${i + 1}: You deposited ${mov}`);
-//   else console.log(`Movement ${i + 1}: You withdrew ${Math.abs(mov)}`);
+//   mov > 0
+//     ? console.log(`Movement ${i + 1}: You deposited ${mov}`)
+//     : console.log(`Movement ${i + 1}: You withdrew ${Math.abs(mov)}`);
 // });
 // 0: function(200)
 // 1: function(450)
@@ -186,7 +336,7 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 //////////////////////////////
 // ForEach with Maps and Sets
 
-// Map
+// 8. Map.forEach
 // const currencies = new Map([
 //   ['USD', 'United States dollar'],
 //   ['EUR', 'Euro'],
@@ -197,9 +347,346 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 //   console.log(`${key}: ${value}`);
 // });
 
-// Set
+// 9. Set.forEach
 // const currenciesUnique = new Set(['USD', 'GBP', 'EUR', 'EUR']);
 // console.log(currenciesUnique);
 // currenciesUnique.forEach(function (value, _, map) {
 //   console.log(`${value}: ${value}`);
 // });
+
+////////////////////////
+// Coding Challenge #1
+//
+// Julia and Kate are doing a study on dogs. So each of them asked 5 dog owners
+// about their dog's age, and stored the data into an array (one array for each). For
+// now, they are just interested in knowing whether a dog is an adult or a puppy.
+// A dog is an adult if it is at least 3 years old, and it's a puppy if it's less than 3 years
+// old.
+//
+// Your tasks:
+//
+// Create a function 'checkDogs', which accepts 2 arrays of dog's ages
+// ('dogsJulia' and 'dogsKate'), and does the following things:
+//
+// 1. Julia found out that the owners of the first and the last two dogs actually have
+// cats, not dogs! So create a shallow copy of Julia's array, and remove the cat
+// ages from that copied array (because it's a bad practice to mutate function
+// parameters)
+// 2. Create an array with both Julia's (corrected) and Kate's data
+// 3. For each remaining dog, log to the console whether it's an adult ("Dog number 1
+// is an adult, and is 5 years old") or a puppy ("Dog number 2 is still a puppy
+// 🐶
+// ")
+// 4. Run the function for both test datasets
+//
+// Test data:
+// Data 1: Julia's data [3, 5, 2, 12, 7], Kate's data [4, 1, 15, 8, 3]
+// Data 2: Julia's data [9, 16, 6, 8, 3], Kate's data [10, 5, 6, 1, 4]
+//
+// Hints: Use tools from all lectures in this section so far 😉
+
+const checkDogs = function (dogsJulia, dogsKate) {
+  const correctDogsJulia = dogsJulia.slice(1, -2);
+  const allData = correctDogsJulia.concat(dogsKate);
+
+  allData.forEach((data, i) => {
+    if (data >= 3) {
+      console.log(`Dog number ${i + 1} is an adult, and is ${data} years old`);
+    } else {
+      console.log(`Dog number ${i + 1} is still a puppy 🐶`);
+    }
+  });
+};
+// checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
+// checkDogs([9, 16, 6, 8, 3], [10, 5, 6, 1, 4]);
+
+//////////////////////////////////////////////
+// Data transformation: Map, Filter, Reduce
+
+// Map: outro método para fazer loop em arrays, parecido com forEach, porém ele cria um novo array baseado no array original.
+// Ele mapeia os valores de saída...
+
+// Filter: um método que define uma condição, os valores de um array que satisfazerem essa condição, serão agrupados em um novo array. Lembra um filtro, por isso o nome...
+
+// Reduce: esse método adiciona (reduz) todos os valores de um array em um resultado, que não é um array, criando assim uma espécie de bola de neve. Por exemplo somar todos os valores de um array...
+
+///////////
+// 10. Map
+
+// Sempre usar o return (não no caso da arrow function) pois você não quer mostrar algo no console e sim ter a saída de um novo array
+
+const eurToUsd = 1.1;
+
+// Maneira nova e moderna de programar (programação funcional)
+// const movementsUSD = movements.map(function (mov) {
+//   return mov * eurToUsd;
+// });
+// console.log(movements);
+// console.log(movementsUSD);
+
+// arrow map
+const movementsUSDArrow = movements.map(mov => mov * eurToUsd);
+// console.log(movementsUSDArrow); // não precisa de () depois do nome por que não é uma função, lembre-se que o retorno é um array, portanto, movementsUSDArrow é um array
+
+// Algumas pessoas acham essa forma ruim por não estar escrito function e nem return no código, por conta disso perder legibilidade. Porém ainda sim é muito mais clean e curto, então eu prefiro.
+
+// Maneira antiga de se programar
+const movementsUSDfor = [];
+for (const mov of movements) movementsUSDfor.push(mov * eurToUsd);
+// console.log(movementsUSDfor);
+
+const movementsDescription = movements.map(
+  (mov, i) =>
+    `Movement ${i + 1}: You ${mov > 0 ? 'deposited' : 'withdrew'} ${Math.abs(
+      mov
+    )}`
+);
+// console.log(movementsDescription);
+
+///////////////
+// 11. filter
+const deposits = movements.filter(function (mov) {
+  return mov > 0;
+});
+// console.log(movements);
+// console.log(deposits);
+
+const withdrawals = movements.filter(mov => mov < 0);
+// console.log(withdrawals);
+
+// for of
+const depositFor = [];
+for (const mov of movements) if (mov > 0) depositFor.push(mov);
+// console.log(depositFor);
+
+///////////////
+// 12. reduce
+
+// Accumulator --> SNOWBALL (acc)
+// const balance = movements.reduce(function (acc, cur, i, arr) {
+//   console.log(`Iteration ${i}: ${acc}`);
+//   return acc + cur;
+// }, 0);
+
+// Arrow function
+const balance = movements.reduce((acc, cur) => acc + cur, 0);
+// console.log(balance);
+
+// for of
+let balanceFor = 0;
+for (const mov of movements) balanceFor += mov;
+// console.log(balanceFor);
+
+// Maximum value
+const max = movements.reduce((acc, mov) => {
+  if (acc > mov) return acc;
+  else return mov;
+}, movements[0]);
+// console.log(max);
+
+////////////////////////
+// Coding Challenge #2
+//
+// Let's go back to Julia and Kate's study about dogs. This time, they want to convert dog ages to human ages and calculate the average age of the dogs in their study.
+//
+// Your tasks:
+//
+// Create a function 'calcAverageHumanAge', which accepts an arrays of dog's ages ('ages'), and does the following things in order:
+//
+// 1. Calculate the dog age in human years using the following formula: if the dog is <= 2 years old, humanAge = 2 * dogAge. If the dog is > 2 years old, humanAge = 16 + dogAge * 4;
+// 2. Exclude all dogs that are less than 18 human years old (which is the same as keeping dogs that are at least 18 years old);
+// 3. Calculate the average human age of all adult dogs (you should already know from other challenges how we calculate averages �);
+// 4. Run the function for both test datasets.
+// Test data:
+// § Data 1: [5, 2, 4, 1, 15, 8, 3]
+// § Data 2: [16, 6, 10, 5, 6, 1, 4]
+
+// const calcAverageHumanAge = function (ages) {
+//   const humanAges = ages.map(age => (age <= 2 ? 2 * age : 16 + age * 4));
+//   const adults = humanAges.filter(age => age >= 18);
+//   // const average = adults.reduce((acc, age) => acc + age, 0) / arr.length;
+//   const average = adults.reduce(
+//     (acc, age, i, arr) => acc + age / arr.length,
+//     0
+//   );
+
+//   return average;
+// };
+// const avg1 = calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
+// const avg2 = calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]);
+// console.log(avg1, avg2);
+
+/////////////////////////////////
+// The magic of Chaining methods
+
+// Em uma cadeia de métodos, o reduce precisa ser obrigatóriamente o último método a ser utilizado, pois ele não retorna mais um array para os outros métodos trabalharem, ele retorna um valor
+
+// PIPELINE
+const totalDepositsUSD = movements
+  .filter(mov => mov > 0)
+  .map((mov, _, arr) => {
+    // console.log(arr);
+    return mov * eurToUsd;
+  })
+  // .map(mov => mov * eurToUsd)
+  .reduce((acc, mov) => acc + mov, 0);
+// console.log(totalDepositsUSD);
+
+// O parâmetro arr é muito útil para debugar nosso código utilizando ele para mostrar ao console o resultado do array do método anterior
+
+// Não é uma boa prática utilizar Chaining methods com métodos que mutam o array original, isso pode causar muitos problemas em projetos maiores...
+// Não abusar do Chaining methods, principalmente em arrays muito grandes. Isso pode comprementer performance, não utilizar maps descenessários por exemplo...
+
+// Coding Challenge #3
+// Rewrite the 'calcAverageHumanAge' function from Challenge #2, but this time
+// as an arrow function, and using chaining!
+//
+// Test data:
+// § Data 1: [5, 2, 4, 1, 15, 8, 3]
+// § Data 2: [16, 6, 10, 5, 6, 1, 4]
+
+const calcAverageHumanAge = ages =>
+  ages
+    .map(age => (age <= 2 ? 2 * age : 16 + age * 4))
+    .filter(age => age >= 18)
+    .reduce((acc, age, i, arr) => acc + age / arr.length, 0);
+
+const avg1 = calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
+const avg2 = calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]);
+// console.log(avg1, avg2);
+
+///////////////////
+// 13. Find method
+const firstWithdrawal = movements.find(mov => mov < 0);
+// console.log(movements);
+// console.log(firstWithdrawal);
+
+// console.log(accounts);
+const account = accounts.find(acc => acc.owner === 'Jessica Davis');
+// console.log(account);
+
+let accountFor;
+for (const account of accounts) {
+  if (account.owner === 'Jessica Davis') accountFor = account;
+}
+// console.log(accountFor);
+
+///////////////////
+// Some and Every
+
+// EQUALITY
+// console.log(movements.includes(-130));
+
+// Apesar do código abaixo fazer o mesmo que o de cima, para valores já definidos como no caso o -130, é mais útil utilizar includes. Com condições mais específicas utilize some
+// console.log(movements.some(mov => mov === -130));
+
+// 14. SOME: CONDITION
+const anyDeposits = movements.some(mov => mov > 5000);
+// console.log(anyDeposits);
+
+// 15. EVERY
+// console.log(movements.every(mov => mov > 9));
+// console.log(account4.movements.every(mov => mov > 0));
+// Faz a mesma coisa que o some, porém, só é true se todos os elementos satisfazerem a condição
+
+// Separate callback
+const deposit = mov => mov > 0;
+// console.log(movements.some(deposit));
+// console.log(movements.every(deposit));
+// console.log(movements.filter(deposit));
+
+/////////////////////
+// flat and flatMap
+// o nível de aninhamento em que ele trabalha é 1
+const arr2 = [[1, 2, 3], [4, 5, 6], 7, 8];
+// console.log(arr2.flat()); // [1, 2, 3, 4, 5, 6, 7, 8]
+
+const arrDeep = [[[1, 2], 3], [4, [5, 6]], 7, 8];
+// console.log(arrDeep.flat(2)); // aqui configuramos o nível de aninhamento para 2 para conseguir retornar os valores primitivos no array
+
+// 16. flat
+const overBalance = accounts
+  .map(acc => acc.movements)
+  .flat()
+  .reduce((acc, mov) => acc + mov);
+// console.log(overBalance);
+
+// 17. flatMap
+const overBalance2 = accounts
+  .flatMap(acc => acc.movements)
+  .reduce((acc, mov) => acc + mov);
+// console.log(overBalance2);
+
+////////////
+// 18. sort
+
+// Strings
+const owners = ['Jonas', 'Zach', 'Adam', 'Martha'];
+// console.log(owners.sort());
+// console.log(owners);
+
+// Numbers
+// console.log(movements); // Ele muta o array original
+
+// return < 0, A, B (keep order)
+// return > 0, B, A (switch order)
+
+// Ascending
+// movements.sort((a, b) => {
+//   if (a > b) return 1; // precisa ser positivo, não necessariamente 1
+//   if (a < b) return -1; // mesma coisa
+// });
+movements.sort((a, b) => a - b);
+// console.log(movements);
+
+// Descending
+// movements.sort((a, b) => {
+//   if (a > b) return -1;
+//   if (a < b) return 1;
+// });
+movements.sort((a, b) => b - a);
+// console.log(movements);
+
+// Caso aja uma matriz mista, ou seja, que tenha tanto numbers quanto strings, não utilize sort
+
+//////////////////////////////////////////////
+// More ways of creating and filling arrays
+const arr3 = [1, 2, 3, 4, 5, 6, 7];
+// console.log(new Array[(1, 2, 3, 4, 5, 6, 7)]());
+
+// 19. Empty arrays + fill methods
+const x = new Array(7);
+// console.log(x); // empty * 7
+// console.log(x.map(() => 5));
+// x.fill(1)
+x.fill(1, 3, 5); // Parecido com slice
+// console.log(x); // empty * 3, 1, 1, empty * 2
+
+arr3.fill(23, 4, 6);
+// console.log(arr3); // 1, 2, 23, 23, 23, 23, 7
+
+// 20. array.from
+const y = Array.from({ length: 7 }, () => 1);
+console.log(y);
+
+const z = Array.from({ length: 7 }, (_, i) => i + 1); // Utilizar igual ao map
+console.log(z);
+
+const dados = Array.from({ length: 100 }, (_, i) =>
+  Math.trunc(Math.random() * 10)
+);
+console.log(dados);
+
+labelBalance.addEventListener('click', function () {
+  const movementsUI = Array.from(
+    document.querySelectorAll('.movements__value'),
+    el => Number(el.textContent.replace('€', '')) // Lembre-se que o el representa cada um dos elementos desse array.from, ele funciona como um map...
+  );
+  console.log(movementsUI);
+
+  // const movementsUI2 = [...document.querySelectorAll('.movements__value')];
+  // console.log(movementsUI2);
+});
+
+////////////////////////////
+// WHICH ARRAY METHOD TO SEU? 🤔
