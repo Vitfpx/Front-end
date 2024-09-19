@@ -415,7 +415,7 @@ const checkDogs = function (dogsJulia, dogsKate) {
 
 // Sempre usar o return (não no caso da arrow function) pois você não quer mostrar algo no console e sim ter a saída de um novo array
 
-const eurToUsd = 1.1;
+// const eurToUsd = 1.1;
 
 // Maneira nova e moderna de programar (programação funcional)
 // const movementsUSD = movements.map(function (mov) {
@@ -425,38 +425,38 @@ const eurToUsd = 1.1;
 // console.log(movementsUSD);
 
 // arrow map
-const movementsUSDArrow = movements.map(mov => mov * eurToUsd);
+// const movementsUSDArrow = movements.map(mov => mov * eurToUsd);
 // console.log(movementsUSDArrow); // não precisa de () depois do nome por que não é uma função, lembre-se que o retorno é um array, portanto, movementsUSDArrow é um array
 
 // Algumas pessoas acham essa forma ruim por não estar escrito function e nem return no código, por conta disso perder legibilidade. Porém ainda sim é muito mais clean e curto, então eu prefiro.
 
 // Maneira antiga de se programar
-const movementsUSDfor = [];
-for (const mov of movements) movementsUSDfor.push(mov * eurToUsd);
+// const movementsUSDfor = [];
+// for (const mov of movements) movementsUSDfor.push(mov * eurToUsd);
 // console.log(movementsUSDfor);
 
-const movementsDescription = movements.map(
-  (mov, i) =>
-    `Movement ${i + 1}: You ${mov > 0 ? 'deposited' : 'withdrew'} ${Math.abs(
-      mov
-    )}`
-);
+// const movementsDescription = movements.map(
+//   (mov, i) =>
+//     `Movement ${i + 1}: You ${mov > 0 ? 'deposited' : 'withdrew'} ${Math.abs(
+//       mov
+//     )}`
+// );
 // console.log(movementsDescription);
 
 ///////////////
 // 11. filter
-const deposits = movements.filter(function (mov) {
-  return mov > 0;
-});
+// const deposits = movements.filter(function (mov) {
+// return mov > 0;
+// });
 // console.log(movements);
 // console.log(deposits);
 
-const withdrawals = movements.filter(mov => mov < 0);
+// const withdrawals = movements.filter(mov => mov < 0);
 // console.log(withdrawals);
 
 // for of
-const depositFor = [];
-for (const mov of movements) if (mov > 0) depositFor.push(mov);
+// const depositFor = [];
+// for (const mov of movements) if (mov > 0) depositFor.push(mov);
 // console.log(depositFor);
 
 ///////////////
@@ -522,14 +522,14 @@ const max = movements.reduce((acc, mov) => {
 // Em uma cadeia de métodos, o reduce precisa ser obrigatóriamente o último método a ser utilizado, pois ele não retorna mais um array para os outros métodos trabalharem, ele retorna um valor
 
 // PIPELINE
-const totalDepositsUSD = movements
-  .filter(mov => mov > 0)
-  .map((mov, _, arr) => {
-    // console.log(arr);
-    return mov * eurToUsd;
-  })
-  // .map(mov => mov * eurToUsd)
-  .reduce((acc, mov) => acc + mov, 0);
+// const totalDepositsUSD = movements
+//   .filter(mov => mov > 0)
+//   .map((mov, _, arr) => {
+//     // console.log(arr);
+//     return mov * eurToUsd;
+//   })
+// .map(mov => mov * eurToUsd)
+// .reduce((acc, mov) => acc + mov, 0);
 // console.log(totalDepositsUSD);
 
 // O parâmetro arr é muito útil para debugar nosso código utilizando ele para mostrar ao console o resultado do array do método anterior
@@ -667,26 +667,160 @@ arr3.fill(23, 4, 6);
 
 // 20. array.from
 const y = Array.from({ length: 7 }, () => 1);
-console.log(y);
+// console.log(y);
 
 const z = Array.from({ length: 7 }, (_, i) => i + 1); // Utilizar igual ao map
-console.log(z);
+// console.log(z);
 
 const dados = Array.from({ length: 100 }, (_, i) =>
   Math.trunc(Math.random() * 10)
 );
-console.log(dados);
+// console.log(dados);
 
 labelBalance.addEventListener('click', function () {
   const movementsUI = Array.from(
     document.querySelectorAll('.movements__value'),
     el => Number(el.textContent.replace('€', '')) // Lembre-se que o el representa cada um dos elementos desse array.from, ele funciona como um map...
   );
-  console.log(movementsUI);
+  // console.log(movementsUI);
 
   // const movementsUI2 = [...document.querySelectorAll('.movements__value')];
   // console.log(movementsUI2);
 });
 
-////////////////////////////
-// WHICH ARRAY METHOD TO SEU? 🤔
+//////////////////////////////////
+// WHICH ARRAY METHOD TO SEU?🤔
+
+///////////////////////////
+// Array methods practice
+
+// 1.
+const bankDepositSum = accounts
+  .flatMap(cur => cur.movements)
+  .filter(cur => cur > 0)
+  .reduce((acc, cur) => acc + cur, 0);
+// console.log(bankDepositSum);
+
+// 2.
+// const numDeposits1000 = accounts
+//   .flatMap(mov => mov.movements)
+//   .filter(mov => mov >= 1000).length;
+
+const numDeposits1000 = accounts
+  .flatMap(mov => mov.movements)
+  .reduce((count, cur) => (cur >= 1000 ? ++count : count), 0);
+// console.log(numDeposits1000);
+
+// Prefixed ++ operator
+// O a++ incrementa o valor da variável a porém retorna o valor original
+let a = 10;
+// console.log(a++); // 10
+// console.log(a); // 11
+// console.log(++accounts); 11
+
+// 3.
+const { deposits, withdrawals } = accounts
+  .flatMap(mov => mov.movements)
+  .reduce(
+    (acc, cur) => {
+      // cur > 0 ? (acc.deposits += cur) : (acc.withdrawals += cur);
+      acc[cur > 0 ? 'deposits' : 'withdrawals'] += cur; // acc['x'] é o mesmo que acc.x
+      return acc;
+    },
+    { deposits: 0, withdrawals: 0 }
+  );
+// console.log(deposits, withdrawals);
+
+// const eurToUsd = 1.1;
+// const totalDepositsUSD = movements.reduce((acc, mov) => {
+//   mov > 0 ? acc.push(Math.trunc(mov * eurToUsd)) : acc;
+//   return acc;
+// }, []);
+// console.log(totalDepositsUSD);
+
+// 4.
+// this is a nice title -> This Is a Nice Title
+const convertTitleCase = function (title) {
+  const capitalize = str => str[0].toUpperCase() + str.slice(1);
+
+  const exceptions = ['a', 'an', 'and', 'the', 'but', 'or', 'on', 'in', 'with'];
+
+  const titleCase = title
+    .toLowerCase()
+    .split(' ')
+    .map(word => (exceptions.includes(word) ? word : capitalize(word)))
+    .join(' ');
+  return capitalize(titleCase);
+};
+// console.log(convertTitleCase('this is a nice title'));
+// console.log(convertTitleCase('this is a LONG title but not too long'));
+// console.log(convertTitleCase('and here is another title with an EXAMPLE'));
+
+// Coding Challenge #4
+// Julia and Kate are still studying dogs, and this time they are studying if dogs are eating too much or too little. Eating too much means the dog's current food portion is larger than the recommended portion, and eating too little is the opposite. Eating an okay amount means the dog's current food portion is within a range 10% above and 10% below the recommended portion (see hint).
+
+// Your tasks:
+// 1. Loop over the 'dogs' array containing dog objects, and for each dog, calculate the recommended food portion and add it to the object as a new property. Do not create a new array, simply loop over the array. Forumla: recommendedFood = weight ** 0.75 * 28. (The result is in grams of food, and the weight needs to be in kg)
+// 2. Find Sarah's dog and log to the console whether it's eating too much or too little. Hint: Some dogs have multiple owners, so you first need to find Sarah in the owners array, and so this one is a bit tricky (on purpose) 🤓
+// 3. Create an array containing all owners of dogs who eat too much
+// ('ownersEatTooMuch') and an array with all owners of dogs who eat too little ('ownersEatTooLittle').
+// 4. Log a string to the console for each array created in 3., like this: "Matilda and Alice and Bob's dogs eat too much!" and "Sarah and John and Michael's dogs eat too little!".
+// 5. Log to the console whether there is any dog eating exactly the amount of food that is recommended (just true or false).
+// 6. Log to the console whether there is any dog eating an okay amount of food (just true or false).
+// 7. Create an array containing the dogs that are eating an okay amount of food (try to reuse the condition used in 6.).
+// 8. Create a shallow copy of the 'dogs' array and sort it by recommended food portion in an ascending order (keep in mind that the portions are inside the array's objects �).
+
+// Hints:
+// § Use many different tools to solve these challenges, you can use the summary lecture to choose between them �.
+// § Being within a range 10% above and below the recommended portion means: current > (recommended * 0.90) && current < (recommended * 1.10). Basically, the current portion should be between 90% and 110% of the recommended portion.
+
+// Test data:
+const dogs = [
+  { weight: 22, curFood: 250, owners: ['Alice', 'Bob'] },
+  { weight: 8, curFood: 200, owners: ['Matilda'] },
+  { weight: 13, curFood: 275, owners: ['Sarah', 'John'] },
+  { weight: 32, curFood: 340, owners: ['Michael'] },
+];
+// GOOD LUCK �
+
+// task 1
+dogs.forEach(
+  dog => (dog.recommendedFood = Math.trunc(dog.weight ** 0.75 * 28))
+);
+console.log(dogs);
+
+// task 2
+// filter and map methods
+const dogSarah = dogs.find(dog => dog.owners.includes('Sarah'));
+// console.log(dogSarah);
+// console.log(`Sarah's dog is eating too ${dogSarah.curFood > dogSarah.recommendedFood ? 'much' : 'little'}.`);
+
+// task 3
+const ownersEatTooLittle = dogs
+  .filter(cur => cur.curFood < cur.recommendedFood)
+  .flatMap(cur => cur.owners);
+// console.log(ownersEatTooLittle);
+
+const ownersEatTooMuch = dogs
+  .filter(dog => dog.curFood > dog.recommendedFood)
+  .flatMap(dog => dog.owners);
+// console.log(ownersEatTooMuch);
+
+// task 4
+console.log(`${ownersEatTooMuch.join(' and ')} dogs eat too much!`);
+console.log(`${ownersEatTooLittle.join(' and ')} dogs eat too little!`);
+
+// task 5 and 6
+const checkEatingOkay = dog =>
+  dog.curFood > dog.recommendedFood * 0.9 &&
+  dog.curFood < dog.recommendedFood * 1.1;
+
+console.log(dogs.some(dog => dog.curFood === dog.recommendedFood));
+console.log(dogs.some(checkEatingOkay));
+
+// task 7
+console.log(dogs.filter(checkEatingOkay));
+
+// task 8
+const dogsSorted = dogs.slice().sort((a, b) => a.recommendedFood - b.recommendedFood);
+console.log(dogsSorted);
