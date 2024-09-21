@@ -257,7 +257,8 @@ lufthansa.buyPlane = function () {
 // O this abaixo começa a se referir ao botão pelo mesmo motivo anteriormente explicado no tópico IMPORTANT
 document
   .querySelector('.buy')
-  .addEventListener('click', lufthansa.buyPlane.bind(lufthansa)); // precisamos PASSAR uma função e não CHAMÁ-LA, por isso bind ao invés de call
+  .addEventListener('click', lufthansa.buyPlane.bind(lufthansa));
+// precisamos PASSAR uma função e não CHAMÁ-LA, por isso bind ao invés de call. Isso significa que call executa a função na hora, enquanto bind, só executa quando chamarmos ele, no caso quando o evento do 'click' acontecer
 
 // Partial application
 const addTax = (rate, value) => value + value * rate;
@@ -265,7 +266,7 @@ const addTax = (rate, value) => value + value * rate;
 
 // Os dois códigos abaixo são a mesma coisa
 const addVAT = addTax.bind(null, 0.23); // O bindo aqui serve para você criar uma nova função já com parâmetros pré definidos ao invés de criar outra função que faz a mesma coisa porém colocar os parâmetros manualmente...
-// addVAt = value => value + value * 0.23;
+// const addVAt = value => value + value * 0.23;
 
 // A função deste código foi simplesmente definir um valor padrão para o rate. Null foi utilizado pois não há nenhum this dentro do addTax
 
@@ -350,7 +351,7 @@ document
 // const runOnce = (function () {
 // console.log('This will never run again...Or will');
 // })
-//   // IIFE
+// IIFE
 // (function () {
 //    console.log('This will never run again. With regular function');
 //    const isPrivate = 23;
@@ -458,5 +459,5 @@ const perGroup = 1000; // Mesmo com a definição de perGroup no escopo global, 
 /*
   Isso tudo acontece pois:
     1. Primeiramente, conseguimos utilizar a variável header dentro da função anônima que está dentro de addEventListener por conta da Closure, que busca as variáveis do escopo pai da função IIFE. Mesmo após a execução da IIFE;
-    2. Segundamente, o Callback do addEventListener mudando uma variável quer ja havia sido atribuída.
+    2. Segundamente, o Callback do addEventListener está mudando uma variável que ja havia sido atribuída.
 */
