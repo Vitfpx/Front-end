@@ -6,6 +6,10 @@ const btnCloseModal = document.querySelector('.btn--close-modal');
 const btnsOpenModal = document.querySelectorAll('.btn--show-modal');
 const btnScrollTo = document.querySelector('.btn--scroll-to');
 const section1 = document.querySelector('#section--1');
+const tabs = document.querySelectorAll('.operations__tab');
+const tabsContainer = document.querySelector('.operations__tab-container');
+const tabsContent = document.querySelectorAll('.operations__content');
+const nav = document.querySelector('.nav');
 
 ///////////////////////////////////////
 // Modal window
@@ -93,10 +97,6 @@ document.querySelector('.nav__links').addEventListener('click', function (e) {
 });
 
 // Tabbed component
-const tabs = document.querySelectorAll('.operations__tab');
-const tabsContainer = document.querySelector('.operations__tab-container');
-const tabsContent = document.querySelectorAll('.operations__content');
-
 tabsContainer.addEventListener('click', function (e) {
   // Abaixo tentamos usar parentElements pois o span estava retornando ele mesmo ao invés do botão. Porém se fizermos isso teremos o span retornando certo mas o próprio botão retornando o valor acima da hierarquia dele. Então o melhor foi utilizar closest...
   const clicked = e.target.closest('.operations__tab ');
@@ -118,6 +118,246 @@ tabsContainer.addEventListener('click', function (e) {
     .querySelector(`.operations__content--${clicked.dataset.tab}`)
     .classList.add('operations__tab--active');
 });
+
+// Menu Fade Animation
+
+// A diferença entre 'mouseenter' e 'mouseover' é que 'mouseenter' não utiliza bubbling...
+const handleHover = function (e) {
+  if (e.target.classList.contains('nav__link')) {
+    const link = e.target;
+    const siblings = link.closest('.nav').querySelectorAll('.nav__link');
+    const logo = link.closest('.nav').querySelector('img');
+
+    siblings.forEach(el => {
+      if (el !== link) el.style.opacity = this;
+    });
+    logo.style.opacity = this;
+  }
+};
+
+// nav.addEventListener('mouseover', e => handleHover(e, 0.5));
+
+// nav.addEventListener('mouseout', function (e) {
+//   handleHover(e, 1);
+// });
+
+// Passing "argument" into handler
+nav.addEventListener('mouseover', handleHover.bind(0.5));
+nav.addEventListener('mouseout', handleHover.bind(1));
+
+// EXPLICAÇÃO E LINHA DE RACIOCÍNIO 📋
+// O "e" de function (e) sempre será o evento do addEventListener. Exemplo: mouseover, mouseenter, etc.
+// Bind não altera o parâmetro de handleHover, o número dentro dele na verdade altera apenas o this..
+
+/////////////////////
+// Sticky Navigation
+
+// Este código afetará o desempenho do aparelho pois vai sempre retornar um número a cada scrolling, portanto, não é o melhor caminho...
+
+// const initialCoords = section1.getBoundingClientRect();
+// console.log(initialCoords);
+
+// window.addEventListener('scroll', function (e) {
+//   console.log(window.scrollY);
+
+//   if (this.window.scrollY > initialCoords.top) nav.classList.add('sticky');
+//   else nav.classList.remove('sticky');
+// });
+
+/////////////////////////////////////////////////
+// Sticky navigation: Intersection Observer API
+
+// const obsCallback = function (entries, observer) {
+//   entries.forEach(entry => console.log(entry));
+// };
+
+// const obsOptions = {
+//   root: null,
+//   threshold: 0.1,
+// };
+
+// const observer = new IntersectionObserver(obsCallback, obsOptions);
+// observer.observe(section1);
+
+const header = document.querySelector('.header');
+const navHeight = nav.getBoundingClientRect().height;
+
+const stickyNav = function (entries) {
+  // console.log(entries);
+  const [entry] = entries;
+  // console.log(entry);
+
+  if (!entry.isIntersecting) nav.classList.add('sticky');
+  else nav.classList.remove('sticky');
+};
+
+const headerObserver = new IntersectionObserver(stickyNav, {
+  root: null,
+  threshold: 0,
+  rootMargin: `-${navHeight}px`,
+});
+headerObserver.observe(header);
+
+// Reveal sections
+const allSections = document.querySelectorAll('.section');
+
+const revealSection = function (entries, observer) {
+  const [entry] = entries;
+  // console.log(entry);
+
+  if (!entry.isIntersecting) return;
+
+  entry.target.classList.remove('section--hidden');
+  observer.unobserve(entry.target);
+};
+
+const sectionObserver = new IntersectionObserver(revealSection, {
+  root: null,
+  threshold: 0.15,
+});
+
+allSections.forEach(function (section) {
+  sectionObserver.observe(section);
+  // section.classList.add('section--hidden');
+});
+
+// SUMMARY 📋
+// root: viewport, uma referência para calcular interseções
+// threshold: a condição (no caso, ver pelo menos 10% de section1)
+// obsCallback: A função que será chamada quando as condições de interseção forem atendidas.
+// obsOptions: Um objeto que define as opções para o observador, incluindo o root e o threshold.
+// observer: agora está atento às mudanças na visibilidade de section1 em relação ao root especificado (ou ao viewport, se root for null).
+
+/*
+RESUMO: O IntersectionObserver oferece uma maneira eficiente de monitorar mudanças na 
+interseção de elementos no navegador, permitindo reações dinâmicas baseadas na visibilidade 
+dos elementos. A combinação de obsOptions e obsCallback permite configurar quais condições
+devem ser atendidas para que a função de callback seja disparada, proporcionando uma 
+abordagem poderosa e eficaz para interações baseadas em visibilidade no frontend.
+*/
+
+// Lazy loading images
+const imgTargets = document.querySelectorAll('img[data-src');
+// console.log(imgTargets);
+
+const loadImg = function (entries, observer) {
+  const [entry] = entries; // Precisamos desestruturar pois entries é um array de objetos e cada elemento foi uma mudança observada
+
+  if (!entry.isIntersecting) return; // Ese código serve para a função agir apenas quando entry.isIntersecting === true, ou seja, mesmo que tenha uma interação quando a imagem sair da tela, essa função não fará nada...
+
+  // Replace src with data-src
+  entry.target.src = entry.target.dataset.src;
+  // entry.target.classList.remove('lazy-img') // Não utilizar este código aqui pois demoraria muito carregar as mudanças nas imagems para quem não tem uma internet boa...
+
+  entry.target.addEventListener('load', function () {
+    entry.target.classList.remove('lazy-img');
+  });
+
+  observer.unobserve(entry.target);
+};
+
+const imgObserver = new IntersectionObserver(loadImg, {
+  root: null,
+  threshold: 0,
+  rootMargin: '-200px',
+  // rootMargin: '200px', // Idealmente seria melhor utilizar esse código para não aparecerem as imagens com filtro. Porém, achei interessante o efeito
+});
+
+imgTargets.forEach(img => imgObserver.observe(img));
+
+///////////
+// Slider
+
+const slider = function () {
+  const slides = document.querySelectorAll('.slide');
+  const btnLeft = document.querySelector('.slider__btn--left');
+  const btnRight = document.querySelector('.slider__btn--right');
+  const dotContainer = document.querySelector('.dots');
+
+  let curSlide = 0;
+  const maxSlides = slides.length - 1;
+
+  // Functions
+  const createDots = function () {
+    slides.forEach(function (_, i) {
+      dotContainer.insertAdjacentHTML(
+        'beforeend',
+        `<button class="dots__dot" data-slide="${i}"></button>`
+      );
+    });
+  };
+
+  const activateDot = function (slide) {
+    document
+      .querySelectorAll('.dots__dot')
+      .forEach(dot => dot.classList.remove('dots__dot--active'));
+
+    document
+      .querySelector(`.dots__dot[data-slide="${slide}"]`)
+      .classList.add('dots__dot--active');
+  };
+
+  const goToSlide = function (slide) {
+    slides.forEach(
+      (s, i) => (s.style.transform = `translateX(${100 * (i - slide)}%)`)
+    );
+  };
+
+  // Next slide
+  // const nextSlide = function () {
+  //   if (curSlide >= maxSlides) {
+  //     curSlide = 0;
+  //   } else {
+  //     curSlide++;
+  //   }
+  //   goToSlide(curSlide);
+  // };
+
+  // Previous slide
+  // const prevSlide = function () {
+  //   if (curSlide === 0) {
+  //     curSlide = maxSlides;
+  //   } else {
+  //     curSlide--;
+  //   }
+  //   goToSlide(curSlide);
+  // };
+
+  const changeSlide = function (direction) {
+    if (direction === 'next') {
+      curSlide >= maxSlides ? (curSlide = 0) : curSlide++;
+    } else if (direction === 'prev') {
+      curSlide === 0 ? (curSlide = maxSlides) : curSlide--;
+    }
+    goToSlide(curSlide);
+    activateDot(curSlide);
+  };
+
+  const init = function () {
+    createDots();
+    activateDot(0);
+    goToSlide(0);
+  };
+  init();
+
+  // Event handlers
+  btnRight.addEventListener('click', () => changeSlide('next'));
+  btnLeft.addEventListener('click', () => changeSlide('prev'));
+
+  document.addEventListener('keydown', function (e) {
+    e.key === 'ArrowRight' && changeSlide('next');
+    e.key === 'ArrowLeft' && changeSlide('prev');
+  });
+
+  dotContainer.addEventListener('click', function (e) {
+    if (e.target.classList.contains('dots__dot')) {
+      const { slide } = e.target.dataset;
+      goToSlide(slide);
+      activateDot(slide);
+    }
+  });
+};
+slider();
 
 //////////////////////////////////////////////////
 //////////////////////////////////////////////////
@@ -175,13 +415,15 @@ tabsContainer.addEventListener('click', function (e) {
 
 // utilizar uma querySelectorAll cria uma nodeList com todos os elementos selecionados enquanto getElementsByTagName por exemplo cria um HTMLCollection que é atualizado automaticamente.
 
+////////////////////////////////////
 // Creating and Inserting elements
+
 // const message = document.createElement('div');
 // message.classList.add('cookie-message');
 // message.textContent =
-//   'We use cookied for improved functionality and analytics.';
+//   'We use cookied for improved functionality and analytics.'; // Sem html
 // message.innerHTML =
-// 'We use cookied for improved functionality and analytics. <button class="btn btn--close-cookie">Got it!</button>';
+// 'We use cookied for improved functionality and analytics. <button class="btn btn--close-cookie">Got it!</button>'; // Com html
 
 // header.prepend(message); // Começo de header
 // header.append(message); // Final de header
@@ -192,7 +434,9 @@ tabsContainer.addEventListener('click', function (e) {
 // header.before(message); // Leva o elemento message uma posição acima na hierarquia, no caso ele vira irmão de header e aparece antes do mesmo
 // header.after(message); // Mesma coisa, porém, agora aparece depois do header
 
+///////////////////////
 // Delete elements
+
 // document
 //   .querySelector('.btn--close-cookie')
 //   .addEventListener('click', function () {
@@ -214,10 +458,14 @@ tabsContainer.addEventListener('click', function (e) {
 // console.log(getComputedStyle(message).height);
 
 // message.style.height =
-//   Number.parseFloat(getComputedStyle(message).height, 10) + 30 + 'px'; // O 30 tem que ser um Number pois caso seja uma String, ele vai concatenar com o valor do height
+//   Number.parseFloat(getComputedStyle(message).height, 10) + 30 + 'px'; // 120px = 120 + 30 + px = 150px
+// O 30 tem que ser um Number pois caso seja uma String, ele vai concatenar com o valor do height
 
 // document.documentElement.style.setProperty('--color-primary', 'orangered');
+
+//////////////
 // Attributes
+
 // const logo = document.querySelector('.nav__logo');
 // console.log(logo.alt);
 // console.log(logo.src);
@@ -225,7 +473,9 @@ tabsContainer.addEventListener('click', function (e) {
 
 // logo.alt = 'Beautiful minimalist logo';
 
+////////////////
 // Non-standard
+
 // console.log(logo.designer);
 // console.log(logo.getAttribute('designer'));
 // logo.setAttribute('company', 'Bankist');
@@ -237,10 +487,14 @@ tabsContainer.addEventListener('click', function (e) {
 // console.log(link.href); // Retorna o valor absoluto
 // console.log(link.getAttribute('href')); // Retorna o valor relativo
 
+////////////////////
 // Data attributs
+
 // console.log(logo.dataset.versionNumber);
 
+/////////////
 // Classes
+
 // logo.classList.add('c', 'j');
 // logo.classList.remove('c', 'j');
 // logo.classList.toggle('c');
@@ -388,7 +642,7 @@ console.log(h1.parentNode);
 console.log(h1.parentElement);
 
 // O closest é o contrário do querySelector, ele vai subir na hierarquia até achar o acestral mais próximo correspondente, enquanto query faz o mesmo até achar o filho mais próximo correspondente
-h1.closest('.header').style.background = 'var(--gradient-secondary)';
+// h1.closest('.header').style.background = 'var(--gradient-secondary)';
 
 // Going sideways: siblings
 console.log(h1.previousElementSibling);
@@ -397,7 +651,7 @@ console.log(h1.nextElementSibling);
 console.log(h1.previousSibling);
 console.log(h1.nextSibling);
 
-console.log(h1.parentElement.children);
-[...h1.parentElement.children].forEach(function (el) {
-  if (el !== h1) el.style.transform = 'scale(0.5)';
-});
+// console.log(h1.parentElement.children);
+// [...h1.parentElement.children].forEach(function (el) {
+//   if (el !== h1) el.style.transform = 'scale(0.5)';
+// });
