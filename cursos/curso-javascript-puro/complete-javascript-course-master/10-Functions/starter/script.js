@@ -312,32 +312,32 @@ const addVAT2 = addTax(0.23);
 
 // Hints: Use many of the tools you learned about in this and the last section
 
-const poll = {
-  question: 'What is your favourite programming language?',
-  options: ['0: JavaScript', '1: Python', '2: Rust', '3:  C++'],
-  // This generates [0, 0, 0, 0]. More in the next section!
-  answers: new Array(4).fill(0),
-  registerNewAnswer() {
-    let answer = -1;
-    while (answer < 0 || answer > 3) {
-      answer = prompt(
-        `${this.question}\n${this.options.join('\n')}\n(Write option number)`
-      );
-    }
-    this.answers[answer]++;
-    poll.displayResults();
-    poll.displayResults('string');
-  },
-  displayResults(type = 'array') {
-    type === 'array' && console.log(this.answers);
-    type === 'string' &&
-      console.log(`Poll results are ${this.answers.join(', ')}`);
-  },
-};
+// const poll = {
+//   question: 'What is your favourite programming language?',
+//   options: ['0: JavaScript', '1: Python', '2: Rust', '3:  C++'],
+//   // This generates [0, 0, 0, 0]. More in the next section!
+//   answers: new Array(4).fill(0),
+//   registerNewAnswer() {
+//     let answer = -1;
+//     while (answer < 0 || answer > 3) {
+//       answer = prompt(
+//         `${this.question}\n${this.options.join('\n')}\n(Write option number)`
+//       );
+//     }
+//     this.answers[answer]++;
+//     poll.displayResults();
+//     poll.displayResults('string');
+//   },
+//   displayResults(type = 'array') {
+//     type === 'array' && console.log(this.answers);
+//     type === 'string' &&
+//       console.log(`Poll results are ${this.answers.join(', ')}`);
+//   },
+// };
 
-document
-  .querySelector('.poll')
-  .addEventListener('click', poll.registerNewAnswer.bind(poll));
+// document
+//   .querySelector('.poll')
+//   .addEventListener('click', poll.registerNewAnswer.bind(poll));
 
 // poll.displayResults.call({ answers: [5, 2, 3] });
 // poll.displayResults.call({ answers: [5, 2, 3] }, 'string');
@@ -348,6 +348,7 @@ document
 
 /////////////////////////////////////////////
 // Immediately invoked function espressions
+
 // const runOnce = (function () {
 // console.log('This will never run again...Or will');
 // })
@@ -447,17 +448,41 @@ const perGroup = 1000; // Mesmo com a definição de perGroup no escopo global, 
 // 1. Take the IIFE below and at the end of the function, attach an event listener that changes the color of the selected h1 element ('header') to blue, each time the body element is clicked. Do not select the h1 element again!
 // 2. And now explain to yourself (or someone around you) why this worked! Take all the time you need. Think about when exactly the callback function is executed, and what that means for the variables involved in this example.
 
-(function () {
-  const header = document.querySelector('h1');
-  header.style.color = 'red';
+// (function () {
+//   const header = document.querySelector('h1');
+//   header.style.color = 'red';
 
-  document.body.addEventListener('click', () => {
-    header.style.color = 'blue';
-  });
-})();
+//   document.body.addEventListener('click', () => {
+//     header.style.color = 'blue';
+//   });
+// })();
 
 /*
   Isso tudo acontece pois:
     1. Primeiramente, conseguimos utilizar a variável header dentro da função anônima que está dentro de addEventListener por conta da Closure, que busca as variáveis do escopo pai da função IIFE. Mesmo após a execução da IIFE;
     2. Segundamente, o Callback do addEventListener está mudando uma variável que ja havia sido atribuída.
 */
+
+// revisao
+const poll = {
+  question: 'What is your favourite programming language?',
+  options: ['0: JavaScript', '1: Python', '2: Rust', '3:C++'],
+  registerNewAnswer() {
+    const ans = +prompt(
+      `${this.question}\n${this.options.join('\n')}\n(Write option number)`
+    );
+    Number.isFinite(ans) && ans > -1 && ans < 4 && this.answers[ans]++;
+    this.displayResults();
+  },
+  displayResults(type = Array) {
+    if (type === Array) console.log(this.answers);
+    if (type === String) console.log(`Poll results are ${this.asnwers}`);
+  },
+  // This generates [0, 0, 0, 0]. More in the next section!
+  answers: new Array(4).fill(0),
+};
+document
+  .querySelector('.poll')
+  .addEventListener('click', poll.registerNewAnswer.bind(poll));
+// Data 1: [5, 2, 3]
+// § Data 2: [1, 5, 3, 9, 6, 1]

@@ -56,8 +56,11 @@ const johnPerson = person.greet.bind(person2);
 
 // Exercício Complexo 1: Sistema de Registro de Tarefas.
 // Descrição: Crie um sistema de tarefas onde você pode adicionar, concluir e listar tarefas. Use funções de ordem superior, funções que aceitam callbacks, e funções retornando funções. Utilize call e bind para manipular o contexto.
+const tasks = {};
 
-
+const tasksSystem = function () {
+  prompt('Escolha a task que deseja ');
+};
 
 // Exercício Complexo 2: Sistema de Votação com Callbacks e Closures.
 // Descrição: Construa um sistema de votação onde usuários podem votar em diferentes opções. Use bind para manipular o contexto e closure para armazenar o estado da votação.
