@@ -203,8 +203,8 @@ const book = lufthansa.book;
 // Does Not work
 // book(23, 'Bur amigus');
 
-/////////
-// call
+/////////////////
+// Call method
 // book.call(eurowings, 23, 'Guilherme Prampolin');
 // console.log(eurowings);
 
@@ -314,27 +314,29 @@ const addVAT2 = addTax(0.23);
 
 // const poll = {
 //   question: 'What is your favourite programming language?',
-//   options: ['0: JavaScript', '1: Python', '2: Rust', '3:  C++'],
+//   options: ['0: JavaScript', '1: Python', '2: Rust', '3: C++'],
 //   // This generates [0, 0, 0, 0]. More in the next section!
 //   answers: new Array(4).fill(0),
 //   registerNewAnswer() {
-//     let answer = -1;
-//     while (answer < 0 || answer > 3) {
-//       answer = prompt(
-//         `${this.question}\n${this.options.join('\n')}\n(Write option number)`
-//       );
-//     }
-//     this.answers[answer]++;
-//     poll.displayResults();
-//     poll.displayResults('string');
+//     // Get answer
+//     const answer = +prompt(
+//       `${this.question}\n${this.options.join('\n')}\n(Write option number)`
+//     );
+
+//     // Register answer
+//     Number.isFinite(answer) &&
+//       answer >= 0 &&
+//       answer < 4 &&
+//       this.answers[answer]++;
+
+//     this.displayResults(this.answers);
 //   },
 //   displayResults(type = 'array') {
-//     type === 'array' && console.log(this.answers);
-//     type === 'string' &&
-//       console.log(`Poll results are ${this.answers.join(', ')}`);
+//     type === 'string'
+//       ? console.log(`Poll results are ${this.answers.join(', ')}`)
+//       : console.log(this.answers);
 //   },
 // };
-
 // document
 //   .querySelector('.poll')
 //   .addEventListener('click', poll.registerNewAnswer.bind(poll));
@@ -343,8 +345,6 @@ const addVAT2 = addTax(0.23);
 // poll.displayResults.call({ answers: [5, 2, 3] }, 'string');
 // poll.displayResults.call({ answers: [1, 5, 3, 9, 6, 1] });
 // poll.displayResults.call({ answers: [1, 5, 3, 9, 6, 1] }, 'string');
-// Data 1: [5, 2, 3]
-// Data 2: [1, 5, 3, 9, 6, 1]
 
 /////////////////////////////////////////////
 // Immediately invoked function espressions
@@ -462,27 +462,3 @@ const perGroup = 1000; // Mesmo com a definição de perGroup no escopo global, 
     1. Primeiramente, conseguimos utilizar a variável header dentro da função anônima que está dentro de addEventListener por conta da Closure, que busca as variáveis do escopo pai da função IIFE. Mesmo após a execução da IIFE;
     2. Segundamente, o Callback do addEventListener está mudando uma variável que ja havia sido atribuída.
 */
-
-// revisao
-const poll = {
-  question: 'What is your favourite programming language?',
-  options: ['0: JavaScript', '1: Python', '2: Rust', '3:C++'],
-  registerNewAnswer() {
-    const ans = +prompt(
-      `${this.question}\n${this.options.join('\n')}\n(Write option number)`
-    );
-    Number.isFinite(ans) && ans > -1 && ans < 4 && this.answers[ans]++;
-    this.displayResults();
-  },
-  displayResults(type = Array) {
-    if (type === Array) console.log(this.answers);
-    if (type === String) console.log(`Poll results are ${this.asnwers}`);
-  },
-  // This generates [0, 0, 0, 0]. More in the next section!
-  answers: new Array(4).fill(0),
-};
-document
-  .querySelector('.poll')
-  .addEventListener('click', poll.registerNewAnswer.bind(poll));
-// Data 1: [5, 2, 3]
-// § Data 2: [1, 5, 3, 9, 6, 1]

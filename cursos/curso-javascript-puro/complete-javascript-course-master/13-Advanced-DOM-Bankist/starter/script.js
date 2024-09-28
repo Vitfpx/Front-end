@@ -655,3 +655,54 @@ console.log(h1.nextSibling);
 // [...h1.parentElement.children].forEach(function (el) {
 //   if (el !== h1) el.style.transform = 'scale(0.5)';
 // });
+
+////////////////////////
+// Lifecycle DOM Events
+document.addEventListener('DOMContentLoaded', function (e) {
+  console.log('HTML parsed and DOM tree built!', e);
+});
+
+window.addEventListener('load', function (e) {
+  console.log('Page fully loaded', e);
+});
+
+// window.addEventListener('beforeunload', function (e) {
+//   e.preventDefault();
+//   console.log(e);
+//   e.returnValue = '';
+// });
+
+/////////////////////
+// Script Loading
+
+/////////////
+// 1. Defer
+// Uso: Quando você quer garantir que o script seja executado após o HTML ser completamente carregado (DOM totalmente construído).
+
+// Características:
+
+// O script com defer é carregado em paralelo com o HTML.
+// A execução do script só ocorre após o DOM estar completamente carregado.
+// Os scripts com defer mantêm a ordem de execução em que aparecem no código HTML.
+
+// Quando usar defer:
+
+// Quando seu script depende do DOM estar totalmente carregado (ex.: manipuladores de DOM).
+// Quando você tem vários scripts que precisam ser executados em uma ordem específica.
+// Ideal para scripts que modificam o conteúdo da página.
+
+/////////////
+// 2. Async
+// Uso: Quando você quer carregar e executar o script assim que ele estiver disponível, sem esperar pelo carregamento completo do HTML.
+
+// Características:
+
+// O script com async também é carregado em paralelo com o HTML.
+// A execução ocorre assim que o script é baixado, independentemente do carregamento do DOM.
+// Os scripts com async não mantêm a ordem de execução em relação aos outros scripts, ou seja, são executados assim que carregam.
+
+// Quando usar async:
+
+// Quando o script não depende do DOM (por exemplo, scripts de analytics ou publicidade).
+// Quando a ordem de execução dos scripts não é importante.
+// Ideal para scripts independentes e de terceiros.

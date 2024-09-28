@@ -1,210 +1,128 @@
-// 'use strict';
+'use strict';
 
-// // 1.
-// const num = [1, 7, 3, 6, 4];
-// num.forEach(n => console.log(n));
+// 1
+// const orders = ['Pedido1', 'Pedido2', 'Pedido3', 'Pedido4', 'Pedido5'];
+// console.log(orders.slice(2, 5));
 
-// const greeter = [
-//   {
-//     greet: 'Hey',
-//     name: 'Vit',
-//   },
-//   {
-//     greet: 'Hi',
-//     name: 'X',
-//   },
-//   {
-//     greet: 'Hello',
-//     name: 'Z',
-//   },
-//   {
-//     greet: `What's up`,
-//     name: 'Y',
-//   },
+// 2
+// const fruits = ['Maçã', 'Banana', 'Pera', 'Uva', 'Laranja'];
+// fruits.splice(2, -1);
+
+// 3
+// const numbers = [1, 2, 3, 4, 5];
+// console.log(numbers.sort((a, b) => b - a));
+
+// 4
+// const groceries1 = ['Arroz', 'Feijão'];
+// const groceries2 = ['Pão', 'Leite'];
+
+// const allGroceries = groceries1.concat(groceries2);
+// console.log(allGroceries);
+
+// 5
+// const words = ['Eu', 'amo', 'programar'];
+// console.log(words.join(' '));
+
+// 6
+// const nums = [10, 20, 30, 40, 50];
+// console.log(nums.slice(-1));
+
+// 7
+// const names = ['Ana', 'Carlos', 'Beatriz'];
+// names.map(name => console.log(`Hey ${name}`));
+
+// 8
+// const countries = new Map([
+//   ['Brasil', 'Brasília'],
+//   ['Portugal', 'Lisboa'],
+//   ['Canadá', 'Ottawa'],
+// ]);
+
+// countries.forEach(function (capital, country) {
+// console.log(`${country}: ${capital}`);
+// });
+
+// 9
+// const ulCreate = function () {
+//   const ul = document.createElement('ul');
+//   const li1 = document.createElement('li');
+//   const li2 = document.createElement('li');
+//   const li3 = document.createElement('li');
+
+//   ul.innerHTML = 'grupo de listas';
+//   li1.innerHTML = 'lista 1';
+//   li2.innerHTML = 'lista 2';
+//   li3.innerHTML = 'lista 3';
+//   document.querySelector('body').append(ul);
+//   ul.append(li1);
+//   li1.after(li2);
+//   ul.append(li3);
+// };
+// ulCreate();
+
+// 10
+// const numbers = [1, 2, 3, 4, 5];
+// console.log(numbers.map(el => el * 2));
+
+// 11
+// const ages = [12, 21, 17, 30, 15, 19];
+// console.log(ages.filter(el => el > 18));
+
+// 12
+// const prices = [29.99, 49.99, 9.99, 19.99];
+// console.log(prices.reduce((acc, el) => acc + el, 0));
+
+// 13
+// const products = [
+//   { name: 'Camiseta', price: 45 },
+//   { name: 'Calça', price: 60 },
+//   { name: 'Tênis', price: 100 },
 // ];
-// greeter.forEach(el => console.log(`${el.greet} ${el.name}!`));
+// console.log(
+//   products
+//     .filter(el => el.price > 50)
+//     .map(el => el.price * 2)
+//     .reduce((acc, el) => acc + el, 0)
+// );
 
-// // 2.
-// const numArr = [1, 7, 3, 6, 4];
-// const doubleNumArr = numArr.map(cur => cur * 2);
-// console.log(doubleNumArr);
-
-// const strArr = ['airton', 'bruno', 'clarencio', 'duartina', 'ely'];
-// const strArrLength = strArr.map(el => el.length);
-// console.log(strArrLength);
-
-// // 3.
-// const numArr2 = [1, 7, 3, 6, 4];
-// const numArr2Par = numArr2.filter(el => el % 2 === 0 && el);
-// console.log(numArr2Par);
-
-// const shopping = [
-//   {
-//     name: 'toy',
-//     price: 50,
-//   },
-//   {
-//     name: 'bottle',
-//     price: 12,
-//   },
-//   {
-//     name: 'backpack',
-//     price: 78,
-//   },
-//   {
-//     name: 'food',
-//     price: 25,
-//   },
-//   {
-//     name: 'acoustic guitar',
-//     price: 390,
-//   },
+// 14
+// const users = [
+// { name: 'Ana', age: 25 },
+// { name: 'Carlos', age: 32 },
+// { name: 'João', age: 19 },
 // ];
+// console.log(users.find(user => user.name === 'Carlos'));
 
-// const only50 = shopping.filter(el => el.price >= 50);
-// console.log(only50);
+// 15
+// const nums = [15, 23, 53, 67, 30];
+// console.log(nums.findIndex(num => num > 50));
 
-// // 4.
-// const sumArrEl = strArrLength.reduce((acc, cur) => acc + cur, 0);
-// console.log(sumArrEl);
+// 16
+const numbers = [34, 90, 12, 67];
+// console.log(numbers.some(el => el > 100));
+// console.log(numbers.every(el => el < 100));
 
-// const concatStr = strArr.reduce((acc, cur) => `${acc + cur}`, '');
-// console.log(concatStr);
-
-// // 5.
-// const plusTen = doubleNumArr.find(el => el > 10);
-// console.log(plusTen);
-
-// const guitar = shopping.filter(el => el.name === 'acoustic guitar');
-// console.log(guitar);
-
-// // 6.
-// const arr = [14, 3, -25, 6];
-
-// const negativeNum = arr.some(el => el < 0);
-// console.log(negativeNum);
-
-// const positiveNum = arr.every(el => el > 0);
-// console.log(positiveNum);
-
-// // 7.
+// 17
+const arr = [
+  [1, 2],
+  [3, 4],
+  [5, 6],
+];
 // console.log(arr.flat());
 
-// // 8.
-// const cres = arr.sort((a, b) => a - b);
-// console.log(cres);
-// const decres = arr.sort((a, b) => b - a);
-// console.log(decres);
+// 18
+const phrases = ['Eu amo programar', 'A vida é bela', 'Javascript é incrível'];
+// console.log(phrases.flatMap(el => el.split(' ')));
 
-/*
-// Challenge 1
-const transactions = [
-  { type: 'deposit', amount: 500 },
-  { type: 'withdrawal', amount: 200 },
-  { type: 'deposit', amount: 300 },
-  { type: 'withdrawal', amount: 150 },
-  { type: 'deposit', amount: 1000 },
-  { type: 'withdrawal', amount: 500 },
-  { type: 'deposit', amount: 50 },
-  { type: 'withdrawal', amount: 75 },
-];
+// 19
+const nums = [34, 12, 87, 23, 45];
+// console.log(nums.sort((a, b) => a - b));
 
-const banco = function (arr) {
-  // Depósitos e Retiradas
-  const deposit = arr.filter(el => el.type === 'deposit');
-  const withdrawal = arr.filter(el => el.type === 'withdrawal');
+// 20
+const str = '12345';
+// console.log(Array.from(str));
 
-  withdrawal.forEach(el => (el.amount = -el.amount));
-
-  // .map(el => -el.amount);
-  console.log(withdrawal);
-
-  // Nova moeda
-  const reais = arr.map(el => Math.floor(el.amount * 5.5));
-
-  // Saldo final
-  const final = arr.reduce(
-    (acc, el) => (el.type === 'deposit' ? acc + el.amount : acc - el.amount),
-    0
-  );
-
-  // Ordernar por valor
-  const sortedTransactions = arr.sort((a, b) => b.amount - a.amount);
-  console.log(sortedTransactions);
-
-  // Resumo das transações ordenadas
-  return sortedTransactions.forEach((el, i) =>
-    console.log(
-      `Your ${el.type} was U$${Math.abs(el.amount)} (${el.amount * 5.5}R$)`
-    )
-  );
-};
-banco(transactions);
-*/
-
-// Challenge 2
-const produtos = [
-  {
-    name: 'Camiseta Básica',
-    category: 'Roupas',
-    price: 39.9,
-    stock: 120,
-  },
-  {
-    name: 'Tênis Esportivo',
-    category: 'Calçados',
-    price: 249.9,
-    stock: 80,
-  },
-  {
-    name: 'Relógio Digital',
-    category: 'Acessórios',
-    price: 199.9,
-    stock: 50,
-  },
-  {
-    name: 'Calça Jeans',
-    category: 'Roupas',
-    price: 89.9,
-    stock: 60,
-  },
-  {
-    name: 'Fone de Ouvido Bluetooth',
-    category: 'Eletrônicos',
-    price: 129.9,
-    stock: 30,
-  },
-  {
-    name: 'Mochila Escolar',
-    category: 'Acessórios',
-    price: 99.9,
-    stock: 40,
-  },
-  {
-    name: 'Smartphone',
-    category: 'Eletrônicos',
-    price: 1999.9,
-    stock: 15,
-  },
-  {
-    name: 'Chinelo de Borracha',
-    category: 'Calçados',
-    price: 29.9,
-    stock: 100,
-  },
-  {
-    name: 'Jaqueta de Couro',
-    category: 'Roupas',
-    price: 349.9,
-    stock: 25,
-  },
-];
-
-// criar um array com apenas os produtos em uma categoria específica.
-produtos.filter(el)
-
-// aplicar um desconto de 10% a todos os produtos da categoria selecionada.
-// para calcular o valor total do estoque (preço x quantidade) da categoria selecionada.
-// para verificar se há algum produto fora de estoque.
-// para localizar um produto específico pelo nome.
-// para criar uma lista com todas as combinações possíveis de nome e categoria dos produtos.
+// 21
+// const ar = new Array(5).fill(7)
+const ar = Array.from({ length: 5 }, () => 7);
+// console.log(ar);
