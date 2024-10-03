@@ -119,6 +119,7 @@ tabsContainer.addEventListener('click', function (e) {
     .classList.add('operations__tab--active');
 });
 
+///////////////////////
 // Menu Fade Animation
 
 // A diferença entre 'mouseenter' e 'mouseover' é que 'mouseenter' não utiliza bubbling...
@@ -218,7 +219,7 @@ const sectionObserver = new IntersectionObserver(revealSection, {
 
 allSections.forEach(function (section) {
   sectionObserver.observe(section);
-  // section.classList.add('section--hidden');
+  section.classList.add('section--hidden');
 });
 
 // SUMMARY 📋
@@ -631,25 +632,25 @@ slider();
 const h1 = document.querySelector('h1');
 
 // Going downwards: child
-console.log(h1.querySelectorAll('.highlight'));
-console.log(h1.childNodes);
-console.log(h1.children);
+// console.log(h1.querySelectorAll('.highlight'));
+// console.log(h1.childNodes);
+// console.log(h1.children);
 h1.firstElementChild.style.color = 'white';
 h1.lastElementChild.style.color = 'orangered';
 
 // Going upwards: parents
-console.log(h1.parentNode);
-console.log(h1.parentElement);
+// console.log(h1.parentNode);
+// console.log(h1.parentElement);
 
 // O closest é o contrário do querySelector, ele vai subir na hierarquia até achar o acestral mais próximo correspondente, enquanto query faz o mesmo até achar o filho mais próximo correspondente
 // h1.closest('.header').style.background = 'var(--gradient-secondary)';
 
 // Going sideways: siblings
-console.log(h1.previousElementSibling);
-console.log(h1.nextElementSibling);
+// console.log(h1.previousElementSibling);
+// console.log(h1.nextElementSibling);
 
-console.log(h1.previousSibling);
-console.log(h1.nextSibling);
+// console.log(h1.previousSibling);
+// console.log(h1.nextSibling);
 
 // console.log(h1.parentElement.children);
 // [...h1.parentElement.children].forEach(function (el) {
@@ -659,11 +660,11 @@ console.log(h1.nextSibling);
 ////////////////////////
 // Lifecycle DOM Events
 document.addEventListener('DOMContentLoaded', function (e) {
-  console.log('HTML parsed and DOM tree built!', e);
+  // console.log('HTML parsed and DOM tree built!', e);
 });
 
 window.addEventListener('load', function (e) {
-  console.log('Page fully loaded', e);
+  // console.log('Page fully loaded', e);
 });
 
 // window.addEventListener('beforeunload', function (e) {
