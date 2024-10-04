@@ -162,10 +162,6 @@ class Cycling extends Workout {
   }
 }
 
-// const run1 = new Running([39, -12], 5.2, 23, 178);
-// const cycling1 = new Cycling([39, -12], 27, 95, 523);
-// console.log(run1, cycling1);
-
 ////////////////////////////
 // AAPLICATION ARCHITECTURE
 const form = document.querySelector('.form');
@@ -183,7 +179,13 @@ class App {
   #workouts = [];
 
   constructor() {
+    // Get user's position
     this.#getPosition();
+
+    // Get data from local storage
+    this.#getLocalStorage();
+
+    // Attach event handlers
     form.addEventListener('submit', this.#newWorkout.bind(this));
     inputType.addEventListener('change', this.#toggleElevationField);
     containerWorkouts.addEventListener('click', this.#moveToPopup.bind(this));
@@ -202,9 +204,9 @@ class App {
   #loadMap(position) {
     const { latitude } = position.coords;
     const { longitude } = position.coords;
+    // console.log(`https://www.google.pt/maps/@${latitude},${longitude}`);
 
     const coords = [latitude, longitude];
-    // console.log(...coords);
 
     this.#map = L.map('map').setView(coords, this.#mapZoomLevel); // Coordenadas e Zoom
 
@@ -216,6 +218,10 @@ class App {
 
     // Handling clicks on map
     this.#map.on('click', this.#showForm.bind(this));
+
+    this.#workouts.forEach(work => {
+      this.#renderWorkoutMarker(work);
+    });
   }
 
   #showForm(mapE) {
@@ -287,7 +293,6 @@ class App {
 
     // Add new object to workout array
     this.#workouts.push(workout);
-    console.log(workout);
 
     // Render workout on map as maker
     this.#renderWorkoutMarker(workout);
@@ -297,7 +302,9 @@ class App {
 
     // Hide form + clear input fields
     this.#hideForm();
-    // Clear input fields
+
+    // Set local storage to all workouts
+    this.#setLocalStorage();
   }
 
   #renderWorkoutMarker(workout) {
@@ -371,8 +378,10 @@ class App {
   }
 
   #moveToPopup(e) {
+    // BUGFIX: When we click on a workout before the map has loaded, we get an error. But there is an easy fix:
+    if (!this.#map) return; // Guard Class
+
     const workoutEl = e.target.closest('.workout');
-    console.log(workoutEl);
 
     if (!workoutEl) return; // Guard Class
 
@@ -381,7 +390,6 @@ class App {
     const workout = this.#workouts.find(
       work => work.id === workoutEl.dataset.id
     );
-    console.log(workout);
 
     this.#map.setView(workout.coords, this.#mapZoomLevel, {
       animate: true,
@@ -391,9 +399,33 @@ class App {
     });
 
     // using the public interface
-    workout.click();
+    // workout.click();
+  }
+
+  #setLocalStorage() {
+    localStorage.setItem('workouts', JSON.stringify(this.#workouts));
+  }
+
+  // Quando convertemos nossos objetos em uma String e depois voltamos eles para objetos com o código abaixo, eles perdem seus prototypes :(
+  // É possível contornar isso utilizando loops...
+  #getLocalStorage() {
+    const data = JSON.parse(localStorage.getItem('workouts'));
+
+    if (!data) return;
+
+    this.#workouts = data;
+
+    this.#workouts.forEach(work => {
+      this.#renderWorkout(work);
+    });
+  }
+
+  reset() {
+    localStorage.removeItem('workouts');
+    location.reload(); // location é um objeto com vários métodos e propriedades do navegador
   }
 }
+
 const app = new App();
 
 //////////////////
