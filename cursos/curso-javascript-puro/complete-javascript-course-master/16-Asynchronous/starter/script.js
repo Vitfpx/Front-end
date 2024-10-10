@@ -23,10 +23,10 @@ const renderCountry = function (data, className = '') {
   countriesContainer.style.opacity = '1';
 };
 
-// const renderError = function (msg) {
-//   countriesContainer.insertAdjacentText('beforeend', msg);
-//   countriesContainer.style.opacity = 1;
-// };
+const renderError = function (msg) {
+  countriesContainer.insertAdjacentText('beforeend', msg);
+  countriesContainer.style.opacity = 1;
+};
 
 ///////////////////////////////////////
 
@@ -345,9 +345,13 @@ Fulfilled e .catch() para o estado Rejected.
 
 ////////////////////////////////
 // Handling Rejected Promises
-// const getJSON = function (url, errorMsg = 'Something went wrong') {
-//   return fetch(url).then(response => {
-//     if (!response.ok) throw new Error(`${errorMsg} (${response.status})`);
+const getJSON = function (url, errorMsg = 'Something went wrong') {
+  return fetch(url).then(response => {
+    if (!response.ok) throw new Error(`${errorMsg} (${response.status})`);
+
+    return response.json();
+  });
+};
 
 //     return response.json();
 //   });
@@ -660,35 +664,223 @@ DOM ou buscar dados de um servidor) sem parar a execução do restante do códig
 /////////////////
 // Async/Await
 
-const getPosition = function () {
-  return new Promise(function (resolve, reject) {
-    navigator.geolocation.getCurrentPosition(resolve, reject);
-  });
-};
+// const getPosition = function () {
+//   return new Promise(function (resolve, reject) {
+//     navigator.geolocation.getCurrentPosition(resolve, reject);
+//   });
+// };
 
 // fetch(
 //   `https://countries-api-836d.onrender.com/countries/name/${country}`
 // ).then(res => res.json());
 
-const whereAmI = async function () {
-  // Geolocation
-  const pos = await getPosition();
-  const { latitude: lat, longitude: lng } = pos.coords;
+// const whereAmI = async function () {
+//   try {
+//     // Geolocation
+//     const pos = await getPosition();
+//     const { latitude: lat, longitude: lng } = pos.coords;
 
-  // Reverse geocoding
-  const resGeo = await fetch(
-    `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lng}`
-  );
-  const dataGeo = await resGeo.json();
-  console.log(dataGeo);
+//     // Reverse geocoding
+//     const resGeo = await fetch(
+//       `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lng}`
+//     );
 
-  // Country data
-  const res = await fetch(
-    `https://countries-api-836d.onrender.com/countries/name/${dataGeo.countryName}`
+//     // Temos que colocar essa condição aqui manualmente pois na teoria, a chamada do fetch não deu erro, pois não teve nenhum problema com a conexão de internet ou algo assim. Então para obtermos a rejeição dessa promise, temos que apontar o erro manualmente, que seria através do status de resGeo.ok.
+//     if (!resGeo.ok) throw new Error('Problem getting location data');
+//     const dataGeo = await resGeo.json();
+
+//     // Country data
+//     const res = await fetch(
+//       `https://countries-api-836d.onrender.com/countries/name/${dataGeo.countryName}`
+//     );
+//     if (!res.ok) throw new Error('Problem getting country');
+
+//     const data = await res.json();
+//     renderCountry(data[0]);
+
+//     return `You are in ${dataGeo.city}, ${dataGeo.countryName}`;
+//   } catch (err) {
+//     console.error(`${err} 💣`);
+//     renderError(`💣 ${err.message}`);
+
+//     // Reject promise returned from async function
+//     throw err;
+//   }
+// };
+
+// console.log('1: will get location');
+// const city = whereAmI();
+// console.log(city); // Promise
+
+// whereAmI()
+//   .then(city => console.log(`2: ${city}`))
+//   .catch(err => console.error(`2: ${err.message} 💣`))
+//   .finally('3: finished getting location');
+
+// (async function () {
+//   try {
+//     const city = await whereAmI();
+//     console.log(`2: ${city}`);
+//   } catch (err) {
+//     console.error(`2: ${err.message} 💣`);
+//   }
+//   console.log('3: finished getting location');
+// })();
+
+/*
+city resulta em uma Promise, pois o JavaScript não tem como
+saber qual é o retorno dessa função pois ela está a todo 
+momento rodando no background do projeto
+*/
+
+// console.log('FIRST');
+
+////////////////////////////////////
+// Error Handling With Try...Catch
+
+// Neste código, ao invés de resultar em um erro dentro do código e matar o próprio JS,
+// conseguirmos mostrar esse erro de uma forma que o script continue rodando normalmente.
+// try {
+//   let y = 1;
+//   const x = 2;
+//   x = 3;
+// } catch (err) {
+//   alert(err.message);
+// }
+
+////////////////////////////////
+// Running Promises in Parallel
+// const get3countries = async function (c1, c2, c3) {
+//   try {
+// const [data1] = await getJSON(
+//   `https://countries-api-836d.onrender.com/countries/name/${c1}`
+// );
+// const [data2] = await getJSON(
+//   `https://countries-api-836d.onrender.com/countries/name/${c2}`
+// );
+// const [data3] = await getJSON(
+//   `https://countries-api-836d.onrender.com/countries/name/${c3}`
+// );
+// console.log([data1.capital, data2.capital, data3.capital]);
+
+//     const data = await Promise.all([
+//       getJSON(`https://countries-api-836d.onrender.com/countries/name/${c1}`),
+//       getJSON(`https://countries-api-836d.onrender.com/countries/name/${c2}`),
+//       getJSON(`https://countries-api-836d.onrender.com/countries/name/${c3}`),
+//     ]);
+//     console.log(data.map(d => d[0].capital));
+//   } catch (err) {
+//     console.error(err);
+//   }
+// };
+// get3countries('french', 'canada', 'brazil');
+
+/*
+Por que fazer diferente do convencional?
+  O código acima não está errado, porém, os 3 retornos do AJAX de getJSON vão ser carregados um após o outro e, isso meio que não faz sentido num contexto de Asynchronous JavaScript...
+
+Importante colocar em evidência:
+  .Se uma das chamadas for rejeitada, todas serão rejeitadas;
+  .Sempre que precisar fazer várias operações assíncronas e que não dependem uma da outra, não exite em chamá-las paralelamente.
+*/
+
+////////////////////////////
+// race, allSetlled and any
+
+// Promise.race
+// (async function () {
+//   const res = await Promise.race([
+//     getJSON(`https://countries-api-836d.onrender.com/countries/name/italy`),
+//     getJSON(`https://countries-api-836d.onrender.com/countries/name/egypt`),
+//     getJSON(`https://countries-api-836d.onrender.com/countries/name/mexico`),
+//   ]);
+//   console.log(res[0]);
+// })();
+
+// const timeout = function (sec) {
+//   return new Promise(function (_, reject) {
+//     setTimeout(function () {
+//       reject(new Error('Request took too long!'));
+//     }, sec * 1000);
+//   });
+// };
+
+// Promise.race([
+//   getJSON(`https://countries-api-836d.onrender.com/countries/name/egypt`),
+//   timeout(5),
+// ])
+//   .then(res => console.log(res[0]))
+//   .catch(err => console.error(err));
+
+/*
+Importante colocar em evidência:
+  .Promise.race() sempre retornará apenas um valor, e não um array, que será o valor que retornar mais rápido do callback de fetch(API);
+  .Não importa se esse retorno é RESOLVE ou REJECT, o que importa é quem retorna mais rápido.
+
+  .No exemplo acima, Promise.race() serve para monitorar o tempo que a async function demora para ser resolvida. Caso demore mais que 5 segundo, ela é rejeitada.
+*/
+
+// Promise.allSettled
+// Promise.allSettled([
+//   Promise.resolve('Success'),
+//   Promise.reject('ERROR'),
+//   Promise.resolve('Another success'),
+// ]).then(res => console.log(res));
+
+// Promise.all([
+//   Promise.resolve('Success'),
+//   Promise.reject('ERROR'),
+//   Promise.resolve('Another success'),
+// ]).then(res => console.log(res));
+
+// Retorna os valores sem dar erro independente de serem resolve ou reject.
+
+// Promise.any [ES2021]
+// Promise.any([
+//   Promise.resolve('success'),
+//   Promise.reject('ERROR'),
+//   Promise.resolve('Another success'),
+// ])
+//   .then(res => console.log(res))
+//   .catch(err => console.log(err));
+
+// Funciona que nem o race porém só retorna promises resolvidas
+
+///////////////////////
+// Coding Challenge #3
+
+const loadNPause = async function (imgPath) {
+  return new Promise(function (resolve, reject) {
+    const img = document.createElement('img');
+    img.src = imgPath;
+
+    img.addEventListener('load', function () {
+      images.append(img);
+      resolve(img);
+    });
+
+    img.addEventListener('error', function (err) {
+      reject(new Error(`Image not found. (${err.status})`));
+    });
+  }).then(img =>
+    img.addEventListener('load', function () {
+      document.insertAdjacentHTML('afterend', img);
+    })
   );
-  const data = await res.json();
-  console.log(data);
-  renderCountry(data[0]);
 };
-whereAmI();
-console.log('FIRST');
+
+createImage('img/img-1.jpg')
+  .then(img => wait(2).then(() => img))
+  .then(img => {
+    img.style.display = 'none';
+    return createImage('img/img-2.jpg');
+  })
+  .then(img => wait(2).then(() => img))
+  .then(img => {
+    img.style.display = 'none';
+    return img;
+  })
+  .catch(err => console.error(err));
+
+const img = await createImage('img/img-1.jpg');
+console.log(img);
