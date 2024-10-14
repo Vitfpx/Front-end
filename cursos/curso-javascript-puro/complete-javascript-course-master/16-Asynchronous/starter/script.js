@@ -598,7 +598,7 @@ DOM ou buscar dados de um servidor) sem parar a execução do restante do códig
 
 ////////////////////////
 // Coding Challenge #2
-// const images = document.querySelector('.images');
+const images = document.querySelector('.images');
 
 // const wait = function (seconds) {
 //   return new Promise(function (resolve) {
@@ -849,7 +849,13 @@ Importante colocar em evidência:
 ///////////////////////
 // Coding Challenge #3
 
-const loadNPause = async function (imgPath) {
+// const wait = function (seconds) {
+//   return new Promise(function (resolve) {
+//     setTimeout(resolve, seconds * 1000);
+//   });
+// };
+
+const createImage = function (imgPath) {
   return new Promise(function (resolve, reject) {
     const img = document.createElement('img');
     img.src = imgPath;
@@ -858,29 +864,39 @@ const loadNPause = async function (imgPath) {
       images.append(img);
       resolve(img);
     });
-
     img.addEventListener('error', function (err) {
       reject(new Error(`Image not found. (${err.status})`));
     });
-  }).then(img =>
-    img.addEventListener('load', function () {
-      document.insertAdjacentHTML('afterend', img);
-    })
-  );
+  });
 };
 
-createImage('img/img-1.jpg')
-  .then(img => wait(2).then(() => img))
-  .then(img => {
-    img.style.display = 'none';
-    return createImage('img/img-2.jpg');
-  })
-  .then(img => wait(2).then(() => img))
-  .then(img => {
-    img.style.display = 'none';
-    return img;
-  })
-  .catch(err => console.error(err));
+// const loadNPause = async function (url1, url2) {
+//   try {
+//     let img = await createImage(url1);
+//     if (!img) throw new Error('Image not found!');
+//     await wait(2);
+//     img.style.display = 'none';
 
-const img = await createImage('img/img-1.jpg');
-console.log(img);
+//     img = await createImage(url2);
+//     if (!createImage) throw new Error('Image not found!');
+//     await wait(2);
+//     img.style.display = 'none';
+//   } catch (err) {
+//     console.error(err);
+//     throw err;
+//   }
+// };
+// loadNPause('img/img-1.jpg', 'img/img-2.jpg');
+
+const loadAll = async function (imgArr) {
+  try {
+    const imgs = await Promise.all(imgArr.map(img => createImage(img)));
+    if (!imgs) throw new Error('Image not found!');
+    console.log(imgs);
+    imgs.forEach(img => img.classList.add('parallel'));
+  } catch (err) {
+    console.error(err);
+    throw err;
+  }
+};
+loadAll(['img/img-1.jpg', 'img/img-2.jpg', 'img/img-3.jpg']);
