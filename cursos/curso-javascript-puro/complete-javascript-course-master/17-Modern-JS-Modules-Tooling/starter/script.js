@@ -66,7 +66,8 @@ a eliminação de código morto e a otimização de pacotes.
 */
 
 ////////////////////////
-// Importing module
+// Importing Module
+
 // import { addToCart, totalPrice as price, tq } from './shopping.Cart.js';
 // addToCart('bread', 5);
 // console.log(price, tq);
@@ -93,12 +94,13 @@ add('coffe', 6);
 add('banana', 5);
 console.log(cart);
 
-// Imports are not copies of the export,they are instead like a live connection
+// Imports are not copies of the export, they are instead like a live connection
 
 // console.log(totalPrice, tq);
 
 //////////////////////////////
 // Top-level await (ES2022)
+
 // console.log('Start fetching');
 // const res = await fetch('https://jsonplaceholder.typicode.com/posts');
 // const data = await res.json();
@@ -155,7 +157,7 @@ console.log(cart);
 // console.log(ShoppingCart2);
 // console.log(ShoppingCart2.shippingCost); // undefined
 
-// Tudo isso só funcionar por conta das CLOSURES
+// Tudo isso só funciona por conta das CLOSURES
 
 // Esse modo de utilizar modules precisava que cada arquivo em module,
 // fosse declarado no html acima do script principal, para que, manualmente,
@@ -187,9 +189,9 @@ tem esse formato...
  * cd: subir ou descer na árvore de arquivos
  * mkdir: criar pasta
  * rm: remove file
- * mv: mover file
+ * mv: move file
  * rmdir: remover dir vazios
- * rm -R 'name': remover dir com conteúdo
+ * rm -R 'dir name': remover dir com conteúdo
  */
 
 /////////////////////////
@@ -266,3 +268,172 @@ npm i parcel -g
 if (module.hot) {
   module.hot.accept();
 }
+
+// O código abaixo serve para
+
+import 'core-js/stable';
+// import 'core-js/stable/array/find';
+// import 'core-js/stable/promise';
+
+// Normalmente não se usa imports tão específicos, mas caso esteja muito preocoupado com o tamanho do Bundle, pode-se utilizar...
+
+// Polifilling async functions
+import 'regenerator-runtime/runtime';
+
+/////////////////////////////
+// Clean code and Modern JS
+/*
+
+READABLE CODE:
+
+Write code so that others can understand it.
+Write code so that you can understand it in 1 year.
+Avoid "too clever" and overcomplicated solutions.
+Use descriptive variable names: what they contain.
+Use descriptive function names: what they do.
+
+GENERAL:
+
+Use the DRY principle (refactor your code).
+Don't pollute the global namespace; encapsulate instead.
+Don't use var.
+Use strong type checks (=== and !==).
+
+FUNCTIONS:
+
+Generally, functions should do only one thing.
+Don't use more than 3 function parameters.
+Use default parameters whenever possible.
+Generally, return the same data type as received.
+Use arrow functions when they make code more readable.
+
+OOP (Object-Oriented Programming):
+
+Use ES6 classes.
+Encapsulate data and don't mutate it from outside the class.
+Implement method chaining.
+Do not use arrow functions as methods (in regular objects).
+
+AVOID NESTED CODE:
+
+Use early return (guard clauses).
+Use ternary (conditional) or logical operators instead of if.
+Use multiple if instead of if/else-if.
+Avoid for loops; use array methods instead.
+Avoid callback-based asynchronous APIs.
+
+ASYNCHRONOUS CODE:
+
+Consume promises with async/await for best readability.
+Whenever possible, run promises in parallel (Promise.all).
+Handle errors and promise rejections.
+
+*/
+
+// Practice
+
+/////////////////////////////////////////////
+// Declarative and Functional JS Principles
+/*
+
+### Imperative vs. Declarative Code
+
+#### **Imperative Code**
+- **Foco:** O código imperativo se concentra no **como** realizar uma tarefa, fornecendo instruções detalhadas de cada etapa.
+- **Estilo:** Explicita o fluxo de controle, incluindo loops, condições e mutações de estado.
+- **Exemplo:** Um loop `for` que percorre uma lista de números e calcula sua soma.
+```javascript
+let sum = 0;
+for (let i = 0; i < numbers.length; i++) {
+  sum += numbers[i];
+}
+```
+- **Características:**
+- Detalha cada passo para atingir um objetivo.
+- Enfatiza o controle explícito do fluxo.
+- Exemplo comum em linguagens como C, JavaScript, e Java.
+
+#### **Declarative Code**
+- **Foco:** O código declarativo se concentra no **que** deve ser feito, deixando o **como** 
+para a linguagem ou framework.
+- **Estilo:** Descreve o resultado desejado sem especificar os passos para alcançá-lo.
+- **Exemplo:** Usar métodos funcionais como `reduce` para calcular a soma de uma lista.
+```javascript
+const sum = numbers.reduce((acc, curr) => acc + curr, 0);
+```
+- **Características:**
+- Abstrai os detalhes da implementação.
+- Geralmente mais conciso e legível.
+- Exemplos comuns incluem SQL e funções de array em JavaScript (e.g., `map`, `filter`).
+
+---
+
+### Functional Programming Principles
+
+A **Programação Funcional (FP)** é um paradigma que trata o processo de computação como a 
+avaliação de funções matemáticas, evitando mudanças de estado e dados mutáveis.
+
+#### **Principais Princípios:**
+
+1. **Imutabilidade (Immutability)**
+- **Descrição:** Os dados não devem ser modificados após sua criação. Novos dados são criados em vez de modificar os existentes.
+- **Vantagem:** Isso evita efeitos colaterais inesperados e facilita a depuração.
+- **Exemplo:**
+```javascript
+const numbers = [1, 2, 3];
+const newNumbers = [...numbers, 4];  // Sem alterar o array original
+```
+
+2. **Funções Puras (Pure Functions)**
+- **Descrição:** Funções que, para as mesmas entradas, sempre retornam o mesmo resultado e não têm efeitos colaterais.
+- **Vantagem:** Facilita a previsibilidade do código e torna-o mais fácil de testar.
+- **Exemplo:**
+```javascript
+const add = (a, b) => a + b;  // Sempre retorna o mesmo resultado para os mesmos argumentos
+```
+
+3. **Funções de Primeira Classe (First-Class Functions)**
+- **Descrição:** Funções são tratadas como valores, podendo ser atribuídas a variáveis, passadas como argumentos e retornadas de outras funções.
+- **Vantagem:** Habilita a criação de funções mais abstratas e flexíveis.
+- **Exemplo:**
+```javascript
+const greet = () => console.log('Hello');
+const run = (fn) => fn();
+run(greet);  // Executa a função passada como argumento
+```
+
+4. **Funções de Alta Ordem (Higher-Order Functions)**
+- **Descrição:** Funções que recebem outras funções como argumento ou retornam funções.
+- **Vantagem:** Promove a reutilização e a composição de funções.
+- **Exemplo:**
+```javascript
+const multiply = (x) => (y) => x * y;
+const double = multiply(2);
+console.log(double(5));  // 10
+```
+
+5. **Evitar Efeitos Colaterais (Avoid Side Effects)**
+- **Descrição:** Funções devem evitar alterar o estado externo ou realizar operações como I/O durante sua execução.
+- **Vantagem:** Reduz a complexidade e torna o código mais previsível.
+- **Exemplo:** Em vez de modificar uma variável global, retorna um novo valor.
+
+6. **Composição de Funções (Function Composition)**
+- **Descrição:** Combinar pequenas funções para criar funções mais complexas.
+- **Vantagem:** Funções menores são mais fáceis de entender, testar e reutilizar.
+- **Exemplo:**
+```javascript
+const add = (x) => x + 1;
+const double = (x) => x * 2;
+const addAndDouble = (x) => double(add(x));
+```
+
+---
+
+### Resumo:
+- **Imperative vs Declarative:**
+- **Imperative:** Foco em *como* fazer algo.
+- **Declarative:** Foco em *o que* fazer.
+
+- **Functional Programming:** Enfatiza funções puras, imutabilidade, e a ausência de efeitos colaterais, promovendo código mais previsível e modular.
+
+*/

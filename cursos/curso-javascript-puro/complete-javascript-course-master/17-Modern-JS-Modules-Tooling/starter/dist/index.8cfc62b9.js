@@ -647,7 +647,7 @@ As importações são vinculadas às exportações dos módulos correspondentes.
 Após a vinculação, o código dos módulos é executado em uma ordem específica, permitindo 
 a eliminação de código morto e a otimização de pacotes.
 */ ////////////////////////
-// Importing module
+// Importing Module
 // import { addToCart, totalPrice as price, tq } from './shopping.Cart.js';
 // addToCart('bread', 5);
 // console.log(price, tq);
@@ -662,7 +662,7 @@ a eliminação de código morto e a otimização de pacotes.
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _shoppingCartJs = require("./shopping.Cart.js");
 var _shoppingCartJsDefault = parcelHelpers.interopDefault(_shoppingCartJs);
-// Imports are not copies of the export,they are instead like a live connection
+// Imports are not copies of the export, they are instead like a live connection
 // console.log(totalPrice, tq);
 //////////////////////////////
 // Top-level await (ES2022)
@@ -711,7 +711,7 @@ var _shoppingCartJsDefault = parcelHelpers.interopDefault(_shoppingCartJs);
 // ShoppingCart2.addToCart('pizza', 18);
 // console.log(ShoppingCart2);
 // console.log(ShoppingCart2.shippingCost); // undefined
-// Tudo isso só funcionar por conta das CLOSURES
+// Tudo isso só funciona por conta das CLOSURES
 // Esse modo de utilizar modules precisava que cada arquivo em module,
 // fosse declarado no html acima do script principal, para que, manualmente,
 // suas variáveis fossem para o top-level (com modules isso acontece automaticamente)
@@ -739,9 +739,9 @@ tem esse formato...
  * cd: subir ou descer na árvore de arquivos
  * mkdir: criar pasta
  * rm: remove file
- * mv: mover file
+ * mv: move file
  * rmdir: remover dir vazios
- * rm -R 'name': remover dir com conteúdo
+ * rm -R 'dir name': remover dir com conteúdo
  */ /////////////////////////
 // Introduction NPM :D
 /*
@@ -809,43 +809,31 @@ Comando para instalar: npm i parcel --save-dev
 Utilizar Parcel em nosso html: npx parcel index.html. Isso nos resultará um localhost:1234 
 (mesma coisa do live-server, porém, com a adaptação do Parcel)
 
-Comando usado para rodar: npx 
+Comando mais usado para rodar o parcel ⬇⬇⬇
+    "scripts": {
+      "start": "parcel index.html"
+    },
+  npm run start
 
-Comando mais usado para 
+Para buildar nosso projeto:
+"build": "parcel build index.html"
+npm run build
+
+Para usar assets globalmente (não é o mais recomendado):
+npm i parcel -g
 */ // Apenas o Parcel entende esse código, o JS ignora ele
 if (module.hot) module.hot.accept();
+ // O código abaixo serve para
+ // import 'core-js/stable';
+ // import 'core-js/stable/array/find';
+ // import 'core-js/stable/promise';
+ // Normalmente não se usa imports tão específicos, mas caso esteja muito preocoupado com o tamanho do Bundle, pode-se utilizar...
+ // Polifilling async functions
+ // import 'regenerator-runtime/runtime';
+ // const asadelta = f => console.log(f);
+ // asadelta('caklsdlkasdm');
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./shopping.Cart.js":"9rioI","lodash-es":"bXNwz"}],"gkKU3":[function(require,module,exports) {
-exports.interopDefault = function(a) {
-    return a && a.__esModule ? a : {
-        default: a
-    };
-};
-exports.defineInteropFlag = function(a) {
-    Object.defineProperty(a, "__esModule", {
-        value: true
-    });
-};
-exports.exportAll = function(source, dest) {
-    Object.keys(source).forEach(function(key) {
-        if (key === "default" || key === "__esModule" || Object.prototype.hasOwnProperty.call(dest, key)) return;
-        Object.defineProperty(dest, key, {
-            enumerable: true,
-            get: function() {
-                return source[key];
-            }
-        });
-    });
-    return dest;
-};
-exports.export = function(dest, destName, get) {
-    Object.defineProperty(dest, destName, {
-        enumerable: true,
-        get: get
-    });
-};
-
-},{}],"9rioI":[function(require,module,exports) {
+},{"./shopping.Cart.js":"9rioI","lodash-es":"bXNwz","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9rioI":[function(require,module,exports) {
 // Exporting module
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
@@ -880,7 +868,37 @@ const totalPrice = 237;
 const totalQuantity = 237;
 addToCart("bread", 1);
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bXNwz":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, "__esModule", {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === "default" || key === "__esModule" || Object.prototype.hasOwnProperty.call(dest, key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
+
+},{}],"bXNwz":[function(require,module,exports) {
 /**
  * @license
  * Lodash (Custom Build) <https://lodash.com/>
