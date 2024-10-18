@@ -1,4 +1,4 @@
-/*
+                            /*
 
 ### 1. USER STORIES
 
@@ -88,6 +88,37 @@ Este diagrama explica a arquitetura MVC, que é uma maneira comum de organizar c
 - O **controller** solicita ou modifica o **modelo**, e depois atualiza a **view** com os novos dados.
 - O **modelo** envia dados de volta para o **controller** para que este possa atualizar a **view**.
 
-Em resumo, o MVC separa claramente as preocupações: a apresentação, a lógica de negócios e o controle de eventos, facilitando a manutenção e escalabilidade de uma aplicação.
+Em resumo, o MVC separa claramente as preocupações: a apresentação, a lógica de negócios e o controle de eventos, 
+facilitando a manutenção e escalabilidade de uma aplicação.
 
 */
+
+//////////////////////////////////////////////////
+// Event Handler in MVC: Publisher-Subscriber
+/*
+### Fluxo:
+1. **Program Start (Início do programa)**:
+   - Quando o programa inicia (`init()`), ele chama a função `controlRecipes()`.
+
+2. **Controlador como Subscriber**:
+   - A função `controlRecipes()` está no **controller.js** e é um "subscriber" (assinante). 
+     Isso significa que ela deseja reagir a um evento que será emitido.
+
+3. **View como Publisher**:
+   - O método `addHandlerRender` na **classe RecipeView** é o "publisher" (publicador), ou seja, 
+     ele sabe quando o evento ocorrerá, que neste caso é quando o usuário clicar em um resultado de busca.
+
+4. **Escuta de Eventos na View**:
+   - O `addHandlerRender` define um "event listener" (ouvinte de evento) para capturar o evento de 
+     clique do usuário (como um clique em um botão ou link). Quando o evento acontece, ele chama a função
+     `controlRecipes()` como uma callback.
+
+### Resumo para revisão:
+- **Publisher-Subscriber Pattern**: O controlador (controller.js) quer reagir a eventos emitidos pela View, então o controlador se inscreve (subscribe) ao evento. A View publica (emite) o evento e o controlador responde.
+- **Separação de responsabilidades**:
+  - **View**: Escuta eventos do DOM e os emite.
+  - **Controller**: Manipula os eventos (contém a lógica da aplicação).
+- **Eventos devem ser escutados na View e tratados no Controller**, para manter a separação entre a lógica da aplicação e a manipulação do DOM.
+
+*/
+
